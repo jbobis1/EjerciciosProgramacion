@@ -15,9 +15,7 @@ public class Ejercicio01_PidoTresNumero {
 		 str = JOptionPane.showInputDialog("Introduzca otro número doble: ");
 		double var2 = Double.parseDouble(str);
 		
-			
-		
-		
+						
 		System.out.println("- Número introducido: " + var +
 							" - Número flotante: " + var1 + 
 							" - Número doble:" + var2);
