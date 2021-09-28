@@ -21,7 +21,7 @@ public class Ejercicios06 {
 		str = JOptionPane.showInputDialog("Introduce el diferencial: ");
 		float dif = Float.parseFloat(str);	
 		
-		float ianual = eur + dif;
+		float ianual = eur + dif;  
 		
 	//	doble in = (ianual/12)/100;
 	
