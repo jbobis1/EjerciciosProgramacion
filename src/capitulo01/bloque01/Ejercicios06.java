@@ -5,10 +5,9 @@ import javax.swing.JOptionPane;
 public class Ejercicios06 {
 	
 	public static void main(String []args) {
+				
 		
-		
-		
-		String str = JOptionPane.showInputDialog("Introduce el Importe a hipotecar: ");
+		String str = JOptionPane.showInputDialog("Introduce el Importe a hipotecar 2: ");
 		float importe = Float.parseFloat(str);
 		
 		
@@ -23,17 +22,14 @@ public class Ejercicios06 {
 		
 		float ianual = eur + dif;  
 		
-		doble in = (ianual/12)/100;
+		double im = (ianual/12)/100;
 	
-	   	doble cmesual =importe*(((im*Math.pow((1+im),n)))/(Math.pow((1+im),n)-1));
+	   	double cmesual =importe*(((im*Math.pow((1+im),n)))/(Math.pow((1+im),n)-1));
 		
-		System.out.println("La cueta mensual es de: " + cmensual )
+	   	System.out.println("La cueta mensual es de: " + cmesual );
 				
-		
-		
+				
 	}
 	
-	
-	
-	
+			
 }
