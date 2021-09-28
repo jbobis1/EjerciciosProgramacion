@@ -23,9 +23,11 @@ public class Ejercicios06 {
 		
 		float ianual = eur + dif;  
 		
-	//	doble in = (ianual/12)/100;
+		doble in = (ianual/12)/100;
 	
-	// doble cmesual =importe*(((im*Math.pow((1+im),n)))/(Math);
+	   	doble cmesual =importe*(((im*Math.pow((1+im),n)))/(Math.pow((1+im),n)-1));
+		
+		System.out.println("La cueta mensual es de: " + cmensual )
 				
 		
 		
