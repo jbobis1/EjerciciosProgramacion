@@ -3,13 +3,13 @@ package capitulo02.bloque01;
 import javax.swing.JOptionPane;
 
 //
-//   1º.- Realiza un ejercicio que pida dos variables al usuario, tras lo cual, 
-//   muestre en pantalla el número mayor de los dos introducidos.
+//  2º.- Repetir el ejercicio anterior para mostrar el 
+//  numero menor de los dos introducidos .
 //
 
 
-public class Ejercicio01 {
-
+public class Ejercicio02 {
+	
 	public static void main(String args[]) {
 		
 		String str = JOptionPane.showInputDialog("Introduzca otro nÃºmero entero: ");
@@ -18,11 +18,12 @@ public class Ejercicio01 {
 		str =JOptionPane.showInputDialog("Introduzca otro nÃºmero entero: ");
 		int var1 = Integer.parseInt(str);
 		
-		if (var>var1)
-			  System.out.println("El numero mayor es: " + var );
+		if (var<var1)
+			  System.out.println("El numero menor es: " + var );
 			else
-			  System.out.println("El numero mayor es: " + var1);
+			  System.out.println("El numero menor es: " + var1);
 		
 				
 	}
+
 }
