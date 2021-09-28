@@ -33,7 +33,7 @@ public class Ejercicio05 {
 		
 		var3 = var1;
 		var1 = var3;
-		var2 = var1;
+		var3 = var2;
 		
 		System.out.println("valor de intercambido var1: " + var2 );
 		System.out.println("valor de intercambido var2: " + var1 );
