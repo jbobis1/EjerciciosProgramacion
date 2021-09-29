@@ -17,11 +17,11 @@ public class Ejercicio07 {
 		
 
 		if ((numero & 1) == 0) {
-			System.out.println("El numero: " + numero + " Si es Par");
+			System.out.println("El numero: " + numero + " SI es Par");
 		} 
 
 		else {
-			System.out.println("El numero: " + numero + " No es Par");
+			System.out.println("El numero: " + numero + " NO es Par");
 		}
 
 	}
