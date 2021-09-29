@@ -16,7 +16,7 @@ public class Ejercicio07 {
 
 		
 
-		if ((numero & 1) == 0) {
+		if ((numero & 1-) == 0) {
 			System.out.println("El numero: " + numero + " SI es Par");
 		} 
 
