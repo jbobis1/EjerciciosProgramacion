@@ -21,7 +21,8 @@ public static void main(String args[]) {
 		int var5 = Integer.parseInt(str);
 
 		
-		
+		System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
+	
 		
 		if (var1>var2) {
 			if (var1>var3) {
@@ -35,46 +36,45 @@ public static void main(String args[]) {
 							
 	
 		 if (var2>var1) {
-				if (var2>var3) {
-					if(var2>var4) {
-						if(var2>var5) {
-							System.out.println("El numero mayor es: " + var2 );
-	}
-	}
-}
-}
+			 if (var2>var3) {
+				if(var2>var4) {
+					if(var2>var5) {
+						System.out.println("El numero mayor es: " + var2 );
+					}
+				}
+			 }
+		 }
 		
 
 		 if (var3>var1){
-				if (var3>var2) {
-					if(var3>var4) {
-						if(var3>var5) {
-							System.out.println("El numero mayor es: " + var3 );
-	}
-	}
-}
-}
+			if (var3>var2) {
+				if(var3>var4) {
+					if(var3>var5) {
+						System.out.println("El numero mayor es: " + var3 );
+					}
+				}
+			}
+		 }
 		
 		 if (var4>var1){
-				if (var4>var2){
-					if(var4>var3){
-						if(var4>var5){
-							System.out.println("El numero mayor es: " + var4 );
-	}
-	}
-}
-}
+			if (var4>var2){
+				if(var4>var3){
+					if(var4>var5){
+						System.out.println("El numero mayor es: " + var4 );
+					}
+				}
+			}
+		 }
 
 		 if (var5>var1){
 			if (var5>var2){
 				if(var5>var3){
 					if(var5>var4){
-		
-			System.out.println("El numero mayor es: " + var5 );
+						System.out.println("El numero mayor es: " + var5 );
 					}
 				}
 			}
-			}
+		}
 
 				
 	
@@ -97,46 +97,45 @@ public static void main(String args[]) {
 							
 	
 		 if (var2<var1) {
-				if (var2<var3) {
-					if(var2<var4) {
-						if(var2<var5) {
-							System.out.println("El numero menor es: " + var2 );
-	}
-	}
-}
-}
+			if (var2<var3) {
+				if(var2<var4) {
+					if(var2<var5) {
+						System.out.println("El numero menor es: " + var2 );
+					}
+				}
+			}
+		 }
 		
 
 		 if (var3<var1){
-				if (var3<var2) {
-					if(var3<var4) {
-						if(var3<var5) {
-							System.out.println("El numero menor es: " + var3 );
-	}
-	}
-}
-}
+			if (var3<var2) {
+				if(var3<var4) {
+					if(var3<var5) {
+						System.out.println("El numero menor es: " + var3 );
+					}
+				}
+			}
+		 }
 		
 		 if (var4<var1){
-				if (var4<var2){
-					if(var4<var3){
-						if(var4<var5){
-							System.out.println("El numero menor es: " + var4 );
-	}
-	}
-}
-}
+			if (var4<var2){
+				if(var4<var3){
+					if(var4<var5){
+						System.out.println("El numero menor es: " + var4 );
+					}
+				}
+			}
+		 }
 
 		 if (var5<var1){
 			if (var5<var2){
 				if(var5<var3){
 					if(var5<var4){
-		
-			System.out.println("El numero menor es: " + var5 );
+						System.out.println("El numero menor es: " + var5 );
 					}
 				}
 			}
-			}
+		 }
 
 				
 	

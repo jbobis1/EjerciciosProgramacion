@@ -3,9 +3,9 @@ package capitulo02.bloque01;
 import javax.swing.JOptionPane;
 
 //
-//  3º.- Repetir el ejercicio 1º de este bloque de ejercicios, 
-//  pero pidiendo al usuario cinco variables. Es decir, se pedirán 
-//  al usuario cinco variables y se mostrará el mayor valor en pantalla.
+//  3ï¿½.- Repetir el ejercicio 1ï¿½ de este bloque de ejercicios, 
+//  pero pidiendo al usuario cinco variables. Es decir, se pedirï¿½n 
+//  al usuario cinco variables y se mostrarï¿½ el mayor valor en pantalla.
 //
 
 
@@ -35,6 +35,7 @@ public class Ejercicio03 {
 			if (var1>var3) {
 				if(var1>var4) {
 					if(var1>var5) {
+						System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
 						System.out.println("El numero mayor es: " + var1 );
 					}
 				}
@@ -43,46 +44,48 @@ public class Ejercicio03 {
 							
 	
 		 if (var2>var1) {
-				if (var2>var3) {
-					if(var2>var4) {
-						if(var2>var5) {
+			 if (var2>var3) {
+				 if(var2>var4) {
+					 if(var2>var5) {
+						 	System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
 							System.out.println("El numero mayor es: " + var2 );
-	}
-	}
-}
-}
-		
+					 }
+				 }
+			 }
+		 }
 
 		 if (var3>var1){
-				if (var3>var2) {
-					if(var3>var4) {
-						if(var3>var5) {
-							System.out.println("El numero mayor es: " + var3 );
-	}
-	}
-}
-}
+			 if (var3>var2) {
+				 if(var3>var4) {
+					 if(var3>var5) {
+						 System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
+						 System.out.println("El numero mayor es: " + var3 );
+					 }
+				 }
+			 }
+		 }
 		
 		 if (var4>var1){
-				if (var4>var2){
-					if(var4>var3){
-						if(var4>var5){
+			 if (var4>var2){
+				 if(var4>var3){
+					 if(var4>var5){
+						 	System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
 							System.out.println("El numero mayor es: " + var4 );
-	}
-	}
-}
-}
+					 }
+				 }
+			 }
+		 }
 
 		 if (var5>var1){
-			if (var5>var2){
-				if(var5>var3){
-					if(var5>var4){
-		
-			System.out.println("El numero mayor es: " + var5 );
-					}
-				}
-			}
-			}
+			 if (var5>var2){
+				 if(var5>var3){
+					 if(var5>var4){
+						 System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
+						 System.out.println("El numero mayor es: " + var5 );
+					 }
+				 }
+			 }
+		 }
 
 				
 	

@@ -3,7 +3,7 @@ package capitulo02.bloque01;
 import javax.swing.JOptionPane;
 
 //
-//  4º.- Repetir el ejercicio 3º de este bloque de ejercicios, 
+//  4ï¿½.- Repetir el ejercicio 3ï¿½ de este bloque de ejercicios, 
 //  pero mostrando el menor valor de los cinco introducidos por el usuario.
 //
 
@@ -33,6 +33,7 @@ public static void main(String args[]) {
 			if (var1<var3) {
 				if(var1<var4) {
 					if(var1<var5) {
+						System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
 						System.out.println("El numero menor es: " + var1 );
 					}
 				}
@@ -41,51 +42,52 @@ public static void main(String args[]) {
 							
 	
 		 if (var2<var1) {
-				if (var2<var3) {
-					if(var2<var4) {
-						if(var2<var5) {
+			 if (var2<var3) {
+				 if(var2<var4) {
+					 if(var2<var5) {
+						 	System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
 							System.out.println("El numero menor es: " + var2 );
-	}
-	}
-}
-}
-		
+					 }
+				 }
+			 }
+		 }
 
 		 if (var3<var1){
-				if (var3<var2) {
-					if(var3<var4) {
-						if(var3<var5) {
-							System.out.println("El numero menor es: " + var3 );
-	}
-	}
-}
-}
+			 if (var3<var2) {
+				 if(var3<var4) {
+					 if(var3<var5) {
+						 System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
+						 System.out.println("El numero menor es: " + var3 );
+					 }
+				 }
+			 }
+		 }
 		
 		 if (var4<var1){
-				if (var4<var2){
-					if(var4<var3){
-						if(var4<var5){
+			 if (var4<var2){
+				 if(var4<var3){
+					 if(var4<var5){
+						 	System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
 							System.out.println("El numero menor es: " + var4 );
-	}
-	}
-}
-}
+					 }
+				 }
+			 }
+		 }
 
 		 if (var5<var1){
-			if (var5<var2){
-				if(var5<var3){
-					if(var5<var4){
-		
-			System.out.println("El numero menor es: " + var5 );
-					}
-				}
-			}
-			}
+			 if (var5<var2){
+				 if(var5<var3){
+					 if(var5<var4){
+						 System.out.println("El numero insertados " + var1 + "," + var2 + "," + var3 + "," + var4 + "," + var5 );
+						 System.out.println("El numero menor es: " + var5 );
+					 }
+				 }
+			 }
+		 }
 
 				
 	
 	}
-
 	
 	
 }
