@@ -38,7 +38,7 @@ public class Ejercicio02 {
 		
 		
 		if (num1 < 0) {
-			 negativos = negativos+ num1;
+			System.out.println ("Error");
 			 
 		}
 		else { 
@@ -57,7 +57,7 @@ public class Ejercicio02 {
 		}
 		
 		if (num2 < 0) {
-			 negativos = negativos+ num2;
+			System.out.println ("Error");
 		}
 		else { 
 			if ( num2 >=0 && num2 <= 25) { 
@@ -75,7 +75,7 @@ public class Ejercicio02 {
 		}
 		
 		if (num3 < 0) {
-			 negativos = negativos+ num3;
+			System.out.println ("Error");
 		}
 		else { 
 			if ( num3 >=0 && num3 <= 25) { 
@@ -94,7 +94,7 @@ public class Ejercicio02 {
 		
 		
 		if (num4 < 0) {
-			 negativos = negativos+ num4;
+			System.out.println ("Error");
 		}
 		else { 
 			if ( num4 >=0 && num4 <= 25) { 
@@ -112,7 +112,7 @@ public class Ejercicio02 {
 		}
 		
 		if (num5 < 0) {
-			 negativos = negativos+ num5;
+			System.out.println ("Error");
 		}
 		else { 
 			if ( num5 >= 0 && num5 <= 25) { 

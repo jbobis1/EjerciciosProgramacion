@@ -14,11 +14,11 @@ public class Ejercicio02 {
 		
 	str =JOptionPane.showInputDialog("Intoduzca un numero flotante: ");
 	float var1 = Float.parseFloat(str);
-	System.out.println("- Número introducido: " + var );
+	System.out.println("- Número introducido: " + var1 );
 	
 	str = JOptionPane.showInputDialog("Introduzca otro número doble: ");
 	double var2 = Double.parseDouble(str);
-	System.out.println("- Número introducido: " + var );
+	System.out.println("- Número introducido: " + var2 );
 					
 	
 }
