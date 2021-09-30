@@ -36,7 +36,6 @@ public class Ejercicio02 {
 		
 		
 		
-		
 		if (num1 < 0) {
 			System.out.println ("Error");
 			 

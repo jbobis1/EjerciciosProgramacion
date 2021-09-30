@@ -29,7 +29,7 @@ public class Ejercicio04 {
 
 		// sumo las variables.
 		int suma = var1 + var2 + var3;
-		int media = suma / 3;
+		float media = suma / 3;
 		System.out.println("Suma de los tres valores introducidos: " + suma);
 		System.out.println("media de los tres valores introducidos: " + media);
 	}
