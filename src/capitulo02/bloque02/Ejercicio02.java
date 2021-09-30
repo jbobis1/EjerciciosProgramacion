@@ -29,7 +29,7 @@ public class Ejercicio02 {
 		str = JOptionPane.showInputDialog("Introduzca el valor del numero5: ");
 		int num5 = Integer.parseInt(str);
 		
-		int negativos = 0;
+		
 		int bajos = 0;
 		int medios = 0;
 		int grandes = 0;
@@ -128,7 +128,7 @@ public class Ejercicio02 {
 				}
 			}
 		
-		System.out.println("LOs numeros negativos; " + negativos);
+		System.out.println("LOs numeros negativos; " );
 		System.out.println("LOs numeros bajos; " + bajos);
 		System.out.println("LOs numeros medios; " + medios);
 		System.out.println("LOs numeros grandes; " + grandes);
