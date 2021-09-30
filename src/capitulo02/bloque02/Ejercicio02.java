@@ -39,6 +39,7 @@ public class Ejercicio02 {
 		
 		if (num1 < 0) {
 			 negativos = negativos+ num1;
+			 
 		}
 		else { 
 			if ( num1 >=0 && num1 <= 25) { 
