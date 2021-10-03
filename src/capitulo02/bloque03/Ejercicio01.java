@@ -8,31 +8,37 @@ public class Ejercicio01 {
 		String str;
 		int opcion;
 		
-	
-		
-		str = JOptionPane.showInputDialog("Introduzca la opción: ");
+		str = JOptionPane.showInputDialog("Introduzca la Nota: ");
 		opcion = Integer.parseInt(str);
 		
 		
-		switch(opcion) {
+		switch (opcion) {
+		case 0:
 		case 1:
-			System.out.println("insuficiente" );
-			break;
 		case 2:
-			System.out.println("Suficiente");
-			break;
+			System.out.println("Muy deficiente"); // Se llega en los cases 0, 1 y 2
+			break; // Con esta instrucción salimos del switch
 		case 3:
-			System.out.println("Bien" );
-			break;
 		case 4:
-			System.out.println("Notable");
+			System.out.println("Deficiente");
 			break;
 		case 5:
-			System.out.println("Soblesaliente" );
+			System.out.println("Suficiente");
 			break;
-				
-		}
-		
+		case 6:
+			System.out.println("Bien");
+			break;
+		case 7:
+		case 8:
+			System.out.println("Notable");
+			break;
+		case 9:
+		case 10:
+			System.out.println("Sobresaliente");
+			break;
+		default:
+			System.out.println("Error, el valor no pertenece a ninguna nota");
 	}
+}
 	
 }
