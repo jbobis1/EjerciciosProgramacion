@@ -6,7 +6,7 @@ public class Ejercicio03 {
 	public static void main(String[] args) {
 		String str, str1, str2, str3;
 		int opcion;
-		double numero, numero1, numero2;
+		double numero, numero1;
 		double pi = 3.1416;
 		System.out.println("Menu:");
 		System.out.println("1.-  Cálculo de la hipotenusa de un triángulo");
