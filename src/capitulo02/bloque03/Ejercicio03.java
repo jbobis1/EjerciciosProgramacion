@@ -9,11 +9,11 @@ public class Ejercicio03 {
 		double numero, numero1;
 		double pi = 3.1416;
 		System.out.println("Menu:");
-		System.out.println("1.-  Cálculo de la hipotenusa de un triángulo");
-		System.out.println("2.- Cálculo de la superficie de una circunferencia ");
-		System.out.println("3.- Cálculo del perímetro de una circunferenco");
-		System.out.println("4.- Cálculo del área de un rectángulo ");
-		System.out.println("5.- Cálculo del área de un triángulo");
+		System.out.println("1.-  Cï¿½lculo de la hipotenusa de un triï¿½ngulo");
+		System.out.println("2.- Cï¿½lculo de la superficie de una circunferencia ");
+		System.out.println("3.- Cï¿½lculo del perï¿½metro de una circunferenco");
+		System.out.println("4.- Cï¿½lculo del ï¿½rea de un rectï¿½ngulo ");
+		System.out.println("5.- Cï¿½lculo del ï¿½rea de un triï¿½ngulo");
 		System.out.println("0.- Salir");
 			
 		str = JOptionPane.showInputDialog("Introduzca la opcion: ");
@@ -58,8 +58,8 @@ public class Ejercicio03 {
 			numero = Integer.parseInt(str);
 			str1 = JOptionPane.showInputDialog("Introduzca el primer numero: ");
 			numero1 = Integer.parseInt(str1);
-			double rectángulo = numero*numero1;
-			System.out.printf("El perimetro del numero es numero introducido es: " + rectángulo);
+			double rectangulo = numero*numero1;
+			System.out.printf("El perimetro del numero es numero introducido es: " + rectangulo);
 			break;
 			
 			
