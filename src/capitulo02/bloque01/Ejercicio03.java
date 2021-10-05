@@ -43,7 +43,7 @@ public class Ejercicio03 {
 		}
 							
 	
-		 if (var2>var1) {
+		else if (var2>var1) {
 			 if (var2>var3) {
 				 if(var2>var4) {
 					 if(var2>var5) {
@@ -54,7 +54,7 @@ public class Ejercicio03 {
 			 }
 		 }
 
-		 if (var3>var1){
+		else if (var3>var1){
 			 if (var3>var2) {
 				 if(var3>var4) {
 					 if(var3>var5) {
@@ -65,7 +65,7 @@ public class Ejercicio03 {
 			 }
 		 }
 		
-		 if (var4>var1){
+		else  if (var4>var1){
 			 if (var4>var2){
 				 if(var4>var3){
 					 if(var4>var5){
@@ -76,7 +76,7 @@ public class Ejercicio03 {
 			 }
 		 }
 
-		 if (var5>var1){
+		else if (var5>var1){
 			 if (var5>var2){
 				 if(var5>var3){
 					 if(var5>var4){

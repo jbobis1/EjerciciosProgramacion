@@ -3,7 +3,7 @@ package capitulo02.bloque01;
 import javax.swing.JOptionPane;
 
 //
-//  2∫.- Repetir el ejercicio anterior para mostrar el 
+//  2.- Repetir el ejercicio anterior para mostrar el 
 //  numero menor de los dos introducidos .
 //
 
@@ -18,12 +18,14 @@ public class Ejercicio02 {
 		str =JOptionPane.showInputDialog("Introduzca otro n√∫mero entero: ");
 		int var1 = Integer.parseInt(str);
 		
-		if (var<var1)
+		if (var<var1) {
 			  System.out.println("El numero menor es: " + var );
-			else
+		}
+		else if ((var == var1)) {
+			System.out.println("Los numeros son iguales: " + var );
+		}	
+			else {
 			  System.out.println("El numero menor es: " + var1);
-		
-				
+			}			
 	}
-
 }
