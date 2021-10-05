@@ -42,7 +42,7 @@ public class Ejercicio04 {
 		unocent1 = (float) (unocent * 0.01);
 		//System.out.printf(" -Monedas de euro: " + unocent1);
 		
-		importe = cincocuentacent1 + euro1 + venticincocent1+ cincocent1 + unocent;
+		importe = cincocuentacent1 + euro1 + venticincocent1+ cincocent1 + unocent1;
 		System.out.printf(" -Importe: " + importe);
 		
 		pagofinal = importe - coste;
