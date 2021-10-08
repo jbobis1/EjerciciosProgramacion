@@ -6,16 +6,13 @@ public class Ejercicio01 {
 	
 	public static void main (String args[]) {
 
-				mayorDeUnaSerieDeNumeros();
-	}
 	
-	public static void mayorDeUnaSerieDeNumeros () {
 	
 		int numero = 0;
 		int suma;
 		
 		for (int i = 1; i < 5; i++) {
-			 suma = Integer.parseInt(JOptionPane.showInputDialog("Introduzca número"));
+			 suma = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
 			
 			if (suma >= 10) {
 				numero = suma + numero;

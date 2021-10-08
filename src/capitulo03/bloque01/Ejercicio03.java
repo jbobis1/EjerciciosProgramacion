@@ -6,12 +6,7 @@ public class Ejercicio03 {
 	
 	public static void main (String args[]) {
 
-				mayorDeUnaSerieDeNumeros();
-	}
-	
-	public static void mayorDeUnaSerieDeNumeros () {
-	
-		
+
 		int suma;
 		int negativo = 0;
 		int positivo = 0;
@@ -34,9 +29,9 @@ public class Ejercicio03 {
 			}			
 		
 			System.out.println( " Negativos : " + negativo + " Positivos: " + positivo);
-	}
+		}
 		
-}
+	}
 }
 
 

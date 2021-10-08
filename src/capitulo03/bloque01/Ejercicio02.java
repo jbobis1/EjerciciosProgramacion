@@ -7,17 +7,14 @@ public class Ejercicio02 {
 	
 	public static void main (String args[]) {
 
-				mayorDeUnaSerieDeNumeros();
-	}
-	
-	public static void mayorDeUnaSerieDeNumeros () {
-	
+				
+		
 		int numero = 0;
 		int suma;
 		int contador = 10;
 		
 		for (int i = 1; i < contador; i++) {
-			 suma = Integer.parseInt(JOptionPane.showInputDialog("Introduzca número"));
+			 suma = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
 			
 			if (suma >= 10) {
 				numero = suma + numero;
@@ -27,12 +24,7 @@ public class Ejercicio02 {
 			}			
 		
 		JOptionPane.showMessageDialog(null, "Mayor: " + numero);
-}
+	}
 		
-
-
-
-	
-	
 
 }
