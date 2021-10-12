@@ -8,12 +8,12 @@ public class Ejercicio02 {
 	public static void main (String args[]) {
 
 				
-		
+		int contador = Integer.parseInt(JOptionPane.showInputDialog("cantidad de numero"));
 		int numero = 0;
 		int suma;
-		int contador = 10;
 		
-		for (int i = 1; i < contador; i++) {
+		
+		for (int i = 1; i < contador ; i++) {
 			 suma = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
 			
 			if (suma >= 10) {

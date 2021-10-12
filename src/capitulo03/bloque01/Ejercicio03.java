@@ -10,9 +10,10 @@ public class Ejercicio03 {
 		int suma;
 		int negativo = 0;
 		int positivo = 0;
+		int contador = Integer.parseInt(JOptionPane.showInputDialog("cuantos numero: "));
 		
-		for (int i = 1; i < 6; i++) {
-			 suma = Integer.parseInt(JOptionPane.showInputDialog("Introduzca número"));
+		for (int i = 1; i < contador ; i++) {
+			 suma = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
 			
 			if (suma > 0) {
 				positivo ++;
