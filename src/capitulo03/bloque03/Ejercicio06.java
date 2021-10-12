@@ -11,9 +11,15 @@ public class Ejercicio06 {
 		int numero = 0;
 		int factor = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
 		
-		for ( numero = 1; numero < 11; numero++) {
-			System.out.println(numero + " x " + factor + " = " + (numero * factor));
-		}
+			if(numero != 0 ) 
+				{System.out.print("lo siento, no puedo multiplicar por 0");
+			} 
+			
+			else {
+				
+				for ( numero = 1; numero < 11; numero++) {
+					System.out.println(numero + " x " + factor + " = " + (numero * factor));
+				}
+			}
 	}	
-	
 }
