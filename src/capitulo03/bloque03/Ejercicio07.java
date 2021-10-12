@@ -9,6 +9,15 @@ public class Ejercicio07 {
 			int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: ")); ;
 			int negativos = 0;
 			int positivos = 0;
+			
+			if (numero >0) {
+				positivos++;
+			}	
+			
+			if (numero <0) {
+				negativos++;
+			}	
+			
 
 		
 			for (;numero != 0;) {

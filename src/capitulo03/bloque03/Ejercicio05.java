@@ -10,8 +10,8 @@ public class Ejercicio05 {
 		int menor;
 		
 		numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
-		 mayor = numero;
-		 menor = numero;
+		mayor = numero;
+		menor = numero;
 				
 		 
 		 for (;numero != 0;) {
@@ -20,15 +20,16 @@ public class Ejercicio05 {
 				if (numero >= mayor) {
 					mayor = numero;		
 				}	
-	
-				else
-					{
-					menor = numero;
+				
+				if (numero == 0) {
+					
 				}
 				
-				
+				else if (numero <= menor) {
+					menor = numero;		
+				}
 		}
+		 
 		System.out.println( "El numero Mayor es: " + mayor + " El numero Menor es: " + menor );
 	}	
-
 }

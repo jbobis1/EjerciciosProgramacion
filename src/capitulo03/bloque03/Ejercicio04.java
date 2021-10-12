@@ -7,23 +7,24 @@ public class Ejercicio04 {
 	
 	public static void main (String args[]) {
 	
-		int numero = 10000;	
+		int numero = 0;	
 		int menor;
 
-
-		
 		numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
 		menor = numero;
 				
 
 			for (;numero != 0;) {
-			
-			 numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
+				numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
 			 
-				if (numero <= menor) {
+				if (numero == 0) {
+							
+				}
+				
+				else if (numero <= menor) {
 					menor = numero;		
-				}	
-			
+				}
+				
 		}
 		System.out.println( "El numero menor es: " + menor );
 	}	
