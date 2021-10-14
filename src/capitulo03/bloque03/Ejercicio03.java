@@ -12,11 +12,11 @@ public class Ejercicio03 {
 		
 		
 		for(;numero !=0;) {
-			numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
+			numero = Integer.parseInt(JOptionPane.showInputDialog("Que tabla de Multiplicar quieres: "));
 			
 			
 			if(numero == 0 ) 
-				{System.out.print("aDIOS");
+				{System.out.print("FIN");
 			} 
 			
 			else {
@@ -25,6 +25,6 @@ public class Ejercicio03 {
 					System.out.println(numero + " x " + i + " = " + (numero * i));
 				}
 			}
-	}	
+		}	
 	}
 }

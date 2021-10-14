@@ -2,7 +2,7 @@ package capitulo03.bloque03;
 
 import javax.swing.JOptionPane;
 
-public class Ejercicio01extra {
+public class Ejercicio01extra01 {
 
 	public static void main (String args[]) {
 		
