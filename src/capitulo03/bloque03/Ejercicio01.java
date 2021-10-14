@@ -9,7 +9,7 @@ public class Ejercicio01 {
 		int suma = 0;
 		int cont = 0;
 		int numero = -1 ;
-		int media;
+		float media;
 		
 		for (;numero != 0;) {
 			numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
@@ -19,7 +19,8 @@ public class Ejercicio01 {
 			
 			
 		}
-		media = suma/cont;
+		media = (float)suma/cont;
+		
 		System.out.println("La media de los numero introducidos es : " + suma);
 		System.out.println("La media de los numero introducidos es : " + media);
 		

@@ -17,8 +17,6 @@ public class Ejercicio04 {
 			if (numero <0) {
 				negativos++;
 			}	
-			
-
 		
 			for (;numero != 0;) {
 					numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
@@ -31,15 +29,10 @@ public class Ejercicio04 {
 						negativos++;
 				}	
 					
-					else{
-						
+					else{					
 					}
 			}
 
 			System.out.println( "Positivos: " + positivos + " Negativos : " + negativos );
-
 		}
-
-	
-
 }
