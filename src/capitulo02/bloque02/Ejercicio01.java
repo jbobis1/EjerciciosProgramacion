@@ -127,10 +127,10 @@ public class Ejercicio01 {
 				}
 			}
 		
-		System.out.println("LOs numeros negativos; " + negativos);
-		System.out.println("LOs numeros bajos; " + bajos);
-		System.out.println("LOs numeros medios; " + medios);
-		System.out.println("LOs numeros grandes; " + grandes);
+		System.out.println("Los numeros negativos; " + negativos);
+		System.out.println("Los numeros bajos; " + bajos);
+		System.out.println("Los numeros medios; " + medios);
+		System.out.println("Los numeros grandes; " + grandes);
 	
 		
 		

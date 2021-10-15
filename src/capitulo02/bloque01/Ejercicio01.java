@@ -23,7 +23,7 @@ public class Ejercicio01 {
 		}
 		
 		else if ((var == var1)) {
-			System.out.println("Los numeros son iguales: " + var );
+			System.out.println("Los numeros son iguales: " );
 		}
 		
 			else {

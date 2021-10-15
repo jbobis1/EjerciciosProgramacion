@@ -1,34 +1,37 @@
 package capitulo03.bloque04;
 
-import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class Ejercicio02 {
 
-	public static void numerosPrimos () {
-		int limite = 50000;
-		int numero = 2;
-		int i =2;
-		long millisDesde1970 = new Date().getTime();
+	public static void main (String args[]) {
+		int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
+		int i = 2;
+		int minimo = 0;
+		int maximo = 1000;
 		
-		while( numero < limite) {
+		boolean numeroEsPrimo = true;
+		
+		while(i<(numero/2+1) numero <= minimo & numero => maximo) {
 			
-			boolean numeroEsPrimo = true;
-			while ( i < (numero / 2 + 1)) {
-				if (numero % i == 0) {
-					numeroEsPrimo = false;
-					break;
-				}
-				i++;
+			if((numero % i) == 1) {
+				numeroEsPrimo = false;
+			}
+			else {
+				numeroEsPrimo = true;
 			}
 			
-			if (numeroEsPrimo == true) {
-				System.out.println("el número " + numero + " es primo");
-			}
 			
-			 numero++;
-			
+
+			i++;
 		}
-	
-	
-	}	
+		if (numeroEsPrimo == true) {
+			System.out.println("el numero " + numero + " es primo");
+		}
+		
+		else{
+			System.out.println("el numero " + numero + " no primo");				
+		}
+	}
 }
+

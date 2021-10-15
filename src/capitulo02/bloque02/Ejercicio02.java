@@ -26,7 +26,8 @@ public class Ejercicio02 {
 
 		if(num1 < 0) {
             System.out.println("La cantidad de número introducidos ha sido:\nNumeros bajos: " + numBajo + "\nNumeros medios: " + numMedio + "\nNumeros altos: "+numAlto);
-		} else {
+		} 
+		else {
             if(num1 >= 0 && num1 <= 25) {
                 numBajo++;
             } else if(num1 >= 26 && num1 <= 250) {
