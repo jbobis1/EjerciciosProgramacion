@@ -27,7 +27,7 @@ public class Ejercicio01 {
 			
 			else{
 				System.out.println("el número " + numero + " no primo");				
-			}2
+			}
 		}
 }
 
