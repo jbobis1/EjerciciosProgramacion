@@ -5,23 +5,22 @@ import javax.swing.JOptionPane;
 public class Ejercicio03 {
 	
 	public static void main (String args[]) {
-
-		int numero = 0;
+		int numero = 1;
 		int i = 1;
 		
-		while(numero < 12) {
-			numero = Integer.parseInt(JOptionPane.showInputDialog("Que tabla de Multiplicar quieres: "));
+		do{	
 
-			if(numero == 0 ) 
-				{System.out.print("FIN");
-			} 
-			
-			else {
-			}
-			numero++;
-			//i++;
-		}		
+		do{	
 		System.out.println(numero + " x " + i + " = " + (numero * i));
+		i++;
+		
+		}while(i<=10);
+		i=1;
+		numero++;
+		
+		}while(numero<=15); 
+		
+		
 	}		
 }
 

@@ -3,30 +3,27 @@ package capitulo03.bloque04;
 import javax.swing.JOptionPane;
 
 public class Ejercicio01 {
-		public static void main (String args[]) {
+		public static void main (String args[]){
 			int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
-			int i = 2;
-			boolean numeroEsPrimo = true;
+			int contador = 2;
+			boolean primo = true;
 			
-			while(i<(numero/2+1)) {
+			while ((primo) && (contador!=numero)) {
 				
-				if((numero % i) == 1 ) {
-					numeroEsPrimo = false;
+				if((numero % contador == 0)) {
+					primo = false;
 				}
 				else {
-					numeroEsPrimo = true;
+					primo = true;
 				}
-				
-				
-
-				i++;
+				contador++;
 			}
-			if (numeroEsPrimo == true) {
-				System.out.println("el número " + numero + " es primo");
+			if (primo == true) {
+				System.out.println("El numero " + numero + " es primo");
 			}
 			
 			else{
-				System.out.println("el número " + numero + " no primo");				
+				System.out.println("El nuero " + numero + " no primo");				
 			}
 		}
 }

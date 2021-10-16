@@ -5,32 +5,26 @@ import javax.swing.JOptionPane;
 public class Ejercicio02 {
 
 	public static void main (String args[]) {
-		int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
-		int i = 2;
-		int minimo = 0;
-		int maximo = 1000;
+		int minimo = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero Minimo: "));
+		int maximo = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero Maximo: "));
+		int numero = minimo;
+		int contador = 2;
 		
-		boolean numeroEsPrimo = true;
+	
 		
-		while(i<(numero/2+1) numero <= minimo & numero => maximo) {
-			
-			if((numero % i) == 1) {
-				numeroEsPrimo = false;
+		while (numero <= maximo) {
+			if((numero % contador == 0)) {
+				
+				System.out.println("El nuero " + numero + " no primo");	
+				contador++;
 			}
 			else {
-				numeroEsPrimo = true;
+				
+				System.out.println("El numero " + numero + " es primo");
+				
 			}
-			
-			
-
-			i++;
-		}
-		if (numeroEsPrimo == true) {
-			System.out.println("el numero " + numero + " es primo");
-		}
 		
-		else{
-			System.out.println("el numero " + numero + " no primo");				
+			numero++;
 		}
 	}
 }
