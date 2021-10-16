@@ -18,7 +18,8 @@ public class Ejercicio02 {
 				if(num % i == 0)
 					primo = false;
 				i++;
-			}		
+			}
+			
 			i = 2;
 			if (primo) System.out.println("El numero " + num + " es primo");
 			else System.out.println("El numero " + num + " no primo");
