@@ -10,11 +10,16 @@ public class Ejercicio03 {
 		
 		for (int i = 0; i < numeros.length; i++) {
 			numeros[i] = (int)Math.round(Math.random() * (150 - 0)) + 0;
-	
-			numero.reverse();
+			 int[] invertido = new int[numeros.length];
+		}
+		for(int i=0;i<numeros.length;i++){
+		            invertido[i] = numeros[numeros.length-1-i];
+		        }
+		        numeros = invertido;
+		     
 			System.out.print(numeros[i] + " ");
 		
-		}
+		
 
 	}
 	
