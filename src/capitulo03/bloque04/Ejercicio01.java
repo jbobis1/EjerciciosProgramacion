@@ -4,7 +4,8 @@ import javax.swing.JOptionPane;
 
 public class Ejercicio01 {
 		public static void main (String args[]){
-			int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
+			
+			int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero: "));
 			int contador = 2;
 			boolean primo = true;
 			

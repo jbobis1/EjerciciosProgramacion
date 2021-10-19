@@ -9,15 +9,18 @@ public class Ejercicio04 {
 		int i =128;
 		
 		while ( i > 0) {
+			
 			if ((num & i) != 0) {
 			 System.out.println( 1);
-		}
-		else {
+			 
+			}
+			else {
 			
 			System.out.println( 0);
-		}
+			
+			}
+			
 			i=i>>1;	
-	}	
-}
-	
+		}	
+	}
 }

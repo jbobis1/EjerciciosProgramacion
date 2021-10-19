@@ -15,6 +15,7 @@ public class Ejercicio02 {
 			int num = minimo;
 			
 			while (i<= num /2 && primo) {
+				
 				if(num % i == 0)
 					primo = false;
 				i++;
