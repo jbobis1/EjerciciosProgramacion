@@ -10,9 +10,9 @@ public class Ejercicio06 {
 			numeros[i] = (int)Math.round(Math.random() * (150 - 0)) + 0;
 		
 			
-			 	if ((numeros[i] = 0) { 
+			 	if ((numeros[i] % 2) == 0) { 
 			 		suma = suma + numeros[i];
-			 		
+			 		i+=2;
 			    } 
 
 		}
