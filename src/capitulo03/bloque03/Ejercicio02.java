@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 public class Ejercicio02 {
 	public static void main (String args[]) {
-	
 		int numero = 0;	
 		int mayor;
 		int menor;
@@ -12,8 +11,7 @@ public class Ejercicio02 {
 		numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
 		mayor = numero;
 		menor = numero;
-				
-		 
+				 
 		 for (;numero != 0;) {
 			 numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
 			 
@@ -28,8 +26,7 @@ public class Ejercicio02 {
 				else if (numero <= menor) {
 					menor = numero;		
 				}
-		}
-		 
+		}	 
 		System.out.println( "El numero Mayor es: " + mayor + " El numero Menor es: " + menor );
 	}	
 }

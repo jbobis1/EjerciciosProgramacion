@@ -20,10 +20,8 @@ public class Ejercicio03 {
 				
 				}	
 	
-			else if(suma == 0) {
-				
-			
-			}
+		
+		
 			else if(suma < 0) {
 				negativo++;
 			

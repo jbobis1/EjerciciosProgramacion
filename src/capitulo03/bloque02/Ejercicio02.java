@@ -12,8 +12,7 @@ public class Ejercicio02 {
 		
 		numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
 		mayor = numero;
-		menor = numero;
-				
+		menor = numero;		
 		for (int i = 0; i < cantidad -1; i++) {
 			 numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
 			 

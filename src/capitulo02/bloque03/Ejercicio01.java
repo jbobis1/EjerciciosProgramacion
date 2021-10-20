@@ -5,13 +5,12 @@ import javax.swing.JOptionPane;
 public class Ejercicio01 {
 	
 	public static void main (String args[]) {
-		String str;
+		//String str;
 		int opcion;
 		
-		str = JOptionPane.showInputDialog("Introduzca la Nota: ");
-		opcion = Integer.parseInt(str);
-		
-		
+		opcion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Nota: "));
+		//opcion = Integer.parseInt(str);
+			
 		switch (opcion) {
 		case 0:
 		case 1:
@@ -38,7 +37,7 @@ public class Ejercicio01 {
 			break;
 		default:
 			System.out.println("Error, el valor no pertenece a ninguna nota");
+		}
 	}
-}
 	
 }

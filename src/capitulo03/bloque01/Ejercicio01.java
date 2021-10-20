@@ -6,8 +6,6 @@ public class Ejercicio01 {
 	
 	public static void main (String args[]) {
 
-	
-	
 		int numero = 0;
 		int suma;
 		
@@ -16,13 +14,9 @@ public class Ejercicio01 {
 			
 			if (suma >= 10) {
 				numero = suma + numero;
-				
-				}			
-			
-			}			
-		
+			}				
+		}				
 		JOptionPane.showMessageDialog(null, "Mayor: " + numero);
-	}
-		
+	}	
 }
 
