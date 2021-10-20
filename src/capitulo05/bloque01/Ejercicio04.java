@@ -11,6 +11,7 @@ public class Ejercicio04 {
 		Scanner leer =new Scanner(System.in);
 		System.out.println("Introduce un Numero: ");
 		int n= leer.nextInt();
+		
 		for (int i = 0; i < numeros.length; i++) {
 			numeros[i] = (int)Math.round(Math.random() * (150 - 0)) + 0;
 				if(numeros[i]==n) {
