@@ -4,15 +4,15 @@ public class Ejercicio02 {
 	public static void main(String[] args) {
 		
 		//Declaramos las variables
-		int array1;
-		int array2;
-		int array3;
+		int array1[]=new int[150];
+		int array2[]=new int[150];
+		int array3[]=new int[150];
 		
 		//Cremos el buble que se repetiras 10 veces y tambien que el numero sea aleatorio
 		for (int i = 0; i < array1.length; i++) {
 			//creacion del numero aleatorio
-			array1 = (int)Math.round(Math.random() * (100 - 0)) + 0;
-			array2= (int)Math.round(Math.random() * (100 - 0)) + 0;
+			array1[i] = (int)Math.round(Math.random() * (100 - 0)) + 0;
+			array2[i]= (int)Math.round(Math.random() * (100 - 0)) + 0;
 			System.out.println("-----");
 			System.out.println("Array1: " + array1);
 			System.out.println("Array2: " + array2);
