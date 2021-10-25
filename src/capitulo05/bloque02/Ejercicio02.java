@@ -18,16 +18,29 @@ public class Ejercicio02 {
 			System.out.println("Array2: " + array2[i]);
 			System.out.println("-----");
 		}	
-		for (int i=0;i<=array1.length ||i<=array2.length; i++) {
-			  if((array1.length%2) != 0){
-				  array3[i]= array1[i];
+		for (int i=0;i<=150; i++) {
+
+			if((array2.length%2 ) == 0 ){
+				  array3[i]= array2[i];
 				  System.out.println("Array3 par: " + array3[i]);
 		        }
 			  
-			  else {
-				  array3[i]= array2[i];
+			  else if ((array1.length%2) != 0){
+				  array3[i]= array1[i];
 				  System.out.println("Array3 impar: " + array3[i]);
-			  } 
+			  }
+			
+//			  if((array1.length%2) != 0){
+//			  array3[i]= array1[i];
+//			  System.out.println("Array3 impar: " + array3[i]);
+//	        }
+//		  
+//		  else if ((array2.length%2) == 0){
+//			  array3[i]= array2[i];
+//			  System.out.println("Array3 par: " + array3[i]);
+//		  }		
+			
+			
 		}
 	}	
 }
