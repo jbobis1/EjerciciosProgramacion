@@ -4,29 +4,30 @@ public class Ejercicio02 {
 	public static void main(String[] args) {
 		
 		//Declaramos las variables
-		int array1[]=new int[150];
-		int array2[]=new int[150];
-		int array3[]=new int[150];
+		int array1[]=new int[5];
+		int array2[]=new int[5];
+		int array3[]=new int[5];
 		
 		//Cremos el buble que se repetiras 10 veces y tambien que el numero sea aleatorio
-		for (int i = 0; i < array1.length; i++) {
+		for (int i = 0; i < 5; i++) {
 			//creacion del numero aleatorio
-			array1[i] = (int)Math.round(Math.random() * (100 - 0)) + 0;
-			array2[i]= (int)Math.round(Math.random() * (100 - 0)) + 0;
+			array1[i]=(int)Math.round(Math.random()*(100-0))+0;
+			array2[i]=(int)Math.round(Math.random()*(100-0))+0;
+			
+			System.out.println("Array1: " + array1[i]);
+			System.out.println("Array2: " + array2[i]);
 			System.out.println("-----");
-			System.out.println("Array1: " + array1);
-			System.out.println("Array2: " + array2);
-		}
-		
-		for (i<=array) {
-			  if ((array2 % 2) == 0) {
-				  array2= array3;
+		}	
+		for (int i=0;i<=array1.length ||i<=array2.length; i++) {
+			  if((array1.length%2) != 0){
+				  array3[i]= array1[i];
+				  System.out.println("Array3 par: " + array3[i]);
 		        }
-			  if ((array1 % 2) != 0) {
-				  array1= array3;
-			  }
-			  i++;
-			  System.out.println("Array3: " + array3);
+			  
+			  else {
+				  array3[i]= array2[i];
+				  System.out.println("Array3 impar: " + array3[i]);
+			  } 
 		}
 	}	
 }

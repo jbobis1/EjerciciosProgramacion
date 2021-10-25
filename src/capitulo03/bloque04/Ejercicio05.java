@@ -12,7 +12,6 @@ public class Ejercicio05 {
 			factorial1=factorial1*i;	
 			i++;						
 		}
-		
 		System.out.println("El valor del factorial equivale a " + factorial1);
 	}
 }

@@ -6,9 +6,9 @@ public class Ejercicio01 {
 	
 	public static void main (String args[]) {
 		//String str;
-		int opcion;
+	
 		
-		opcion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Nota: "));
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Nota: "));
 		//opcion = Integer.parseInt(str);
 			
 		switch (opcion) {

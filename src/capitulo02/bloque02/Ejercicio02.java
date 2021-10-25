@@ -85,9 +85,7 @@ public class Ejercicio02 {
                                  numMedio++;
                              } else {
                                  numAlto++;
-                             }
-                        	
-                            
+                             }                         
                         }
                     }
                 }

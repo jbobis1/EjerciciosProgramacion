@@ -20,10 +20,11 @@ public class Ejercicio02 {
 					primo = false;
 				i++;
 			}
-			
 			i = 2;
-			if (primo) System.out.println("El numero " + num + " es primo");
-			else System.out.println("El numero " + num + " no primo");
+			if (primo) 
+				System.out.println("El numero " + num + " es primo");
+			else 
+				System.out.println("El numero " + num + " no primo");
 			primo =true;
 			minimo++;
 		}
