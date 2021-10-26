@@ -24,9 +24,9 @@ public class Ejercicio02 {
 				array3[i]= array2[i];
 		    }
 			  
-			 else {
+			else {
 				  array3[i]= array1[i];
-			  }	
+			}	
 			System.out.println(array3[i]);
 		}
 	}	

@@ -3,11 +3,12 @@ package capitulo05.bloque02;
 import javax.swing.JOptionPane;
 
 public class Ejercicio05 {
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
 		//Declaramos las variables
 		int numero []=new int[5];
 		int desplazamientos = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
+		System.out.println("Numero de "+ desplazamientos );
 		int j = 0;
 		int ultimo;
 		
@@ -27,15 +28,15 @@ public class Ejercicio05 {
 				
 			}
 			numero[0]=ultimo;
-			System.out.println("mostrar la Posicion");
+			System.out.println("---");
+			System.out.println("Mostrar la Posicion");
+			
 			for(int i=0;i<5;i++) {
-				System.out.println("arrary +1 "+numero[i]);
+				System.out.println("Numero de "+ desplazamientos +" arrary "+numero[i]);
 			}
 			j++;
 		}
 	}
 }
-		
-	
 
 
