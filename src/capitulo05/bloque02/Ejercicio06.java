@@ -8,7 +8,7 @@ public class Ejercicio06 {
 		//Declaramos las variables
 		int numero []=new int[5];
 		int desplazamientos = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
-		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Movimiento a la izquierda: 0 Movimiento a la derecha: 1"));
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Movimiento a la izquierda: 1 Movimiento a la derecha: 0"));
 		System.out.println("Numero de "+ desplazamientos );
 		int j = 0;
 		int ultimo;
@@ -22,7 +22,7 @@ public class Ejercicio06 {
 		
 		}
 		switch (opcion) {
-		case 1:
+		case 0:
 			while(j<desplazamientos) {
 				ultimo =numero[4];
 				for(int i=3;i>=0;i--) {
@@ -37,7 +37,7 @@ public class Ejercicio06 {
 				}
 				j++;
 			}
-		case 0:
+		case 1:
 			while(j<desplazamientos) {
 				primero =numero[0];
 				for(int i=0;i>=numero.length;i++) {
@@ -48,7 +48,7 @@ public class Ejercicio06 {
 				System.out.println("Mostrar la Posicion");
 				
 				for(int i=0;i<5;i++) {
-					System.out.println("Numero de "+ desplazamientos +" arrary "+numero[i]);
+					System.out.println("Numero de desplazamientos: "+ desplazamientos +" arrary: "+numero[i]);
 				}
 				j++;
 			}
