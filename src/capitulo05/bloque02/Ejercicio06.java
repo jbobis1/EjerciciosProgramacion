@@ -40,7 +40,7 @@ public class Ejercicio06 {
 		case 1:
 			while(j<desplazamientos) {
 				primero =numero[0];
-				for(int i=0;i>=numero.length;i++) {
+				for(int i=0;i<numero.length-1;i++) {
 					numero[i]=numero[i+1];				
 				}
 				numero[numero.length-1]= primero;
@@ -52,6 +52,7 @@ public class Ejercicio06 {
 				}
 				j++;
 			}
+			
 		}
 	}
 }
