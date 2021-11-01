@@ -2,27 +2,33 @@ package capitulo05.bloque03;
 
 public class Ejercicio01 {
 	public static void main(String[] args) {
-		int arreglo[] = new int[10];
-		// Inicialización de los valores del array
-		for (int i = 0; i < arreglo.length; i++) {
-			arreglo[i] = (int)Math.round(Math.random() * (10 - 0)) + 0;
-			   System.out.println(arreglo[i]);
+		int array[] = new int[10];
+		// Inicializaci�n de los valores del array
+		for (int i = 0; i < array.length; i++) {
+			array[i] = (int)Math.round(Math.random() * (10 - 0)) + 0;
+			   System.out.println(array[i]);
 		}
 		   System.out.println("----");   
-		for (int x = 0; x < arreglo.length; x++) {
-	        // Aquí "y" se detiene antes de llegar
-	        // a length - 1 porque dentro del for, accedemos
-	        // al siguiente elemento con el índice actual + 1
-			for (int i = 0; i < arreglo.length; i++)  {
-	            int elementoActual = arreglo[i],
-	                    elementoSiguiente = arreglo[i+1];
-	            if (elementoActual > elementoSiguiente) {
-	                // Intercambiar
-	                arreglo[i] = elementoSiguiente;
-	                arreglo[i + 1] = elementoActual;           	                
-	            }
-	            System.out.println(arreglo[i]);
-	        }
-	    }
+			boolean hayIntercambios;
+			do {
+				hayIntercambios = false;
+				// Empieza el algoritmo
+				for (int i = 0; i < array.length - 1; i++) {
+					
+					if (array[i+1] < array[i]) {
+						
+						// Entonces hago un intercambio
+						int aux = array[i+1];
+						array[i+1] = array[i];
+						array[i] = aux;
+						hayIntercambios = true;
+						System.out.println(array[i]);	
+					}
+					
+					
+				}
+			} while (hayIntercambios == true);
+			
+		}
 	}
-}
+
