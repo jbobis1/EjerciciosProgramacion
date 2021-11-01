@@ -12,22 +12,15 @@ public class Ejercicio02 {
 			   System.out.println(arreglo[i]);
 		}
 		   System.out.println("----");
-		while (permanecer) {  
-			permanecer=false;
-			 interaccion++;
-			
-			for (int x = 0; x < arreglo.length; x++) {
-				
-	            int elementoActual = arreglo[x],
-	                    elementoSiguiente = arreglo[x +1];
-		            if ( arreglo[x] >  arreglo[x+1]) {
-		            	permanecer=true;
-		                // Intercambiar
-		                arreglo[x] = elementoSiguiente;
-		                arreglo[x + 1] = elementoActual;           	                
-		            }
-		            if(permanecer)System.out.println(arreglo[x]);  
+		for (int i = 1; i < 20; i++) {
+		      int actual = arreglo[i];
+		        for (int j = i; j > 0 && arreglo[j - 1] > actual; j--) {
+		        	arreglo[j] = arreglo[j - 1];
+		        	System.out.println(arreglo[j]);
+		        }
+		        arreglo[i] = actual;
+		        
 		    }
 		}
 	}
-}
+
