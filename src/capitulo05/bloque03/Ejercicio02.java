@@ -16,10 +16,9 @@ public class Ejercicio02 {
 		      int actual = arreglo[i];
 		        for (int j = i; j > 0 && arreglo[j - 1] > actual; j--) {
 		        	arreglo[j] = arreglo[j - 1];
-		        	System.out.println(arreglo[j]);
 		        }
 		        arreglo[i] = actual;
-		        
+		        System.out.println(arreglo[j]);
 		    }
 		}
 	}
