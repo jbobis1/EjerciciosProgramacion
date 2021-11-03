@@ -27,13 +27,13 @@ public class Ejercicio04 {
     	  }
     	  aux=array[posicionmenor];
           for (int j =  posicionmenor; j < i ; i--) {
-          	  
          	  	array[j]=array[j-1];
+               
+
            }
   
           array[i]=aux;
-          System.out.println(array[i]);
-         
+          System.out.println(array[i]);  
       	
 
 		}
