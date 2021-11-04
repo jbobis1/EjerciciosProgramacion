@@ -12,25 +12,22 @@ public class Ejercicio02 {
 			 	System.out.print(array[i]+"-");
 		}
         System.out.println(" ");  
-       
       for (int i = 0; i < array.length; i++) { 
     	  	posicionmenor=i;
-    	  for(int j = i+1; j < array.length; j++){
+    	  for(int j = i + 1; j < array.length; j++){
 	    	  	if(array[j] < array[posicionmenor]){	
 		    	  	posicionmenor=j;
 	    	  	}
     	  }
     	  aux=array[posicionmenor];
-          for (int j =  posicionmenor; j < i ; i--) {  
+          for (int j =  posicionmenor; j > i ; j--) {  
          	  	array[j]=array[j-1];                 
            }       
-       	aux=array[i]; 
-     
+       	array[i]=aux; 
 		}
 		System.out.println("Array Odenado:");
-		for (int i = 0; i < array.length-1; i++) {
+		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i]+"-");
 		}
 	}
 }
-
