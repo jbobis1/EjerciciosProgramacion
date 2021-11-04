@@ -16,22 +16,15 @@ public class Ejercicio02 {
       for (int i = 0; i < array.length; i++) { 
     	  	posicionmenor=i;
     	  for(int j = i+1; j < array.length; j++){
-    	  	
-	    	  	if(array[j] < array[posicionmenor]){
-	    	  		
+	    	  	if(array[j] < array[posicionmenor]){	
 		    	  	posicionmenor=j;
 	    	  	}
     	  }
     	  aux=array[posicionmenor];
-    	 
-          for (int j =  posicionmenor; j < i ; i--) { 
-        	   
-         	  	array[j]=array[j-1];
-         	
-                  
-           }
-       	aux=array[i];
-      
+          for (int j =  posicionmenor; j < i ; i--) {  
+         	  	array[j]=array[j-1];                 
+           }       
+       	aux=array[i]; 
      
 		}
 		System.out.println("Array Odenado:");
