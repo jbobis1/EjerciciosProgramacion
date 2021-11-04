@@ -4,40 +4,26 @@ import java.util.Iterator;
 
 public class Ejercicio04 {
 	public static void main(String[] args) {
+		int arreglo[] = new int[10];		
 		int aux;
-		int posicionmenor;
-		int array[] = new int[5];
-		
 		// Inicialización de los valores del array
-		for (int i = 0; i < array.length; i++) {
-			array[i] = (int)Math.round(Math.random() * (5 - 0)) + 0;
-			 	System.out.println(array[i]);
+		for (int i = 0; i < arreglo.length; i++) {
+			arreglo[i] = (int)Math.round(Math.random() * (10 - 0)) + 0;
+			   System.out.print(arreglo[i]+"-");
 		}
-        System.out.println(" ");  
-       
-      for (int i = 0; i < array.length; i++) { 
-    	  	
-    	  	posicionmenor=i;
-    	  for(int j = i+1; j < array.length; j++){
-    	  	
-	    	  	if(array[j] < array[posicionmenor]){
-	    	  		
-		    	  	posicionmenor=j;
-		    	  	 
-		    	  
-	    	  	}
-    	  }
-    	  aux=array[posicionmenor];
-    	  array[i]=aux;
-          for (int j =  posicionmenor; j < i ; i--) {
-         	  	array[j]=array[j-1]; 
-         	  	
-           }
-  
-         
-          System.out.println(array[i]);  
-      	
-
+		   System.out.println("");
+		for (int i = 0; i < arreglo.length; i++) {
+			for(int j = i+1; j <arreglo.length; j++) {
+				if(arreglo[j] < arreglo[i]) {
+					aux=arreglo[i];
+					arreglo[i]=arreglo[j];
+					arreglo[j]=aux;
+				}
+			}		
+		}
+		
+		for ( int i = 0; i < arreglo.length; i++) {
+			System.out.print(arreglo[i]+"-");
 		}
 	}
 }
