@@ -5,7 +5,7 @@ public class Ejercicio03 {
 		int aux;
 		int arreglo[] = new int[10];
 		int saltos[] = new int[] {6,4,3,2,1};
-		
+		System.out.println("Array Aleatorio:");
 		// Inicialización de los valores del array
 		for (int i = 0; i < arreglo.length; i++) {
 			arreglo[i] = (int)Math.round(Math.random() * (10 - 0)) + 0;

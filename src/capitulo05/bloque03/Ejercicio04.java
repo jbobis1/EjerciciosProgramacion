@@ -6,6 +6,7 @@ public class Ejercicio04 {
 	public static void main(String[] args) {
 		int arreglo[] = new int[10];		
 		int aux;
+		System.out.println("Array Aleatorio:");
 		// Inicialización de los valores del array
 		for (int i = 0; i < arreglo.length; i++) {
 			arreglo[i] = (int)Math.round(Math.random() * (10 - 0)) + 0;
@@ -21,7 +22,7 @@ public class Ejercicio04 {
 				}
 			}		
 		}
-		
+		System.out.println("Array Odenado:");
 		for ( int i = 0; i < arreglo.length; i++) {
 			System.out.print(arreglo[i]+"-");
 		}

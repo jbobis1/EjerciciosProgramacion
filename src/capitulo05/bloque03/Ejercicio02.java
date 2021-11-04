@@ -5,7 +5,7 @@ public class Ejercicio02 {
 		int aux;
 		int posicionmenor;
 		int array[] = new int[5];
-		
+		System.out.println("Array Aleatorio:");
 		// Inicialización de los valores del array
 		for (int i = 0; i < array.length; i++) {
 			array[i] = (int)Math.round(Math.random() * (5 - 0)) + 0;
