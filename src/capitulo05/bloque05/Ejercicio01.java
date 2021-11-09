@@ -13,13 +13,13 @@ public class Ejercicio01 {
 		System.out.println("");
 	    for (int i = 0; i < array.length; i++) {
 	    	
-	    	if(array[4] % 2 == 0) {
+	    	if(array.length % 2 == 0) {
 	    		 System.out.println("El resultado es: "+ -1);
-	    		 break;
+	    		 return -1;
 	    	}
-	    	if((array[4]) % 2 != 0) {
-	    		 System.out.print("El resultado es: "+ array[4]);
-	    		 break;
+	    	else { 
+	    		return array[array.length/2];
+	    		
 	    	}
 	    }
     }
