@@ -24,12 +24,10 @@ public class Ejercicio02 {
 	    		aprobado++;	
 	    	}
 	    	else{
-	    		suspendo++;
-	    		 
+	    		suspendo++;	 
 	    	}
 	    }
 	    System.out.println("Porcentaje aprobados: "+ (aprobado*100)/array.length);
 	    System.out.println("Porcentaje aprobados: "+ (suspendo*100)/array.length);
-
     }
 }
