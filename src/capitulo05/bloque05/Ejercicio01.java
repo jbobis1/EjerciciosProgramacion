@@ -2,25 +2,29 @@ package capitulo05.bloque05;
 
 public class Ejercicio01 {
 	public static void main(String[] args) {
-		int array[] = new int[10];
-		System.out.println("Array Aleatorio:");
+		int array[] = new int[9];
+		int longitud;
+		empezararray(array);
+		longitud = examinarLongitudDelArray(array);
 		// Inicialización de los valores del array
-		for (int i = 0; i < array.length; i++) {
-			array[i] = (int)Math.round(Math.random() * (100 - 0)) + 0;
-			   System.out.print(array[i]+"-");
-		}
-         
-		System.out.println("");
-	    for (int i = 0; i < array.length; i++) {
-	    	
-	    	if(array.length % 2 == 0) {
-	    		 System.out.println("El resultado es: "+ -1);
-	    		 return -1;
-	    	}
-	    	else { 
-	    		return array[array.length/2];
-	    		
-	    	}
-	    }
+		System.out.println("longitud del array: "+ array.length);
+		System.out.println(longitud);
+	}
+		
+	public static void empezararray(int array[]){	
+			
+			for (int i = 0; i < array.length; i++) {
+				array[i] = (int)Math.round(Math.random() * (100 - 0)) + 0;
+				   
+			}
     }
+	public static int examinarLongitudDelArray(int[] array){	
+		if(array.length % 2==0 ) {
+			//Longitud es par
+			return -1;
+		}
+		else {
+		return array[(array.length-1)/2];
+		}
+	}
 }
