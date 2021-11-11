@@ -7,20 +7,42 @@ import javax.swing.JOptionPane;
 public class Ejercicio04 {
 	public static void main(String[] args) {
 		int matriz[][] = new int[][] {  	
-			{1,		0, 	0},
-			{0, 	7, 	1},	
-			{0, 	0, 	5}};
-
-	//		int[][] transpuesta = new int[5][5];
+			{1,	1, 1},
+			{1, 1, 1},	
+			{1, 1, 1}};		
+	//	int[][] transpuesta = new int[5][5];
+			
 	//	crearmatriz(matriz);
+			
 		mostar(matriz);
+		System.out.println("" );
+		
 		positivos(matriz);
 		System.out.println("Matriz positiva: " + positivos(matriz));
 		
-		diamgonal( matriz);
-		System.out.println("La matriz es diagonal: " + diamgonal(matriz));
+		diagonal1( matriz);
+		System.out.println("La matriz es diagonal: " + diagonal1(matriz));
 		
-//		simetrica(matriz);
+		triangularsuperio(matriz);
+		System.out.println("La matriz es triangular: " + triangularsuperio(matriz));
+		
+		simetrica(matriz);
+		System.out.println("La matriz es simetrica: " + simetrica(matriz));
+		
+		dispersa (matriz);
+		
+		inicializar( matriz);
+		
+		
+		invertir(matriz);
+		
+		unidimensional(matriz);
+		
+		transponer( matriz);
+		
+		
+
+	
 //		transponer( matriz,  transpuesta);
 //		cuadrada(matriz);
 		//matriz= cargar(matriz);
@@ -62,7 +84,7 @@ public class Ejercicio04 {
 	}
 	
 	
-	public static boolean diamgonal (int matriz[][]) {
+	public static boolean diagonal1 (int matriz[][]) {
 		boolean esPositiva = true;
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
@@ -74,28 +96,94 @@ public class Ejercicio04 {
 		}
 		return esPositiva;
 	}
+	
+	public static boolean triangularsuperio(int[][] matriz) {
+		boolean esPositiva = true;
+		int n=3;
+    	
+		  int[][] nuevaMatriz = new int[matriz[0].length][matriz.length];
+		  int tri_sup = 1;
+		    for(int i=0;i < n-1;i++)
+		    {
+		        for(int j= n-1;j > 0+i; j--)
+		        {
+		            if(matriz[j][i] == 0) {
+		            	 tri_sup = 1;
+		            	 esPositiva = true;
+		            }
+		               
+		            else {
+		                tri_sup = 0;
+		                esPositiva = false;
+		            }
+		        }
+		    }
+		    return esPositiva;
+            }
+	
+	public static boolean dispersa (int matriz[][]) {
+		
 
-	
-	
-	
-	
-		public static int[][] simetrica(int[][] matriz) {
-	    	System.out.println(" ");
-			System.out.println(" ");
-			System.out.print(" simetrica");
-			System.out.println(" ");
-			  int[][] nuevaMatriz = new int[matriz[0].length][matriz.length];
-					
-			  for (int x=0; x < matriz.length; x++) {
-				  System.out.println(" ");
-			    for (int y=0; y < matriz[x].length; y++) {
-			      nuevaMatriz[y][x] = matriz[x][y];
-			      System.out.print(matriz[y][x]+ " ");
-			      
-			    }
-			  }		
-			  return nuevaMatriz;
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
 			}
+		}
+		return false;
+			
+	
+	}
+	
+	
+    public static boolean simetrica(int matriz[][]){
+        for(int i=0; i < matriz.length; i++){
+            for(int j=0; j < matriz[i].length ; j++){
+                if(matriz[i][j] != matriz[j][i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+			
+	
+//	public static boolean invertir (int matriz[][]) {
+//		boolean esPositiva = true;
+//		for (int i = 0; i < matriz.length; i++) {
+//			for (int j = 0; j < matriz[i].length; j++) {
+//			    while( matriz > 0 ) {
+//			         resto = matriz % 10;
+//			         invertido = invertido * 10 + resto;
+//			         matriz /= 10;
+//			      }
+//			}
+//		}
+//		return esPositiva;
+//	}
+
+		
+		
+   public static void inicializar(int matriz[][]){
+        System.out.println("Inicializando la matriz...\n");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("filas de la matriz: ");
+        int fila = sc.nextInt();
+        matriz = new int[fila][5];
+        for(int i=0;i<matriz.length;i++){
+            for(int j=0;j<matriz[i].length;j++){
+                System.out.printf("Introduce el valor fila %d - columna %d: ", (i+1), (j+1));
+                matriz[i][j] = sc.nextInt();
+            }
+        }
+        sc.close();
+    }
+ 	
+		
+		
+		
+		
+		
+		
+		
 	
 	   static void cuadrada(int[][] matriz){
 	        int aux;
