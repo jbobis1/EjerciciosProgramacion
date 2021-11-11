@@ -2,29 +2,22 @@ package capitulo05.bloque05;
 
 public class Ejercicio03 {
 	public static void main(String[] args) {
-			//Declaramos las variables
-			double array1[]=new double[20];
-			double array2[]=new double[20];
-			double array3[]=new double[40];
+			float array1[]=new float[20];
+			empezararray(array1);
+	}
+	
+		private static void empezararray(float[] array1) {	
+			int entero=0; 
+			float decimal=0 ;
 			
-			empezararray(array1, array2,array3);
-			calculoNota(array3);
-	}
-		
-		private static void empezararray(double[] array1, double[] array2, double[] array3) {
-		// TODO Auto-generated method stub
-			for (int i = 0; i < array1.length ||i < array2.length; i++) {		//creacion del numero aleatorio
-				array1[i] = (double) Math.round (Math.random() * (100.00-1.0)) + 0;
-				array2[i] = (double) Math.round (Math.random() * (0.9-0.1)) + 0;
-				array3[i]=array1[i]+array2[i];
+			for (int i = 0; i < array1.length; i++) {		
+				entero = (int) Math.round (Math.random() * (100.00-1.0)) + 0;	
+				decimal = (float) Math.round (Math.random() * (100.00-1.0)) /100;										
+				array1[i] =  entero+decimal;		
+				//System.out.print(total);	
+				if(decimal <= .49) {
+		    		System.out.println(array1[i]);
+		    	}	
 			}
-	}
-		
-		public static void calculoNota(double[] array3){
-		    for (int i = 0; i < array3.length; i++) {
-		    	if(array3[i]>=0.0||array3[i]>=0.5) {
-		    		System.out.println(array3[i]);
-		    	}  	
-		    }
-	    }	
+		}		
 }
