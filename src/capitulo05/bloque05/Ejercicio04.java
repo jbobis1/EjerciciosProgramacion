@@ -6,17 +6,26 @@ import javax.swing.JOptionPane;
 
 public class Ejercicio04 {
 	public static void main(String[] args) {
-		int[][] matriz = new int[5][5];
-		int[][] transpuesta = new int[5][5];
-		crearmatriz(matriz);
+		int matriz[][] = new int[][] {  	
+			{1,		0, 	0},
+			{0, 	7, 	1},	
+			{0, 	0, 	5}};
+
+	//		int[][] transpuesta = new int[5][5];
+	//	crearmatriz(matriz);
 		mostar(matriz);
 		positivos(matriz);
-		simetrica(matriz);
-		transponer( matriz,  transpuesta);
-		cuadrada(matriz);
+		System.out.println("Matriz positiva: " + positivos(matriz));
+		
+		diamgonal( matriz);
+		System.out.println("La matriz es diagonal: " + diamgonal(matriz));
+		
+//		simetrica(matriz);
+//		transponer( matriz,  transpuesta);
+//		cuadrada(matriz);
 		//matriz= cargar(matriz);
-		diagonal( matriz);
-		TriangularSuperior( matriz);
+//		diagonal( matriz);
+//		TriangularSuperior( matriz);
 	}
 	
 	private static void crearmatriz(int[][] matriz) {
@@ -40,22 +49,35 @@ public class Ejercicio04 {
 	
 
 	
-	private static void positivos(int[][] matriz) {
-		System.out.println(" ");
-		System.out.println(" ");
-		System.out.print(" valores Positivos");
-		System.out.println(" ");
+	public static boolean positivos (int matriz[][]) {
+		boolean esPositiva = true;
 		for (int i = 0; i < matriz.length; i++) {
-			System.out.println(" ");
-			for (int j = 0; j < matriz[i].length; j++)
-				if(matriz[i][j]>=0) {
-		    		System.out.print(matriz[i][j]+ " ");
-		    	}
-		    	else{
-		    		 
-		    	}
-		    }
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (matriz[i][j] < 0) {
+					esPositiva = false;
+				}
+			}
 		}
+		return esPositiva;
+	}
+	
+	
+	public static boolean diamgonal (int matriz[][]) {
+		boolean esPositiva = true;
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				 if(matriz[i][j]!= matriz[j][i]){		 
+					
+					 esPositiva = false;
+	             }
+			}
+		}
+		return esPositiva;
+	}
+
+	
+	
+	
 	
 		public static int[][] simetrica(int[][] matriz) {
 	    	System.out.println(" ");
