@@ -31,23 +31,20 @@ public class Ejercicio04 {
 		
 		dispersa (matriz);
 		
-		inicializar( matriz);
+//		inicializar( matriz);
 		
+		invertir (matriz);
+		System.out.println ("La matriz es invertida: "  + invertir(matriz));
 		
-		invertir(matriz);
 		
 		unidimensional(matriz);
+		System.out.println ("La matriz es invertida: "  + unidimensional(matriz));
 		
-		transponer( matriz);
+		transponer(matriz);
+		System.out.println ("La matriz es invertida: "  + transponer(matriz));
 		
 		
-
-	
-//		transponer( matriz,  transpuesta);
-//		cuadrada(matriz);
-		//matriz= cargar(matriz);
-//		diagonal( matriz);
-//		TriangularSuperior( matriz);
+		
 	}
 	
 	private static void crearmatriz(int[][] matriz) {
@@ -125,14 +122,19 @@ public class Ejercicio04 {
 		
 
 		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-			}
-		}
-		return false;
+			boolean esPositiva = false;
 			
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(matriz[i][j]==0) {
+				 esPositiva = true;
 	
+			}
+				if(matriz[i][j]!=0) {
+					return false;
+				}
+			}	
+		}
 	}
-	
 	
     public static boolean simetrica(int matriz[][]){
         for(int i=0; i < matriz.length; i++){
@@ -146,19 +148,19 @@ public class Ejercicio04 {
     }
 			
 	
-//	public static boolean invertir (int matriz[][]) {
-//		boolean esPositiva = true;
-//		for (int i = 0; i < matriz.length; i++) {
-//			for (int j = 0; j < matriz[i].length; j++) {
-//			    while( matriz > 0 ) {
-//			         resto = matriz % 10;
-//			         invertido = invertido * 10 + resto;
-//			         matriz /= 10;
-//			      }
-//			}
-//		}
-//		return esPositiva;
-//	}
+	public static void invertir (int matriz[][]) {
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+	            if(matriz[j][i] > 0) {
+	            	matriz[i][j]= matriz[j][i]*(-1);
+	            	
+	            } 
+	            else {  
+	            	matriz[i][j]= matriz[j][i]*(+1);
+	            }		      
+			}
+		}
+	}
 
 		
 		
@@ -176,117 +178,35 @@ public class Ejercicio04 {
         }
         sc.close();
     }
+
  	
-		
-		
-		
-		
-		
-		
-		
-	
-	   static void cuadrada(int[][] matriz){
-	        int aux;
-	    	System.out.println(" ");
+	private static void transponer(int[][] matriz) {
 			System.out.println(" ");
-			System.out.print(" cuadrada");
-			System.out.println(" ");
-	        for(int i=0;i<matriz.length;i++){
-	        	  System.out.println(" ");
-	            for(int j=0;j<matriz[i].length;j++){ if(i>j){
-	                    aux = matriz[i][j];
-	                    matriz[i][j] = matriz[j][i];
-	                    matriz[j][i] = aux;
-	                    System.out.print(matriz[j][i]+ " ");
-	                }
-	            }
-	        }
-	    }
-	   
-	    static void transponer(int[][] matriz, int[][] transpuesta){
-	    	System.out.println(" ");
 			System.out.println(" ");
 			System.out.print(" transponer");
 			System.out.println(" ");
-	        for(int i=0;i<matriz.length;i++){
-	        	System.out.println(" ");
-	            for(int j=0;j<matriz[i].length;j++){
-	                transpuesta[j][i] = matriz[i][j];
-	                System.out.print(matriz[j][i]+ " ");
-	            }
-	        }
-	    }
-	    
-
-	    
-		private static void diagonal(int[][] matriz) {
-            
-		    int sumDiag=0;
-	         for(int i=0;i<matriz.length;i++){
-	             for(int j=0;j<matriz[0].length;j++){
-	                 if(!(i==j)){ //Saltamos las posiciones de la diagonal, estas posiciones no necesitan ser sumadas
-	                    sumDiag+=matriz[i][j];
-	                 }
-	              }
-	          }
-	          if(sumDiag==0){
-	              JOptionPane.showMessageDialog(null, "Es diagonal!!!");    
-	     }
-		else{
-	        JOptionPane.showMessageDialog(null, "No es cuadrada por lo tanto no puede haber diagonal");
-	     }    
-				
-		}	
-		
-	private static void TriangularSuperior(int[][] matriz) {
-	
-        int sum=0;
-        for(int i=1;i<matriz.length;i++){
-            for(int j=0;j<matriz[i].length;j++){
-                if(j<i){
-                        sum+=matriz[i][j];      
-                }
-            }
-        }
-
-        if(sum==0){
-                JOptionPane.showMessageDialog(null,"Es una matriz triagular superior");
-        }
-        else{
-                JOptionPane.showMessageDialog(null,"No es una matriz triagular superior");
-        }
-        
-
-    }  
-				
-	
-		
-		
-		
-		
-	    public static int[][] cargar(int[][] matriz) {
-		       
-	        System.out.println(" ");
-	        System.out.println(" ");
-	        System.out.print("Cuantas fila tiene la matriz:");
-	        Scanner teclado = new Scanner(System.in);
-	        int filas=teclado.nextInt();  
-	        int[][] mat = new int[filas][5];	        
-	        for (int i = 0; i < mat.length; i++) {
-	        	System.out.println(" ");
-				for (int j = 0; j < mat[i].length; j++)
-				
-				matriz[i][j] = (int) Math.round (Math.random() * (+200)) -100;
+				for(int i=0;i<matriz.length;i++){
+					System.out.println(" ");
+				    for(int j=0;j<matriz[i].length;j++){
+				    	 matriz[i][j] = matriz[j][i];
+				    		  }
+				    }
 				}
-			return mat;
-	    
-	    } 
-		
-}
 	
-  
+			
 
-
+		
+		public static boolean unidimensional(int matriz[][]){
+			int array[] = new int[50];
+		
+		    for(int i=0; i < matriz.length; i++){
+		        for(int j=0; j < matriz[i].length ; j++){
+		        array[i*matriz[i][j].length]= matriz[i][j];
+		      
+		            }
+		        }
+		    }
+}  
 	
 	
 
