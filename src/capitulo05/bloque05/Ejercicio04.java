@@ -15,7 +15,7 @@ public class Ejercicio04 {
 	//	crearmatriz(matriz);
 			
 		mostar(matriz);
-		System.out.println("" );
+		System.out.println("");
 		
 		positivos(matriz);
 		System.out.println("Matriz positiva: " + positivos(matriz));
@@ -29,19 +29,19 @@ public class Ejercicio04 {
 		simetrica(matriz);
 		System.out.println("La matriz es simetrica: " + simetrica(matriz));
 		
-		dispersa (matriz);
+//		invertir (matriz);
+//		System.out.println(" invertir: " + invertir(matriz));
 		
 //		inicializar( matriz);
+
+		dispersa (matriz);
+		System.out.println ("La matriz es dispersa: "  + dispersa(matriz));
 		
-		invertir (matriz);
-		System.out.println ("La matriz es invertida: "  + invertir(matriz));
+//		unidimensional(matriz);
+//		System.out.println ("La matriz es invertida: "  + unidimensional(matriz));
 		
-		
-		unidimensional(matriz);
-		System.out.println ("La matriz es invertida: "  + unidimensional(matriz));
-		
-		transponer(matriz);
-		System.out.println ("La matriz es invertida: "  + transponer(matriz));
+//		transponer(matriz);
+//		System.out.println ("La matriz es invertida: "  + transponer(matriz));
 		
 		
 		
@@ -119,8 +119,6 @@ public class Ejercicio04 {
             }
 	
 	public static boolean dispersa (int matriz[][]) {
-		
-
 		for (int i = 0; i < matriz.length; i++) {
 			boolean esPositiva = false;
 			
@@ -134,6 +132,7 @@ public class Ejercicio04 {
 				}
 			}	
 		}
+		return false;
 	}
 	
     public static boolean simetrica(int matriz[][]){
@@ -149,21 +148,21 @@ public class Ejercicio04 {
 			
 	
 	public static void invertir (int matriz[][]) {
+		
 		for (int i = 0; i < matriz.length; i++) {
+			
 			for (int j = 0; j < matriz[i].length; j++) {
 	            if(matriz[j][i] > 0) {
-	            	matriz[i][j]= matriz[j][i]*(-1);
-	            	
+	            	matriz[j][i]=matriz[j][i]*(-1);	            
 	            } 
-	            else {  
-	            	matriz[i][j]= matriz[j][i]*(+1);
+	            if(matriz[j][i] < 0) {
+	            	matriz[j][i]=matriz[j][i]*(+1);         	
 	            }		      
 			}
 		}
+		
 	}
-
-		
-		
+	
    public static void inicializar(int matriz[][]){
         System.out.println("Inicializando la matriz...\n");
         Scanner sc = new Scanner(System.in);
@@ -181,30 +180,25 @@ public class Ejercicio04 {
 
  	
 	private static void transponer(int[][] matriz) {
-			System.out.println(" ");
-			System.out.println(" ");
-			System.out.print(" transponer");
-			System.out.println(" ");
-				for(int i=0;i<matriz.length;i++){
-					System.out.println(" ");
+				for(int i=0;i<matriz.length;i++){	
 				    for(int j=0;j<matriz[i].length;j++){
 				    	 matriz[i][j] = matriz[j][i];
-				    		  }
 				    }
 				}
-	
-			
+	}
 
 		
 		public static boolean unidimensional(int matriz[][]){
-			int array[] = new int[50];
+			boolean esPositiva = true; 
+			int array[] = new int[30];
 		
 		    for(int i=0; i < matriz.length; i++){
 		        for(int j=0; j < matriz[i].length ; j++){
 		        array[i*matriz[i][j].length]= matriz[i][j];
+		    	esPositiva = true;
 		      
 		            }
-		        }
+		        }return false;
 		    }
 }  
 	
