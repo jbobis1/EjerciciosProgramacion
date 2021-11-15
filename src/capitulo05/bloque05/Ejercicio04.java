@@ -37,8 +37,8 @@ public class Ejercicio04 {
 		dispersa (matriz);
 		System.out.println ("La matriz es dispersa: "  + dispersa(matriz));
 		
-//		unidimensional(matriz);
-//		System.out.println ("La matriz es invertida: "  + unidimensional(matriz));
+		unidimensional(matriz);
+		System.out.println ("La matriz es invertida: "  + unidimensional(matriz));
 		
 //		transponer(matriz);
 //		System.out.println ("La matriz es invertida: "  + transponer(matriz));
@@ -194,7 +194,8 @@ public class Ejercicio04 {
 		
 		    for(int i=0; i < matriz.length; i++){
 		        for(int j=0; j < matriz[i].length ; j++){
-		        array[i*matriz[i][j].length]= matriz[i][j];
+		        array[i*matriz[i].length]= matriz[i][j];
+		        System.out.println(matriz[i][j]);
 		    	esPositiva = true;
 		      
 		            }
