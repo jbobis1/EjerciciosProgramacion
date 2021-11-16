@@ -8,8 +8,6 @@ public class Ejercicio01 {
 		mostrar(array);
 		
 	}
-	
-	
 	private static void crear(int[] array) {
 		System.out.println("Array Aleatorio:");
 		// creamos el bucle de creacion del array
@@ -26,6 +24,7 @@ public class Ejercicio01 {
 	private static void mostrar(int[] array) {
 		// recorremos el array para ya mostrarlo
 		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i]+ " ");
 			 
 		}	
     }
