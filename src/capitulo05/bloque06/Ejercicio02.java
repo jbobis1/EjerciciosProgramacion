@@ -9,7 +9,7 @@ public class Ejercicio02 {
 			for (int j = 0; j< matriz.length; j++) {
 				matriz [i][j] = "*";
 				do {
-					matriz [i][j] = "*";
+					matriz [i][j] = ;
 					System.out.println("*");
 				}while (j <(int)matriz [i][j]);
 				do {
