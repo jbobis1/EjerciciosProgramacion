@@ -12,7 +12,7 @@ public class Ejercicio01 {
 		System.out.println("Array Aleatorio:");
 		// creamos el bucle de creacion del array
 		for (int i = 0; i < array.length; i++) {
-			array[i] = (int)Math.round(Math.random() * (49 - 0)) + 0;
+			array[i] = (int)Math.round(Math.random() * (49 - 1)) + 1;
 		//bucle de j que recorrere los todos lo varores y los repetodos los cambiara
 		  	for (int j=0;j < i ; j++){
         		if (array[i] == array[j]){

@@ -14,9 +14,8 @@ public class Ejercicio02 {
 			array[i] = (int)Math.round(Math.random() * (10 - 0)) + 0;	   
 		}
 	} 
-	
 	public static void calculoNota(int[]array){
-		int aprobado=0, suspendo=0;
+		float aprobado=0, suspendo=0;
 		
 	    for (int i = 0; i < array.length; i++) {
 	    	
@@ -27,7 +26,7 @@ public class Ejercicio02 {
 	    		suspendo++;	 
 	    	}
 	    }
-	    System.out.println("Porcentaje aprobados: "+ (aprobado*100)/array.length);
-	    System.out.println("Porcentaje aprobados: "+ (suspendo*100)/array.length);
+	    System.out.println("Porcentaje Aprobados: "+ (aprobado*100)/array.length+"%");
+	    System.out.println("Porcentaje Suspensos: "+ (suspendo*100)/array.length+"%");
     }
 }
