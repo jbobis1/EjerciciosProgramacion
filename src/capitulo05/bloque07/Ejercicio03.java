@@ -3,21 +3,33 @@ package capitulo05.bloque07;
 public class Ejercicio03 {
 
 	public static void main(String[] args) {
-	int array[] = new int [] {1,2,6,1,9,};
-	int nuevoarray[] ;
+	int array[] = new int [] {1,2,6,1,9};
+	int nuevoarray[] = new int [] {};
 	addInteger(array, nuevoarray);
 //	System.out.print(findAndReplace(array));
 	}
 
-	private static void addInteger(int[] array, int[] nuevoarray) {
-		  for(int i = 0; i <= array.length+1; i++){
-			  nuevoarray[i] = array[i];
+	private static int[] addInteger(int[] array, int[] nuevoarray) {
+		 nuevoarray = new int [] {array.length+1};
+
+		 for( int i = 0; i < array.length;  i++){
+		  for( int j = 0; j < nuevoarray.length;  j++){
+			  nuevoarray[j] = array[i];
 			  
-			  if (i==array.length+1) {
-				  nuevoarray[i]=10; 
+			  if (nuevoarray[j]==nuevoarray[nuevoarray.length-1]) {
+				  nuevoarray[j]=19; 
+			  }	  
+			  
+	 
+		  }	//System.out.println(array[j]);
+		 }
+	
+		 
+			  for( int j = 0; j < nuevoarray.length;  j++){
+				System.out.println(nuevoarray[j]);  
 			  }
-		  }	  
-		  System.out.println(nuevoarray);
+	 
+		  return nuevoarray;
 	}
 }
 	
