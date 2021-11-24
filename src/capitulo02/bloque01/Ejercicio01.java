@@ -13,7 +13,8 @@ public class Ejercicio01 {
 	public static void main(String args[]) {
 		
 		String str = JOptionPane.showInputDialog("Introduzca un número entero: ");
-		int var = Integer.parseInt(str);
+		int var = Integer.parseInt(str
+				);
 		
 		str =JOptionPane.showInputDialog("Introduzca otro número entero: ");
 		int var1 = Integer.parseInt(str);
