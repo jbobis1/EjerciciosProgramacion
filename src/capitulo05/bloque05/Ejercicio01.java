@@ -8,7 +8,7 @@ public class Ejercicio01 {
 		longitud = examinarLongitudDelArray(array);
 		// Inicialización de los valores del array
 		System.out.println("longitud del array: "+ array.length);
-		System.out.println(longitud);
+		System.out.println(examinarLongitudDelArray(array));
 	}
 		
 	public static void empezararray(int array[]){	
@@ -16,9 +16,12 @@ public class Ejercicio01 {
 			for (int i = 0; i < array.length; i++) {
 				array[i] = (int)Math.round(Math.random() * (100 - 0)) + 0;
 				System.out.print(array[i]+" "); 
+				
 			}
     }
+	
 	public static int examinarLongitudDelArray(int[] array){	
+		System.out.println(" "); 
 		if(array.length % 2==0 ) {
 			//Longitud es par
 			return -1;

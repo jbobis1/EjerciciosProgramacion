@@ -24,7 +24,7 @@ public class Ejercicio02 {
 				array3[i] = array2[i];
 		    }
 			  
-			if((i % 2 ) != 0 ) {
+			else if((i % 2 ) != 0 ) {
 				array3[i] = array1[i];
 		    }	
 			System.out.println("Array3: " + array3[i]);

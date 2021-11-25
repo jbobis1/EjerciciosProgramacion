@@ -8,7 +8,7 @@ public class Matriz {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int matriz[][] = new int[][] {  {1,		0, 		0, 		0, 		0},
+		int matriz[][] = new int[][] {  {1,		2, 		0, 		0, 		0},
 										{0, 	7, 		0, 		0, 		0},
 										{0, 	0, 		6, 		0, 		0},
 										{0, 	0, 		0, 		18, 	0},
@@ -21,8 +21,10 @@ public class Matriz {
 		System.out.println("Matriz positiva: " + esMatrizPositiva(matriz));
 		System.out.println("Matriz diagonal: " + esMatrizDiagonal(matriz));
 		System.out.println("Matriz triangular superior: " + esMatrizTriangularSuperior(matriz));
-		
+		System.out.println("esMatrizDispersa: " + esMatrizDispersa (matriz));
+
 		int array2[] = arrayFromMatriz(matriz);
+	
 		
 	}
 
@@ -158,6 +160,7 @@ public class Matriz {
 			for (int j = 0; j < matriz[i].length; j++) {
 				array[k] = matriz[i][j];
 				k++;
+				System.out.println(array[k]);
 			}
 		}
 		

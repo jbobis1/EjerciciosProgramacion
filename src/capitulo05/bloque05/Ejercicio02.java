@@ -5,6 +5,7 @@ public class Ejercicio02 {
 		int array[] = new int[20];	
 		empezararray(array);
 		calculoNota(array);
+	
 	}
 	
 	public static void empezararray(int array[]){	

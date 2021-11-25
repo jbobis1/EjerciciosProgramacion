@@ -19,8 +19,8 @@ public static void main(String[] args) {
 			System.out.println("Array Normal: " +numero[i]);
 
 		}
-		while(j<desplazamientos) {
-			ultimo =numero[4];
+		while( j < desplazamientos) {
+			ultimo = numero[4];
 			for(int i=3;i>=0;i--) {
 				numero[i+1]=numero[i];
 							
