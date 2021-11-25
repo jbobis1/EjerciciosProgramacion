@@ -15,7 +15,7 @@ public class Ejercicio01 {
 			
 			for (int i = 0; i < array.length; i++) {
 				array[i] = (int)Math.round(Math.random() * (100 - 0)) + 0;
-				   
+				System.out.print(array[i]+" "); 
 			}
     }
 	public static int examinarLongitudDelArray(int[] array){	

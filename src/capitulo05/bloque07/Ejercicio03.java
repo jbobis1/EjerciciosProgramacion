@@ -16,19 +16,20 @@ public class Ejercicio03 {
 		  for( int j = 0; j < nuevoarray.length;  j++){
 			  nuevoarray[j] = array[i];
 			  
-			  if (nuevoarray[j]==nuevoarray[nuevoarray.length-1]) {
-				  nuevoarray[j]=19; 
-			  }	  
+//			  if (nuevoarray[j]==nuevoarray[nuevoarray.length-1]){
+//				  nuevoarray[j]=19;
+//			  }
+//			  System.out.println(nuevoarray[j]); 
+//			
+//			  if (nuevoarray[j]==nuevoarray.length-1) {
+//				  nuevoarray[j]=19; 
+//			  }	  
 			  
-	 
 		  }	//System.out.println(array[j]);
-		 }
-	
-		 
-			  for( int j = 0; j < nuevoarray.length;  j++){
-				System.out.println(nuevoarray[j]);  
+		 }	 
+			  for(int i = 0; i < nuevoarray.length;  i++){
+				System.out.println(nuevoarray[i]);  
 			  }
-	 
 		  return nuevoarray;
 	}
 }

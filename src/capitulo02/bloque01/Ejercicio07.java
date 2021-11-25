@@ -8,7 +8,8 @@ import javax.swing.JOptionPane;
 //  estudiases el código de la clase "OperadoresANivelDeBits" del capítulo 1 de este tutorial.
 //
 
-public class Ejercicio07 {
+public class Ejercicio07
+{
 
 	public static void main(String[] args) {
 		String str  = JOptionPane.showInputDialog("Introduzca un numero: ");

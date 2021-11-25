@@ -25,7 +25,8 @@ public class Ejercicio04 {
 			
 		}
 		numero[0]=ultimo;
-		System.out.println("mostrar la Posicion");
+		
+		System.out.println("Mostrar la Posicion");
 		for(int i=0;i<5;i++) {
 			System.out.println("arrary +1 "+numero[i]);
 		}

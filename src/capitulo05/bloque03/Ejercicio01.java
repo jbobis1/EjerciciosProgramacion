@@ -20,19 +20,16 @@ public class Ejercicio01 {
 						array[i+1] = array[i];
 						array[i] = aux;
 						hayIntercambios = true;			
-					}
-						
+					}					
 				}
 			}while (hayIntercambios == true);
 			System.out.println("");
-		
-			
+				
 			System.out.println("Array Odenado:");
 			for (int i = 0; i < array.length-1; i++) {
 				System.out.print(array[i]+"-");
 			}
-	}
-			
+	}		
 }
 	
 

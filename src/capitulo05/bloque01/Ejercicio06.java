@@ -16,6 +16,7 @@ public class Ejercicio06 {
 			 		i++;
 			    } 	
 		}
-		 System.out.println("-Total de numero de indice Par: "+ contador + "\n-Suma del indice Par: " + suma );
+		System.out.println("-Total de numero de indice Par: "+ contador + ""
+				+ "\n-Suma del indice Par: " + suma );
 	}	
 }

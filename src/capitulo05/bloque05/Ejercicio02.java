@@ -2,8 +2,7 @@ package capitulo05.bloque05;
 
 public class Ejercicio02 {
 	public static void main(String[] args) {
-		int array[] = new int[20];
-		
+		int array[] = new int[20];	
 		empezararray(array);
 		calculoNota(array);
 	}

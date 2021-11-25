@@ -18,14 +18,12 @@ public static void main(String[] args) {
 			numero[i] = (int)Math.round(Math.random() * (100 - 0)) +0;
 			System.out.println("Array Normal: " +numero[i]);
 
-		
 		}
 		while(j<desplazamientos) {
 			ultimo =numero[4];
 			for(int i=3;i>=0;i--) {
 				numero[i+1]=numero[i];
-				
-				
+							
 			}
 			numero[0]=ultimo;
 			System.out.println("---");

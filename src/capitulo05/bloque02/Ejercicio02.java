@@ -21,13 +21,13 @@ public class Ejercicio02 {
 		for (int i=0;i<=150; i++) {
 
 			if((i % 2 ) == 0 ) {
-				array3[i]= array2[i];
+				array3[i] = array2[i];
 		    }
 			  
-			else {
-				  array3[i]= array1[i];
-			}	
-			System.out.println(array3[i]);
+			if((i % 2 ) != 0 ) {
+				array3[i] = array1[i];
+		    }	
+			System.out.println("Array3: " + array3[i]);
 		}
 	}	
 }
