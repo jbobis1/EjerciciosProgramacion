@@ -20,4 +20,3 @@ public class Ejercicio01 {
 		return n;
 	}	
 }
-

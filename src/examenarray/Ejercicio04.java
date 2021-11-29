@@ -41,5 +41,4 @@ public class Ejercicio04 {
 		
 		return nuevoArray;
 	}
-
 }
