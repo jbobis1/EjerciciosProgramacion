@@ -46,7 +46,7 @@ public class Numero {
 			boolean igual = false;
 			
 			if(a==b) {
-				igual = true;
+				igual = 1;
 			}
 			else {
 				igual = false;

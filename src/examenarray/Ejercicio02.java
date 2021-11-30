@@ -20,28 +20,24 @@ public class Ejercicio02 {
 		}
 		
 	}
-	public static int[] arrayFromMatriz (int array1[]) {
+	@SuppressWarnings("unused")
+	public static int[][] arrayFromMatriz (int array1[]) {
 		// creamos la matriz con las dimensiones que tiene nuestro array
-		int[][] matriz= new int[array1.length / array1[0].length;
+		int lado = (int) Math.sqrt(array1.length);
+		int matriz[][]= new int[lado][lado];
  		int k = 0;
-		
-		for (int i = 0; i < array1.length; i++) {
-			for (int j = 0; j < matriz.length; j++) {
-		{
-				array1[i] = matriz[j][k];
-				k++;
-				
-			}
+ 		System.out.println("");
+ 		System.out.println("");
+ 		System.out.println("Matriz:");
+		for (int  i=0; i < matriz.length; i++) {
 			
-		}
-		}
-		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
-			System.out.println(matriz[i][j]);
-					
+			matriz[i][j] = array1[k];
+				k++;
+				System.out.println(matriz[i][j]);
 			}
-			
-			return matriz;
-		}		
+
+		}
+		return matriz;
 	}
 }
