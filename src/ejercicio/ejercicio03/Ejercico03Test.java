@@ -8,21 +8,21 @@ class Ejercico03Test {
 
 	@Test
 	public void ocurenciastest() {
-		int resultado = Ejercico03.numero("holaaa");
-		int esperado = 3;
+		String resultado = Ejercico03.numero("holaaa", "holaaa");
+		String esperado = "holee";
 		assertEquals(resultado,esperado);
 	}
 	@Test
 	public void ocurenciastest2() {
-		int resultado = Ejercico03.numero("bbb");
-		int esperado = 0;
+		String resultado = Ejercico03.numero("bbb","bbb");
+		String esperado = "bbb";
 		assertEquals(resultado,esperado);
 	}
 	
 	@Test
 	public void ocurenciastest3() {
-		int resultado = Ejercico03.numero("11");
-		int esperado = 0;
+		String resultado = Ejercico03.numero("11","11");
+		String esperado = "11";
 		assertEquals(resultado,esperado);
 	}
 }

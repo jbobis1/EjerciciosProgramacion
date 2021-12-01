@@ -5,26 +5,36 @@ import javax.swing.JOptionPane;
 public class Ejercico03 {
 
 		public static void main(String[] args) {
-		String cadena = JOptionPane.showInputDialog("Primer Numero:  ");
+		String cadena = "hola";
+		String cadena1 = "";
+		
+			//	JOptionPane.showInputDialog("Primer Numero:  ");
 	
 		
 		//	String cadena ="hollaaa";
-			numero(cadena);
 			
+			System.out.println(numero(cadena,cadena1));
 		}
-		public static int numero(String cadena) {
-			int contador=0;
+		public static String numero(String cadena,String cadena1) {
+
 			
-			int log = cadena.length();
-			
-			for(int i =0; i < log; i++) {
-				if(cadena.charAt(i)=='a') {
-					contador++;
+			for(int i =0; i < cadena(i); i++) {
+				
+				if(cadena(i)=='a') {
+					cadena1= cadena="e";
+					
 				}
-			} 
-			
-		System.out.println("El numero mayor es el: " + contador );
-			return contador;
+				else if(cadena(i)!='a') {
+					cadena1 = cadena;
+						
+				}
+			} 	
+		//System.out.println("la nueva cadena es " + cadena1 );
+			return cadena1;
 		}
-	
+		private static int cadena(int i) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
 }
