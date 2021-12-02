@@ -26,6 +26,7 @@ public class Ejercicio03 {
 	
 		float  suma=0, media=0;
 		int contador=0, alto=0, bajo=0;
+		
 		// creamos un bucle que nos recorra el array y nos calcule la suma y numero de veces que pasa
 	    for (int i = 0; i < array1.length; i++) {
 	    suma=array1[i] + suma;
@@ -33,9 +34,10 @@ public class Ejercicio03 {
 	    
 	    }
 	    media =suma/contador;
+	    
 	    // creamos un bucle para saber la media baja de los numero del array
 	    for (int i = 0; i < array1.length; i++) {
-		if(array1[i]<=media) {
+		if(array1[i]<media) {
     		bajo++;	
     	}
     
@@ -44,12 +46,10 @@ public class Ejercicio03 {
 	    System.out.println(" ");
 	    System.out.print("La suma es: " + suma);
 	    System.out.println(" ");
-	    System.out.println("Pocentaje por dejajo de la media:  "+ (bajo*100)/array1.length+"%");
+	    System.out.println("Pocentaje por debajo de la media:  "+ (bajo*100)/array1.length+"%");
     }
-	
-	    
-	
-	}
+
+}
 
 	
 

@@ -2,7 +2,6 @@ package capitulo05.bloque06;
 
 public class Ejercicio03 {
 	public static void main(String[] args) {
-		float media=0;
 		
 		crear(); 
 
@@ -21,7 +20,7 @@ public class Ejercicio03 {
 			
 		} while( media < 499.5 || media > 500.5);
        System.out.println("La media: " + media);
-	   System.out.println("He necesitado: " + contador + " números");
+	   System.out.println("He necesitado: " + contador + " numeros");
 
 	}		
 }

@@ -17,6 +17,11 @@ public class Ejercicio04 {
 				if (i == 0 || i == matriz.length-1 || j == 0 || j == matriz[i].length-1) {
 					matriz[i][j] = '*';
 				}
+				
+//				else if( i<4 || i>6) {
+//					matriz[i][j] = '*';
+//				}
+//				
 				else if(i==fila && j==columna) {
 					matriz[fila][columna]='0';
 				}
