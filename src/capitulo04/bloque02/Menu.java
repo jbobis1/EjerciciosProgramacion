@@ -24,9 +24,14 @@ public class Menu {
 		case 1:
 			for (int i = 0; i < arrayPersonas.length; i++)  {
 				int numero = (int)Math.round(Math.random() * (100 - 1)) + 1;
-				 arrayPersonas[i]= numero[i] ;
+				
 				}
+			for (int i = 0; i < arrayPersonas.length; i++)  {
 			
+				 Lista[] numero;
+				arrayPersonas[i]=  numero[i];
+				System.out.println(arrayPersonas[i]);
+				}
 		case 2:{
 			int suma=0,media=0, mayor=0, menor=0, contador=0, numero=0;
 			for (int i = 0; i < arrayPersonas.length; i++) {
@@ -56,17 +61,30 @@ public class Menu {
 		}
 			
 		case 3:
-			int count = 0;
 			
-			for (int i = 0; i < arrayPersonas.length; i++) {
-				if (arrayPersonas[i] == numeroBuscado) {
-					count++;
-				}
+			int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));
+			int minimo = Integer.parseInt(JOptionPane.showInputDialog("minimo: "));
+			int maximo = Integer.parseInt(JOptionPane.showInputDialog("maximo: "));
+			
+			for (int i = 0; i < numero; i++) {
+			  numero = (int)Math.round(Math.random() * (maximo - minimo)) + minimo;
+				System.out.println(numero);
 			}
-			
-	
-
+		
 		case 4:
+			int numerominimo = Integer.parseInt(JOptionPane.showInputDialog("minimo: "));
+			int numeromaximo = Integer.parseInt(JOptionPane.showInputDialog("maximo: "));
+			
+			 
+			for (int i = 0; i < arrayPersonas.length; i++) {
+			
+				if (arrayPersonas < numerominimo || arrayPersonas > numeromaximo) {
+					System.out.println(arrayPersonas[i]);
+				}
+			}	
+
+		case 5:
+				
 			for (int i = 0; i < arrayPersonas.length; i++) {
 				System.out.println(arrayPersonas[i]);
 			}
