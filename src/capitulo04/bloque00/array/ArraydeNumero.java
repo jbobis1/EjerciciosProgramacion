@@ -7,7 +7,7 @@ public class ArraydeNumero {
 		array miprimerArray = new array();
 		miprimerArray.mostrar();
 		miprimerArray.media();
-	//	miprimerArray.mayorymenor();
+		miprimerArray.mayorymenor();
 
 	}
 

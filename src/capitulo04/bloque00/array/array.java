@@ -28,7 +28,7 @@ public class array {
 		int media = 0 , suma =0;
 		
 		for (int i = 0; i < arrayValores.length; i++) {
-			suma= suma + this.arrayValores[i].getValor();
+			suma= suma + arrayValores[i].getValor();
 		}
 		media = suma /arrayValores.length;
 		System.out.println(suma);
