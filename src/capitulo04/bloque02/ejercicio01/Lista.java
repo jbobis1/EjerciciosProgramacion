@@ -1,4 +1,4 @@
-package capitulo04.bloque02;
+package capitulo04.bloque02.ejercicio01;
 
 public class Lista {
 	public Lista() {
