@@ -1,6 +1,6 @@
-package capitulo04.bloque002.ejercicio01.articulosComestibles;
+package capitulo04.bloque002.ejercicio01.coleccionAntiguedades;
 
-import capitulo04.bloque002.ejercicio01.coleccionAntiguedades.Antigüedad;
+�edad;
 
 public class Libro extends Antigüedad{
 

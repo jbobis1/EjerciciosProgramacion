@@ -1,4 +1,4 @@
-package capitulo04.bloque002.ejercicio01.articulosComestibles;
+package capitulo04.bloque002.ejercicio01.coleccionAntiguedades;
 
 public class Cuadro {
 	private String pintor;

@@ -1,8 +1,6 @@
-package capitulo04.bloque002.ejercicio01.articulosComestibles;
+package capitulo04.bloque002.ejercicio01.coleccionAntiguedades;
 
 import javax.swing.JOptionPane;
-
-import capitulo04.bloque002.ejercicio01.coleccionAntiguedades.Joyas;
 
 public class Menu {
 	
