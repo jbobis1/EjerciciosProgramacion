@@ -1,7 +1,17 @@
 package capitulo04.bloque002.ejercicio01.coleccionAntiguedades;
 
-public class Coche {
+public class Coche extends Antiguedad{
 	private String modelo;
+
+	public Coche() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Coche(String origen, String fecha_fabricacion, int precio) {
+		super(origen, fecha_fabricacion, precio);
+		// TODO Auto-generated constructor stub
+	}
 
 	public Coche(String modelo) {
 		super();
@@ -10,20 +20,15 @@ public class Coche {
 
 	@Override
 	public String toString() {
-		return "Coche [modelo=" + modelo + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "Coche [modelo=" + modelo + ", toString()=" + super.toString() + ", getOrigen()=" + getOrigen()
+				+ ", getFecha_fabricacion()=" + getFecha_fabricacion() + ", getPrecio()=" + getPrecio()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 
-	/**
-	 * @return the modelo
-	 */
 	public String getModelo() {
 		return modelo;
 	}
 
-	/**
-	 * @param modelo the modelo to set
-	 */
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
