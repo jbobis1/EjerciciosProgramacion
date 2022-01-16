@@ -1,5 +1,5 @@
 package capitulo04.bloque002.ejercicio01.articulosComestibles;
-
+  
 public class Articulo {
 	private String codigo;
 	private String nombre;
