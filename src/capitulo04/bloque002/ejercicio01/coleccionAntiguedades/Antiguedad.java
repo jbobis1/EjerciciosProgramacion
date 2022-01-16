@@ -8,6 +8,7 @@ public class Antiguedad{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Antiguedad(String origen, String fecha_fabricacion, int precio) {
 		super();
 		this.origen = origen;

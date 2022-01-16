@@ -8,6 +8,7 @@ public class Joyas extends Antiguedad{
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public Joyas(String origen, String fecha_fabricacion, int precio) {
 		super(origen, fecha_fabricacion, precio);
 		// TODO Auto-generated constructor stub
