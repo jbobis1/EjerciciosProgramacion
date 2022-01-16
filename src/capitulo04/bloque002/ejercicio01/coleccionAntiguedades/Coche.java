@@ -9,6 +9,7 @@ public class Coche extends Antiguedad{
 	}
 
 	
+	
 	public Coche(String origen, String fecha_fabricacion, int precio) {
 		super(origen, fecha_fabricacion, precio);
 		// TODO Auto-generated constructor stub
