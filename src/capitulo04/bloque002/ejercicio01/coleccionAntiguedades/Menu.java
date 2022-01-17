@@ -11,10 +11,10 @@ public class Menu {
 	public static void main(String[] args) {
 	System.out.println("Menu:");
 	System.out.println("0.- Salir");
-	System.out.println("1.- joyas");	
-	System.out.println("2.- libro ");
-	System.out.println("3.- coche");	
-	System.out.println("4.- cuadro ");
+	System.out.println("1.- Joyas");	
+	System.out.println("2.- Libro ");
+	System.out.println("3.- Coche");	
+	System.out.println("4.- Cuadro ");
 	
 	
 	int opcion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero: "));

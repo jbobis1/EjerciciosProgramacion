@@ -10,11 +10,7 @@ import java.awt.Graphics;
  *
  */
 
-
 public class MiCanvas extends Canvas {
-
-	
-	
 	
 	/**
 	 * Sobrescritura del méotod paint(), aquí tengo el control sobre aquello que se va a pintar en pantalla.
@@ -22,20 +18,16 @@ public class MiCanvas extends Canvas {
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(Color.GREEN);
-		g.fillOval(250,250,150,150);
+		g.fillOval(200,300,150,150);
 		
 		g.setColor(Color.RED);
-		g.fillRect(20,20,150,150);
+		g.fillRect(200,20,200,100);
 	
 		g.setColor(Color.BLUE);
 		 int [] vx2 = {500, 550, 450};
 	     int [] vy2 = {270, 320, 320};
         g.fillPolygon (vx2, vy2, 3);
         
-    	g.setColor(Color.BLUE);
-        g.fillRect (600, 300, 150, 170);
 	}
-	
-
 
 }
