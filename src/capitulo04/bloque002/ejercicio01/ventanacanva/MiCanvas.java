@@ -9,6 +9,8 @@ import java.awt.Graphics;
  * @author Usuario
  *
  */
+
+
 public class MiCanvas extends Canvas {
 
 	/**
@@ -16,8 +18,21 @@ public class MiCanvas extends Canvas {
 	 */
 	@Override
 	public void paint(Graphics g) {
-		g.setColor(Color.PINK);
-		g.fillOval(100, 100, 100, 200);
+		g.setColor(Color.GREEN);
+		g.fillOval(250,250,150,150);
+		
+		g.setColor(Color.RED);
+		g.fillRect(20,20,150,150);
 	
+		g.setColor(Color.BLUE);
+		 int [] vx2 = {500, 550, 450};
+	     int [] vy2 = {270, 320, 320};
+        g.fillPolygon (vx2, vy2, 3);
+        
+    	g.setColor(Color.BLUE);
+        g.fillRect (600, 300, 150, 170);
 	}
+	
+
+
 }
