@@ -15,6 +15,7 @@ public class MiCanvas extends Canvas {
 
 	
 	
+	
 	/**
 	 * Sobrescritura del méotod paint(), aquí tengo el control sobre aquello que se va a pintar en pantalla.
 	 */
