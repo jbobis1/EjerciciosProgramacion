@@ -2,6 +2,8 @@ package capitulo04.bloque002.ejercicio01.coleccionAntiguedades;
 
 import javax.swing.JOptionPane;
 
+import capitulo04.bloque002.ejercicio01.articulosComestibles.Perecedero;
+
 public class Menu {
 	
 	
@@ -26,9 +28,15 @@ public class Menu {
 		Joyas collar = new Joyas();
 		
 		collar.setFecha_fabricacion((JOptionPane.showInputDialog("Fecha Fabricacion ")));
-		collar.setMateral((JOptionPane.showInputDialog("Material ")));
 		collar.setOrigen((JOptionPane.showInputDialog("Origen ")));
 		collar.setPrecio(Integer.parseInt(JOptionPane.showInputDialog("Precio ")));
+		
+		if(collar instanceof Joyas) {
+			Joyas a =(Joyas)collar;
+			a.setMateral((JOptionPane.showInputDialog("Material ")));
+		}
+		
+	
 		
 		System.out.println("collar");
 		System.out.println(collar);
@@ -40,10 +48,18 @@ public class Menu {
 		Libro mkl = new Libro();
 		
 		mkl.setFecha_fabricacion((JOptionPane.showInputDialog("Fecha Fabricacion ")));
-		mkl.setAutor((JOptionPane.showInputDialog("Autor ")));
-		mkl.setTitulo((JOptionPane.showInputDialog("Titulo ")));
 		mkl.setOrigen((JOptionPane.showInputDialog("Origen ")));
 		mkl.setPrecio(Integer.parseInt(JOptionPane.showInputDialog("Precio ")));
+		
+		if(mkl instanceof Libro) {
+			Libro b =(Libro)mkl;
+			b.setAutor((JOptionPane.showInputDialog("Autor ")));
+		}
+		
+		if(mkl instanceof Libro) {
+			Libro c =(Libro)mkl;
+			c.setTitulo((JOptionPane.showInputDialog("Titulo ")));
+		}
 		
 		System.out.println("mkl");
 		System.out.println(mkl);
@@ -54,9 +70,15 @@ public class Menu {
 		Cuadro monalisa = new Cuadro();
 		
 		monalisa.setFecha_fabricacion((JOptionPane.showInputDialog("Fecha Fabricacion ")));
-		monalisa.setPintor((JOptionPane.showInputDialog("Pintor ")));
 		monalisa.setOrigen((JOptionPane.showInputDialog("Origen ")));
 		monalisa.setPrecio(Integer.parseInt(JOptionPane.showInputDialog("Precio ")));
+		
+		if(monalisa instanceof Cuadro) {
+			Cuadro e =(Cuadro)monalisa;
+			e.setPintor((JOptionPane.showInputDialog("Pintor ")));
+		}
+		
+	
 		
 		System.out.println("monalisa");
 		System.out.println(monalisa);
@@ -67,10 +89,17 @@ public class Menu {
 		Coche maserati = new Coche();
 		
 		maserati.setFecha_fabricacion((JOptionPane.showInputDialog("Fecha Fabricacion ")));
-		maserati.setModelo((JOptionPane.showInputDialog("Modelo ")));
 		maserati.setOrigen((JOptionPane.showInputDialog("Origen ")));
 		maserati.setPrecio(Integer.parseInt(JOptionPane.showInputDialog("Precio ")));
 		
+		if(maserati instanceof Coche) {
+			Coche f =(Coche)maserati;
+			f.setModelo((JOptionPane.showInputDialog("Modelo ")));
+			
+		}
+		
+		
+	
 		System.out.println("maserati");
 		System.out.println(maserati);
 		

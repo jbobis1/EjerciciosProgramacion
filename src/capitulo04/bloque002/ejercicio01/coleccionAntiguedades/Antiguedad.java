@@ -4,6 +4,7 @@ public class Antiguedad{
 	private String origen;
 	private String fecha_fabricacion;
 	private int precio;
+	
 	public Antiguedad() {
 		super();
 		// TODO Auto-generated constructor stub
