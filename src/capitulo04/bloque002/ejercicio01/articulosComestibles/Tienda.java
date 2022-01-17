@@ -11,8 +11,12 @@ public class Tienda {
 		patatasFritas.setCodigo(JOptionPane.showInputDialog("Codigo DEL articulo "));
 		patatasFritas.setNombre(JOptionPane.showInputDialog("nombre "));
 		patatasFritas.setPrecio (Integer.parseInt(JOptionPane.showInputDialog("precio ")));
-		patatasFritas.setFechaCaducidad (JOptionPane.showInputDialog("fecha caducidad "));
 		
+		if(patatasFritas instanceof Perecedero) {
+			Perecedero p =(Perecedero)patatasFritas;
+			p.setFechaCaducidad (JOptionPane.showInputDialog("fecha caducidad "));
+		}
+
 		System.out.println("patatasFritas");
 		System.out.println(patatasFritas);
 		
@@ -23,8 +27,12 @@ public class Tienda {
 		pizza.setCodigo(JOptionPane.showInputDialog("Codigo DEL articulo "));
 		pizza.setNombre(JOptionPane.showInputDialog("nombre "));
 		pizza.setPrecio (Integer.parseInt(JOptionPane.showInputDialog("precio ")));
-		pizza.setFechaCaducidad (JOptionPane.showInputDialog("fecha caducidad "));
-	
+		
+		if(pizza instanceof Perecedero) {
+			Perecedero a =(Perecedero)pizza;
+			a.setFechaCaducidad (JOptionPane.showInputDialog("fecha caducidad "));
+		}
+
 		System.out.println("pizza");
 		System.out.println(pizza);
 		
