@@ -10,7 +10,6 @@ public class Cuestionario {
 		Pregunta  Cuestionario[] = new Pregunta[5];
 		int contadorcorrecto=0;
 		
-		
 		Cuestionario[0] = new PreguntaVoF("Curry es el jugador con mas triples anotados de la NBA", "V");
 		Cuestionario[1] = new PreguntaVoF("El ultimo campeon de la NBA son los Warriors", "F");
 		
@@ -35,13 +34,12 @@ public class Cuestionario {
 		respuesta2.add("Cleveland Cavaliers");
 		Cuestionario[4] = new PreguntaUnica("Donde juega actualmente Ricky Rubio",respuesta, 4);
 		
-		
 		for (int i= 0; i <Cuestionario.length; i++) {
 			System.out.println(Cuestionario[i].getEnunciado());
 			if(Cuestionario[i].pedirRespuesta()==true){
 				contadorcorrecto++;
 			}
 		}
-		System.out.println("Preguntas acertadas: " + contadorcorrecto);
+		System.out.println("\nPreguntas acertadas: " + contadorcorrecto);
 	}
 }

@@ -11,10 +11,7 @@ public abstract class Pregunta {
 		this.enunciado = enunciado;
 	}
 	
-	
 	public abstract boolean pedirRespuesta();
-	
-	
 	
 	/**
 	 * @return the enunciado

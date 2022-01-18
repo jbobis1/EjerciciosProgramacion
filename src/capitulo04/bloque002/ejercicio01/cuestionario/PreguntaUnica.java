@@ -19,12 +19,12 @@ public class PreguntaUnica extends Pregunta {
 
 	@Override
 	public String getEnunciado() {
-		String e = super.getEnunciado();
-		for (int i =0;i <this.Posiblesrespuestas.size();i++) {
-			e += "\t" + (i +1) + "-" + this.Posiblesrespuestas.get(i) + "\n";
+		String unica = super.getEnunciado();
+		for (int i = 0; i <this.Posiblesrespuestas.size(); i++) {
+			unica += "\n \t" + (i + 1) + "-" + this.Posiblesrespuestas.get(i) ;
 		}
-		e += "Tu respuesta es: ";
-		return e;
+		unica += "\n Tu respuesta es: ";
+		return unica;
 	}
 
 	@Override
@@ -41,11 +41,5 @@ public class PreguntaUnica extends Pregunta {
 			System.out.println("Respuesta Incorrecta");
 			return false;
 		}
-	}
-
-
-
-
-
-	
+	}	
 }

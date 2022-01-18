@@ -3,19 +3,16 @@ package capitulo04.bloque002.ejercicio01.cuestionario;
 import java.util.Scanner;
 
 public class PreguntaVoF extends Pregunta {
-
 	String respuesta;
 	
 	public PreguntaVoF() {
 		
 	}
-
 	public PreguntaVoF(String enunciado, String respuesta) {
 		super(enunciado);
 		this.respuesta=respuesta.toUpperCase();
 	}
 		
-
 	@Override
 	public String getEnunciado() {
 		return super.getEnunciado()+ "(\"V\" o \"F\"):";
@@ -35,7 +32,4 @@ public class PreguntaVoF extends Pregunta {
 			return false;
 		}
 	}
-
-
-
 }
