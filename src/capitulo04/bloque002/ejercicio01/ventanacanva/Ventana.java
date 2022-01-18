@@ -18,8 +18,6 @@ public class Ventana{
  		creaYMuestraVentana();
  		}
 
-
-	
 	
 	
 	private static void creaYMuestraVentana() {
