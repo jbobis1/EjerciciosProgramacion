@@ -8,7 +8,7 @@ public class Articulo {
 	
 	
 	public Articulo() {
-		super();
+		super();   
 		// TODO Auto-generated constructor stub
 	}
 
