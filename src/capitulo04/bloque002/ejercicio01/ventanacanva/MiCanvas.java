@@ -28,6 +28,7 @@ public class MiCanvas extends Canvas {
 	     int [] vy2 = {270, 320, 320};
         g.fillPolygon (vx2, vy2, 3);
         
+        
 	}
 
 }
