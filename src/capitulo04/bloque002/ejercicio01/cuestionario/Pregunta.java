@@ -1,15 +1,21 @@
 package capitulo04.bloque002.ejercicio01.cuestionario;
 
-public class Pregunta {
-	protected String enunciado;
+public abstract class Pregunta {
+	private String enunciado;
 
+	
 	public Pregunta() {
 	}
 
 	public Pregunta(String enunciado) {
 		this.enunciado = enunciado;
 	}
-
+	
+	
+	public abstract boolean pedirRespuesta();
+	
+	
+	
 	/**
 	 * @return the enunciado
 	 */
