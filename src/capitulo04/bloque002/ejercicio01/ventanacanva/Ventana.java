@@ -21,6 +21,7 @@ public class Ventana{
 
 	
 	
+	
 	private static void creaYMuestraVentana() {
 		JFrame ventana = new JFrame("Space Invaders");
 		ventana.setBounds(0, 0, 800, 600);
