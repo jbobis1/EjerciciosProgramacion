@@ -9,9 +9,7 @@ import java.awt.Graphics;
  * @author Usuario
  *
  */
-
 public class MiCanvas extends Canvas {
-	
 	/**
 	 * Sobrescritura del méotod paint(), aquí tengo el control sobre aquello que se va a pintar en pantalla.
 	 */
@@ -27,8 +25,6 @@ public class MiCanvas extends Canvas {
 		 int [] vx2 = {500, 550, 450};
 	     int [] vy2 = {270, 320, 320};
         g.fillPolygon (vx2, vy2, 3);
-        
-        
+          
 	}
-
 }
