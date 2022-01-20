@@ -62,11 +62,6 @@ public abstract class Personaje {
 		 */
 		public void setVivo(boolean vivo) {
 			this.vivo = vivo;
-		}
-
-
-
-		
-		
+		}	
 }
 

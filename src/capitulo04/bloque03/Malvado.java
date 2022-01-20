@@ -10,6 +10,4 @@ public class Malvado extends Personaje {
 		super(vida, nombre, vivo);
 		// TODO Auto-generated constructor stub
 	}
-	
-
 }
