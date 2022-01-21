@@ -1,5 +1,7 @@
 package capitulo04.bloque03;
 
+import tutorialJava.capitulo4_OO.ejercicios.bloque0.alinesVsHumanos.CampoBatalla;
+
 public class CampoBatalla {
 		
 		private Humano arrayHumanos[] = new Humano[20];
@@ -9,8 +11,7 @@ public class CampoBatalla {
 	public CampoBatalla() {
 		
 		inicializaArrayPersonajes(arrayMalvado);
-		inicializaArrayPersonajes(arrayHumanos);
-		
+		inicializaArrayPersonajes(arrayHumanos);	
 	}
 	
 	public static void inicializaArrayPersonajes (Personaje array[]) {
@@ -19,6 +20,7 @@ public class CampoBatalla {
 			if (array instanceof Malvado[]) {
 				array[i] = new Malvado(); 		
 			}
+
 			if (array instanceof Humano[]) {
 				array[i] = new Humano();	
 			}	
@@ -28,8 +30,7 @@ public class CampoBatalla {
 		ultimoElemento.setVida(ultimoElemento.getVida() * 2);
 		
 		}
-	
-	
+		
 	public void iniciaBatalla() {
 		Malvado primerAlienVivo;
 		Humano primerHumanoVivo;
@@ -62,6 +63,16 @@ public class CampoBatalla {
 		} while (primerHumanoVivo != null && primerAlienVivo != null);
 	}
 	
+	
+	public void disparaSobrePersonaje (Personaje queDispara,  Personaje queRecibe) {
+		int probabilidad = (int) Math.round(Math.random() * 100);
+	
+
+			// Si la vida se pone en negativa la ponemos a 0
+			queRecibe.setVida((queRecibe.getVida() < 0)? 0 : queRecibe.getVida());			
+		}
+	
+	
 	public void muestraCampoBatalla() {
 		System.out.print("Aliens: ");
 		for (Malvado a : this.arrayMalvado) {
@@ -74,7 +85,6 @@ public class CampoBatalla {
 		System.out.println("\n");
 	}
 	
-	
 	private void muestraEnConsolaSerializable (Serializable s) {
 		System.out.print(s.serializar());
 	}
@@ -86,6 +96,12 @@ public class CampoBatalla {
 			}
 		}
 		return null;
+	}
+	
+	
+	public static void main (String args[]) {
+		CampoBatalla campo = new CampoBatalla();
+		campo.iniciaBatalla();
 	}
 }
 
