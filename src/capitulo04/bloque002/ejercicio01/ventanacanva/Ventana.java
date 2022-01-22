@@ -17,8 +17,6 @@ public class Ventana{
 	public static void main(String[] args) {
  		creaYMuestraVentana();
  		}
-
-	
 	
 	private static void creaYMuestraVentana() {
 		JFrame ventana = new JFrame("Space Invaders");
@@ -31,7 +29,6 @@ public class Ventana{
 		MiCanvas canvas = new MiCanvas();
 		canvas.setBackground(Color.BLACK);
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
-
 
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);

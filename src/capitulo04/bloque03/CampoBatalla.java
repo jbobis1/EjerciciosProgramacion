@@ -1,43 +1,56 @@
 package capitulo04.bloque03;
 
-import tutorialJava.capitulo4_OO.ejercicios.bloque0.alinesVsHumanos.CampoBatalla;
-
 public class CampoBatalla {
 		
 		private Humano arrayHumanos[] = new Humano[20];
 		private Malvado arrayMalvado[] = new Malvado[20];
 		 	
-	 		
+	 
+		private static CampoBatalla instance = null;
+		
+		/**
+		 * Método del Singleton
+		 * @return
+		 */
+		public static CampoBatalla getInstance () {
+			if (instance == null) {
+				instance = new CampoBatalla();
+			}
+			return instance;
+		}
+			
+		
 	public CampoBatalla() {
 		
-		inicializaArrayPersonajes(arrayMalvado);
-		inicializaArrayPersonajes(arrayHumanos);	
-	}
-	
-	public static void inicializaArrayPersonajes (Personaje array[]) {
-		
-		for (int i = 0; i < array.length; i++) {
-			if (array instanceof Malvado[]) {
-				array[i] = new Malvado(); 		
+		for (int i = 0; i < arrayMalvado.length; i++) {
+			if (i < arrayMalvado.length) {
+				arrayMalvado[i] =new  Malvado(); 	
+				}
+			
+			Personaje ultimoElemento = arrayMalvado[arrayMalvado.length - 1];
+			ultimoElemento.setVida(ultimoElemento.getVida() * 2);
+			
 			}
+			
+			for (int i = 0; i < arrayHumanos.length; i++) {
+				if (i < arrayHumanos.length) {
+					arrayHumanos[i] =new  Humano(); 	
+				}
+			
 
-			if (array instanceof Humano[]) {
-				array[i] = new Humano();	
-			}	
-		}
-
-		Personaje ultimoElemento = array[array.length - 1];
+		Personaje ultimoElemento = arrayMalvado[arrayHumanos.length-1];
 		ultimoElemento.setVida(ultimoElemento.getVida() * 2);
 		
+			}
+		
 		}
 		
-	public void iniciaBatalla() {
+	public void comienzaBatalla() {
 		Malvado primerAlienVivo;
 		Humano primerHumanoVivo;
 		
 		do {
-			// Después de los dos disparos
-			muestraCampoBatalla();
+
 
 			// Disparamos Alien sobre Humano
 			primerAlienVivo = (Malvado) localizarPrimerPersonajeVivo(arrayMalvado);
@@ -63,31 +76,40 @@ public class CampoBatalla {
 		} while (primerHumanoVivo != null && primerAlienVivo != null);
 	}
 	
+		
+	public Malvado[] mezclarArrayMalvado (Personaje array[]) {
+			
+		for (int i = 0; i < arrayMalvado.length; i++) {
+			int pos1 = (int) Math.round(Math.random() * (arrayMalvado.length-1));
+				int pos2 = (int) Math.round(Math.random() * (arrayMalvado.length-1));
+				Malvado aux = arrayMalvado[pos1];
+				arrayMalvado[pos1] = arrayMalvado[pos2];
+				arrayMalvado[pos2] = aux;
+			}
+			return arrayMalvado;	
+	}
+	
+	
+	public Humano[] mezclarArrayHumano (Personaje array[]) {
+	
+	for (int i = 0; i < arrayHumanos.length; i++) {
+		int pos1 = (int) Math.round(Math.random() * (arrayHumanos.length-1));
+			int pos2 = (int) Math.round(Math.random() * (arrayHumanos.length-1));
+			Humano aux = arrayHumanos[pos1];
+			arrayHumanos[pos1] = arrayHumanos[pos2];
+			arrayHumanos[pos2] = aux;
+		}
+		return arrayHumanos;
+	
+	}
 	
 	public void disparaSobrePersonaje (Personaje queDispara,  Personaje queRecibe) {
 		int probabilidad = (int) Math.round(Math.random() * 100);
-	
-
-			// Si la vida se pone en negativa la ponemos a 0
+			
 			queRecibe.setVida((queRecibe.getVida() < 0)? 0 : queRecibe.getVida());			
 		}
-	
-	
-	public void muestraCampoBatalla() {
-		System.out.print("Aliens: ");
-		for (Malvado a : this.arrayMalvado) {
-			muestraEnConsolaSerializable(a);
-		}
-		System.out.print("\nHumanos: ");
-		for (Humano h : this.arrayHumanos) {
-			muestraEnConsolaSerializable(h);
-		}
-		System.out.println("\n");
-	}
-	
-	private void muestraEnConsolaSerializable (Serializable s) {
-		System.out.print(s.serializar());
-	}
+
+
 	
 	public static Personaje localizarPrimerPersonajeVivo (Personaje array[]) {
 		for (Personaje p : array) {
@@ -97,11 +119,26 @@ public class CampoBatalla {
 		}
 		return null;
 	}
-	
-	
-	public static void main (String args[]) {
-		CampoBatalla campo = new CampoBatalla();
-		campo.iniciaBatalla();
+
+	public static void setInstance(CampoBatalla instance) {
+		CampoBatalla.instance = instance;
 	}
+
+	public Humano[] getArrayHumanos() {
+		return arrayHumanos;
+	}
+
+	public void setArrayHumanos(Humano[] arrayHumanos) {
+		this.arrayHumanos = arrayHumanos;
+	}
+
+	public Malvado[] getArrayMalvado() {
+		return arrayMalvado;
+	}
+
+	public void setArrayMalvado(Malvado[] arrayMalvado) {
+		this.arrayMalvado = arrayMalvado;
+	}	
+	
 }
 
