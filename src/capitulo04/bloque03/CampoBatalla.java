@@ -89,11 +89,16 @@ public class CampoBatalla {
 	
 	
 	public void disparaSobrePersonaje (Personaje queDispara,  Personaje queRecibe) {
-		int probabilidad = (int) Math.round(Math.random() * 100);
+		int danio = (int) Math.round(Math.random() * (25 - 5) + 5);
+		queRecibe.setVida(queRecibe.getVida() - danio);
 			
-		queRecibe.setVida((queRecibe.getVida() < 0)? 0 : queRecibe.getVida());			
+		if (queRecibe.getVida() <= 0) {
+			queRecibe.setVivo(false);	
+		}
+	
+		queRecibe.setDisparosrecibidos(queRecibe.getDisparosrecibidos()+1);
+			
 	}
-
 	
 
 	public static Personaje localizarPrimerPersonajeVivo (Personaje array[]) {
@@ -105,8 +110,87 @@ public class CampoBatalla {
 		
 		return null;
 	}
-
-
+	
+	
+	public static Personaje personajeConMasdisparos (Personaje array[]) {
+		Personaje p = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i].getDisparosrecibidos() > p.getDisparosrecibidos()) {
+				p = array[i];
+			}
+		}
+		
+		return p;
+	}
+	
+	
+	public static Personaje personajeConMenosdisparos (Personaje array[]) {
+		Personaje m = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i].getDisparosrecibidos() < m.getDisparosrecibidos()) {
+				m = array[i];
+			}
+		}
+		
+		return m;
+	}
+	
+	public static Malvado MalvadoConMasdisparos (Malvado array[]) {
+		Malvado Malvadom = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i].getDisparosrecibidos() < Malvadom.getDisparosrecibidos()) {
+				Malvadom = array[i];
+			}
+		}
+		
+		return (Malvado) Malvadom;
+	}
+	
+	
+	public static Malvado MalvadoMenosdisparos (Malvado array[]) {
+		Malvado Malvadon = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i].getDisparosrecibidos() < Malvadon.getDisparosrecibidos()) {
+				Malvadon = array[i];
+			}
+		}
+		
+		return (Malvado) Malvadon;
+	}
+	
+	
+	
+	public static Humano HumanoConMenosdisparos (Humano array[]) {
+		Humano humanon = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i].getDisparosrecibidos() < humanon.getDisparosrecibidos()) {
+				humanon = array[i];
+			}
+		}
+		
+		return (Humano) humanon;
+	}
+	
+	
+	public static Humano HumanoConMasdisparos (Humano array[]) {
+		Humano humanom = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i].getDisparosrecibidos() < humanom.getDisparosrecibidos()) {
+				humanom = array[i];
+			}
+		}
+		
+		return (Humano) humanom;
+	}
+	
+	
+	
 	public static void setInstance(CampoBatalla instance) {
 		CampoBatalla.instance = instance;
 	}
@@ -128,4 +212,3 @@ public class CampoBatalla {
 	}	
 	
 }
-

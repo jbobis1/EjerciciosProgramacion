@@ -5,21 +5,24 @@ public abstract class Personaje {
 		private int Vida;
 		private String Nombre;
 		private boolean vivo;
+		private int disparosrecibidos;
 		
 		public Personaje() {
 			this.Vida = (int) Math.round(Math.random() * (100 - 50) + 50);
 		}
 
-		public Personaje(int vida, String nombre, boolean vivo) {
+		public Personaje(int vida, String nombre, boolean vivo, int disparosrecibidos) {
 			super();
 			Vida = vida;
 			Nombre = nombre;
 			this.vivo = vivo;
+			this.disparosrecibidos = disparosrecibidos;
 		}
 
 		@Override
 		public String toString() {
-			return "Personaje [Vida=" + Vida + ", Nombre=" + Nombre + ", vivo=" + vivo + "]";
+			return "Personaje [Vida=" + Vida + ", Nombre=" + Nombre + ", vivo=" + vivo + ", disparosrecibidos="
+					+ disparosrecibidos + "]";
 		}
 
 		/**
@@ -62,7 +65,21 @@ public abstract class Personaje {
 		 */
 		public void setVivo(boolean vivo) {
 			this.vivo = vivo;
-		}	
-		
-}
+		}
 
+		/**
+		 * @return the disparosrecibidos
+		 */
+		public int getDisparosrecibidos() {
+			return disparosrecibidos;
+		}
+
+		/**
+		 * @param disparosrecibidos the disparosrecibidos to set
+		 */
+		public void setDisparosrecibidos(int disparosrecibidos) {
+			this.disparosrecibidos = disparosrecibidos;
+		}
+		
+
+}
