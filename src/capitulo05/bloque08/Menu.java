@@ -1,10 +1,7 @@
 package capitulo05.bloque08;
 
 import java.util.HashMap;
-
 import javax.swing.JOptionPane;
-
-
 
 public class Menu {
 	public static void main(String[] args) {
@@ -12,14 +9,13 @@ public class Menu {
 		HashMap hm = new HashMap();
 		
 		// Inserción de datos en un HashMap general
-		hm.put("1", new Articulo ("11111111", "54884", "8754"));
+		hm.put("1", new Articulo ("11111111", "5488", "8754"));
 		hm.put("2", new Articulo ("22222222", "9894", "8788"));
-		hm.put("3", new Articulo ("33333333", "944", "44"));
-		hm.put("4", new Articulo ("44444444", "594591", "999"));
-		hm.put("5", new Articulo ("55555555", "588", "599"));
+		hm.put("3", new Articulo ("33333333", "9448", "4477"));
+		hm.put("4", new Articulo ("44444444", "5945", "9994"));
+		hm.put("5", new Articulo ("55555555", "5887", "5997"));
 		
-		
-		
+			
 		System.out.println("Menu:");
 		System.out.println("0.- Salir");
 		System.out.println("1.- Lista de Articulos");
@@ -27,18 +23,14 @@ public class Menu {
 		System.out.println("3.- Eliminar un Articulos");
 		System.out.println("4.- Actualizar un Articulos");
 
-
 			
 		String str = JOptionPane.showInputDialog("Introduzca la opcion: ");
 		int opcion = Integer.parseInt(str);
-		
-
-		
+			
 		switch(opcion) {
 		case 0:
 			System.out.printf("Fin");
-			break;
-			
+			break;		
 		
 		case 1:
 			MostrarArticulos();
@@ -60,8 +52,7 @@ public class Menu {
 			
 		default:
 			System.out.printf("ERROR " );
-			
-			
+						
 		}
 	}
 	
@@ -73,7 +64,6 @@ public class Menu {
 			System.out.println("Identificador tipo: " + claves[i].getClass().getName() + " - valor: " + claves[i].toString() + " - Objeto obtenido: "  + hm.get(claves[i]));
 		}	 
     }
-	
 	
 	private static void NuevoArticulos(Object hm) {
 	
@@ -88,7 +78,5 @@ public class Menu {
 	private static void ActualizarArticulos(Object hm) {
 	
 	 	
-    }
-	
-	
+    }	
 }
