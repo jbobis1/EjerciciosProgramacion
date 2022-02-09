@@ -41,28 +41,22 @@ public class Menu {
 			
 		
 		case 1:
-
+			MostrarArticulos();
 			break;
 			
 		case 2:
-
+			NuevoArticulos();
 			break;
 			
 		
 		case 3:
-
+			EliminarArticulos();
 			break;
 			
 			
 		case 4:
-
+			ActualizarArticulos();
 			break;
-			
-			
-		case 5:
-
-			break;
-			
 			
 		default:
 			System.out.printf("ERROR " );
