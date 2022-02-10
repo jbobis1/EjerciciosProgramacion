@@ -1,16 +1,20 @@
 package capitulo05.bloque08;
 
 public class Articulo {
+	
 	private String NumBarras;
 	private String NumEstante;
 	private String CantidadUnidad;
 	
+	public Articulo() {
+	
+	}
+	
 	
 	public Articulo(String numBarras, String numEstante, String cantidadUnidad) {
-		super();
-		NumBarras = numBarras;
-		NumEstante = numEstante;
-		CantidadUnidad = cantidadUnidad;
+		this.NumBarras = numBarras;
+		this.NumEstante = numEstante;
+		this.CantidadUnidad = cantidadUnidad;
 	}
 
 
