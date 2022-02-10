@@ -7,11 +7,8 @@ public class Menu {
 	public static void main(String[] args) {
 
 		HashMap<String,Articulo> hm = new HashMap<String,Articulo>();
-		
-		// Inserci�n de datos en un HashMap general
 
-	
-	
+
 		System.out.println("Menu:");
 		System.out.println("0.- Salir");
 		System.out.println("1.- Lista de Articulos");
@@ -24,36 +21,37 @@ public class Menu {
 		int opcion = Integer.parseInt(str);
 		
 		do {	
-			 str = JOptionPane.showInputDialog("Introduzca la opcion: ");
-			 opcion = Integer.parseInt(str);
-		switch(opcion) {
+			str = JOptionPane.showInputDialog("Introduzca la opcion: ");
+			opcion = Integer.parseInt(str);
+			switch(opcion) {
+			
+			case 0:
+				System.out.printf("Fin");
+				break;		
+			
+			case 1:
+				MostrarArticulos(hm);
+				break;
+				
+			case 2:
+				NuevoArticulos(hm);
+				break;
+				
+			
+			case 3:
+				EliminarArticulos(hm);
+				break;
+				
+				
+			case 4:
+				ActualizarArticulos(hm);
+				break;
+				
+			default:
+				System.out.printf("ERROR " );
+				break;
+			}	
 		
-		case 0:
-			System.out.printf("Fin");
-			break;		
-		
-		case 1:
-			MostrarArticulos(hm);
-			break;
-			
-		case 2:
-			NuevoArticulos(hm);
-			break;
-			
-		
-		case 3:
-			EliminarArticulos(hm);
-			break;
-			
-			
-		case 4:
-			ActualizarArticulos(hm);
-			break;
-			
-		default:
-			System.out.printf("ERROR " );
-			break;
-		}				
 		}while (opcion!=0);
 	}
 	
@@ -77,6 +75,10 @@ public class Menu {
 		String Estante = JOptionPane.showInputDialog("Código del Estante: ");	
 		a.setNumEstante(Estante);
 		hm.put(a.getNumEstante(), a);
+		
+		String Unidad = JOptionPane.showInputDialog("Código del Estante: ");	
+		a.setCantidadUnidad(Unidad);
+		hm.put(a.getCantidadUnidad(), a);
 
     }
 	
@@ -88,14 +90,24 @@ public class Menu {
     }
 	
 	private static void ActualizarArticulos(HashMap <String,Articulo>hm) {
+
+
+
+		hm.get(a.getNumBarras());
+		hm.get(a.getNumEstante());
+		hm.get(a.getNumEstante());
 		
-		Articulo a = new Articulo();
+		String codigo = JOptionPane.showInputDialog("Código del artículo: ");			
+		a.setNumBarras(codigo);
+		hm.put(a.getNumBarras(), a);
 		
-//		// Incorporo los nuevos actores
-//		for (Articulo a : hm.length) {
-//			this.Articulo.add(a);
-//			
-//		}
+		String Estante = JOptionPane.showInputDialog("Código del Estante: ");	
+		a.setNumEstante(Estante);
+		hm.put(a.getNumEstante(), a);
+		
+		String Unidad = JOptionPane.showInputDialog("Código del unidda: ");	
+		a.setCantidadUnidad(Unidad);
+		hm.put(a.getCantidadUnidad(), a);
 	 	
     }	
 }
