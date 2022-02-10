@@ -1,13 +1,13 @@
 package capitulo05.bloque08;
 
 import java.util.HashMap;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Menu {
 	public static void main(String[] args) {
 
 		HashMap<String,Articulo> hm = new HashMap<String,Articulo>();
-
 
 		System.out.println("Menu:");
 		System.out.println("0.- Salir");
@@ -16,13 +16,11 @@ public class Menu {
 		System.out.println("3.- Eliminar un Articulos");
 		System.out.println("4.- Actualizar un Articulos");
 
-	
 		String str = JOptionPane.showInputDialog("Introduzca la opcion: ");
 		int opcion = Integer.parseInt(str);
 		
 		do {	
-			str = JOptionPane.showInputDialog("Introduzca la opcion: ");
-			opcion = Integer.parseInt(str);
+	
 			switch(opcion) {
 			
 			case 0:
@@ -51,7 +49,8 @@ public class Menu {
 				System.out.printf("ERROR " );
 				break;
 			}	
-		
+			 str = JOptionPane.showInputDialog("Introduzca la opcion: ");
+				opcion = Integer.parseInt(str);
 		}while (opcion!=0);
 	}
 	
@@ -68,15 +67,15 @@ public class Menu {
 	
 		Articulo a = new Articulo();
 		
-		String codigo = JOptionPane.showInputDialog("Código del artículo: ");	
+		String codigo = JOptionPane.showInputDialog("Codigo del articulo: ");	
 		a.setNumBarras(codigo);
 		hm.put(a.getNumBarras(), a);
 		
-		String Estante = JOptionPane.showInputDialog("Código del Estante: ");	
+		String Estante = JOptionPane.showInputDialog("Codigo del Estante: ");	
 		a.setNumEstante(Estante);
 		hm.put(a.getNumEstante(), a);
 		
-		String Unidad = JOptionPane.showInputDialog("Código del Estante: ");	
+		String Unidad = JOptionPane.showInputDialog("Codigo del Estante: ");	
 		a.setCantidadUnidad(Unidad);
 		hm.put(a.getCantidadUnidad(), a);
 
@@ -91,23 +90,29 @@ public class Menu {
 	
 	private static void ActualizarArticulos(HashMap <String,Articulo>hm) {
 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce un codigo: ");
+		String num =sc.next();
+		
+		System.out.println("El codigo seleccionado: "+hm.get(num));
 
-
-		hm.get(a.getNumBarras());
-		hm.get(a.getNumEstante());
-		hm.get(a.getNumEstante());
+		sc = new Scanner(System.in);
+		System.out.println("Introduce el numero de barra");
+		String barras =sc.next();
 		
-		String codigo = JOptionPane.showInputDialog("Código del artículo: ");			
-		a.setNumBarras(codigo);
-		hm.put(a.getNumBarras(), a);
+		sc = new Scanner(System.in);
+		System.out.println("Introduce el numero de Estante");
+		String estante =sc.next();
 		
-		String Estante = JOptionPane.showInputDialog("Código del Estante: ");	
-		a.setNumEstante(Estante);
-		hm.put(a.getNumEstante(), a);
+		sc = new Scanner(System.in);
+		System.out.println("Introduce el numero de unidades");
+		String unidades =sc.next();
 		
-		String Unidad = JOptionPane.showInputDialog("Código del unidda: ");	
-		a.setCantidadUnidad(Unidad);
-		hm.put(a.getCantidadUnidad(), a);
+		
+		hm.get(num).setCantidadUnidad(unidades);
+		hm.get(num).setNumBarras(barras);
+		hm.get(num).setNumEstante(estante);
+		
 	 	
     }	
 }
