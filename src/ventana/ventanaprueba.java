@@ -228,12 +228,7 @@ public class ventanaprueba extends JFrame {
 		chckbxAceptar = new JCheckBox("Aceptar");
 		chckbxAceptar.setBounds(467, 378, 129, 23);
 		contentPane.add(chckbxAceptar);
-		
-		
 
-		
-
-	
 
 		}
 	}

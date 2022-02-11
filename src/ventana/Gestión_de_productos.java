@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -76,6 +77,54 @@ public class Gestión_de_productos extends JFrame {
 		Precio.setBounds(181, 80, 167, 19);
 		contentPane.add(Precio);
 		
+		
+		JButton btnInsertarDatos = new JButton("Insertar Datos");
+		btnInsertarDatos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("SE HA PULSADO EL BOTÓN INSERTAR DATOS.");	
+				
+//				
+//				textArea.setText(""); //limpio 
+//				textArea.setText("Primera línea."); 
+//				textArea.append("\nSegunda línea"); 
+//				textArea.append("\nTercera línea"); 
+//				
+//				
+//				ButtonModel Hombre=rdbtnNewRadioButton.getModel();     
+//				ButtonModel Mujer= rdbtnMujer.getModel(); 
+//				
+//				if(buttonGroup.getSelection()!=null)     {
+//					if (buttonGroup.getSelection().equals(Mujer))           
+//					System.out.println("Has pulsado Mujer. "); 
+//					if (buttonGroup.getSelection().equals(Hombre))             
+//					System.out.println("Has pulsado Hombre. "); 
+//					
+//				}
+//				
+//				
+//				
+//				if (chckbxAceptar.isSelected())  
+//					
+//				{ System.out.println("Check pulsado. " + chckbxAceptar.getText());  } 
+//				
+//				
+				}
+			
+			
+			
+			
+		});
+		
+		System.out.println("Código tecleado en Precio: "+
+		Precio.getText()); System.out.println("Código tecleado en Nombre: "
+		+ ""+ nombre.getText()); 
+
+		Precio.setText(""); 
+		nombre.setText(""); 
+
+	
+		
+		
 		JLabel lblNombre = new JLabel("Nombre del Producto");
 		lblNombre.setBounds(12, 51, 167, 15);
 		contentPane.add(lblNombre);
@@ -96,6 +145,10 @@ public class Gestión_de_productos extends JFrame {
 		JLabel lblCategoria = new JLabel("Categoria");
 		lblCategoria.setBounds(12, 157, 161, 15);
 		contentPane.add(lblCategoria);
+		
+		
+		
+		
 		
 		rdbtnNewRadioButton = new JRadioButton("Extra-Premiun");
 		buttonGroup.add(rdbtnNewRadioButton);
@@ -155,5 +208,11 @@ public class Gestión_de_productos extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		
+		
+		System.out.println("Posición: "+ comboBox.getSelectedIndex()); 
+		
+		System.out.println ("Contenido:" + comboBox.getSelectedItem());
+		
 	}
 }
