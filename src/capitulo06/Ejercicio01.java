@@ -1,34 +1,38 @@
 package capitulo06;
 
 public class Ejercicio01 {
-
-	public Ejercicio01() {
 		// TODO Auto-generated constructor stub
-		
-		
-		// Wrapper para el tipo de datos "long"
-				System.out.println("\nValor mï¿½ximo para un Long: " + Long.MAX_VALUE);
-				System.out.println("Valor mï¿½nimo para un Long: " + Long.MIN_VALUE);
-				System.out.println("Tamaï¿½o en bits complemento a 2 para Long: " + Long.SIZE);
+		public static void main (String args[]) {
+			
+				// Wrapper para el tipo de datos "Byte"
+				System.out.println("\nValor maximo para un Byte: " + Byte.MAX_VALUE);
+				System.out.println("Valor minimo para un Byte: " + Byte.MIN_VALUE);
+				System.out.println("Tamaño en bits complemento a 2 para Byte: " + Byte.SIZE);
+				
+				// Wrapper para el tipo de datos "INT"
+				System.out.println("\nValor maximo para un Int: " + Integer.MAX_VALUE);
+				System.out.println("Valor minimo para un Int: " + Integer.MIN_VALUE);
+				System.out.println("Tamaño en bits complemento a 2 para Int: " + Integer.SIZE);
+				
+				// Wrapper para el tipo de datos "long"
+				System.out.println("\nValor maximo para un Long: " + Long.MAX_VALUE);
+				System.out.println("Valor minimo para un Long: " + Long.MIN_VALUE);
+				System.out.println("Tamaño en bits complemento a 2 para Long: " + Long.SIZE);
 
 				// Wrapper para el tipo de datos "short"
-				System.out.println("\nValor mï¿½ximo para un Short: " + Short.MAX_VALUE);
-				System.out.println("Valor mï¿½nimo para un Short: " + Short.MIN_VALUE);
-				System.out.println("Tamaï¿½o en bits complemento a 2 para Short: " + Short.SIZE);
-				
-				// Wrapper para el tipo de datos "boolean"
-				System.out.println("\nForma rï¿½pida de creaciï¿½n de un Boolean: " + Boolean.valueOf(true));
-				System.out.println("Parseo de una cadena de caracteres \"true\" a Boolean: " + Boolean.parseBoolean("true"));
+				System.out.println("\nValor maximo para un Short: " + Short.MAX_VALUE);
+				System.out.println("Valor minimo para un Short: " + Short.MIN_VALUE);
+				System.out.println("Tamañoen bits complemento a 2 para Short: " + Short.SIZE);
 				
 				// Wrapper para el tipo de datos "float"
-				System.out.println("\nValor mï¿½ximo para un Float: " + Float.MAX_VALUE);
-				System.out.println("Valor mï¿½nimo para un Float: " + Float.MIN_VALUE);
-				System.out.println("Tamaï¿½o en bits complemento a 2 para Float: " + Float.SIZE);
+				System.out.println("\nValor maximo para un Float: " + Float.MAX_VALUE);
+				System.out.println("Valor minimo para un Float: " + Float.MIN_VALUE);
+				System.out.println("Tamaño en bits complemento a 2 para Float: " + Float.SIZE);
 				
 				// Wrapper para el tipo de datos "double"
-				System.out.println("\nValor mï¿½ximo para un Double: " + Double.MAX_VALUE);
-				System.out.println("Valor mï¿½nimo para un Double: " + Double.MIN_VALUE);
-				System.out.println("Tamaï¿½o en bits complemento a 2 para Double: " + Double.SIZE);
+				System.out.println("\nValor maximo para un Double: " + Double.MAX_VALUE);
+				System.out.println("Valor minimo para un Double: " + Double.MIN_VALUE);
+				System.out.println("Tamaño en bits complemento a 2 para Double: " + Double.SIZE);
 	}
 
 }
