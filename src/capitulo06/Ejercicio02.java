@@ -6,21 +6,88 @@ import javax.swing.JOptionPane;
 public class Ejercicio02 {
 	public static void main (String args[]) {
 		
+		char cadena[] = new char[20];
 	
-		char cadenaTexto[] = new char[] {};
+		mayuscula(cadena);
+		minuscula(cadena);
+		caracter(cadena);
+		digito(cadena);
+		crear( cadena);
 		
-		do {
+		}
+	
+		private static void crear(char[] cadena) {
 			
-			 
-			String contraseña = JOptionPane.showInputDialog("Escribe una contrseña: ");
+			String contrasena;
+
+			do {
+				System.out.println("Introduce una ContraseÃ±a");
+				contrasena= JOptionPane.showInputDialog("Escribe una contrasena: ");
+				cadena = contrasena.toCharArray();
+
+			}while((!mayuscula(cadena) || !minuscula(cadena)) || !digito(cadena) || !caracter(cadena));
+			System.out.println("ContraseÃ±a Correcta");
+		}
+	
+	
+		private static boolean mayuscula(char[] cadena) {
 			
-			for (int i =0; i> contraseña.length();i ++) {
-				cadenaTexto[i+1]=contraseña[i];
+			boolean mayuscula=false;
+			
+			for (int i = 0; i < cadena.length; i++) {	
+				if( Character.isUpperCase(cadena[i])){
+					mayuscula = true;
+				}
+				
+				
+		
+			
 			}
-							
-		}while (Character.isLowerCase(cadenaTexto[i])  || Character.isUpperCase(cadenaTexto[i])  
-				|| Character.isDigit(cadenaTexto[i]) || Character.isLetter(cadenaTexto[i]));
-	
 		
-	}
+			return mayuscula;	
+			
+		}
+		
+		
+		private static boolean minuscula(char[] cadena) {
+
+			boolean minuscula=false;
+			for (int i = 0; i < cadena.length; i++) {	
+				if(Character.isLowerCase(cadena[i])){
+					
+					minuscula =true;	
+				}
+	
+				
+			
+			}
+			return minuscula;	
+		}
+		
+		
+		private static boolean digito(char[] cadena) {
+				boolean digito=false;
+				
+			for (int i = 0; i < cadena.length; i++) {	
+				if( Character.isDigit(cadena[i])){
+
+				digito =true;
+				}
+			}
+			return digito;	
+		}
+			
+		private static boolean caracter(char[] cadena) {
+				
+			boolean caracter=false;
+				
+			for (int i = 0; i < cadena.length; i++) {	
+				if( Character.isWhitespace(cadena[i])){
+				
+				caracter = true;
+				}
+			}
+			return caracter;	
+	}	
+			
 }
