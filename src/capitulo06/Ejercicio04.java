@@ -64,35 +64,13 @@ public class Ejercicio04 {
 		public static void main (String args[]) {
 			
 			String usuario = EjemploFicheroPropiedades.getProperty("USUARIO");
-			String password = EjemploFicheroPropiedades.getProperty("PASSWORD");
-			String id = EjemploFicheroPropiedades.getProperty("ID_USUARIO");	
-			
-			int usuario2 = EjemploFicheroPropiedades.getIntProperty("USUARIO2");
-			int password2 = EjemploFicheroPropiedades.getIntProperty("PASSWORD2");
-			int id2 = EjemploFicheroPropiedades.getIntProperty("ID_USUARIO2");
-			
-			Float usuario3 = EjemploFicheroPropiedades.getFloatProperty("USUARIO3");
-			Float password3 = EjemploFicheroPropiedades.getFloatProperty("PASSWORD3");
-			Float id3 = EjemploFicheroPropiedades.getFloatProperty("ID_USUARIO3");
-	
-			boolean usuario4 = EjemploFicheroPropiedades.getBooleanPropert("USUARIO4");
-			boolean password4 = EjemploFicheroPropiedades.getBooleanPropert("PASSWORD4");
-			boolean id4 = EjemploFicheroPropiedades.getBooleanPropert("ID_USUARIO4");
+			int password2 = EjemploFicheroPropiedades.getIntProperty("PASSWORD");
+			Float id3 = EjemploFicheroPropiedades.getFloatProperty("ID_USUARIO");
+			boolean id4 = EjemploFicheroPropiedades.getBooleanPropert("FICHADO");
 				
-			System.out.println("Usuario leido del fichero de propiedades: " + usuario);
-			System.out.println("Password leido del fichero de propiedades: " + password);
-			System.out.println("Id de usuario leido del fichero de propiedades: " + id);
-			
-			System.out.println("Usuario leido del fichero de propiedades: " + usuario2);
+			System.out.println("Usuario leido del fichero de propiedades: " + usuario);	
 			System.out.println("Password leido del fichero de propiedades: " + password2);
-			System.out.println("Id de usuario leido del fichero de propiedades: " + id2);
-			
-			System.out.println("Usuario leido del fichero de propiedades: " + usuario3);
-			System.out.println("Password leido del fichero de propiedades: " + password3);
 			System.out.println("Id de usuario leido del fichero de propiedades: " + id3);
-			
-			System.out.println("Usuario leido del fichero de propiedades: " + usuario4);
-			System.out.println("Password leido del fichero de propiedades: " + password4);
 			System.out.println("Id de usuario leido del fichero de propiedades: " + id4);
 			
 
