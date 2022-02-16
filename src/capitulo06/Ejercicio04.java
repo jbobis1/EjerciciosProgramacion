@@ -8,11 +8,11 @@ import java.util.Properties;
 
 public class Ejercicio04 {
 
-	public class EjemploFicheroPropiedades {
+
 	
 		private static Properties propiedades = null;
 	
-		public EjemploFicheroPropiedades () {
+		public Ejercicio04 () {
 			super();
 		}
 		
@@ -63,10 +63,10 @@ public class Ejercicio04 {
 		
 		public static void main (String args[]) {
 			
-			String usuario = EjemploFicheroPropiedades.getProperty("USUARIO");
-			int password2 = EjemploFicheroPropiedades.getIntProperty("PASSWORD");
-			Float id3 = EjemploFicheroPropiedades.getFloatProperty("ID_USUARIO");
-			boolean id4 = EjemploFicheroPropiedades.getBooleanPropert("FICHADO");
+			String usuario = Ejercicio04.getProperty("USUARIO");
+			int password2 = Ejercicio04.getIntProperty("PASSWORD");
+			Float id3 = Ejercicio04.getFloatProperty("ID_USUARIO");
+			boolean id4 = Ejercicio04.getBooleanPropert("FICHADO");
 				
 			System.out.println("Usuario leido del fichero de propiedades: " + usuario);	
 			System.out.println("Password leido del fichero de propiedades: " + password2);
@@ -75,5 +75,5 @@ public class Ejercicio04 {
 			
 
 		}
-	}
+	
 }
