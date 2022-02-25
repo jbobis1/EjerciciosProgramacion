@@ -71,7 +71,7 @@ public class Ejercicio04 {
 			System.out.println("Usuario leido del fichero de propiedades: " + usuario);	
 			System.out.println("Password leido del fichero de propiedades: " + password2);
 			System.out.println("Id de usuario leido del fichero de propiedades: " + id3);
-			System.out.println("Id de usuario leido del fichero de propiedades: " + id4);
+			System.out.println("Fichado: " + id4);
 			
 
 		}
