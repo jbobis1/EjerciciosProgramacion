@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 import javax.swing.JOptionPane;
@@ -12,15 +13,19 @@ public class Ejercicio04 {
 
 	public static void main(String[] args) throws ParseException {
 
-		Date date = null;
+	
 		String patron = "yyyy-MM-dd";
 		
-		String fecha = (JOptionPane.showInputDialog("2012-05-11: ")) ;
+		String fecha = (JOptionPane.showInputDialog("19/03/1977 15:33:00")) ;
 
 		SimpleDateFormat sdf = new SimpleDateFormat(patron);
-		date = sdf.parse("2012-05-11");
+		
+		Date date = sdf.parse(fecha);
 				
-		Calendar calenda = new Calendar ("2012-05-11");
+	
+		Calendar fechaCalendar = new GregorianCalendar(1918, Calendar.APRIL, 01, 22, 05, 23);
+		
+		
 		
 	}
 

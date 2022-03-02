@@ -11,8 +11,8 @@ public class Ejercicio01 {
 			
 			
 			if (Math.abs( y1 - y2) < 0.001) {
-				System.out.println("el punto medio es"+Math.abs( y1 - y2));
-				
+//				System.out.println("el punto medio es"+Math.abs( y1 - y2));
+//				
 			}
 		}
 	}
