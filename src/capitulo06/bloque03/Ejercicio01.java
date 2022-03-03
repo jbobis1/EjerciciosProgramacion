@@ -9,9 +9,8 @@ public class Ejercicio01 {
 		public static void main(String[] args) {
 		
 			try {
-				int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca numero"));
 				
-				System.out.println(pideNumeroPar(numero));
+				System.out.println(pideNumeroPar());
 			} 
 			catch ( NumeroParExecption  e) {
 				System.out.println("EL numero es par: " + e.getMessage());
@@ -21,7 +20,7 @@ public class Ejercicio01 {
 		}
 		
 		
-		private static String pideNumeroPar(int numero) throws NumeroParExecption {						
+		private static String pideNumeroPar() throws NumeroParExecption {						
 			StringBuffer sb = new StringBuffer();
 			
 			if (numero % 2 == 0) {
@@ -34,4 +33,7 @@ public class Ejercicio01 {
 	
 	}
 }
+
+}
+
 	
