@@ -26,11 +26,16 @@ public class Ejercicio04 {
 		fechaCalendar.get(Calendar.MONTH);
 		fechaCalendar.get(Calendar.WEEK_OF_MONTH);
 		fechaCalendar.get(Calendar.HOUR_OF_DAY);
+
+		fechaCalendar.add(Calendar.DAY_OF_MONTH, 3);
+		fechaCalendar.add(Calendar.DAY_OF_MONTH, -14);
+		fechaCalendar.add(Calendar.DAY_OF_YEAR, 300);
+		fechaCalendar.add(Calendar.YEAR, -4);
 		
 		SimpleDateFormat  sdf2 = new SimpleDateFormat("yyyy");
 		
-			Date años = sdf.parse("yyyy");
-			sdf2.format(años);
+			Date anos = sdf.parse("yyyy");
+			sdf2.format(anos);
 			
 			Date mes = sdf.parse("MM");
 			sdf2.format(mes);
