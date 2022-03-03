@@ -1,4 +1,4 @@
-package capitulo06.bloque03;
+package capitulo06.bloque03.ejercicio01;
 
 public class NumeroParExecption extends Exception {
 
