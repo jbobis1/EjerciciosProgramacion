@@ -45,7 +45,7 @@ public class Ejercicio02 {
 					if (pala!=palabras[i]) {
 						throw new NoBombillaException("no aparece la palabra bombilla");
 					}
-				
+			
 				
 					else {
 						String tonto = "tonto ";
@@ -55,7 +55,7 @@ public class Ejercicio02 {
 						for (int j = 0; i <= palabras.length; j++) {
 											
 							if (tonta != palabras[j] | tonto != palabras[j]   | idiota != palabras[j]) {
-								throw new PalabrasOfensivasException("En la frase aparece una palabra ofensiva de la siguiente relación: tonto, tonta, idiota.");
+								throw new PalabrasOfensivasException("En la frase aparece una palabra ofensiva de la siguiente relaciï¿½n: tonto, tonta, idiota.");
 							}
 							
 							else {
