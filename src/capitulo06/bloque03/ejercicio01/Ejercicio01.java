@@ -13,7 +13,7 @@ public class Ejercicio01 {
 			} 
 			catch ( NumeroParExecption  e) {
 				System.out.println("EL numero es par: " + e.getMessage());
-				
+				e.printStackTrace();
 			}
 		}
 		
