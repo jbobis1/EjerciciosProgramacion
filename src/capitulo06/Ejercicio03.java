@@ -7,9 +7,10 @@ public class Ejercicio03 {
 	     int decimales[] = new int [100];
 			for (int i = 0; i < decimales.length; i++) {
 				 decimales[i] = (int) Math.round(Math.random() * (1)*0+i);
+	
+				 
 			
-		
-				System.out.println(decimales[i]);
+				 System.out.println(decimales[i]);
 
 				
 			}
