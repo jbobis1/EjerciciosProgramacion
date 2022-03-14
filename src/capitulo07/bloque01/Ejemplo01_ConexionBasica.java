@@ -1,4 +1,4 @@
-package capitulo07;
+package capitulo07.bloque01;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
