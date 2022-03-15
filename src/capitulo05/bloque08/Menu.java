@@ -58,6 +58,8 @@ public class Menu {
 		// recorremos el array para ya mostrarlo
 	
 		Object claves[] = hm.keySet().toArray();
+		
+
 		for (int i = 0; i < claves.length; i++) {
 			System.out.println("Identificador tipo: " + claves[i].getClass().getName() + " - valor: " + claves[i].toString() + " - Objeto obtenido: "  + hm.get(claves[i]));
 		}	 
@@ -75,7 +77,7 @@ public class Menu {
 		a.setNumEstante(Estante);
 		hm.put(a.getNumEstante(), a);
 		
-		String Unidad = JOptionPane.showInputDialog("Codigo del Estante: ");	
+		String Unidad = JOptionPane.showInputDialog("Codigo del Unidad: ");	
 		a.setCantidadUnidad(Unidad);
 		hm.put(a.getCantidadUnidad(), a);
 

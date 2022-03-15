@@ -2,8 +2,6 @@ package capitulo07.bloque01;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
-
 import oracle.ucp.jdbc.PoolDataSource;
 import oracle.ucp.jdbc.PoolDataSourceFactory;
 
