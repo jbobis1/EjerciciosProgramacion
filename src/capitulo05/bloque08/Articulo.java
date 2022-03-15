@@ -6,7 +6,7 @@ public class Articulo {
 	private String NumEstante;
 	private String CantidadUnidad;
 	
-	public Articulo() {
+	public Articulo(int i, String string, int j, int k) {
 	
 	}
 	
