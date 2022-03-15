@@ -6,11 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/bobis/Downloads/eclipse/mysql-connector-java-5.1.12-bin.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/bobis/Downloads/eclipse/ucp.jar">
 		<attributes>
 			<attribute name="module" value="true"/>

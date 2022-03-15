@@ -33,11 +33,10 @@ public class Ejercicio01 {
 	private static int REGISTROS_A_INSERTAR_EN_COCHE = 200;
 	private static boolean LOG = true;
 	
-	public static void main (String args[]) {
+	public static void main (String args[]) throws SQLException, ImposibleConectarException {
 
-
-		
-		
+		Connection conn;
+		conn = ConnectionManagerV2.getConexion();
 		
 		System.out.println("Menu:");
 		System.out.println("0.- Salir");
@@ -47,8 +46,7 @@ public class Ejercicio01 {
 		
 		System.out.println("4.- Elimina un usuario");
 		long startTime = new Date().getTime();
-		Connection conn;
-		conn = ConnectionManagerV2.getConexion();
+	
 		
 
 		String str = JOptionPane.showInputDialog("Introduzca la opcion: ");
@@ -67,11 +65,11 @@ public class Ejercicio01 {
 				break;
 				
 			case 2:
-				CrearArticulos(conn);
+				creacionDatosFabricantes(conn);
 				break;
 				
 			case 3:
-				ModificarArticulos();
+				//ModificarArticulos();
 				break;
 				
 			case 4:
@@ -133,8 +131,7 @@ public class Ejercicio01 {
 	 
     
 	
-	private static void CrearArticulos(Connection conn) {
-		
+	private static void creacionDatosFabricantes (Connection conn) throws SQLException, ImposibleConectarException {
 		Statement s = (Statement) conn.createStatement();
 		int registrosInsertados;
 		int contRegistrosInsertados = 0;		
@@ -143,7 +140,7 @@ public class Ejercicio01 {
 			System.out.println("\nInsertando registros de en la tabla fabricante");
 
 		for (int i = 0; i < fabricantes.length; i++) {
-			String cif = "21212";
+			String cif = "25415889a";
 			
 			String sql = "INSERT INTO tutorialjavacoches.fabricante (id, cif, nombre) " +
 					"VALUES  (" + nextIdEnTabla(conn, "fabricante") + ", '" + cif + "', '" + fabricantes[i] + "')";
@@ -161,15 +158,8 @@ public class Ejercicio01 {
 		
 	
 	
-
-
-	private static void ModificarArticulos() {
-		
-		
-		
-	}
 	
-	private static void EliminarArticulos(Connection conn) {
+	private static void EliminarArticulos(Connection conn) throws SQLException {
 		
 		Statement s = (Statement) conn.createStatement();
 		
@@ -183,6 +173,31 @@ public class Ejercicio01 {
 		}
 		s.close();
 	}
+	
+	
+	
+	
+	
+	private static int nextIdEnTabla (Connection conn, String tabla) throws SQLException {
+		return maxIdEnTabla(conn, tabla) + 1;
+	}
+	
+
+	private static int maxIdEnTabla (Connection conn, String tabla) throws SQLException {
+		Statement s = (Statement) conn.createStatement();
+
+		String sql = "select max(id) from tutorialjavacoches." + tabla;
+		ResultSet rs = s.executeQuery(sql);
+		int max = 1; 
+		if (rs.next() ) {
+			max = rs.getInt(1);
+		}
+		rs.close();
+		s.close();
+		return max;
+	}
+	
+
 		
 	 
     
