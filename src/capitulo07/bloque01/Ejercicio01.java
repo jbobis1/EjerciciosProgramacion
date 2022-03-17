@@ -11,8 +11,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
+import javax.swing.JOptionPane;
 
 public class Ejercicio01 {
 	
@@ -33,8 +34,15 @@ public class Ejercicio01 {
 	private static int REGISTROS_A_INSERTAR_EN_COCHE = 200;
 	private static boolean LOG = true;
 	
+	/**
+	 * 
+	 * @param args
+	 * @throws SQLException
+	 * @throws ImposibleConectarException
+	 */
+	
 	public static void main (String args[]) throws SQLException, ImposibleConectarException {
-
+		conectar ();
 		Connection conn;
 		conn = ConnectionManagerV2.getConexion();
 		
@@ -43,17 +51,13 @@ public class Ejercicio01 {
 		System.out.println("1.- Lista de usuario");
 		System.out.println("2.- Crear nuevo usuario");
 		System.out.println("3.- Modifica un usuario");
-		
 		System.out.println("4.- Elimina un usuario");
-		long startTime = new Date().getTime();
-	
 		
-
+		long startTime = new Date().getTime();
 		String str = JOptionPane.showInputDialog("Introduzca la opcion: ");
 		int opcion = Integer.parseInt(str);
 		
 		do {	
-	
 			switch(opcion) {
 			
 			case 0:
@@ -69,14 +73,12 @@ public class Ejercicio01 {
 				break;
 				
 			case 3:
-				//ModificarArticulos();
+				ModificarArticulos(conn);
 				break;
 				
 			case 4:
 				EliminarArticulos(conn);
-				break;
-				
-				
+				break;							
 	
 			default:
 				System.out.printf("ERROR " );
@@ -88,6 +90,10 @@ public class Ejercicio01 {
 				opcion = Integer.parseInt(str);
 		}while (opcion!=0);
 	}
+	
+	/*
+	 * 
+	 */
 	
 	private static void MostrarArticulos() {
 		try {
@@ -127,10 +133,13 @@ public class Ejercicio01 {
 		}
 	}
 		
-	
-	 
-    
-	
+	/**
+	 * 
+	 * @param conn
+	 * @throws SQLException
+	 * @throws ImposibleConectarException
+	 */
+	 	
 	private static void creacionDatosFabricantes (Connection conn) throws SQLException, ImposibleConectarException {
 		Statement s = (Statement) conn.createStatement();
 		int registrosInsertados;
@@ -155,33 +164,88 @@ public class Ejercicio01 {
 		}
 		s.close();
 	}
+	
+	/**
+	 * 	
+	 * @param conn
+	 */
+	
+	private static void ModificarArticulos(Connection conn) {
 		
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		   
+		// Necesitamos obtener un acceso a la BBDD, eso se materializa en un objeto de tipo Connection, al cual
+		// le tenemos que pasar los parámetros de conexión.
+		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/tutorialjavacoches?serverTimezone=UTC","java", "Abcdefgh.1");
+	   
+		
+		// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+		Statement s = (Statement) conexion.createStatement(); 
+		
+		// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+		// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+		ResultSet rs = s.executeQuery ("select * from fabricante");			
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce un codigo: ");
+		String num =sc.next();
+
+		
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("Introduce un codigo: ");
+		String id =sc.next();
 	
+
+		Scanner sc2 = new Scanner(System.in);
+		System.out.println("Introduce un codigo: ");
+		String cif =sc.next();
+
+		Scanner sc3 = new Scanner(System.in);
+		System.out.println("Introduce un codigo: ");
+		String nombre =sc.next();
+			
+		ResultSet rs1 = s.executeQuery ("select * from fabricante", 
+				"EL id es : ", 	rs.getDouble(id) , 
+				"El cif es:  ", rs.getDouble(cif),
+				"El nombre es el:", rs.getString(nombre));
+		
+	}
 	
+	/**
+	 * 
+	 * @param conn
+	 * @throws SQLException
+	 */
 	
 	private static void EliminarArticulos(Connection conn) throws SQLException {
 		
 		Statement s = (Statement) conn.createStatement();
+
 		
 		if (LOG)
 			System.out.println("Eliminando los registros de todas las tablas");
 		
-		for (String tabla : tablas) {
-			int registrosAfectados = s.executeUpdate("delete from tutorialjavacoches." + tabla);
+		for (String fabricante : fabricantes) {
+			int registrosAfectados = s.executeUpdate("delete from tutorialjavacoches." + fabricante);
+			
 			if (LOG)
-				System.out.println("\t" + registrosAfectados + " registros eliminados en la tabla " + tabla);
+				System.out.println("\t" + registrosAfectados + " registros eliminados en la tabla " + fabricante);
 		}
 		s.close();
 	}
 	
-	
-	
-	
+
+	/**
+	 * 
+	 * @param conn
+	 * @param tabla
+	 * @return
+	 * @throws SQLException
+	 */
 	
 	private static int nextIdEnTabla (Connection conn, String tabla) throws SQLException {
 		return maxIdEnTabla(conn, tabla) + 1;
 	}
-	
 
 	private static int maxIdEnTabla (Connection conn, String tabla) throws SQLException {
 		Statement s = (Statement) conn.createStatement();
@@ -197,15 +261,17 @@ public class Ejercicio01 {
 		return max;
 	}
 	
-
-		
-	 
-    
-
-	
+	/**
+	 * 
+	 */
 	
 	private static Connection conexion = null;
 	
+	/**
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	
 	public static Connection getConexion () throws SQLException {
 		// Si es la primera vez que accedemos a la conexi�n, debemos instanciarla
@@ -220,8 +286,12 @@ public class Ejercicio01 {
 		return conexion;
 	}
 	
+	/*
+	 * 
+	 * 
+	 */
+	
 	private static void conectar () throws SQLException {
-		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		   
@@ -230,7 +300,6 @@ public class Ejercicio01 {
 		catch (ClassNotFoundException ex) {
 			System.out.println("Imposible acceder al driver Mysql");
 		}
-	}
-	
+	}	
 }
 	
