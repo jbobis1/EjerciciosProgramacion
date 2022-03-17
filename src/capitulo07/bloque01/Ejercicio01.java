@@ -42,6 +42,7 @@ public class Ejercicio01 {
 	 */
 	
 	public static void main (String args[]) throws SQLException, ImposibleConectarException {
+		
 		conectar ();
 		Connection conn;
 		conn = ConnectionManagerV2.getConexion();
@@ -62,11 +63,13 @@ public class Ejercicio01 {
 			
 			case 0:
 				System.out.printf("Fin");
-				break;		
+				break;	
+				
 			
 			case 1:
 				MostrarArticulos();
 				break;
+				
 				
 			case 2:
 				creacionDatosFabricantes(conn);
@@ -76,6 +79,7 @@ public class Ejercicio01 {
 				ModificarArticulos(conn);
 				break;
 				
+				
 			case 4:
 				EliminarArticulos(conn);
 				break;							
@@ -83,11 +87,14 @@ public class Ejercicio01 {
 			default:
 				System.out.printf("ERROR " );
 				break;
+				
 			}	
+			
 			long usedMillis = new Date().getTime() - startTime;
 			int secs = (int) (usedMillis/1000);
 			 str = JOptionPane.showInputDialog("Introduzca la opcion: ");
 				opcion = Integer.parseInt(str);
+				
 		}while (opcion!=0);
 	}
 	
@@ -96,6 +103,7 @@ public class Ejercicio01 {
 	 */
 	
 	private static void MostrarArticulos() {
+		
 		try {
 			// A través de la siguiente línea comprobamos si tenemos acceso al driver MySQL, si no fuera así
 			// no podemos trabajar con esa BBDD.
@@ -123,14 +131,18 @@ public class Ejercicio01 {
 			s.close();
 			conexion.close();
 		}
+		
 		catch (ClassNotFoundException ex) {
 			System.out.println("Imposible acceder al driver Mysql");
 			ex.printStackTrace();
+			
 		}
+		
 		catch (SQLException ex) {
 			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
+		
 	}
 		
 	/**
@@ -245,7 +257,6 @@ public class Ejercicio01 {
 		s.close();
 	}
 	
-
 	/**
 	 * 
 	 * @param conn
@@ -255,21 +266,28 @@ public class Ejercicio01 {
 	 */
 	
 	private static int nextIdEnTabla (Connection conn, String tabla) throws SQLException {
+		
 		return maxIdEnTabla(conn, tabla) + 1;
+		
 	}
 
 	private static int maxIdEnTabla (Connection conn, String tabla) throws SQLException {
+		
 		Statement s = (Statement) conn.createStatement();
 
 		String sql = "select max(id) from tutorialjavacoches." + tabla;
 		ResultSet rs = s.executeQuery(sql);
+		
 		int max = 1; 
 		if (rs.next() ) {
 			max = rs.getInt(1);
+			
 		}
+		
 		rs.close();
 		s.close();
 		return max;
+		
 	}
 	
 	/**
@@ -285,13 +303,16 @@ public class Ejercicio01 {
 	 */
 	
 	public static Connection getConexion () throws SQLException {
+		
 		// Si es la primera vez que accedemos a la conexi�n, debemos instanciarla
 		if (conexion == null) {
 			conectar();
+			
 		}
 		// Compruebo si la conexi�n sigue estando activa
 		while (!conexion.isValid(5)) {
 			conectar();
+			
 		}
 		
 		return conexion;
@@ -307,10 +328,16 @@ public class Ejercicio01 {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		   
 			conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/tutorialjavacoches?autoReconnect=true&serverTimezone=Europe/Madrid&useSSL=False&allowPublicKeyRetrieval=TRUE" , "java" , "Abcdefgh.1");			   
+		
 		}
+		
 		catch (ClassNotFoundException ex) {
+			
 			System.out.println("Imposible acceder al driver Mysql");
+			
 		}
-	}	
+		
+	}
+	
 }
 	
