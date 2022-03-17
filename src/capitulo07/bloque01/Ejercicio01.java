@@ -148,11 +148,22 @@ public class Ejercicio01 {
 		if (LOG)
 			System.out.println("\nInsertando registros de en la tabla fabricante");
 
-		for (int i = 0; i < fabricantes.length; i++) {
-			String cif = "25415889a";
+		for (int i = 0; i < fabricantes.length; i++) {	
+			
+			Scanner sc1 = new Scanner(System.in);
+			System.out.println("Introduce un id: ");
+			String id =sc1.next();
+			
+			Scanner sc2 = new Scanner(System.in);
+			System.out.println("Introduce un cif: ");
+			String cif =sc2.next();
+			
+			Scanner sc3 = new Scanner(System.in);
+			System.out.println("Introduce un nombre: ");
+			String nombre =sc3.next();
 			
 			String sql = "INSERT INTO tutorialjavacoches.fabricante (id, cif, nombre) " +
-					"VALUES  (" + nextIdEnTabla(conn, "fabricante") + ", '" + cif + "', '" + fabricantes[i] + "')";
+					"VALUES  (" + nextIdEnTabla(conn, "fabricante") + id + ", '" + cif + "', '" + nombre + fabricantes[i] + "')";
 			registrosInsertados = s.executeUpdate(sql);
 			if (registrosInsertados != 1) {
 				throw new SQLException ("No ha sido posible la inserci�n con la cadena:\n" + sql);
@@ -193,16 +204,16 @@ public class Ejercicio01 {
 		
 		Scanner sc1 = new Scanner(System.in);
 		System.out.println("Introduce un codigo: ");
-		String id =sc.next();
+		String id =sc1.next();
 	
 
 		Scanner sc2 = new Scanner(System.in);
 		System.out.println("Introduce un codigo: ");
-		String cif =sc.next();
+		String cif =sc2.next();
 
 		Scanner sc3 = new Scanner(System.in);
 		System.out.println("Introduce un codigo: ");
-		String nombre =sc.next();
+		String nombre =sc3.next();
 			
 		ResultSet rs1 = s.executeQuery ("select * from fabricante", 
 				"EL id es : ", 	rs.getDouble(id) , 
