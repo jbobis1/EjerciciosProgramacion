@@ -214,9 +214,9 @@ public class Ejercicio01 {
 		Scanner sc3 = new Scanner(System.in);
 		System.out.println("Introduce un codigo: ");
 		String nombre =sc3.next();
-			
-		ResultSet rs1 = s.executeQuery ("select * from fabricante", 
-				"EL id es : ", 	rs.getDouble(id) , 
+		
+
+		ResultSet rs1 = s.executeQuery("SELECT MAX(id) FROM fabricante",	"EL id es : ", 	rs.getDouble(id) , 
 				"El cif es:  ", rs.getDouble(cif),
 				"El nombre es el:", rs.getString(nombre));
 		
