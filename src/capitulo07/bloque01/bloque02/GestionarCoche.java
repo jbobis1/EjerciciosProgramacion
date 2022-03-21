@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class GestionarCoche extends SupertipoGestion  {
 
 
-	public static void eliminarFabricante() {
+	public static void eliminarCoche() {
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
 		
@@ -33,7 +33,7 @@ public class GestionarCoche extends SupertipoGestion  {
 	/**
 	 * 
 	 */
-	public static void modificarFabricante () {
+	public static void modificarCoche () {
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
 		String cif = "", nombre = "";
@@ -82,7 +82,7 @@ public class GestionarCoche extends SupertipoGestion  {
 		String idfabrinate, bastidor, modelo, color;
 		int nuevoIdDisponible;
 		
-		System.out.println("Creación de un nuevo fabricante:");
+		System.out.println("Creación de un nuevo coche:");
 		
 		System.out.println("Dame el cif:");
 		idfabrinate = sc.next();
@@ -96,7 +96,7 @@ public class GestionarCoche extends SupertipoGestion  {
 		
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
-			nuevoIdDisponible = maxIdEnTabla("fabricante");
+			nuevoIdDisponible = maxIdEnTabla("coche");
 			if (nuevoIdDisponible != -1) {
 				int registrosAfectados = s.executeUpdate(
 						"insert into fabricante values (" + nuevoIdDisponible + ",'" + idfabrinate + "', '" + bastidor + "', '" + modelo + "', '" + color + "')");
