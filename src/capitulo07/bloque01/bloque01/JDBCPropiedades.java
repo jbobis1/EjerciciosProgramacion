@@ -1,4 +1,4 @@
-package capitulo07.bloque01;
+package capitulo07.bloque01.bloque01;
 
 import java.io.File;
 import java.io.FileInputStream;

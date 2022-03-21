@@ -1,4 +1,4 @@
-package capitulo07.bloque01;
+package capitulo07.bloque01.bloque01;
 
 public class ImposibleConectarException extends Exception {
 
