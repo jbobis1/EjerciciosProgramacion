@@ -42,61 +42,64 @@ public class GestionarCliente  extends SupertipoGestion{
 	public static void modificarClientes () {
 		Scanner sc = new Scanner(System.in);
 		int id = 0 , activo =1;
-		String Apellidos = "", nombre = "",dniDnie="" , localidad="", fechaNueva="" ;
+		String apellidos = "", nombre = "",dniNie="" , localidad="", fechaNueva="" ;
 		String nuevoApellidos = "", nuevoNombre = "",nuevoDniDnie = "", nuevoLocalidad= "";
 
 		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
-		Date date = new Date();
+		Date fechaNac = new Date();
 		
 
-		System.out.println("Introduce id del fabricante: ");
+		System.out.println("Introduce id del cliente: ");
 		id = sc.nextInt();
 		
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
 			ResultSet rs = s.executeQuery("Select * from cliente where id=" + id);
 			if (rs.next()) {
-				Apellidos = rs.getString("Apellidos");
+				apellidos = rs.getString("Apellidos");
 				nombre = rs.getString("nombre");
-				dniDnie = rs.getString("dniDnie");
+				dniNie = rs.getString("dniNie");
 				localidad = rs.getString("localidad");
-				date = rs.getDate("fecha");
+				fechaNac = rs.getDate("fechaNac");
 				
 				
 			}
 			
-			nuevoApellidos = JOptionPane.showInputDialog("Cif (" + Apellidos + ") (Intro para mantener): ");
-			if (!nuevoApellidos.trim().equals("")) {
-				Apellidos = nuevoApellidos;
-			}
-			
-			nuevoNombre = JOptionPane.showInputDialog("Nombre (" + nombre + ") (Intro para mantener): ");;
+			nuevoNombre = JOptionPane.showInputDialog("nombre (" + nombre + ") (Intro para mantener): ");
 			if (!nuevoNombre.trim().equals("")) {
 				nombre = nuevoNombre;
 			}
 			
-			
-			nuevoDniDnie = JOptionPane.showInputDialog("Cif (" + dniDnie + ") (Intro para mantener): ");
-			if (!nuevoDniDnie.trim().equals("")) {
-				dniDnie = nuevoDniDnie;
+			nuevoApellidos = JOptionPane.showInputDialog("apellidos (" + apellidos + ") (Intro para mantener): ");;
+			if (!nuevoApellidos.trim().equals("")) {
+				apellidos = nuevoApellidos;
 			}
 			
 			
-			nuevoLocalidad = JOptionPane.showInputDialog("Cif (" + localidad + ") (Intro para mantener): ");
+			nuevoDniDnie = JOptionPane.showInputDialog("dniNie (" + dniNie + ") (Intro para mantener): ");
+			if (!nuevoDniDnie.trim().equals("")) {
+				dniNie = nuevoDniDnie;
+			}
+			
+			
+			nuevoLocalidad = JOptionPane.showInputDialog("localidad (" + localidad + ") (Intro para mantener): ");
 			if (!nuevoLocalidad.trim().equals("")) {
 				localidad = nuevoLocalidad;
 			}
 			
 			
-			fechaNueva = JOptionPane.showInputDialog("Cif (" + date.toString() + ") (Intro para mantener): ");
+			fechaNueva = JOptionPane.showInputDialog("Fecha (" + fechaNac.toString() + ") (Intro para mantener): ");
 			if (!fechaNueva.trim().equals("")) {
-				date.toString()  = fechaNueva;
+			//	fechaNac.toString() =fechaNueva;
+				fechaNueva = fechaNac.toString();
 			}
 			
 			
 			
 			int registrosAfectados = s.executeUpdate(
-					"update cliente set nombre='" + nombre + "', Apellidos='" + Apellidos + "' " + "', localidad='" + localidad + "' " + "', dniNie='" + dniDnie + "' " +  "', fechaNac='" + date.toString()  + "' " + "', activo='" + activo + "' "+ 
+					"update cliente set nombre='" + nombre + "', apellidos='" + apellidos + "', " 
+												  + " localidad='" + localidad + "', " + " dniNie='" + dniNie + "', " 
+												  + " fechaNac='" + fechaNac.toString()  + "', " + " activo='" + activo + "' "+ 
 					"where id=" + id);
 			System.out.println(registrosAfectados + " registros afectados");
 		} catch (SQLException e) {

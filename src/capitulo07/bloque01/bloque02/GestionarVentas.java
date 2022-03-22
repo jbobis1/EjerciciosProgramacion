@@ -14,7 +14,7 @@ public class GestionarVentas extends SupertipoGestion{
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
 		
-		System.out.println("Introduce id del fabricante para su eliminación: ");
+		System.out.println("Introduce id del venta para su eliminacion: ");
 		id = sc.nextInt();
 
 		try {
@@ -44,7 +44,7 @@ public class GestionarVentas extends SupertipoGestion{
 		
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
-			ResultSet rs = s.executeQuery("Select * from fabricante where id=" + id);
+			ResultSet rs = s.executeQuery("Select * from venta where id=" + id);
 			if (rs.next()) {
 				cif = rs.getString("cif");
 				nombre = rs.getString("nombre");
@@ -99,7 +99,7 @@ public class GestionarVentas extends SupertipoGestion{
 			nuevoIdDisponible = maxIdEnTabla("venta");
 			if (nuevoIdDisponible != -1) {
 				int registrosAfectados = s.executeUpdate(
-						"insert into fabricante values (" + nuevoIdDisponible + ",'" + idfabrinate + "', '" + bastidor + "', '" + modelo + "', '" + color + "')");
+						"insert into venta values (" + nuevoIdDisponible + ",'" + idfabrinate + "', '" + bastidor + "', '" + modelo + "', '" + color + "')");
 				System.out.println(registrosAfectados + " registros insertados ");
 			}
 		} catch (SQLException e) {

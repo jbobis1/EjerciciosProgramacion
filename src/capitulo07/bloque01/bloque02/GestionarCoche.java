@@ -14,7 +14,7 @@ public class GestionarCoche extends SupertipoGestion  {
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
 		
-		System.out.println("Introduce id del fabricante para su eliminación: ");
+		System.out.println("Introduce id del coche para su eliminacion: ");
 		id = sc.nextInt();
 
 		try {
@@ -36,8 +36,8 @@ public class GestionarCoche extends SupertipoGestion  {
 	public static void modificarCoche () {
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
-		String cif = "", nombre = "";
-		String nuevoCif = "", nuevoNombre = "";
+		String idfabricante = "", bastidor = "", modelo ="", color= "";
+		String nuevoIdfrabicante = "", nuevoBastidor = "", nuevoModelo="",nuecoColor = "" ;
 		
 		System.out.println("Introduce id del coche: ");
 		id = sc.nextInt();
@@ -46,22 +46,38 @@ public class GestionarCoche extends SupertipoGestion  {
 			Statement s = ConnectionManager.getConexion().createStatement();
 			ResultSet rs = s.executeQuery("Select * from coche where id=" + id);
 			if (rs.next()) {
-				cif = rs.getString("cif");
-				nombre = rs.getString("nombre");
+				idfabricante = rs.getString("idfabricante");
+				bastidor = rs.getString("bastidor");
+				modelo = rs.getString("modelo");
+				color = rs.getString("color");
+								
+			}
+
+			
+			nuevoIdfrabicante = JOptionPane.showInputDialog("idfrabricante (" + idfabricante + ") (Intro para mantener): ");
+			if (!nuevoIdfrabicante.trim().equals("")) {
+				idfabricante = nuevoIdfrabicante;
 			}
 			
-			nuevoCif = JOptionPane.showInputDialog("Cif (" + cif + ") (Intro para mantener): ");
-			if (!nuevoCif.trim().equals("")) {
-				cif = nuevoCif;
+			nuevoBastidor = JOptionPane.showInputDialog("bastidor (" + bastidor + ") (Intro para mantener): ");;
+			if (!nuevoBastidor.trim().equals("")) {
+				bastidor = nuevoBastidor;
 			}
 			
-			nuevoNombre = JOptionPane.showInputDialog("Nombre (" + nombre + ") (Intro para mantener): ");;
-			if (!nuevoNombre.trim().equals("")) {
-				nombre = nuevoNombre;
+			nuevoModelo = JOptionPane.showInputDialog("idfrabicante (" + modelo + ") (Intro para mantener): ");
+			if (!nuevoModelo.trim().equals("")) {
+				modelo = nuevoModelo;
 			}
+			
+			nuecoColor = JOptionPane.showInputDialog("color (" + color + ") (Intro para mantener): ");;
+			if (!nuecoColor.trim().equals("")) {
+				color = nuecoColor;
+			}
+			
 			
 			int registrosAfectados = s.executeUpdate(
-					"update coche set cif='" + cif + "', nombre='" + nombre + "' " +
+					"update coche set idfabricante='" + idfabricante + "', bastidor='" + bastidor 
+																	 + "'," + " modelo='" + modelo + "', " +" color='" + color + "' " +
 					"where id=" + id);
 			System.out.println(registrosAfectados + " registros afectados");
 		} catch (SQLException e) {
@@ -82,9 +98,11 @@ public class GestionarCoche extends SupertipoGestion  {
 		String idfabrinate, bastidor, modelo, color;
 		int nuevoIdDisponible;
 		
-		System.out.println("Creación de un nuevo coche:");
+		System.out.println("Creacion de un nuevo coche:");
 		
-		System.out.println("Dame el cif:");
+		System.out.println();
+		
+		System.out.println("Dame el idfabrinate:");
 		idfabrinate = sc.next();
 		System.out.println("Dame el Bastidor:");
 		bastidor = sc.next();
@@ -133,7 +151,7 @@ public class GestionarCoche extends SupertipoGestion  {
 			s.close();
 		}
 		catch (SQLException ex) {
-			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
 	}
