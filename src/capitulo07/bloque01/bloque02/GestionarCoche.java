@@ -20,7 +20,7 @@ public class GestionarCoche extends SupertipoGestion  {
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
 			int registrosAfectados = s.executeUpdate(
-					"delete from fabricante where id=" + id);
+					"delete from coche where id=" + id);
 			System.out.println(registrosAfectados + " registros eliminados");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,12 +39,12 @@ public class GestionarCoche extends SupertipoGestion  {
 		String cif = "", nombre = "";
 		String nuevoCif = "", nuevoNombre = "";
 		
-		System.out.println("Introduce id del fabricante: ");
+		System.out.println("Introduce id del coche: ");
 		id = sc.nextInt();
 		
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
-			ResultSet rs = s.executeQuery("Select * from fabricante where id=" + id);
+			ResultSet rs = s.executeQuery("Select * from coche where id=" + id);
 			if (rs.next()) {
 				cif = rs.getString("cif");
 				nombre = rs.getString("nombre");
@@ -61,7 +61,7 @@ public class GestionarCoche extends SupertipoGestion  {
 			}
 			
 			int registrosAfectados = s.executeUpdate(
-					"update fabricante set cif='" + cif + "', nombre='" + nombre + "' " +
+					"update coche set cif='" + cif + "', nombre='" + nombre + "' " +
 					"where id=" + id);
 			System.out.println(registrosAfectados + " registros afectados");
 		} catch (SQLException e) {
@@ -99,7 +99,7 @@ public class GestionarCoche extends SupertipoGestion  {
 			nuevoIdDisponible = maxIdEnTabla("coche");
 			if (nuevoIdDisponible != -1) {
 				int registrosAfectados = s.executeUpdate(
-						"insert into fabricante values (" + nuevoIdDisponible + ",'" + idfabrinate + "', '" + bastidor + "', '" + modelo + "', '" + color + "')");
+						"insert into coche values (" + nuevoIdDisponible + ",'" + idfabrinate + "', '" + bastidor + "', '" + modelo + "', '" + color + "')");
 				System.out.println(registrosAfectados + " registros insertados ");
 			}
 		} catch (SQLException e) {

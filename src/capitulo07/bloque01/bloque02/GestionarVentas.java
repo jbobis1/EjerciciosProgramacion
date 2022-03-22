@@ -20,7 +20,7 @@ public class GestionarVentas extends SupertipoGestion{
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
 			int registrosAfectados = s.executeUpdate(
-					"delete from fabricante where id=" + id);
+					"delete from venta where id=" + id);
 			System.out.println(registrosAfectados + " registros eliminados");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,7 +39,7 @@ public class GestionarVentas extends SupertipoGestion{
 		String cif = "", nombre = "";
 		String nuevoCif = "", nuevoNombre = "";
 		
-		System.out.println("Introduce id del fabricante: ");
+		System.out.println("Introduce id del venta: ");
 		id = sc.nextInt();
 		
 		try {
@@ -61,7 +61,7 @@ public class GestionarVentas extends SupertipoGestion{
 			}
 			
 			int registrosAfectados = s.executeUpdate(
-					"update fabricante set cif='" + cif + "', nombre='" + nombre + "' " +
+					"update venta set cif='" + cif + "', nombre='" + nombre + "' " +
 					"where id=" + id);
 			System.out.println(registrosAfectados + " registros afectados");
 		} catch (SQLException e) {
@@ -82,7 +82,7 @@ public class GestionarVentas extends SupertipoGestion{
 		String idfabrinate, bastidor, modelo, color;
 		int nuevoIdDisponible;
 		
-		System.out.println("Creación de un nuevo fabricante:");
+		System.out.println("Creación de un nuevo venta:");
 		
 		System.out.println("Dame el cif:");
 		idfabrinate = sc.next();

@@ -13,13 +13,13 @@ public class GestionarConsecionario extends SupertipoGestion{
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
 		
-		System.out.println("Introduce id del fabricante para su eliminación: ");
+		System.out.println("Introduce id del concesionario para su eliminación: ");
 		id = sc.nextInt();
 
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
 			int registrosAfectados = s.executeUpdate(
-					"delete from fabricante where id=" + id);
+					"delete from concesionario where id=" + id);
 			System.out.println(registrosAfectados + " registros eliminados");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,12 +39,12 @@ public class GestionarConsecionario extends SupertipoGestion{
 		String nuevoCif = "", nuevoNombre = "", nuevoLocalidad = "";
 		
 		
-		System.out.println("Introduce id del fabricante: ");
+		System.out.println("Introduce id del concesionario: ");
 		id = sc.nextInt();
 		
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
-			ResultSet rs = s.executeQuery("Select * from fabricante where id=" + id);
+			ResultSet rs = s.executeQuery("Select * from concesionario where id=" + id);
 			if (rs.next()) {
 				cif = rs.getString("cif");
 				nombre = rs.getString("nombre");
@@ -61,21 +61,20 @@ public class GestionarConsecionario extends SupertipoGestion{
 				nombre = nuevoNombre;
 			}
 			
-			nuevoLocalidad = JOptionPane.showInputDialog("Nombre (" + localidad + ") (Intro para mantener): ");;
+			nuevoLocalidad = JOptionPane.showInputDialog("Localidad (" + localidad + ") (Intro para mantener): ");;
 			if (!nuevoLocalidad.trim().equals("")) {
 				localidad = nuevoLocalidad;
 			}
-			
+				
 			int registrosAfectados = s.executeUpdate(
-					"update fabricante set cif='" + cif + "', nombre='" + nombre + "' " +  "', localidad='" + localidad + "' " +
+					"update concesionario set cif='" + cif + "', nombre='" + nombre + "', " + " localidad='" + localidad + "' " +
 					"where id=" + id);
+			
 			System.out.println(registrosAfectados + " registros afectados");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 		
 	}
 	
@@ -104,7 +103,7 @@ public class GestionarConsecionario extends SupertipoGestion{
 			nuevoIdDisponible = maxIdEnTabla("concesionario");
 			if (nuevoIdDisponible != -1) {
 				int registrosAfectados = s.executeUpdate(
-						"insert into fabricante values (" + nuevoIdDisponible + ",'" + cif + "', '" + nombre + "', '" + localidad + "')");
+						"insert into concesionario values (" + nuevoIdDisponible + ",'" + cif + "', '" + nombre + "', '" + localidad + "')");
 		//		"insert into fabricante values (" + nuevoIdDisponible + ",'" + cif + "', '" + nombre + "')");
 				System.out.println(registrosAfectados + " registros insertados ");
 			}

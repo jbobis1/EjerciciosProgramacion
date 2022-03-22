@@ -20,13 +20,13 @@ public class GestionarCliente  extends SupertipoGestion{
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
 		
-		System.out.println("Introduce id del fabricante para su eliminación: ");
+		System.out.println("Introduce id del cliente para su eliminación: ");
 		id = sc.nextInt();
 
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
 			int registrosAfectados = s.executeUpdate(
-					"delete from fabricante where id=" + id);
+					"delete from cliente where id=" + id);
 			System.out.println(registrosAfectados + " registros eliminados");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -53,13 +53,13 @@ public class GestionarCliente  extends SupertipoGestion{
 		
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
-			ResultSet rs = s.executeQuery("Select * from fabricante where id=" + id);
+			ResultSet rs = s.executeQuery("Select * from cliente where id=" + id);
 			if (rs.next()) {
 				Apellidos = rs.getString("Apellidos");
 				nombre = rs.getString("nombre");
 				dniDnie = rs.getString("dniDnie");
 				localidad = rs.getString("localidad");
-				sdf = rs.getDate("localidad");
+
 				
 				
 			}
@@ -88,7 +88,7 @@ public class GestionarCliente  extends SupertipoGestion{
 			
 			
 			int registrosAfectados = s.executeUpdate(
-					"update fabricante set Apellidos='" + Apellidos + "', nombre='" + nombre + "' " + "', DNI='" + dniDnie + "' " + "', localidad='" + localidad + "' " +
+					"update cliente set Apellidos='" + Apellidos + "', nombre='" + nombre + "' " + "', DNI='" + dniDnie + "' " + "', localidad='" + localidad + "' " +
 					"where id=" + id);
 			System.out.println(registrosAfectados + " registros afectados");
 		} catch (SQLException e) {
@@ -114,7 +114,7 @@ public class GestionarCliente  extends SupertipoGestion{
 
 		SimpleDateFormat sdf = new SimpleDateFormat ("EEE, MMM d, ''yy 'at' hh:mm:ss a z");
 		
-		System.out.println("Creación de un nuevo fabricante:");
+		System.out.println("Creación de un nuevo cliente:");
 		System.out.println("Dame el apellidos:");
 		apellidos = sc.next();
 		System.out.println("Dame el nombre:");
@@ -141,7 +141,7 @@ public class GestionarCliente  extends SupertipoGestion{
 			nuevoIdDisponible = maxIdEnTabla("fabricante");
 			if (nuevoIdDisponible != -1) {
 				int registrosAfectados = s.executeUpdate(
-						"insert into fabricante values (" + nuevoIdDisponible + ",'" + nombre + "', '" + apellidos + "', '" + localidad + "', '" + dniDnie +"', '" + sdf + "')");
+						"insert into cliente values (" + nuevoIdDisponible + ",'" + nombre + "', '" + apellidos + "', '" + localidad + "', '" + dniDnie +"', '" + sdf + "')");
 				
 				System.out.println(registrosAfectados + " registros insertados ");
 			}
