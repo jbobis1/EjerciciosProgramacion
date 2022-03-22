@@ -41,13 +41,14 @@ public class GestionarCliente  extends SupertipoGestion{
 	 */
 	public static void modificarClientes () {
 		Scanner sc = new Scanner(System.in);
-		int id = 0;
-		String Apellidos = "", nombre = "",dniDnie = null, localidad = null;
+		int id = 0 , activo =1;
+		String Apellidos = "", nombre = "",dniDnie="" , localidad="", fechaNueva="" ;
 		String nuevoApellidos = "", nuevoNombre = "",nuevoDniDnie = "", nuevoLocalidad= "";
 
-		Date ahora = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat ("EEE, MMM d, ''yy 'at' hh:mm:ss a z");
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+		Date date = new Date();
 		
+
 		System.out.println("Introduce id del fabricante: ");
 		id = sc.nextInt();
 		
@@ -59,7 +60,7 @@ public class GestionarCliente  extends SupertipoGestion{
 				nombre = rs.getString("nombre");
 				dniDnie = rs.getString("dniDnie");
 				localidad = rs.getString("localidad");
-
+				date = rs.getDate("fecha");
 				
 				
 			}
@@ -87,17 +88,21 @@ public class GestionarCliente  extends SupertipoGestion{
 			}
 			
 			
+			fechaNueva = JOptionPane.showInputDialog("Cif (" + date.toString() + ") (Intro para mantener): ");
+			if (!fechaNueva.trim().equals("")) {
+				date.toString()  = fechaNueva;
+			}
+			
+			
+			
 			int registrosAfectados = s.executeUpdate(
-					"update cliente set Apellidos='" + Apellidos + "', nombre='" + nombre + "' " + "', DNI='" + dniDnie + "' " + "', localidad='" + localidad + "' " +
+					"update cliente set nombre='" + nombre + "', Apellidos='" + Apellidos + "' " + "', localidad='" + localidad + "' " + "', dniNie='" + dniDnie + "' " +  "', fechaNac='" + date.toString()  + "' " + "', activo='" + activo + "' "+ 
 					"where id=" + id);
 			System.out.println(registrosAfectados + " registros afectados");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		
-		
+		}	
 	}
 	
 
@@ -106,13 +111,11 @@ public class GestionarCliente  extends SupertipoGestion{
 	 */
 	public static void nuevoClientes () {
 		Scanner sc = new Scanner(System.in);
-		String apellidos, nombre,localidad,dniDnie;
-		int nuevoIdDisponible, activo;
+		String apellidos, nombre,localidad,dniDnie, fechausuario;
+		int nuevoIdDisponible, activo = 1 ;
 		
-		Date ahora = new Date();
-		
-
-		SimpleDateFormat sdf = new SimpleDateFormat ("EEE, MMM d, ''yy 'at' hh:mm:ss a z");
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+		Date date = new Date();
 		
 		System.out.println("Creación de un nuevo cliente:");
 		System.out.println("Dame el apellidos:");
@@ -124,8 +127,10 @@ public class GestionarCliente  extends SupertipoGestion{
 		System.out.println("Dame el dniDnie:");
 		dniDnie = sc.next();
 		System.out.println("Dame el fecha:");
+		fechausuario=sc.next();
+		
 		try {
-			sdf.parse(JOptionPane.showInputDialog("Introduzca una fecha con formato dd/mm/yyyy: "));
+			date =sdf.parse(fechausuario);
 		} catch (HeadlessException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -135,13 +140,16 @@ public class GestionarCliente  extends SupertipoGestion{
 		}
 		
 		
+		SimpleDateFormat sdf1Salida = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");	
 		
+	
+	
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();
-			nuevoIdDisponible = maxIdEnTabla("fabricante");
+			nuevoIdDisponible = maxIdEnTabla("cliente");
 			if (nuevoIdDisponible != -1) {
 				int registrosAfectados = s.executeUpdate(
-						"insert into cliente values (" + nuevoIdDisponible + ",'" + nombre + "', '" + apellidos + "', '" + localidad + "', '" + dniDnie +"', '" + sdf + "')");
+						"insert into cliente values (" + nuevoIdDisponible + ",'" + nombre + "', '" + apellidos + "', '" + localidad + "', '" + dniDnie +  "', '" +  sdf1Salida.format(date)+ "', '" + activo + "')");
 				
 				System.out.println(registrosAfectados + " registros insertados ");
 			}
