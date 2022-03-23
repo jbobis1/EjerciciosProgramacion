@@ -99,13 +99,18 @@ public class GestionarCoche extends SupertipoGestion  {
 		
 		System.out.println();
 		
+		
+		//Mostramos los id de los Fabricantes
 		GestionFabricante.listarFabricantes();
 		System.out.println("Dame el idfabrinate:");
 		idfabrinate = sc.next();
+		
 		System.out.println("Dame el Bastidor:");
 		bastidor = sc.next();
+		
 		System.out.println("Dame el Modelo:");
 		modelo = sc.next();
+		
 		System.out.println("Dame el Color:");
 		color = sc.next();
 		

@@ -122,10 +122,12 @@ public class GestionarVentas extends SupertipoGestion{
 		System.out.println("Dame el idCliente:");
 		idCliente = sc.next();
 		
+		//Mostramos los id de los Consecionarios
 		GestionarConsecionario.listarConsecionario();
 		System.out.println("Dame el idConcesionario:");
 		idConcesionario = sc.next();
 		
+		//Mostramos los id de los Coches
 		GestionarCoche.listarCoche();
 		System.out.println("Dame el idCoche:");
 		idCoche = sc.next();
