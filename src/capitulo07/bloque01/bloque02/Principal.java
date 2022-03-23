@@ -40,6 +40,8 @@ public class Principal {
 			}
 
 		} while (opcion != 0);
+		System.out.println();
+		System.out.println("Has Salido Del Programa.");
 		
 
 	}
