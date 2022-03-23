@@ -210,6 +210,7 @@ public class Principal {
 		int opcionElegida = 0;
 		
 		System.out.println("\n\nMenu" + 
+				"\n\t0.- Salir" +
 				"\n\t1.- Fabricantes" +
 				"\n\t2.- Coche" +
 				"\n\t3.- Concecionario" + 
@@ -230,6 +231,7 @@ public class Principal {
 		int opcionElegida = 0;
 		
 		System.out.println("\n\nMenu de Fabricante" + 
+				"\n\t0.- Atras" +
 				"\n\t1.- Listar Fabricantes" +
 				"\n\t2.- Nuevo Fabricante" +
 				"\n\t3.- Modificar Fabricante" + 
@@ -250,6 +252,7 @@ public class Principal {
 		int opcionElegida = 0;
 		
 		System.out.println("\n\nMenu de Coche" + 
+				"\n\t0.- Atras" +
 				"\n\t1.- Listar Coches" +
 				"\n\t2.- Nuevo Coche" +
 				"\n\t3.- Modificar Coche" + 
@@ -270,6 +273,7 @@ public class Principal {
 		int opcionElegida = 0;
 		
 		System.out.println("\n\nMenu de Cliente" + 
+				"\n\t0.- Atras" +
 				"\n\t1.- Listar Clientes" +
 				"\n\t2.- Nuevo Cliente" +
 				"\n\t3.- Modificar Cliente" + 
@@ -290,6 +294,7 @@ public class Principal {
 		int opcionElegida = 0;
 		
 		System.out.println("\n\nMenu de Concesionario" + 
+				"\n\t0.- Atras" +
 				"\n\t1.- Listar Concesionarios" +
 				"\n\t2.- Nuevo Concesionario" +
 				"\n\t3.- Modificar Concesionario" + 
@@ -308,6 +313,7 @@ public class Principal {
 		int opcionElegida = 0;
 		
 		System.out.println("\n\nMenu de Venta" + 
+				"\n\t0.- Atras" +
 				"\n\t1.- Listar Ventas" +
 				"\n\t2.- Nuevo Venta" +
 				"\n\t3.- Modificar Venta" + 
