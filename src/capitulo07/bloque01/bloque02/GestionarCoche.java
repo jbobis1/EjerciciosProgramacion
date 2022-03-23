@@ -27,7 +27,6 @@ public class GestionarCoche extends SupertipoGestion  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	
@@ -85,9 +84,6 @@ public class GestionarCoche extends SupertipoGestion  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 	
 
@@ -103,6 +99,7 @@ public class GestionarCoche extends SupertipoGestion  {
 		
 		System.out.println();
 		
+		GestionFabricante.listarFabricantes();
 		System.out.println("Dame el idfabrinate:");
 		idfabrinate = sc.next();
 		System.out.println("Dame el Bastidor:");
