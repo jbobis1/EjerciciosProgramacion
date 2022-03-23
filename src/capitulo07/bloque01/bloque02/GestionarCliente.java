@@ -192,6 +192,5 @@ public class GestionarCliente  extends SupertipoGestion{
 			ex.printStackTrace();
 		}
 	}
-	
 
 }

@@ -21,19 +21,19 @@ public class Principal {
 			opcion = menu();
 
 			switch(opcion) {
-			case 1: // Listado de fabricantes
+			case 1: //fabricante
 				fracicante(args);
 				break;
-			case 2: // Nuevo fabricante
+			case 2: // coches
 				coches(args);
 				break;
-			case 3: // Modificar fabricante
+			case 3: // Consesionario
 				Consesionario(args);
 				break;
-			case 4: // Eliminar fabricante
+			case 4: // Clientes
 				Clientes(args);
 				break;
-			case 5: // Eliminar fabricante
+			case 5: // Ventas
 				Ventas(args);
 				break;
 				
@@ -44,7 +44,9 @@ public class Principal {
 
 	}
 	
-	
+	/**
+	 * 
+	 */
 	
 	public static void fracicante(String[] args) {
 		int opcion = 0;
@@ -72,6 +74,10 @@ public class Principal {
 
 	}
 	
+	/**
+	 * 
+	 * @param args
+	 */
 	
 	public static void coches(String[] args) {
 		int opcion = 0;
@@ -80,16 +86,16 @@ public class Principal {
 			opcion = OpcionCoches();
 
 			switch(opcion) {
-			case 1: // Listado de fabricantes
+			case 1: // Listado de coches
 				GestionarCoche.listarCoche();
 				break;
-			case 2: // Nuevo fabricante
+			case 2: // Nuevo coches
 				GestionarCoche.nuevoCoche();
 				break;
-			case 3: // Modificar fabricante
+			case 3: // Modificar coches
 				GestionarCoche.modificarCoche();
 				break;
-			case 4: // Eliminar fabricante
+			case 4: // Eliminar coches
 				GestionarCoche.eliminarCoche();
 				break;
 			}
@@ -99,7 +105,10 @@ public class Principal {
 
 	}
 	
-	
+	/**
+	 * 
+	 * @param args
+	 */
 	
 	public static void Consesionario(String[] args) {
 		int opcion = 0;
@@ -108,16 +117,16 @@ public class Principal {
 			opcion = opcionConcecionario();
 
 			switch(opcion) {
-			case 1: // Listado de fabricantes
+			case 1: // Listado de coches
 				GestionarConsecionario.listarConsecionario();
 				break;
-			case 2: // Nuevo fabricante
+			case 2: // Nuevo coches
 				GestionarConsecionario.nuevoConsecionario();
 				break;
-			case 3: // Modificar fabricante
+			case 3: // Modificar coches
 				GestionarConsecionario.modificarConsecionario();
 				break;
-			case 4: // Eliminar fabricante
+			case 4: // Eliminar coches
 				GestionarConsecionario.eliminarConsecionarioe();
 				break;
 			}
@@ -127,6 +136,12 @@ public class Principal {
 
 	}
 	
+	
+	/**
+	 * 
+	 * @param args
+	 */
+	
 	public static void Ventas(String[] args) {
 		int opcion = 0;
 		
@@ -134,16 +149,16 @@ public class Principal {
 			opcion = opcionVentas();
 
 			switch(opcion) {
-			case 1: // Listado de fabricantes
+			case 1: // Listado de coches
 				GestionarVentas.listarVentas();
 				break;
-			case 2: // Nuevo fabricante
+			case 2: // Nuevo coches
 				GestionarVentas.nuevoVentas();
 				break;
-			case 3: // Modificar fabricante
+			case 3: // Modificar coches
 				GestionarVentas.modificarVentas();
 				break;
-			case 4: // Eliminar fabricante
+			case 4: // Eliminar coches
 				GestionarVentas.eliminarVentas();
 				break;
 			}
@@ -153,6 +168,11 @@ public class Principal {
 
 	}
 	
+	/**
+	 * 
+	 * @param args
+	 */
+	
 	public static void Clientes(String[] args) {
 		int opcion = 0;
 		
@@ -161,16 +181,16 @@ public class Principal {
 			opcion = opcionClientes();
 
 			switch(opcion) {
-			case 1: // Listado de fabricantes
+			case 1: // Listado de coches
 				GestionarCliente.listarClientes();
 				break;
-			case 2: // Nuevo fabricante
+			case 2: // Nuevo coches
 				GestionarCliente.nuevoClientes();
 				break;
-			case 3: // Modificar fabricante
+			case 3: // Modificar coches
 				GestionarCliente.modificarClientes();
 				break;
-			case 4: // Eliminar fabricante
+			case 4: // Eliminar coches
 				GestionarCliente.eliminarClientes();
 				break;
 			}
@@ -201,7 +221,10 @@ public class Principal {
 		return opcionElegida;
 	}
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public static int opcionFabricantes () {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
@@ -216,6 +239,11 @@ public class Principal {
 		opcionElegida = sc.nextInt();
 		return opcionElegida;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public static int OpcionCoches () {
 		Scanner sc = new Scanner(System.in);
@@ -232,6 +260,11 @@ public class Principal {
 		return opcionElegida;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int opcionClientes () {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
@@ -246,6 +279,12 @@ public class Principal {
 		opcionElegida = sc.nextInt();
 		return opcionElegida;
 	}
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public static int opcionConcecionario () {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
@@ -260,7 +299,10 @@ public class Principal {
 		opcionElegida = sc.nextInt();
 		return opcionElegida;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public static int opcionVentas () {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
@@ -274,7 +316,6 @@ public class Principal {
 		
 		opcionElegida = sc.nextInt();
 		return opcionElegida;
-	}
-	
+	}	
 	
 }

@@ -103,8 +103,6 @@ public class GestionarVentas extends SupertipoGestion{
 			e.printStackTrace();
 		}
 		
-		
-		
 	}
 	
 
@@ -201,8 +199,6 @@ public class GestionarVentas extends SupertipoGestion{
 			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-	}
-	
-	
+	}	
 	
 }
