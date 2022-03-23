@@ -206,7 +206,7 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
 		
-		System.out.println("\n\nMenu" + 
+		System.out.println("\n\nMenu de Fabricante" + 
 				"\n\t1.- Listar Fabricantes" +
 				"\n\t2.- Nuevo Fabricante" +
 				"\n\t3.- Modificar Fabricante" + 
@@ -221,11 +221,11 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
 		
-		System.out.println("\n\nMenu" + 
+		System.out.println("\n\nMenu de Coche" + 
 				"\n\t1.- Listar Coches" +
-				"\n\t2.- Nuevo Coches" +
-				"\n\t3.- Modificar Coches" + 
-				"\n\t4.- Eliminar Coches" +
+				"\n\t2.- Nuevo Coche" +
+				"\n\t3.- Modificar Coche" + 
+				"\n\t4.- Eliminar Coche" +
 				"\nIntroduzca su opcion: ");
 		
 		opcionElegida = sc.nextInt();
@@ -236,11 +236,11 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
 		
-		System.out.println("\n\nMenu" + 
+		System.out.println("\n\nMenu de Cliente" + 
 				"\n\t1.- Listar Clientes" +
-				"\n\t2.- Nuevo Clientes" +
-				"\n\t3.- Modificar Clientes" + 
-				"\n\t4.- Eliminar Clientes" +
+				"\n\t2.- Nuevo Cliente" +
+				"\n\t3.- Modificar Cliente" + 
+				"\n\t4.- Eliminar Cliente" +
 				"\nIntroduzca su opcion: ");
 		
 		opcionElegida = sc.nextInt();
@@ -250,11 +250,11 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
 		
-		System.out.println("\n\nMenu" + 
-				"\n\t1.- Listar Concecionario" +
-				"\n\t2.- Nuevo Concecionario" +
-				"\n\t3.- Modificar Concecionario" + 
-				"\n\t4.- Eliminar Concecionario" +
+		System.out.println("\n\nMenu de Concesionario" + 
+				"\n\t1.- Listar Concesionarios" +
+				"\n\t2.- Nuevo Concesionario" +
+				"\n\t3.- Modificar Concesionario" + 
+				"\n\t4.- Eliminar Concesionario" +
 				"\nIntroduzca su opcion: ");
 		
 		opcionElegida = sc.nextInt();
@@ -265,11 +265,11 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		int opcionElegida = 0;
 		
-		System.out.println("\n\nMenu" + 
+		System.out.println("\n\nMenu de Venta" + 
 				"\n\t1.- Listar Ventas" +
-				"\n\t2.- Nuevo Ventas" +
-				"\n\t3.- Modificar Ventas" + 
-				"\n\t4.- Eliminar Ventas" +
+				"\n\t2.- Nuevo Venta" +
+				"\n\t3.- Modificar Venta" + 
+				"\n\t4.- Eliminar Venta" +
 				"\nIntroduzca su opcion: ");
 		
 		opcionElegida = sc.nextInt();
