@@ -75,20 +75,17 @@ public class GestionarVentas extends SupertipoGestion{
 			nuevoidCoche = JOptionPane.showInputDialog("idCoche (" + idCoche + ") (Intro para mantener): ");
 			if (!nuevoidCoche.trim().equals("")) {
 				idCoche = nuevoidCoche;
-			}
-			
-			nuevofechausuario = JOptionPane.showInputDialog("precioVenta (" + precioVenta + ") (Intro para mantener): ");;
-			if (!nuevofechausuario.trim().equals("")) {
-				precioVenta = nuevofechausuario;
-			}
-			
+			}			
 			
 			fechaNueva = JOptionPane.showInputDialog("Fecha (" + fechaNac.toString() + ") (Intro para mantener): ");
 			if (!fechaNueva.trim().equals("")) {
-			//	fechaNac.toString() =fechaNueva;
 				fechaNueva = fechaNac.toString();
 			}
 			
+			nuevoprecioVenta = JOptionPane.showInputDialog("precioVenta (" + precioVenta + ") (Intro para mantener): ");;
+			if (!nuevoprecioVenta.trim().equals("")) {
+				precioVenta = nuevoprecioVenta;
+			}
 			
 			int registrosAfectados = s.executeUpdate(
 					"update venta set idCliente='" + idCliente + "', idConcesionario='" + idConcesionario + "', " 

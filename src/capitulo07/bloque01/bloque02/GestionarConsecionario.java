@@ -104,7 +104,6 @@ public class GestionarConsecionario extends SupertipoGestion{
 			if (nuevoIdDisponible != -1) {
 				int registrosAfectados = s.executeUpdate(
 						"insert into concesionario values (" + nuevoIdDisponible + ",'" + cif + "', '" + nombre + "', '" + localidad + "')");
-		//		"insert into fabricante values (" + nuevoIdDisponible + ",'" + cif + "', '" + nombre + "')");
 				System.out.println(registrosAfectados + " registros insertados ");
 			}
 		} catch (SQLException e) {

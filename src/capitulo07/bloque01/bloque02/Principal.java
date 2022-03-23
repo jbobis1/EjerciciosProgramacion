@@ -21,19 +21,19 @@ public class Principal {
 			opcion = menu();
 
 			switch(opcion) {
-			case 1: //fabricante
+			case 1: //Menu de Fabricante
 				fracicante(args);
 				break;
-			case 2: // coches
+			case 2: //Menu de Coches
 				coches(args);
 				break;
-			case 3: // Consesionario
+			case 3: //Menu de Consesionario
 				Consesionario(args);
 				break;
-			case 4: // Clientes
+			case 4: //Menu de Clientes
 				Clientes(args);
 				break;
-			case 5: // Ventas
+			case 5: //Menu de Ventas
 				Ventas(args);
 				break;
 				
