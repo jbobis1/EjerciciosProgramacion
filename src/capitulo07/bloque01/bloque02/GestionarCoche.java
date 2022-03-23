@@ -64,12 +64,12 @@ public class GestionarCoche extends SupertipoGestion  {
 				bastidor = nuevoBastidor;
 			}
 			
-			nuevoModelo = JOptionPane.showInputDialog("idfrabicante (" + modelo + ") (Intro para mantener): ");
+			nuevoModelo = JOptionPane.showInputDialog("Modelo (" + modelo + ") (Intro para mantener): ");
 			if (!nuevoModelo.trim().equals("")) {
 				modelo = nuevoModelo;
 			}
 			
-			nuecoColor = JOptionPane.showInputDialog("color (" + color + ") (Intro para mantener): ");;
+			nuecoColor = JOptionPane.showInputDialog("Color (" + color + ") (Intro para mantener): ");;
 			if (!nuecoColor.trim().equals("")) {
 				color = nuecoColor;
 			}
