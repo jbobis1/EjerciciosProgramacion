@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class kaka {
@@ -159,4 +162,32 @@ public class kaka {
 		panel.add(btnNewButton_3);
 	}
 
+	
+	
+	public void listarFabricantes() {
+		try {
+			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+			ResultSet rs = s.executeQuery ("select * from fabricante");
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next()) { 
+				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+					System.out.print(rs.getString(i) + "\t");
+					
+				}
+				System.out.println();
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
 }
