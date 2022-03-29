@@ -314,6 +314,10 @@ public class VentanaF {
 			int registrosAfectados = s.executeUpdate(
 					"delete from fabricante where id=" + id);
 			System.out.println(registrosAfectados + " registros eliminados");
+			
+			
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
