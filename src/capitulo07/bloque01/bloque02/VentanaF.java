@@ -189,7 +189,7 @@ public class VentanaF {
 		JButton btnNewButton_6 = new JButton("Borrar");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				eliminar();
 			
 			}
 		});
@@ -216,7 +216,7 @@ public class VentanaF {
 			s.close();
 		}
 		catch (SQLException ex) {
-			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
 		
@@ -244,7 +244,7 @@ public class VentanaF {
 			s.close();
 		}
 		catch (SQLException ex) {
-			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
 	}
@@ -270,7 +270,7 @@ public class VentanaF {
 			s.close();
 		}
 		catch (SQLException ex) {
-			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
 	}
@@ -296,35 +296,62 @@ public class VentanaF {
 			s.close();
 		}
 		catch (SQLException ex) {
-			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
 	}
-
-	
-	public static void eliminarFabricante() {
-		Scanner sc = new Scanner(System.in);
-		int id = 0;
-		
-		System.out.println("Introduce id del fabricante para su eliminación: ");
-		id = sc.nextInt();
-
+	public void eliminar() {
 		try {
-			Statement s = ConnectionManager.getConexion().createStatement();
-			int registrosAfectados = s.executeUpdate(
-					"delete from fabricante where id=" + id);
-			System.out.println(registrosAfectados + " registros eliminados");
+			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 			
-			
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next()) { 
+			this.JtfId.setText(rs.getString("id"));	
+			this.JtfCif.setText(rs.getString("cif"));		
+			this.JtfNombre.setText(rs.getString("nombre"));	
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
 		}
-		
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
 	}
 	
+	public abstract void nuevo(); {
+		try {
+			int nuevoIdDisponible;
+			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
+			
+			
+			nuevoIdDisponible = maxIdEnTabla("fabricante");
+			// Navegación del objeto ResultSet
+			if (rs.next()) { 
+			this.JtfId.setText(rs.getString("id"));	
+			this.JtfCif.setText(rs.getString("cif"));		
+			this.JtfNombre.setText(rs.getString("nombre"));	
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
 	
 	
 	public static void nuevoFabricante () {
