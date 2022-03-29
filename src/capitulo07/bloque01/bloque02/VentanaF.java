@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 
 public class VentanaF {
@@ -164,6 +165,35 @@ public class VentanaF {
 			}
 		});
 		panel.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Nuevo");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			
+			}
+		});
+		panel.add(btnNewButton_4);
+		
+		
+		JButton btnNewButton_5 = new JButton("Actualizar");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			
+			}
+		});
+		panel.add(btnNewButton_5);
+		
+		
+		JButton btnNewButton_6 = new JButton("Borrar");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			
+			}
+		});
+		panel.add(btnNewButton_6);
 	}
 	
 	public void mostarPrimerFabricante() {
@@ -201,7 +231,7 @@ public class VentanaF {
 			
 			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("select * from fabricante order by id des limit 1");
+			ResultSet rs = s.executeQuery ("select * from fabricante order by id desc limit 1");
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
@@ -226,7 +256,8 @@ public class VentanaF {
 			
 			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("select * from fabricante order by id 1 > limit 1");
+			
+			ResultSet rs = s.executeQuery ("select * from fabricante where id < " + JtfId.getText()  + "  order by id limit 1");
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
@@ -251,7 +282,8 @@ public class VentanaF {
 			
 			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("select * from fabricante order by id 1 < limit 1");
+			ResultSet rs = s.executeQuery ("select * from fabricante where id > " + JtfId.getText() + " order by id desc limit 1");
+			
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
@@ -268,5 +300,53 @@ public class VentanaF {
 			ex.printStackTrace();
 		}
 	}
+
+	
+	public static void eliminarFabricante() {
+		Scanner sc = new Scanner(System.in);
+		int id = 0;
+		
+		System.out.println("Introduce id del fabricante para su eliminación: ");
+		id = sc.nextInt();
+
+		try {
+			Statement s = ConnectionManager.getConexion().createStatement();
+			int registrosAfectados = s.executeUpdate(
+					"delete from fabricante where id=" + id);
+			System.out.println(registrosAfectados + " registros eliminados");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	public static void nuevoFabricante () {
+//		Scanner sc = new Scanner(System.in);
+//		String cif, nombre;
+//		int nuevoIdDisponible;
+//		
+//		System.out.println("Creación de un nuevo fabricante:");
+//		System.out.println("Dame el cif:");
+//		cif = sc.next();
+//		System.out.println("Dame el nombre:");
+//		nombre = sc.next();
+//		
+//		try {
+//			Statement s = ConnectionManager.getConexion().createStatement();
+//			nuevoIdDisponible = maxIdEnTabla("fabricante");
+//			if (nuevoIdDisponible != -1) {
+//				int registrosAfectados = s.executeUpdate(
+//						"insert into fabricante values (" + nuevoIdDisponible + ",'" + cif + "', '" + nombre + "')");
+//				System.out.println(registrosAfectados + " registros insertados ");
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
+	
 
 }
