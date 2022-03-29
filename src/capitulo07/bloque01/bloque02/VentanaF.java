@@ -257,7 +257,7 @@ public class VentanaF {
 			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
 			
-			ResultSet rs = s.executeQuery ("select * from fabricante where id < " + JtfId.getText()  + "  order by id limit 1");
+			ResultSet rs = s.executeQuery ("select * from fabricante where id > " + JtfId.getText()  + "  order by id limit 1");
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
@@ -282,7 +282,7 @@ public class VentanaF {
 			
 			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("select * from fabricante where id > " + JtfId.getText() + " order by id desc limit 1");
+			ResultSet rs = s.executeQuery ("select * from fabricante where id < " + JtfId.getText() + " order by id desc limit 1");
 			
 		   
 			// Navegación del objeto ResultSet
