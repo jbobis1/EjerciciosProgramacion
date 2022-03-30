@@ -20,16 +20,16 @@ import java.util.Scanner;
 import java.awt.event.ActionEvent;
 
 public class VentanaF {
-
+	
 	private JFrame frame;
 	private JTextField JtfId;
 	private JTextField JtfCif;
 	private JTextField JtfNombre;
 	private JButton borrar ;
 	private JButton minimo ;
+	private JButton unomenos ;
 	private JButton maximo ;
 	private JButton unomas ;
-	private JButton unomenos ;
 	private JButton nuevo ;
 	private JButton actualizar ;
 	
@@ -66,7 +66,7 @@ public class VentanaF {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		frame.getContentPane().setLayout(gridBagLayout);
 		
@@ -139,43 +139,50 @@ public class VentanaF {
 		gbc_panel.gridy = 4;
 		frame.getContentPane().add(panel, gbc_panel);
 		
-		 minimo = new JButton("<<");
+		minimo = new JButton("<<");
 		minimo.setToolTipText("");
 		minimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarPrimerFabricante();
 				ComprobarMinimo();
+				
 			}
 		});
 		panel.add(minimo);
 		
 		unomenos = new JButton("<");
+		unomenos.setToolTipText("");
 		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostarmenosuno() ;
+				mostarmenosuno();	
 				ComprobarMinimo();
+			
 			}
 		});
-		
 		panel.add(unomenos);
 
 		
 		unomas = new JButton(">");
+		unomas.setToolTipText("");
 		unomas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {//	public  void nuevo(); {
-
+				
 				mostarmasuno();
 				ComprobarMaximo();
+				
+				
 			}
 		});
 		panel.add(unomas);
 		
 		maximo = new JButton(">>");
+		maximo.setToolTipText("");
 		maximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				mostarUltimoFabricante();
 				ComprobarMaximo();
+				
 			}
 		});
 		panel.add(maximo);
@@ -296,7 +303,7 @@ public class VentanaF {
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
 			ResultSet rs = s.executeQuery ("select * from fabricante where id < " + JtfId.getText() + " order by id desc limit 1");
 			
-		   
+
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
 			this.JtfId.setText(rs.getString("id"));	
@@ -318,7 +325,8 @@ public class VentanaF {
 		try {
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 			
-			ResultSet rs = s.executeQuery ("select * from fabricante order by id limit 1");
+	
+			ResultSet rs = s.executeQuery ("select * from fabricante order by id  limit 1");
 
 			if (rs.next()) { 
 				
@@ -330,6 +338,11 @@ public class VentanaF {
 					unomenos.setEnabled(false);
 					
 					}
+				
+				else {
+					minimo.setEnabled(true);
+					unomenos.setEnabled(true);
+				}
 			}
 			rs.close();
 			s.close();
@@ -352,6 +365,12 @@ public class VentanaF {
 					
 					maximo.setEnabled(false);
 					unomas.setEnabled(false);
+				}
+				
+				else {
+					maximo.setEnabled(true);
+					unomas.setEnabled(true);
+				
 				}
 			}
 			
