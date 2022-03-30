@@ -139,7 +139,7 @@ public class VentanaF {
 		gbc_panel.gridy = 4;
 		frame.getContentPane().add(panel, gbc_panel);
 		
-		JButton minimo = new JButton("<<");
+		 minimo = new JButton("<<");
 		minimo.setToolTipText("");
 		minimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
