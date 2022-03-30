@@ -25,7 +25,14 @@ public class VentanaF {
 	private JTextField JtfId;
 	private JTextField JtfCif;
 	private JTextField JtfNombre;
-
+	private JButton borrar ;
+	private JButton minimo ;
+	private JButton maximo ;
+	private JButton unomas ;
+	private JButton unomenos ;
+	private JButton nuevo ;
+	private JButton actualizar ;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -132,68 +139,74 @@ public class VentanaF {
 		gbc_panel.gridy = 4;
 		frame.getContentPane().add(panel, gbc_panel);
 		
-		JButton btnNewButton = new JButton("<<");
-		btnNewButton.setToolTipText("");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton minimo = new JButton("<<");
+		minimo.setToolTipText("");
+		minimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarPrimerFabricante();
+				ComprobarMinimo();
 			}
 		});
-		panel.add(btnNewButton);
+		panel.add(minimo);
 		
-		JButton btnNewButton_1 = new JButton("<");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		unomenos = new JButton("<");
+		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarmenosuno() ;
+				ComprobarMinimo();
 			}
 		});
-		panel.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton(">");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		panel.add(unomenos);
+
+		
+		unomas = new JButton(">");
+		unomas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {//	public  void nuevo(); {
+
 				mostarmasuno();
+				ComprobarMaximo();
 			}
 		});
-		panel.add(btnNewButton_2);
+		panel.add(unomas);
 		
-		JButton btnNewButton_3 = new JButton(">>");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		maximo = new JButton(">>");
+		maximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				mostarUltimoFabricante();
+				ComprobarMaximo();
 			}
 		});
-		panel.add(btnNewButton_3);
+		panel.add(maximo);
 		
-		JButton btnNewButton_4 = new JButton("Nuevo");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		nuevo = new JButton("Nuevo");
+		nuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			
 			}
 		});
-		panel.add(btnNewButton_4);
+		panel.add(nuevo);
 		
 		
-		JButton btnNewButton_5 = new JButton("Actualizar");
-		btnNewButton_5.addActionListener(new ActionListener() {
+		actualizar = new JButton("Actualizar");
+		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			
 			}
 		});
-		panel.add(btnNewButton_5);
-		
-		
-		JButton btnNewButton_6 = new JButton("Borrar");
-		btnNewButton_6.addActionListener(new ActionListener() {
+		panel.add(actualizar);
+		 
+		borrar = new JButton("Borrar");
+		borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eliminar();
 			
 			}
 		});
-		panel.add(btnNewButton_6);
+		panel.add(borrar);
 	}
 	
 	public void mostarPrimerFabricante() {
@@ -248,7 +261,6 @@ public class VentanaF {
 			ex.printStackTrace();
 		}
 	}
-	
 	public void mostarmasuno() {
 		try {
 			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
@@ -300,6 +312,60 @@ public class VentanaF {
 			ex.printStackTrace();
 		}
 	}
+	
+	
+	public void ComprobarMinimo() {
+		try {
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("select * from fabricante order by id limit 1");
+
+			if (rs.next()) { 
+				
+			
+				
+				if(JtfId.getText().equalsIgnoreCase(rs.getString("id"))) {
+					
+					minimo.setEnabled(false);
+					unomenos.setEnabled(false);
+					
+					}
+			}
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
+	
+	public void ComprobarMaximo() {
+		try {
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+
+			ResultSet rs = s.executeQuery ("select * from fabricante order by id desc limit 1");
+
+			if (rs.next()) { 
+				if(JtfId.getText().equalsIgnoreCase(rs.getString("id"))) {	
+					
+					maximo.setEnabled(false);
+					unomas.setEnabled(false);
+				}
+			}
+			
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
+	
+	
+	
 	public void eliminar() {
 		try {
 			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
@@ -325,33 +391,33 @@ public class VentanaF {
 		}
 	}
 	
-	public abstract void nuevo(); {
-		try {
-			int nuevoIdDisponible;
-			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
-			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
-			
-			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
-			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
-			
-			
-			nuevoIdDisponible = maxIdEnTabla("fabricante");
-			// Navegación del objeto ResultSet
-			if (rs.next()) { 
-			this.JtfId.setText(rs.getString("id"));	
-			this.JtfCif.setText(rs.getString("cif"));		
-			this.JtfNombre.setText(rs.getString("nombre"));	
-			}
-			// Cierre de los elementos
-			rs.close();
-			s.close();
-		}
-		catch (SQLException ex) {
-			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
-			ex.printStackTrace();
-		}
-	}
+//	public  void nuevo(); {
+//		try {
+//			int nuevoIdDisponible;
+//			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+//			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+//			
+//			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+//			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+//			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
+//			
+//			
+//			nuevoIdDisponible = maxIdEnTabla("fabricante");
+//			// Navegación del objeto ResultSet
+//			if (rs.next()) { 
+//			this.JtfId.setText(rs.getString("id"));	
+//			this.JtfCif.setText(rs.getString("cif"));		
+//			this.JtfNombre.setText(rs.getString("nombre"));	
+//			}
+//			// Cierre de los elementos
+//			rs.close();
+//			s.close();
+//		}
+//		catch (SQLException ex) {
+//			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+//			ex.printStackTrace();
+//		}
+//	}
 	
 	
 	public static void nuevoFabricante () {
