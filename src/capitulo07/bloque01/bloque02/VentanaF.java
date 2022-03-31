@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
@@ -381,6 +383,7 @@ public class VentanaF {
 			ResultSet rs = s.executeQuery ("select * from fabricante order by id desc limit 1");
 
 			if (rs.next()) { 
+				
 				if(JtfId.getText().equalsIgnoreCase(rs.getString("id"))) {	
 					
 					maximo.setEnabled(false);
@@ -388,6 +391,7 @@ public class VentanaF {
 				}
 				
 				else {
+					
 					maximo.setEnabled(true);
 					unomas.setEnabled(true);
 				
@@ -409,6 +413,7 @@ public class VentanaF {
 	 */
 
 	public  void nuevo() {
+		int id = 0;
 		try {
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -416,7 +421,7 @@ public class VentanaF {
 			ResultSet rs = s.executeQuery ("select * from fabricante ");
 			
 			if (rs.next()) { 
-			this.JtfId.setText(rs.getString(0));	
+			this.JtfId.setText(rs.getString(id));	
 			
 			}
 
@@ -433,29 +438,47 @@ public class VentanaF {
 	 * 
 	 */
 	
-	public static void nuevoFabricante () {
-//		Scanner sc = new Scanner(System.in);
-//		String cif, nombre;
-//		int nuevoIdDisponible;
-//		
-//		System.out.println("Creación de un nuevo fabricante:");
-//		System.out.println("Dame el cif:");
-//		cif = sc.next();
-//		System.out.println("Dame el nombre:");
-//		nombre = sc.next();
-//		
-//		try {
-//			Statement s = ConnectionManager.getConexion().createStatement();
-//			nuevoIdDisponible = maxIdEnTabla("fabricante");
-//			if (nuevoIdDisponible != -1) {
-//				int registrosAfectados = s.executeUpdate(
-//						"insert into fabricante values (" + nuevoIdDisponible + ",'" + cif + "', '" + nombre + "')");
-//				System.out.println(registrosAfectados + " registros insertados ");
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+	public  void nuevoFabricante () {
+		int id = 0;
+		String cif = "", nombre = "";
+		String nuevoCif = "", nuevoNombre = "";
+		try {
+
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("select * from fabricante ");
+			this.JtfId.setText(rs.getString(id));	
+			
+			if (rs.next()) { 
+				
+			
+					if (rs.next()) {
+						cif = rs.getString("cif");
+						nombre = rs.getString("nombre");
+					}
+					
+					nuevoCif = JOptionPane.showInputDialog("Cif (" + cif + ") (Intro para mantener): ");
+					if (!nuevoCif.trim().equals("")) {
+						cif = nuevoCif;
+					}
+					
+					nuevoNombre = JOptionPane.showInputDialog("Nombre (" + nombre + ") (Intro para mantener): ");;
+					if (!nuevoNombre.trim().equals("")) {
+						nombre = nuevoNombre;
+					}
+					s.executeUpdate(
+							"update fabricante set cif='" + cif + "', nombre='" + nombre + "' " +
+							"where id=" + id);
+			
+			}
+
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
 	}
 	
 	
@@ -464,27 +487,25 @@ public class VentanaF {
 	 */
 	
 	public void eliminar() {
+		String nuevaid = JOptionPane.showInputDialog("Introduzca numero Maximo: ");
 		try {
-			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 			
-
-			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
-		   
-			// Navegación del objeto ResultSet
+			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + nuevaid);
+			
 			if (rs.next()) { 
 			this.JtfId.setText(rs.getString("id"));	
 			this.JtfCif.setText(rs.getString("cif"));		
 			this.JtfNombre.setText(rs.getString("nombre"));	
 			}
-			// Cierre de los elementos
+			
 			rs.close();
 			s.close();
 		}
 		catch (SQLException ex) {
-			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+		    JOptionPane.showMessageDialog(JtfId, nuevaid + "no se puede borra la id", "Error", JOptionPane.ERROR_MESSAGE);
 			ex.printStackTrace();
 		}
 	}
-
 }
