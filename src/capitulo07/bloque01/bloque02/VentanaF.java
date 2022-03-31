@@ -95,6 +95,8 @@ public class VentanaF {
 		frame.getContentPane().add(JtfId, gbc_JtfId);
 		JtfId.setColumns(10);
 		
+		JtfId.setVisible(false);
+	
 		JLabel lblNewLabel_1 = new JLabel("Cif");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.EAST;
@@ -200,7 +202,7 @@ public class VentanaF {
 		actualizar = new JButton("Actualizar");
 		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				nuevo();
 			
 			}
 		});
@@ -410,33 +412,26 @@ public class VentanaF {
 		}
 	}
 	
-//	public  void nuevo(); {
-//		try {
-//			int nuevoIdDisponible;
-//			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
-//			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
-//			
-//			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
-//			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-//			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
-//			
-//			
-//			nuevoIdDisponible = maxIdEnTabla("fabricante");
-//			// Navegación del objeto ResultSet
-//			if (rs.next()) { 
-//			this.JtfId.setText(rs.getString("id"));	
-//			this.JtfCif.setText(rs.getString("cif"));		
-//			this.JtfNombre.setText(rs.getString("nombre"));	
-//			}
-//			// Cierre de los elementos
-//			rs.close();
-//			s.close();
-//		}
-//		catch (SQLException ex) {
-//			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
-//			ex.printStackTrace();
-//		}
-//	}
+	public  void nuevo() {
+		try {
+
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("select * from fabricante ");
+			
+			if (rs.next()) { 
+			this.JtfId.setText(rs.getString(0));	
+			
+			}
+
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
 	
 	
 	public static void nuevoFabricante () {
