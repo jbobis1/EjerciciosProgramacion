@@ -218,6 +218,10 @@ public class VentanaF {
 		panel.add(borrar);
 	}
 	
+	
+	/**
+	 * 
+	 */
 	public void mostarPrimerFabricante() {
 		try {
 			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
@@ -244,7 +248,9 @@ public class VentanaF {
 		
 	}
 	
-	
+	/**
+	 * 
+	 */
 	
 	public void mostarUltimoFabricante() {
 		try {
@@ -270,6 +276,10 @@ public class VentanaF {
 			ex.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 
+	 */
 	public void mostarmasuno() {
 		try {
 			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
@@ -295,7 +305,9 @@ public class VentanaF {
 			ex.printStackTrace();
 		}
 	}
-	
+	/**
+	 * 
+	 */
 	public void mostarmenosuno() {
 		try {
 			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
@@ -322,7 +334,9 @@ public class VentanaF {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 */
 	public void ComprobarMinimo() {
 		try {
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -355,6 +369,10 @@ public class VentanaF {
 		}
 	}
 	
+	/**
+	 * 
+	 */
+	
 	public void ComprobarMaximo() {
 		try {
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -386,32 +404,10 @@ public class VentanaF {
 	}
 	
 	
-	
-	public void eliminar() {
-		try {
-			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
-			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
-			
-			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
-			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
-		   
-			// Navegación del objeto ResultSet
-			if (rs.next()) { 
-			this.JtfId.setText(rs.getString("id"));	
-			this.JtfCif.setText(rs.getString("cif"));		
-			this.JtfNombre.setText(rs.getString("nombre"));	
-			}
-			// Cierre de los elementos
-			rs.close();
-			s.close();
-		}
-		catch (SQLException ex) {
-			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
-			ex.printStackTrace();
-		}
-	}
-	
+	/**
+	 * 
+	 */
+
 	public  void nuevo() {
 		try {
 
@@ -433,6 +429,9 @@ public class VentanaF {
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	
 	public static void nuevoFabricante () {
 //		Scanner sc = new Scanner(System.in);
@@ -459,5 +458,33 @@ public class VentanaF {
 //		}
 	}
 	
+	
+	/**
+	 * 
+	 */
+	
+	public void eliminar() {
+		try {
+			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+
+			ResultSet rs = s.executeQuery ("delete from fabricante where id=" + JtfId.getText());
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next()) { 
+			this.JtfId.setText(rs.getString("id"));	
+			this.JtfCif.setText(rs.getString("cif"));		
+			this.JtfNombre.setText(rs.getString("nombre"));	
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
 
 }
