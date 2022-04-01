@@ -107,17 +107,17 @@ public class Controlador extends SupertipoGestion  {
 	}
 	
 	
-	public static void  nuevo (Fabricante f) {
-	
+	public static int  nuevo(Fabricante f) {
+		int nuevoIdDisponible=(Integer) null;
 		try {
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 			 f.setId(siguienteIdEntabla("fabricante"));
 			 nuevoIdDisponible = siguienteIdEntabla("fabricante");
-			 if(nuevaIdDisponible != -1) {
+			 if(nuevoIdDisponible != -1) {
 				 int reguitro =
 				s.executeUpdate(
-			"insert into fabricante values=("+ nuevaIdDisponible()+",'" + f.getCif() + "', nombre='" + f.getNombre());
+			"insert into fabricante values=("+ nuevoIdDisponible+",'" + f.getCif() + "', nombre='" + f.getNombre());
 				 System.out.println("resguitros insertado" + reguitro );
 					
 			 }
@@ -126,13 +126,37 @@ public class Controlador extends SupertipoGestion  {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
+		return nuevoIdDisponible;
 	
 	}
 
 
 
-
 	
+	public static  Fabricante eliminar(String sql) {
+		
+		Fabricante f = null;
+		try {
+			
+			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+			ResultSet rs = s.executeQuery (sql);
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next()) { 
+				f= new Fabricante (rs.getInt("id"), rs.getString("cif"), rs.getString("nombre"));			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		return f;
+		
+	}
 }
-
-

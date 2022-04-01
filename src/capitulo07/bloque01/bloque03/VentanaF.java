@@ -209,7 +209,19 @@ public class VentanaF {
 		borrar = new JButton("Borrar");
 		borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				Controlador.eliminar(null);
+				
+				Fabricante f =new Fabricante();
+				f.setId(JtfId.parseInt(JtfId.getText()));
+				f.setCif((JtfCif.getText()));
+				f.setNombre((JtfNombre.getText()));
+				if(Controlador.guardar(f)==1) {
+					JOptionPane.showConfirmDialog(null, "se a elimionado");
+				}
+				else {
+					JOptionPane.showConfirmDialog(null, "error al eliminar");
+
+				}
 			
 			}
 		});
@@ -272,11 +284,6 @@ public class VentanaF {
 		}
 	
 	}
-	
-	
-	
-	
-	
 	
 	
 }
