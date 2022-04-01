@@ -221,9 +221,12 @@ public class VentanaF {
 	}
 	
 	
+	
 	/**
 	 * 
 	 */
+
+	
 	public void mostarPrimerFabricante() {
 		try {
 			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
