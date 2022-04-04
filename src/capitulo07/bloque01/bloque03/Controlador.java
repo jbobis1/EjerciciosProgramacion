@@ -10,17 +10,21 @@ import javax.swing.JOptionPane;
 import capitulo07.bloque01.bloque02.ConnectionManager;
 
 public class Controlador extends SupertipoGestion {
+	
 	/**
 	 * 
 	 * @return
 	 */
+	
 	public static Fabricante mostarPrimerFabricante() {
 		return findFabricante("select * from fabricante order by id limit 1");   
 	}
+	
 	/**
 	 * 
 	 * @return
 	 */
+	
 	public static Fabricante mostarUltimoFabricante() {
 		return findFabricante("select * from fabricante order by id desc limit 1");	   
 	}
@@ -28,20 +32,25 @@ public class Controlador extends SupertipoGestion {
 	/**
 	 * 
 	 */
+	
 	public static Fabricante mostarmasuno(int idActual) {
-		return findFabricante("select * from fabricante where id > " + idActual  + "  order by id limit 1 ");
+		return findFabricante("select * from fabricante where id > " + idActual  + "  order by id limit 1");
 	}
+	
 	/**
 	 * 
 	 */
+	
 	public static Fabricante mostarmenosuno(int idActual) {
 		return findFabricante("select * from fabricante where id < " + idActual + " order by id desc limit 1");
 	}
+	
 	/**
 	 * 
 	 * @param sql
 	 * @return
 	 */
+	
 	public static  Fabricante findFabricante(String sql) {
 		Fabricante f = null;
 		try {
@@ -67,6 +76,12 @@ public class Controlador extends SupertipoGestion {
 		return f;
 	}
 	
+	/**
+	 * 
+	 * @param f
+	 * @return
+	 */
+	
 	public static int guardar(Fabricante f) {
 		if( f.getId()== 0) {
 			return nuevo(f);
@@ -77,26 +92,36 @@ public class Controlador extends SupertipoGestion {
 		
 	}
 	
-	public  static int  modificarFabricante (Fabricante f) {
+	/**
+	 * 
+	 * @param f
+	 * @return
+	 */
+	
+	public static int modificarFabricante (Fabricante f) {
 		int reguistros = 0;
 		try {
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 
 				s.executeUpdate(
-							"update fabricante set cif='" + f.getCif() + "', nombre='" + f.getNombre() + "' " +
-						"where id=" + f.getId());
-			
-			
+							"update fabricante set cif='" 
+									+ f.getCif() + "', nombre='" + f.getNombre() + "' " + "where id=" + f.getId());
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-	return reguistros;
+		return reguistros;
 	}
 	
-	public static int  nuevo(Fabricante f) {
+	/**
+	 * 
+	 * @param f
+	 * @return
+	 */
+	
+	public static int nuevo(Fabricante f) {
 		int nuevoIdDisponible =0;
 		try {
 
@@ -105,11 +130,10 @@ public class Controlador extends SupertipoGestion {
 			 nuevoIdDisponible = siguienteIdEntabla("fabricante");
 			 if(nuevoIdDisponible != -1) {
 				 int reguitro =
-				s.executeUpdate(
-			"insert into fabricante values (" + nuevoIdDisponible + ",'" + f.getCif() + "', '" + f.getNombre() + "')");
+				s.executeUpdate("insert into fabricante values (" 
+				 + nuevoIdDisponible + ",'" + f.getCif() + "', '" + f.getNombre() + "')");
 
-				 System.out.println("resguitros insertado" + reguitro );
-					
+				 System.out.println("resguitros insertado" + reguitro );	
 			 }
 
 		}catch (SQLException ex) {
@@ -119,12 +143,19 @@ public class Controlador extends SupertipoGestion {
 		return nuevoIdDisponible;
 	}
 
-	public static  int eliminar(Fabricante f) {
+	/**
+	 * 
+	 * @param f
+	 * @return
+	 */
+	
+	public static int eliminar(Fabricante f) {
 		int reguistrosAfectado = 0;
 		try {
 
-			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
-			s.executeUpdate("delete from fabricante where id=" + f.getCif());
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement();
+
+			s.executeUpdate("delete from fabricante where id=" + f.getId());
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
@@ -132,6 +163,4 @@ public class Controlador extends SupertipoGestion {
 		}
 		return reguistrosAfectado;
 	}
-	
-
 }

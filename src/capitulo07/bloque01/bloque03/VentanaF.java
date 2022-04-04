@@ -201,35 +201,27 @@ public class VentanaF {
 		actualizar = new JButton("Actualizar");
 		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				guardar ();
+				guardar();
 			}
 		});
 		panel.add(actualizar);
-		 
+	
 		borrar = new JButton("Borrar");
 		borrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Controlador.eliminar(null);
+			public void actionPerformed(ActionEvent e) {		
+				 eliminar ();
+						
 				
-				Fabricante f =new Fabricante();
-				f.setId(Integer.parseInt(JtfId.getText()));
-				f.setCif((JtfCif.getText()));
-				f.setNombre((JtfNombre.getText()));
-				if(Controlador.guardar(f)==1) {
-					JOptionPane.showConfirmDialog(null, "se a elimionado");
-				}
-				else {
-					JOptionPane.showConfirmDialog(null, "error al eliminar");
-
-				}
-			
 			}
 		});
 		panel.add(borrar);
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param f
+	 */
 	private void mostarFabricante(Fabricante f) {
 		
 		if (f != null) {
@@ -263,8 +255,11 @@ public class VentanaF {
 		
 		}
 		
-	}
-	
+	}	
+
+	/**
+	 * 
+	 */
 	
 	private void limpiar() {
 		JtfId.setText("0");	
@@ -272,20 +267,35 @@ public class VentanaF {
 		JtfNombre.setText("");	
 	}
 	
+	/**
+	 * 
+	 */
+	
 	public  void  guardar () {
 		Fabricante f =new Fabricante();
 		f.setId(Integer.parseInt(JtfId.getText()));
 		f.setCif((JtfCif.getText()));
 		f.setNombre((JtfNombre.getText()));
 		if(Controlador.guardar(f)==1) {
-			JOptionPane.showConfirmDialog(null, " Error al guardar");
+			JOptionPane.showConfirmDialog(null, "Error al guardar");
 		}
 		else {
 			JOptionPane.showConfirmDialog(null, "Guardado correcto");
-
 		}
 	
 	}
 	
-	
+	public  void  eliminar () {
+		Fabricante f =new Fabricante();
+		f.setId(Integer.parseInt(JtfId.getText()));
+		f.setCif((JtfCif.getText()));
+		f.setNombre((JtfNombre.getText()));
+		if(Controlador.eliminar(f)==1) {
+			JOptionPane.showConfirmDialog(null, "Error al eliminar");
+		}
+		else {
+			JOptionPane.showConfirmDialog(null, "Se a eliminado");
+		}
+	}
+
 }
