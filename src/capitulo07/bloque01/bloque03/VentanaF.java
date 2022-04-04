@@ -56,6 +56,7 @@ public class VentanaF {
 	 */
 	public VentanaF() {
 		initialize();
+		limpiar();
 	}
 
 	/**

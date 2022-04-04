@@ -106,7 +106,8 @@ public class Controlador extends SupertipoGestion {
 			 if(nuevoIdDisponible != -1) {
 				 int reguitro =
 				s.executeUpdate(
-			"insert into fabricante values=(" + nuevoIdDisponible + ",'" + f.getCif() + "','" + f.getNombre()+ "')");
+			"insert into fabricante values (" + nuevoIdDisponible + ",'" + f.getCif() + "', '" + f.getNombre() + "')");
+
 				 System.out.println("resguitros insertado" + reguitro );
 					
 			 }
@@ -118,29 +119,19 @@ public class Controlador extends SupertipoGestion {
 		return nuevoIdDisponible;
 	}
 
-	public static  Fabricante eliminar(String sql) {
-		
-		Fabricante f = null;
+	public static  int eliminar(Fabricante f) {
+		int reguistrosAfectado = 0;
 		try {
-			
-			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
-			
-			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
-			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery (sql);
-		   
-			// Navegación del objeto ResultSet
-			if (rs.next()) { 
-				f= new Fabricante (rs.getInt("id"), rs.getString("cif"), rs.getString("nombre"));			}
-			// Cierre de los elementos
-			rs.close();
-			s.close();
-		}
-		catch (SQLException ex) {
+			s.executeUpdate("delete from fabricante where id=" + f.getCif());
+
+		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-		return f;	
+		return reguistrosAfectado;
 	}
+	
+
 }
