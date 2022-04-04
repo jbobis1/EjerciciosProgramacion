@@ -277,10 +277,10 @@ public class VentanaF {
 		f.setCif((JtfCif.getText()));
 		f.setNombre((JtfNombre.getText()));
 		if(Controlador.guardar(f)==1) {
-			JOptionPane.showConfirmDialog(null, "Guardado correcto");
+			JOptionPane.showConfirmDialog(null, " Error al guardar");
 		}
 		else {
-			JOptionPane.showConfirmDialog(null, "eroor al guardar");
+			JOptionPane.showConfirmDialog(null, "Guardado correcto");
 
 		}
 	

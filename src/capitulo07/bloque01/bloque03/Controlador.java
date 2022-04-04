@@ -97,7 +97,7 @@ public class Controlador extends SupertipoGestion {
 	}
 	
 	public static int  nuevo(Fabricante f) {
-		int nuevoIdDisponible=(Integer) null;
+		int nuevoIdDisponible =0;
 		try {
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -106,7 +106,7 @@ public class Controlador extends SupertipoGestion {
 			 if(nuevoIdDisponible != -1) {
 				 int reguitro =
 				s.executeUpdate(
-			"insert into fabricante values=("+ nuevoIdDisponible+",'" + f.getCif() + "', nombre='" + f.getNombre());
+			"insert into fabricante values=(" + nuevoIdDisponible + ",'" + f.getCif() + "','" + f.getNombre()+ "')");
 				 System.out.println("resguitros insertado" + reguitro );
 					
 			 }
