@@ -97,7 +97,6 @@ public class VentanaF {
 		frame.getContentPane().add(JtfId, gbc_JtfId);
 		JtfId.setColumns(10);
 		
-		JtfId.setVisible(false);
 	
 		JLabel lblNewLabel_1 = new JLabel("Cif");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
@@ -169,7 +168,7 @@ public class VentanaF {
 		unomas = new JButton(">");
 		unomas.setToolTipText("");
 		unomas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {//	public  void nuevo(); {
+			public void actionPerformed(ActionEvent e) {
 				mostarFabricante(Controlador.mostarmasuno(Integer.parseInt(JtfId.getText())));	
 				
 				
@@ -212,7 +211,7 @@ public class VentanaF {
 				Controlador.eliminar(null);
 				
 				Fabricante f =new Fabricante();
-				f.setId(JtfId.parseInt(JtfId.getText()));
+				f.setId(Integer.parseInt(JtfId.getText()));
 				f.setCif((JtfCif.getText()));
 				f.setNombre((JtfNombre.getText()));
 				if(Controlador.guardar(f)==1) {
@@ -233,11 +232,13 @@ public class VentanaF {
 	private void mostarFabricante(Fabricante f) {
 		
 		if (f != null) {
-			JtfId.setText(" " + f.getId());	
+			JtfId.setText("" + f.getId());	
+			JtfId.setEnabled(false);
 			JtfCif.setText(f.getCif());		
 			JtfNombre.setText(f.getNombre());	
 		}
 		
+	
 		if (Controlador.mostarmenosuno(f.getId())==null) {
 			minimo.setEnabled(false);
 			unomenos.setEnabled(false);
@@ -272,7 +273,7 @@ public class VentanaF {
 	
 	public  void  guardar () {
 		Fabricante f =new Fabricante();
-		f.setId(JtfId.parseInt(JtfId.getText()));
+		f.setId(Integer.parseInt(JtfId.getText()));
 		f.setCif((JtfCif.getText()));
 		f.setNombre((JtfNombre.getText()));
 		if(Controlador.guardar(f)==1) {

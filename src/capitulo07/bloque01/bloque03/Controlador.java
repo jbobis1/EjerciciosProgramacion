@@ -9,49 +9,40 @@ import javax.swing.JOptionPane;
 
 import capitulo07.bloque01.bloque02.ConnectionManager;
 
-public class Controlador extends SupertipoGestion  {
-
-
+public class Controlador extends SupertipoGestion {
 	/**
 	 * 
 	 * @return
 	 */
 	public static Fabricante mostarPrimerFabricante() {
-		return findFabricante("select * from fabricante order by id limit 1");
-		   
+		return findFabricante("select * from fabricante order by id limit 1");   
 	}
-	
 	/**
 	 * 
 	 * @return
 	 */
 	public static Fabricante mostarUltimoFabricante() {
-		return findFabricante("select * from fabricante order by id desc limit 1");
-		   
+		return findFabricante("select * from fabricante order by id desc limit 1");	   
 	}
 	
 	/**
 	 * 
 	 */
 	public static Fabricante mostarmasuno(int idActual) {
-		return findFabricante("select * from fabricante where id > " + idActual  + "  order by id limit ");
+		return findFabricante("select * from fabricante where id > " + idActual  + "  order by id limit 1 ");
 	}
-	
 	/**
 	 * 
 	 */
-	
 	public static Fabricante mostarmenosuno(int idActual) {
-		return findFabricante("select * from fabricante where id < " + idActual + " order by id desc limit 11");
+		return findFabricante("select * from fabricante where id < " + idActual + " order by id desc limit 1");
 	}
-	
 	/**
 	 * 
 	 * @param sql
 	 * @return
 	 */
 	public static  Fabricante findFabricante(String sql) {
-		
 		Fabricante f = null;
 		try {
 			
@@ -74,7 +65,6 @@ public class Controlador extends SupertipoGestion  {
 			ex.printStackTrace();
 		}
 		return f;
-		
 	}
 	
 	public static int guardar(Fabricante f) {
@@ -106,7 +96,6 @@ public class Controlador extends SupertipoGestion  {
 	return reguistros;
 	}
 	
-	
 	public static int  nuevo(Fabricante f) {
 		int nuevoIdDisponible=(Integer) null;
 		try {
@@ -127,12 +116,8 @@ public class Controlador extends SupertipoGestion  {
 			ex.printStackTrace();
 		}
 		return nuevoIdDisponible;
-	
 	}
 
-
-
-	
 	public static  Fabricante eliminar(String sql) {
 		
 		Fabricante f = null;
@@ -156,7 +141,6 @@ public class Controlador extends SupertipoGestion  {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-		return f;
-		
+		return f;	
 	}
 }
