@@ -138,12 +138,27 @@ public class GestionarConsesionario extends JPanel {
 		panel.add(minimo);
 		
 		unomenos = new JButton("<");
+		unomenos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarConsesionario(ControladorConsesinario.mostarmenosuno(Integer.parseInt(JtfId.getText())));
+			}
+		});
 		panel.add(unomenos);
 		
 		unomas = new JButton(">");
+		unomas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarConsesionario(ControladorConsesinario.mostarmasuno(Integer.parseInt(JtfId.getText())));
+			}
+		});
 		panel.add(unomas);
 		
 		maximo = new JButton(">>");
+		maximo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarConsesionario(ControladorConsesinario.mostarUltimoFabricante());	
+			}
+		});
 		panel.add(maximo);
 		
 		JPanel panel_1 = new JPanel();
@@ -156,14 +171,32 @@ public class GestionarConsesionario extends JPanel {
 		gbc_panel_1.gridy = 7;
 		add(panel_1, gbc_panel_1);
 		
-		JButton btnNuevo = new JButton("Nuevo");
-		panel_1.add(btnNuevo);
+		nuevo = new JButton("Nuevo");
+		nuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				limpiar();
+			}
+			
+		});
+		panel_1.add(nuevo);
 		
-		JButton btnModificar = new JButton("Modificar");
-		panel_1.add(btnModificar);
+		actualizar = new JButton("Modificar");
+		actualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				guardar();
+				
+			}
+		});
+		panel_1.add(actualizar);
 		
-		JButton btnEliminar = new JButton("Eliminar");
-		panel_1.add(btnEliminar);
+		 borrar = new JButton("Eliminar");
+		 borrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 eliminar ();
+			}
+		});
+		panel_1.add(borrar);
 		
 	}
 	
