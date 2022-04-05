@@ -7,9 +7,16 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import capitulo07.bloque01.bloque03.Controlador;
+import capitulo07.bloque01.bloque03.Fabricante;
+
 import javax.swing.JCheckBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GestionarCliente extends JPanel {
 
@@ -17,8 +24,17 @@ public class GestionarCliente extends JPanel {
 	private JTextField JtfNombre;
 	private JTextField JtfApellidos;
 	private JTextField jtfLocalidad;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField JtfDni;
+	private JTextField JtfFec;
+	private JButton borrar ;
+	private JButton minimo ;
+	private JButton unomenos ;
+	private JButton maximo ;
+	private JButton unomas ;
+	private JButton nuevo ;
+	private JButton actualizar ;
+	
+	
 	public GestionarCliente() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
@@ -111,14 +127,14 @@ public class GestionarCliente extends JPanel {
 		gbc_lblNewLabel_1.gridy = 5;
 		add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 5;
-		add(textField, gbc_textField);
-		textField.setColumns(10);
+		JtfDni = new JTextField();
+		GridBagConstraints gbc_JtfDni = new GridBagConstraints();
+		gbc_JtfDni.insets = new Insets(0, 0, 5, 0);
+		gbc_JtfDni.fill = GridBagConstraints.HORIZONTAL;
+		gbc_JtfDni.gridx = 1;
+		gbc_JtfDni.gridy = 5;
+		add(JtfDni, gbc_JtfDni);
+		JtfDni.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("FechaNac");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
@@ -128,14 +144,14 @@ public class GestionarCliente extends JPanel {
 		gbc_lblNewLabel_2.gridy = 6;
 		add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 1;
-		gbc_textField_1.gridy = 6;
-		add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		JtfFec = new JTextField();
+		GridBagConstraints gbc_JtfFec = new GridBagConstraints();
+		gbc_JtfFec.insets = new Insets(0, 0, 5, 0);
+		gbc_JtfFec.fill = GridBagConstraints.HORIZONTAL;
+		gbc_JtfFec.gridx = 1;
+		gbc_JtfFec.gridy = 6;
+		add(JtfFec, gbc_JtfFec);
+		JtfFec.setColumns(10);
 		
 		JCheckBox chckbxActivo = new JCheckBox("Activo");
 		GridBagConstraints gbc_chckbxActivo = new GridBagConstraints();
@@ -155,17 +171,38 @@ public class GestionarCliente extends JPanel {
 		gbc_panel.gridy = 8;
 		add(panel, gbc_panel);
 		
-		JButton button = new JButton("<<");
-		panel.add(button);
+		minimo = new JButton("<<");
+		minimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCliente(ControladorCliente.mostarPrimerCliente());		
+
+			}
+		});
+		panel.add(minimo);
 		
-		JButton button_1 = new JButton("<");
-		panel.add(button_1);
+		unomenos = new JButton("<");
+		unomenos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCliente(ControladorCliente.mostarmenosuno(Integer.parseInt(JtfId.getText())));
+			}
+		});
+		panel.add(unomenos);
 		
-		JButton button_2 = new JButton(">");
-		panel.add(button_2);
+		unomas = new JButton(">");
+		unomas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCliente(ControladorCliente.mostarmasuno(Integer.parseInt(JtfId.getText())));
+			}
+		});
+		panel.add(unomas);
 		
-		JButton button_3 = new JButton(">");
-		panel.add(button_3);
+		maximo = new JButton(">>");
+		maximo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCliente(ControladorCliente.mostarUltimoCliente());	
+			}
+		});
+		panel.add(maximo);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.GRAY);
@@ -177,13 +214,123 @@ public class GestionarCliente extends JPanel {
 		gbc_panel_1.gridy = 9;
 		add(panel_1, gbc_panel_1);
 		
-		JButton btnNuevo = new JButton("Nuevo");
-		panel_1.add(btnNuevo);
+		nuevo = new JButton("Nuevo");
+		nuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiar();
+			}
+		});
+		panel_1.add(nuevo);
 		
-		JButton btnModificar = new JButton("Modificar");
-		panel_1.add(btnModificar);
+		actualizar = new JButton("Modificar");
+		actualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				guardar();
+			}
+		});
+		panel_1.add(actualizar);
 		
-		JButton btnEliminar = new JButton("Eliminar");
-		panel_1.add(btnEliminar);
+		borrar = new JButton("Eliminar");
+		borrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				eliminar();
+			}
+		});
+		panel_1.add(borrar);
 	}
+	
+	private void mostarCliente(Cliente f) {
+		
+		if (f != null) {
+			JtfId.setText("" + f.getId());	
+			JtfId.setEnabled(false);
+			JtfNombre.setText(f.getNombre());		
+			JtfApellidos.setText(f.getApellidos());	
+			jtfLocalidad.setText(f.getLocalidad());	
+			JtfDni.setText(f.getDni());	
+			JtfFec.setText(f.getFecha());	
+		}
+		
+	
+		if (ControladorCliente.mostarmenosuno(f.getId())==null) {
+			minimo.setEnabled(false);
+			unomenos.setEnabled(false);
+		}
+		
+		else {
+			
+			minimo.setEnabled(true);
+			unomenos.setEnabled(true);
+		
+		}
+		if (ControladorCliente.mostarmasuno(f.getId())==null) {
+			maximo.setEnabled(false);
+			unomas.setEnabled(false);
+		}
+		
+		else {
+			
+			maximo.setEnabled(true);
+			unomas.setEnabled(true);
+		
+		}
+		
+	}	
+
+	/**
+	 * 
+	 */
+	
+	private void limpiar() {
+		JtfId.setText("0");	
+		JtfNombre.setText(" " );		
+		JtfApellidos.setText("");	
+		jtfLocalidad.setText("");
+		JtfDni.setText("");
+		JtfFec.setText("");
+		
+		
+	}
+	
+	/**
+	 * 
+	 */
+
+	public  void  guardar () {
+		Cliente f =new Cliente();
+		f.setId(Integer.parseInt(JtfId.getText()));
+		f.setNombre((JtfNombre.getText()));
+		f.setApellidos((JtfApellidos.getText()));
+		f.setLocalidad((jtfLocalidad.getText()));
+		f.setDni((JtfDni.getText()));
+		f.setFecha((JtfFec.getText()));
+//		f.setActivo((Jtf.getText()));
+		
+		if(ControladorCliente.guardar(f)==1) {
+			JOptionPane.showConfirmDialog(null, "Error al guardar");
+		}
+		else {
+			JOptionPane.showConfirmDialog(null, "Guardado correcto");
+		}
+	
+	}
+	
+	public  void  eliminar () {
+		Cliente f =new Cliente();
+		f.setId(Integer.parseInt(JtfId.getText()));
+		f.setNombre((JtfNombre.getText()));
+		f.setApellidos((JtfApellidos.getText()));
+		f.setLocalidad((jtfLocalidad.getText()));
+		f.setDni((JtfDni.getText()));
+		f.setFecha((JtfFec.getText()));
+//		f.setActivo((Jtf.getText()));
+		
+		if(ControladorCliente.eliminar(f)==1) {
+			JOptionPane.showConfirmDialog(null, "Error al eliminar");
+		}
+		else {
+			JOptionPane.showConfirmDialog(null, "Se a eliminado");
+		}
+	}
+
 }

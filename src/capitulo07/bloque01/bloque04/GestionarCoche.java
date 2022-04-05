@@ -4,18 +4,37 @@ import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
+
+import capitulo07.bloque01.bloque03.Controlador;
+import capitulo07.bloque01.bloque03.Fabricante;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GestionarCoche extends JPanel {
+	
 	private JTextField JtfId;
 	private JTextField JtfBastidor;
-	private JTextField Modelo;
+	private JTextField JtfModelo;
 	private JTextField JtfColor;
+	private JButton borrar ;
+	private JButton minimo ;
+	private JButton unomenos ;
+	private JButton maximo ;
+	private JButton unomas ;
+	private JButton nuevo ;
+	private JButton actualizar ;
+	
+	
+	
 	public GestionarCoche() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
@@ -90,14 +109,14 @@ public class GestionarCoche extends JPanel {
 		gbc_lblModelo.gridy = 4;
 		add(lblModelo, gbc_lblModelo);
 		
-		Modelo = new JTextField();
-		GridBagConstraints gbc_Modelo = new GridBagConstraints();
-		gbc_Modelo.insets = new Insets(0, 0, 5, 0);
-		gbc_Modelo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_Modelo.gridx = 1;
-		gbc_Modelo.gridy = 4;
-		add(Modelo, gbc_Modelo);
-		Modelo.setColumns(10);
+		JtfModelo = new JTextField();
+		GridBagConstraints gbc_JtfModelo = new GridBagConstraints();
+		gbc_JtfModelo.insets = new Insets(0, 0, 5, 0);
+		gbc_JtfModelo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_JtfModelo.gridx = 1;
+		gbc_JtfModelo.gridy = 4;
+		add(JtfModelo, gbc_JtfModelo);
+		JtfModelo.setColumns(10);
 		
 		JLabel lblColor = new JLabel("Color");
 		GridBagConstraints gbc_lblColor = new GridBagConstraints();
@@ -126,17 +145,38 @@ public class GestionarCoche extends JPanel {
 		gbc_panel.gridy = 6;
 		add(panel, gbc_panel);
 		
-		JButton button = new JButton("<<");
-		panel.add(button);
+		minimo = new JButton("<<");
+		minimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCoche(ControladorCoche.mostarPrimerCoche());	
+			}
+		});
+		panel.add(minimo);
 		
-		JButton button_1 = new JButton("<");
-		panel.add(button_1);
+		unomenos = new JButton("<");
+		unomenos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCoche(ControladorCoche.mostarmenosuno(Integer.parseInt(JtfId.getText())));	
+				
+			}
+		});
+		panel.add(unomenos);
 		
-		JButton button_2 = new JButton(">");
-		panel.add(button_2);
+		unomas = new JButton(">");
+		unomas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCoche(ControladorCoche.mostarmasuno(Integer.parseInt(JtfId.getText())));
+			}
+		});
+		panel.add(unomas);
 		
-		JButton button_3 = new JButton(">");
-		panel.add(button_3);
+		maximo = new JButton(">>");
+		maximo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarCoche(ControladorCoche.mostarUltimoCoche());		
+			}
+		});
+		panel.add(maximo);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.GRAY);
@@ -148,13 +188,117 @@ public class GestionarCoche extends JPanel {
 		gbc_panel_1.gridy = 7;
 		add(panel_1, gbc_panel_1);
 		
-		JButton btnNuevo = new JButton("Nuevo");
-		panel_1.add(btnNuevo);
+		nuevo = new JButton("Nuevo");
+		nuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiar();
+			}
+		});
+		panel_1.add(nuevo);
 		
-		JButton btnModificar = new JButton("Modificar");
-		panel_1.add(btnModificar);
+		actualizar = new JButton("Modificar");
+		actualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				guardar();
+			}
+		});
+		panel_1.add(actualizar);
 		
-		JButton btnEliminar = new JButton("Eliminar");
-		panel_1.add(btnEliminar);
+		borrar = new JButton("Eliminar");
+		borrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 eliminar ();
+			}
+		});
+		panel_1.add(borrar);
 	}
+	/**
+	 * 
+	 * @param f
+	 */
+	private void mostarCoche(Coche f) {
+	//	JComboBox comboBox = new JComboBox();
+		
+		if (f != null) {
+			JtfId.setText("" + f.getId());	
+			JtfId.setEnabled(false);
+		
+			JtfBastidor.setText(f.getBastidor());	
+			JtfModelo.setText(f.getModelo());	
+			JtfColor.setText(f.getColor());	
+		}
+		
+	
+		if (Controlador.mostarmenosuno(f.getId())==null) {
+			minimo.setEnabled(false);
+			unomenos.setEnabled(false);
+		}
+		
+		else {
+			
+			minimo.setEnabled(true);
+			unomenos.setEnabled(true);
+		
+		}
+		if (Controlador.mostarmasuno(f.getId())==null) {
+			maximo.setEnabled(false);
+			unomas.setEnabled(false);
+		}
+		
+		else {
+			
+			maximo.setEnabled(true);
+			unomas.setEnabled(true);
+		
+		}
+		
+	}	
+
+	/**
+	 * 
+	 */
+	
+	private void limpiar() {
+		JtfId.setText("0");	
+	//	JComboBox.setDefaultLocale(" " );	
+		
+		JtfBastidor.setText("");
+		JtfModelo.setText("");
+		JtfColor.setText("");
+	}
+	
+	/**
+	 * 
+	 */
+//	JComboBox comboBox = new JComboBox();
+	
+	public  void  guardar () {
+		Coche f =new Coche();
+		f.setId(Integer.parseInt(JtfId.getText()));
+		
+		f.setBastidor((JtfBastidor.getText()));
+		f.setModelo((JtfModelo.getText()));
+		if(ControladorCoche.guardar(f)==1) {
+			JOptionPane.showConfirmDialog(null, "Error al guardar");
+		}
+		else {
+			JOptionPane.showConfirmDialog(null, "Guardado correcto");
+		}
+	
+	}
+	
+	public  void  eliminar () {
+		Coche f =new Coche();
+		f.setId(Integer.parseInt(JtfId.getText()));
+		
+		f.setBastidor((JtfBastidor.getText()));
+		f.setModelo((JtfModelo.getText()));
+		if(ControladorCoche.eliminar(f)==1) {
+			JOptionPane.showConfirmDialog(null, "Error al eliminar");
+		}
+		else {
+			JOptionPane.showConfirmDialog(null, "Se a eliminado");
+		}
+	}
+
 }

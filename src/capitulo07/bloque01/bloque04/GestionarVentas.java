@@ -8,13 +8,29 @@ import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import capitulo07.bloque01.bloque03.Controlador;
+import capitulo07.bloque01.bloque03.Fabricante;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GestionarVentas extends JPanel {
 	private JTextField JtfId;
 	private JTextField JtfFecha;
-	private JTextField textPrecio;
+	private JTextField JtfPrecio;
+	private JButton borrar ;
+	private JButton minimo ;
+	private JButton unomenos ;
+	private JButton maximo ;
+	private JButton unomas ;
+	private JButton nuevo ;
+	private JButton actualizar ;
+	
+	
+	
 	public GestionarVentas() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
@@ -121,14 +137,14 @@ public class GestionarVentas extends JPanel {
 		gbc_lblNewLabel_1.gridy = 6;
 		add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		textPrecio = new JTextField();
-		GridBagConstraints gbc_textPrecio = new GridBagConstraints();
-		gbc_textPrecio.insets = new Insets(0, 0, 5, 0);
-		gbc_textPrecio.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textPrecio.gridx = 1;
-		gbc_textPrecio.gridy = 6;
-		add(textPrecio, gbc_textPrecio);
-		textPrecio.setColumns(10);
+		JtfPrecio = new JTextField();
+		GridBagConstraints gbc_JtfPrecio = new GridBagConstraints();
+		gbc_JtfPrecio.insets = new Insets(0, 0, 5, 0);
+		gbc_JtfPrecio.fill = GridBagConstraints.HORIZONTAL;
+		gbc_JtfPrecio.gridx = 1;
+		gbc_JtfPrecio.gridy = 6;
+		add(JtfPrecio, gbc_JtfPrecio);
+		JtfPrecio.setColumns(10);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.DARK_GRAY);
@@ -140,17 +156,37 @@ public class GestionarVentas extends JPanel {
 		gbc_panel.gridy = 7;
 		add(panel, gbc_panel);
 		
-		JButton button = new JButton("<<");
-		panel.add(button);
+		minimo = new JButton("<<");
+		minimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarVenta(ContrladorVenta.mostarPrimerFabricante());
+			}
+		});
+		panel.add(minimo);
 		
-		JButton button_1 = new JButton("<");
-		panel.add(button_1);
+		unomenos = new JButton("<");
+		unomenos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarVenta(ContrladorVenta.mostarmenosuno(Integer.parseInt(JtfId.getText())));
+			}
+		});
+		panel.add(unomenos);
 		
-		JButton button_2 = new JButton(">");
-		panel.add(button_2);
+		unomas = new JButton(">");
+		unomas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarVenta(ContrladorVenta.mostarmasuno(Integer.parseInt(JtfId.getText())));
+			}
+		});
+		panel.add(unomas);
 		
-		JButton button_3 = new JButton(">");
-		panel.add(button_3);
+		maximo = new JButton(">>");
+		maximo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarVenta(ContrladorVenta.mostarUltimoFabricante());
+			}
+		});
+		panel.add(maximo);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.GRAY);
@@ -163,13 +199,105 @@ public class GestionarVentas extends JPanel {
 		add(panel_1, gbc_panel_1);
 		
 		JButton btnNuevo = new JButton("Nuevo");
+		btnNuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiar();
+			}
+		});
 		panel_1.add(btnNuevo);
 		
 		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				guardar();
+			}
+		});
 		panel_1.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				eliminar();
+			}
+			
+		});
 		panel_1.add(btnEliminar);
+	}
+
+	private void mostarVenta(Venta f) {
+		
+		if (f != null) {
+			JtfId.setText("" + f.getId());	
+			JtfId.setEnabled(false);
+			JtfFecha.setText(f.getFecha());		
+			JtfPrecio.setText(f.getPrecio());	
+		}
+		
+	
+		if (ContrladorVenta.mostarmenosuno(f.getId())==null) {
+			minimo.setEnabled(false);
+			unomenos.setEnabled(false);
+		}
+		
+		else {
+			
+			minimo.setEnabled(true);
+			unomenos.setEnabled(true);
+		
+		}
+		if (ContrladorVenta.mostarmasuno(f.getId())==null) {
+			maximo.setEnabled(false);
+			unomas.setEnabled(false);
+		}
+		
+		else {
+			
+			maximo.setEnabled(true);
+			unomas.setEnabled(true);
+		
+		}
+		
+	}	
+
+	/**
+	 * 
+	 */
+	
+	private void limpiar() {
+		JtfId.setText("0");	
+		JtfFecha.setText(" " );		
+		JtfPrecio.setText("");	
+	}
+	
+	/**
+	 * 
+	 */
+	
+	public  void  guardar () {
+		Venta f =new Venta();
+		f.setId(Integer.parseInt(JtfId.getText()));
+		f.setFecha(JtfFecha.getText());
+		f.setPrecio((JtfPrecio.getText()));
+		if(ContrladorVenta.guardar(f)==1) {
+			JOptionPane.showConfirmDialog(null, "Error al guardar");
+		}
+		else {
+			JOptionPane.showConfirmDialog(null, "Guardado correcto");
+		}
+	
+	}
+	
+	public  void  eliminar () {
+		Venta f =new Venta();
+		f.setId(Integer.parseInt(JtfId.getText()));
+		f.setFecha(JtfFecha.getText());
+		f.setPrecio((JtfPrecio.getText()));
+		if(ContrladorVenta.eliminar(f)==1) {
+			JOptionPane.showConfirmDialog(null, "Error al eliminar");
+		}
+		else {
+			JOptionPane.showConfirmDialog(null, "Se a eliminado");
+		}
 	}
 
 }

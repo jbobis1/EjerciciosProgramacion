@@ -20,7 +20,7 @@ public class Principal {
 		JTabbedPane tabPanel = new JTabbedPane();		
 //		ImageIcon icono = CacheImagenes.getCacheImagenes().getIcono("duke1-32x32.png");
 		
-		tabPanel.addTab("Fabricantes", null, new Frabricante(), "Fabricante");
+		tabPanel.addTab("Fabricantes", null, new GestionarFabricante(), "Fabricante");
 		tabPanel.addTab("Coche", null, new GestionarCoche(), "Coche");
 		tabPanel.addTab("Consesionario", null, new GestionarConsesionario(), "Consesionario");
 		tabPanel.addTab("Clientes", null, new GestionarCliente(), "Clientes");

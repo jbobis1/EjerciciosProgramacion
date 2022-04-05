@@ -129,8 +129,8 @@ public class ControladorConsesinario extends SupertipoGestion{
 			 nuevoIdDisponible = siguienteIdEntabla("concesionario");
 			 if(nuevoIdDisponible != -1) {
 				 int reguistro =
-				s.executeUpdate("insert into concesionario values (" 
-				 + nuevoIdDisponible + ",'" + f.getCif() + "', '" + f.getNombre() + "')");
+				s.executeUpdate("insert into concesionario values (" + nuevoIdDisponible + ",'" + f.getCif() + "', '" + f.getNombre() + "', '" + f.getLocalidad() + "')");
+
 
 				 System.out.println("resguitros insertado" + reguistro );	
 			 }

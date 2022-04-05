@@ -19,7 +19,7 @@ import capitulo07.bloque01.bloque03.Controlador;
 import capitulo07.bloque01.bloque03.Fabricante;
 import capitulo07.bloque01.bloque03.VentanaF;
 
-public class Frabricante extends JPanel {
+public class GestionarFabricante extends JPanel {
 	
 	
 
@@ -36,7 +36,7 @@ public class Frabricante extends JPanel {
 	private JButton actualizar ;
 	
 
-	public Frabricante () {
+	public GestionarFabricante () {
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0};

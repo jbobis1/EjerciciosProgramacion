@@ -188,6 +188,7 @@ public class GestionarConsesionario extends JPanel {
 				
 			}
 		});
+		
 		panel_1.add(actualizar);
 		
 		 borrar = new JButton("Eliminar");

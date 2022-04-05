@@ -64,7 +64,8 @@ public class Controlador extends SupertipoGestion {
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
-				f= new Fabricante (rs.getInt("id"), rs.getString("cif"), rs.getString("nombre"));			}
+				f= new Fabricante (rs.getInt("id"), rs.getString("cif"), rs.getString("nombre"));			
+				}
 			// Cierre de los elementos
 			rs.close();
 			s.close();
