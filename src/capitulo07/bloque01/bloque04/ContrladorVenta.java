@@ -3,6 +3,8 @@ package capitulo07.bloque01.bloque04;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import capitulo07.bloque01.bloque02.ConnectionManager;
 
@@ -145,6 +147,39 @@ public class ContrladorVenta extends SupertipoGestion{
 			return nuevoIdDisponible;
 		}
 
+		
+		public static List<Cliente> obtenerTodosLosClientes() {
+			List<Cliente> lista = new ArrayList<Cliente>();
+			
+			try {
+				// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+				
+				// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+				// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+				ResultSet rs = s.executeQuery ("select * from cliente");
+			   
+				// Navegación del objeto ResultSet
+				while (rs.next()) { 
+					
+					Cliente f =new Cliente(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dni"), rs.getString("fecha"), rs.getBoolean("activo"));			}
+				// Cierre de los elementos
+
+					lista.add(f);
+				}
+				// Cierre de los elementos
+				rs.close();
+				s.close();
+			}
+			catch (SQLException ex) {
+				System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+				ex.printStackTrace();
+			}
+			
+			return lista;
+		}
+		
+		
 		/**
 		 * 
 		 * @param f

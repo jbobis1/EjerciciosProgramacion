@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import capitulo07.bloque01.bloque03.Controlador;
 import capitulo07.bloque01.bloque03.Fabricante;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class GestionarVentas extends JPanel {
@@ -28,7 +29,8 @@ public class GestionarVentas extends JPanel {
 	private JButton unomas ;
 	private JButton nuevo ;
 	private JButton actualizar ;
-	
+	JComboBox<Fabricante> comboBox;
+
 	
 	
 	public GestionarVentas() {
@@ -95,6 +97,11 @@ public class GestionarVentas extends JPanel {
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 3;
 		add(comboBox, gbc_comboBox);
+		
+		List<Cliente> lista = ContrladorVenta.obtenerTodosLosClientes();
+		for (int i = 0; i < lista.size(); i++) {
+			comboBox.addItem(lista.get(i));
+		}
 		
 		JLabel lblModelo = new JLabel("IdCoche");
 		GridBagConstraints gbc_lblModelo = new GridBagConstraints();
