@@ -10,13 +10,12 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 
-import capitulo07.bloque01.bloque03.Controlador;
-import capitulo07.bloque01.bloque03.Fabricante;
 
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class GestionarCoche extends JPanel {
@@ -33,7 +32,7 @@ public class GestionarCoche extends JPanel {
 	private JButton nuevo ;
 	private JButton actualizar ;
 	
-	
+	JComboBox<Fabricante> comboBox;
 	
 	public GestionarCoche() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -76,13 +75,25 @@ public class GestionarCoche extends JPanel {
 		gbc_lblFrabricante.gridy = 2;
 		add(lblFrabricante, gbc_lblFrabricante);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox<Fabricante>();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 2;
 		add(comboBox, gbc_comboBox);
+		
+		List<Fabricante> lista = ControladorCoche.obtenerTodosLosFabricantes();
+		for (int i = 0; i < lista.size(); i++) {
+			comboBox.addItem(lista.get(i));
+		}
+//		// Quiero seleccionar el fabricante con id = 3;
+//		for (int i = 0; i < comboBox.getItemCount(); i++) {
+//			if (comboBox.getItemAt(i).getId() == 3) {
+//				comboBox.setSelectedIndex(i);
+//			}
+//		}
+
 		
 		JLabel lblBastidor = new JLabel("Bastidor");
 		GridBagConstraints gbc_lblBastidor = new GridBagConstraints();
@@ -217,12 +228,14 @@ public class GestionarCoche extends JPanel {
 	 * @param f
 	 */
 	private void mostarCoche(Coche f) {
-	//	JComboBox comboBox = new JComboBox();
+	
+		
+		
 		
 		if (f != null) {
 			JtfId.setText("" + f.getId());	
 			JtfId.setEnabled(false);
-		
+			comboBox.setSelectedIndex(f.getId());
 			JtfBastidor.setText(f.getBastidor());	
 			JtfModelo.setText(f.getModelo());	
 			JtfColor.setText(f.getColor());	
@@ -260,8 +273,8 @@ public class GestionarCoche extends JPanel {
 	
 	private void limpiar() {
 		JtfId.setText("0");	
-	//	JComboBox.setDefaultLocale(" " );	
-		
+		comboBox.setSelectedIndex((0));
+
 		JtfBastidor.setText("");
 		JtfModelo.setText("");
 		JtfColor.setText("");
@@ -275,6 +288,8 @@ public class GestionarCoche extends JPanel {
 	public  void  guardar () {
 		Coche f =new Coche();
 		f.setId(Integer.parseInt(JtfId.getText()));
+		
+		((Fabricante) comboBox.getSelectedItem()).getId();
 		
 		f.setBastidor((JtfBastidor.getText()));
 		f.setModelo((JtfModelo.getText()));
@@ -290,6 +305,8 @@ public class GestionarCoche extends JPanel {
 	public  void  eliminar () {
 		Coche f =new Coche();
 		f.setId(Integer.parseInt(JtfId.getText()));
+
+		((Fabricante)comboBox.getSelectedItem()).getId();
 		
 		f.setBastidor((JtfBastidor.getText()));
 		f.setModelo((JtfModelo.getText()));
