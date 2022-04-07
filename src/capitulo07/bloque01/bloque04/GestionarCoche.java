@@ -83,17 +83,10 @@ public class GestionarCoche extends JPanel {
 		gbc_comboBox.gridy = 2;
 		add(comboBox, gbc_comboBox);
 		
-		List<Fabricante> lista = ControladorCoche.obtenerTodosLosFabricantes();
-		for (int i = 0; i < lista.size(); i++) {
-			comboBox.addItem(lista.get(i));
-		}
-//		// Quiero seleccionar el fabricante con id = 3;
-//		for (int i = 0; i < comboBox.getItemCount(); i++) {
-//			if (comboBox.getItemAt(i).getId() == 3) {
-//				comboBox.setSelectedIndex(i);
-//			}
-//		}
 
+
+
+		
 		
 		JLabel lblBastidor = new JLabel("Bastidor");
 		GridBagConstraints gbc_lblBastidor = new GridBagConstraints();
@@ -211,6 +204,7 @@ public class GestionarCoche extends JPanel {
 		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				guardar();
+				
 			}
 		});
 		panel_1.add(actualizar);
@@ -219,14 +213,45 @@ public class GestionarCoche extends JPanel {
 		borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 eliminar ();
+			
 			}
 		});
 		panel_1.add(borrar);
+		
+		cargarvalores();
+		selecionarvalores(getidfabricante());
+		getidfabricante() ;
+		
 	}
+	
+
 	/**
 	 * 
 	 * @param f
 	 */
+	
+	private void cargarvalores() {
+		List<Fabricante> lista = ControladorCoche.obtenerTodosLosFabricantes();
+		for (int i = 0; i < lista.size(); i++) {
+			comboBox.addItem(lista.get(i));
+		}
+	}
+	
+	private void selecionarvalores(int idfabricante) {
+		for (int i = 0; i < comboBox.getItemCount(); i++) {
+		if (((Fabricante) comboBox.getItemAt(i)).getId() == idfabricante ) {
+			comboBox.setSelectedIndex(i);
+			}
+		}	
+	}
+	
+	private int getidfabricante() {
+	return ((Fabricante) comboBox.getSelectedItem()).getId();
+		
+	}
+	
+	
+	
 	private void mostarCoche(Coche f) {
 	
 		
@@ -289,12 +314,16 @@ public class GestionarCoche extends JPanel {
 		Coche f =new Coche();
 		f.setId(Integer.parseInt(JtfId.getText()));
 		
-		((Fabricante) comboBox.getSelectedItem()).getId();
+
+		f.setIdFabricante(((Fabricante )comboBox.getSelectedItem()).getId());
 		
 		f.setBastidor((JtfBastidor.getText()));
+		
 		f.setModelo((JtfModelo.getText()));
+		
 		if(ControladorCoche.guardar(f)==1) {
 			JOptionPane.showConfirmDialog(null, "Error al guardar");
+			
 		}
 		else {
 			JOptionPane.showConfirmDialog(null, "Guardado correcto");
@@ -306,7 +335,7 @@ public class GestionarCoche extends JPanel {
 		Coche f =new Coche();
 		f.setId(Integer.parseInt(JtfId.getText()));
 
-		((Fabricante)comboBox.getSelectedItem()).getId();
+		f.setIdFabricante(((Fabricante)comboBox.getSelectedItem()).getId());
 		
 		f.setBastidor((JtfBastidor.getText()));
 		f.setModelo((JtfModelo.getText()));

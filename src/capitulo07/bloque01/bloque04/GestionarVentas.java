@@ -29,7 +29,11 @@ public class GestionarVentas extends JPanel {
 	private JButton unomas ;
 	private JButton nuevo ;
 	private JButton actualizar ;
-	JComboBox<Fabricante> comboBox;
+	
+	JComboBox<Cliente> comboBox;
+	JComboBox<Coche> comboBox_1;
+	JComboBox<Consesionario> comboBox_2;
+
 
 	
 	
@@ -98,11 +102,11 @@ public class GestionarVentas extends JPanel {
 		gbc_comboBox.gridy = 3;
 		add(comboBox, gbc_comboBox);
 		
-		List<Cliente> lista = ContrladorVenta.obtenerTodosLosClientes();
-		for (int i = 0; i < lista.size(); i++) {
-			comboBox.addItem(lista.get(i));
-		}
-		
+//		List<Cliente> lista = ContrladorVenta.obtenerTodosLosClientes();
+//		for (int i = 0; i < lista.size(); i++) {
+//			comboBox.addItem(lista.get(i));
+//		}
+//		
 		JLabel lblModelo = new JLabel("IdCoche");
 		GridBagConstraints gbc_lblModelo = new GridBagConstraints();
 		gbc_lblModelo.anchor = GridBagConstraints.EAST;
@@ -229,7 +233,99 @@ public class GestionarVentas extends JPanel {
 			
 		});
 		panel_1.add(btnEliminar);
+		
+		
+		cargarvaloresCoche();
+		selecionarvaloresCoche(getidCoche());
+	
+		
+		
+		cargarvaloresClientes(); 
+		selecionarvaloresCliente(getidCliente());
+	
+		
+		cargarvaloresConcesionarios(); 
+		selecionarvaloresConcesionariose(getidConcesionarios());
+	
+		
 	}
+	
+	
+	/**
+	 * clientes
+	 */
+	private void cargarvaloresClientes() {
+		List<Cliente> lista = ContrladorVenta.obtenerTodosLosClientes();
+		for (int i = 0; i < lista.size(); i++) {
+			comboBox.addItem(lista.get(i));
+		}
+	}
+	
+	private void selecionarvaloresCliente(int idCliente) {
+		for (int i = 0; i < comboBox.getItemCount(); i++) {
+		if (((Cliente) comboBox.getItemAt(i)).getId() == idCliente ) {
+			comboBox.setSelectedIndex(i);
+			}
+		}	
+	}
+	
+	private int getidCliente() {
+	return ((Coche) comboBox.getSelectedItem()).getId();
+		
+	}
+	
+	
+	/**
+	 * Coches
+	 */
+	
+	private void cargarvaloresCoche() {
+		List<Coche> lista1 = ContrladorVenta.obtenerTodosLosCoches();
+		for (int i = 0; i < lista1.size(); i++) {
+			comboBox_1.addItem(lista1.get(i));
+		}
+	}
+	
+	private void selecionarvaloresCoche(int idCoche) {
+		for (int i = 0; i < comboBox_1.getItemCount(); i++) {
+		if (((Coche) comboBox_1.getItemAt(i)).getId() == idCoche ) {
+			comboBox_1.setSelectedIndex(i);
+			}
+		}	
+	}
+	
+	private int getidCoche() {
+	return ((Coche) comboBox_1.getSelectedItem()).getId();
+		
+	}
+	
+
+	
+	/**
+	 * Concesionarios
+	 * @param f
+	 */
+	
+	private void cargarvaloresConcesionarios() {
+		List<Consesionario> lista2 = ContrladorVenta.obtenerTodosLosConsesionario();
+		for (int i = 0; i < lista2.size(); i++) {
+			comboBox_2.addItem(lista2.get(i));
+		}
+	}
+	
+	private void selecionarvaloresConcesionariose(int idConsesionario){
+		for (int i = 0; i < comboBox_2.getItemCount(); i++) {
+		if (((Consesionario) comboBox_2.getItemAt(i)).getId() == idConsesionario ) {
+			comboBox_2.setSelectedIndex(i);
+			}
+		}	
+	}
+	
+	private int getidConcesionarios() {
+	return ((Coche) comboBox_2.getSelectedItem()).getId();
+		
+	}
+	
 
 	private void mostarVenta(Venta f) {
 		
@@ -283,6 +379,11 @@ public class GestionarVentas extends JPanel {
 	public  void  guardar () {
 		Venta f =new Venta();
 		f.setId(Integer.parseInt(JtfId.getText()));
+		
+		f.setId(Integer.parseInt(JtfId.getText()));
+		f.setIdCliente(((Cliente )comboBox.getSelectedItem()).getId());
+		f.setIdConcesionario(((Consesionario )comboBox.getSelectedItem()).getId());
+		f.setIdCoche(((Coche )comboBox.getSelectedItem()).getId());
 		f.setFecha(JtfFecha.getText());
 		f.setPrecio((JtfPrecio.getText()));
 		if(ContrladorVenta.guardar(f)==1) {
@@ -297,6 +398,11 @@ public class GestionarVentas extends JPanel {
 	public  void  eliminar () {
 		Venta f =new Venta();
 		f.setId(Integer.parseInt(JtfId.getText()));
+		f.setIdCliente(((Cliente )comboBox.getSelectedItem()).getId());
+		f.setIdConcesionario(((Consesionario )comboBox.getSelectedItem()).getId());
+		f.setIdCoche(((Coche )comboBox.getSelectedItem()).getId());
+		
+		
 		f.setFecha(JtfFecha.getText());
 		f.setPrecio((JtfPrecio.getText()));
 		if(ContrladorVenta.eliminar(f)==1) {

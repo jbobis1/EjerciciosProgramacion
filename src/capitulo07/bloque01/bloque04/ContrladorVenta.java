@@ -148,6 +148,11 @@ public class ContrladorVenta extends SupertipoGestion{
 		}
 
 		
+	
+		/**
+		 * cliente
+		 * @return
+		 */
 		public static List<Cliente> obtenerTodosLosClientes() {
 			List<Cliente> lista = new ArrayList<Cliente>();
 			
@@ -161,10 +166,7 @@ public class ContrladorVenta extends SupertipoGestion{
 			   
 				// Navegación del objeto ResultSet
 				while (rs.next()) { 
-					
-					Cliente f =new Cliente(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dni"), rs.getString("fecha"), rs.getBoolean("activo"));			}
-				// Cierre de los elementos
-
+					Cliente f = new Cliente (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dni"), rs.getString("fecha"), rs.getBoolean("activo"));	
 					lista.add(f);
 				}
 				// Cierre de los elementos
@@ -179,6 +181,70 @@ public class ContrladorVenta extends SupertipoGestion{
 			return lista;
 		}
 		
+		/**
+		 * coche
+		 * @return
+		 */
+		public static List<Coche> obtenerTodosLosCoches() {
+			List<Coche> lista1 = new ArrayList<Coche>();
+			
+			try {
+				// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+				
+				// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+				// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+				ResultSet rs = s.executeQuery ("select * from coche");
+			   
+				// Navegación del objeto ResultSet
+				while (rs.next()) { 
+					Coche f = new Coche(rs.getInt("id"), rs.getInt("idfabricante"), rs.getString("bastidor"), rs.getString("modelo"), rs.getString("color"));
+					lista1.add(f);
+				}
+				// Cierre de los elementos
+				rs.close();
+				s.close();
+			}
+			catch (SQLException ex) {
+				System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+				ex.printStackTrace();
+			}
+			
+			return lista1;
+		}
+		
+		
+		/**
+		 * concesionario
+		 * @return
+		 */
+		public static List<Consesionario> obtenerTodosLosConsesionario() {
+			List<Consesionario> lista2 = new ArrayList<Consesionario>();
+			
+			try {
+				// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+				
+				// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+				// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+				ResultSet rs = s.executeQuery ("select * from concesionario");
+			   
+				// Navegación del objeto ResultSet
+				while (rs.next()) { 
+					Consesionario f = new Consesionario (rs.getInt("id"), rs.getString("cif"), rs.getString("nombre"), rs.getString("localidad"));		
+					lista2.add(f);
+				}
+				// Cierre de los elementos
+				rs.close();
+				s.close();
+			}
+			catch (SQLException ex) {
+				System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+				ex.printStackTrace();
+			}
+			
+			return lista2;
+		}
 		
 		/**
 		 * 
