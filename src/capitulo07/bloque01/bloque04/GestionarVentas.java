@@ -204,30 +204,30 @@ public class GestionarVentas extends JPanel {
 		gbc_panel_1.gridy = 8;
 		add(panel_1, gbc_panel_1);
 		
-		JButton btnNuevo = new JButton("Nuevo");
-		btnNuevo.addActionListener(new ActionListener() {
+		 nuevo = new JButton("Nuevo");
+		 nuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				limpiar();
 			}
 		});
-		panel_1.add(btnNuevo);
+		panel_1.add(nuevo);
 		
-		JButton btnModificar = new JButton("Modificar");
-		btnModificar.addActionListener(new ActionListener() {
+		 actualizar = new JButton("Modificar");
+		 actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				guardar();
 			}
 		});
-		panel_1.add(btnModificar);
+		panel_1.add(actualizar);
 		
-		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.addActionListener(new ActionListener() {
+		 borrar = new JButton("Eliminar");
+		 borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eliminar();
 			}
 			
 		});
-		panel_1.add(btnEliminar);
+		panel_1.add(borrar);
 		
 
 	

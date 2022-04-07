@@ -3,6 +3,9 @@ package capitulo07.bloque01.bloque04;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import capitulo07.bloque01.bloque02.ConnectionManager;
 
 public class ControladorCliente extends SupertipoGestion {
@@ -95,6 +98,11 @@ public class ControladorCliente extends SupertipoGestion {
 		
 		public static int modificarCliente (Cliente f) {
 			int reguistros = 0;
+			
+			SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy hh:mm:ss");
+			Date date = new Date();
+			
+			
 			try {
 
 				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -121,6 +129,11 @@ public class ControladorCliente extends SupertipoGestion {
 		
 		public static int nuevo(Cliente f) {
 			int nuevoIdDisponible =0;
+			
+			SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy hh:mm:ss");
+			Date date = new Date();
+			
+//			 sdfSalida.format(date);
 			try {
 
 				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 

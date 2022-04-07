@@ -162,19 +162,21 @@ public class ContrladorVenta extends SupertipoGestion{
 				
 				// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 				// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+			
 				ResultSet rs = s.executeQuery ("select * from cliente");
 			   
 				// Navegación del objeto ResultSet
 				while (rs.next()) { 
-					Cliente f = new Cliente (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dni"), rs.getString("fecha"), rs.getBoolean("activo"));	
+					Cliente f = new Cliente (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dniNie"), rs.getString("fechaNac"), rs.getBoolean("activo"));	
 					lista.add(f);
+					
 				}
 				// Cierre de los elementos
 				rs.close();
 				s.close();
 			}
 			catch (SQLException ex) {
-				System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+				System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 				ex.printStackTrace();
 			}
 			
@@ -206,7 +208,7 @@ public class ContrladorVenta extends SupertipoGestion{
 				s.close();
 			}
 			catch (SQLException ex) {
-				System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+				System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 				ex.printStackTrace();
 			}
 			
@@ -239,7 +241,7 @@ public class ContrladorVenta extends SupertipoGestion{
 				s.close();
 			}
 			catch (SQLException ex) {
-				System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+				System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 				ex.printStackTrace();
 			}
 			
