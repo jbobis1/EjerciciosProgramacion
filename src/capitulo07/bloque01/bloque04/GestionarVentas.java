@@ -102,11 +102,6 @@ public class GestionarVentas extends JPanel {
 		gbc_comboBox.gridy = 3;
 		add(comboBox, gbc_comboBox);
 		
-//		List<Cliente> lista = ContrladorVenta.obtenerTodosLosClientes();
-//		for (int i = 0; i < lista.size(); i++) {
-//			comboBox.addItem(lista.get(i));
-//		}
-//		
 		JLabel lblModelo = new JLabel("IdCoche");
 		GridBagConstraints gbc_lblModelo = new GridBagConstraints();
 		gbc_lblModelo.anchor = GridBagConstraints.EAST;
@@ -234,14 +229,15 @@ public class GestionarVentas extends JPanel {
 		});
 		panel_1.add(btnEliminar);
 		
-		
-		cargarvaloresCoche();
-		selecionarvaloresCoche(getidCoche());
+
 	
 		
 		
 		cargarvaloresClientes(); 
 		selecionarvaloresCliente(getidCliente());
+		
+		cargarvaloresCoche();
+		selecionarvaloresCoche(getidCoche());
 	
 		
 		cargarvaloresConcesionarios(); 
