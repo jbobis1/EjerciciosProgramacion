@@ -63,7 +63,7 @@ public class ContrladorVenta extends SupertipoGestion{
 			   
 				// Navegación del objeto ResultSet
 				if (rs.next()) { 
-					f= new Venta (rs.getInt("id"), rs.getInt("idCliente"), rs.getInt("idConcesionario"), rs.getInt("idCoche"), rs.getString("fecha"), rs.getString("precio"));			
+					f= new Venta (rs.getInt("id"), rs.getInt("idCliente"), rs.getInt("idConcesionario"), rs.getInt("idCoche"), rs.getDate("fecha"), rs.getString("precioVenta"));			
 					}
 				// Cierre de los elementos
 				rs.close();
@@ -154,6 +154,7 @@ public class ContrladorVenta extends SupertipoGestion{
 		 * @return
 		 */
 		public static List<Cliente> obtenerTodosLosClientes() {
+			
 			List<Cliente> lista = new ArrayList<Cliente>();
 			
 			try {
@@ -167,7 +168,7 @@ public class ContrladorVenta extends SupertipoGestion{
 			   
 				// Navegación del objeto ResultSet
 				while (rs.next()) { 
-					Cliente f = new Cliente (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dniNie"), rs.getString("fechaNac"), rs.getBoolean("activo"));	
+					Cliente f = new Cliente (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dniNie"), rs.getDate("fechaNac"), rs.getBoolean("activo"));	
 					lista.add(f);
 					
 				}

@@ -1,13 +1,16 @@
 package capitulo07.bloque01.bloque04;
 
+import java.util.Date;
+
 public class Cliente {
+
 
 	private int id;
 	private String nombre;
 	private String apellidos;
 	private String localidad;
 	private String dni;
-	private String fecha;
+	public Date fecha;
 	private boolean activo;
 	
 	
@@ -16,7 +19,7 @@ public class Cliente {
 	}
 
 
-	public Cliente(int id, String nombre, String apellidos, String localidad, String dni, String fecha,
+	public Cliente(int id, String nombre, String apellidos, String localidad, String dni, Date fecha,
 			boolean activo) {
 		super();
 		this.id = id;
@@ -31,8 +34,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", localidad=" + localidad
-				+ ", dni=" + dni + ", fecha=" + fecha + ", activo=" + activo + "]";
+		return "Cliente [id=" + id + "]";
 	}
 
 
@@ -86,12 +88,12 @@ public class Cliente {
 	}
 
 
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

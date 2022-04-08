@@ -26,7 +26,7 @@ public class Consesionario {
 
 	@Override
 	public String toString() {
-		return "Consesionario [id=" + id + ", cif=" + cif + ", nombre=" + nombre + ", localidad=" + localidad + "]";
+		return "Consesionario [id=" + id + "]";
 	}
 
 

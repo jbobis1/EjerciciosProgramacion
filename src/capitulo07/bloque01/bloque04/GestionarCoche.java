@@ -15,6 +15,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
@@ -312,6 +313,9 @@ public class GestionarCoche extends JPanel {
 	
 	public  void  guardar () {
 		Coche f =new Coche();
+		
+	
+		
 		f.setId(Integer.parseInt(JtfId.getText()));
 		
 

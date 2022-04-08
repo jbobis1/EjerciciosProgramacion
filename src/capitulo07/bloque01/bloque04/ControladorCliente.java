@@ -63,7 +63,7 @@ public class ControladorCliente extends SupertipoGestion {
 			   
 				// Navegación del objeto ResultSet
 				if (rs.next()) { 
-					f= new Cliente (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dni"), rs.getString("fecha"), rs.getBoolean("activo"));			}
+					f= new Cliente (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellidos"),  rs.getString("localidad"),rs.getString("dniNie"), rs.getDate("fechaNac"), rs.getBoolean("activo"));			}
 				// Cierre de los elementos
 				rs.close();
 				s.close();
@@ -99,9 +99,8 @@ public class ControladorCliente extends SupertipoGestion {
 		public static int modificarCliente (Cliente f) {
 			int reguistros = 0;
 			
-			SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy hh:mm:ss");
-			Date date = new Date();
-			
+		
+			SimpleDateFormat sdf = new SimpleDateFormat ("yyy/MM/dd HH:mm:ss");
 			
 			try {
 
@@ -111,7 +110,7 @@ public class ControladorCliente extends SupertipoGestion {
 						
 					"update cliente set nombre='" + f.getNombre() + "', apellidos='" + f.getApellidos() + "', " 
 					  + " localidad='" + f.getLocalidad() + "', " + " dniNie='" + f.getDni() + "', " 
-					  + " fechaNac='" + f.getFecha().toString()  + "', " + " activo='" + f.isActivo() + "' "+ 
+					  + " fechaNac='" + sdf.format(f.getFecha())  + "', " + " activo='" + f.isActivo() + "' "+ 
 					  "where id=" + f.getId());
 
 			}catch (SQLException ex) {
@@ -129,11 +128,9 @@ public class ControladorCliente extends SupertipoGestion {
 		
 		public static int nuevo(Cliente f) {
 			int nuevoIdDisponible =0;
-			
-			SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy hh:mm:ss");
-			Date date = new Date();
-			
-//			 sdfSalida.format(date);
+			SimpleDateFormat sdf = new SimpleDateFormat ("yyy/MM/dd HH:mm:ss");
+
+
 			try {
 
 				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -143,7 +140,7 @@ public class ControladorCliente extends SupertipoGestion {
 					 int reguitro =
 					s.executeUpdate(					 
 						"insert into cliente values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellidos() 
-						+ "', '" + f.getLocalidad() + "', '" + f.getDni() +  "', '" +  f.getFecha().toString()+ "', '" + f.isActivo() + "')");
+						+ "', '" + f.getLocalidad() + "', '" + f.getDni() +  "', '" +  sdf.format(f.getFecha()) + "', '" + f.isActivo() + "')");
 
 
 					 System.out.println("resguitros insertado" + reguitro );	

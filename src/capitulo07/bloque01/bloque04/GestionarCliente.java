@@ -16,6 +16,8 @@ import capitulo07.bloque01.bloque03.Fabricante;
 
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 
 public class GestionarCliente extends JPanel {
@@ -33,6 +35,7 @@ public class GestionarCliente extends JPanel {
 	private JButton unomas ;
 	private JButton nuevo ;
 	private JButton actualizar ;
+	private JCheckBox chckbxActivo;
 	
 	
 	public GestionarCliente() {
@@ -153,7 +156,7 @@ public class GestionarCliente extends JPanel {
 		add(JtfFec, gbc_JtfFec);
 		JtfFec.setColumns(10);
 		
-		JCheckBox chckbxActivo = new JCheckBox("Activo");
+		chckbxActivo = new JCheckBox("Activo");
 		GridBagConstraints gbc_chckbxActivo = new GridBagConstraints();
 		gbc_chckbxActivo.gridwidth = 2;
 		gbc_chckbxActivo.insets = new Insets(0, 0, 5, 5);
@@ -241,6 +244,8 @@ public class GestionarCliente extends JPanel {
 	
 	private void mostarCliente(Cliente f) {
 		
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+		
 		if (f != null) {
 			JtfId.setText("" + f.getId());	
 			JtfId.setEnabled(false);
@@ -248,7 +253,14 @@ public class GestionarCliente extends JPanel {
 			JtfApellidos.setText(f.getApellidos());	
 			jtfLocalidad.setText(f.getLocalidad());	
 			JtfDni.setText(f.getDni());	
-			JtfFec.setText(f.getFecha());	
+			
+			JtfFec.setText(sdf.format(f.getFecha()));
+	
+			chckbxActivo.setSelected(f.isActivo());
+			
+			
+			
+			
 		}
 		
 	
@@ -257,7 +269,7 @@ public class GestionarCliente extends JPanel {
 			unomenos.setEnabled(false);
 		}
 		
-		else {
+		else {		
 			
 			minimo.setEnabled(true);
 			unomenos.setEnabled(true);
@@ -280,7 +292,6 @@ public class GestionarCliente extends JPanel {
 	/**
 	 * 
 	 */
-	
 	private void limpiar() {
 		JtfId.setText("0");	
 		JtfNombre.setText(" " );		
@@ -288,6 +299,8 @@ public class GestionarCliente extends JPanel {
 		jtfLocalidad.setText("");
 		JtfDni.setText("");
 		JtfFec.setText("");
+		chckbxActivo.setSelected(false);
+
 		
 		
 	}
@@ -297,13 +310,28 @@ public class GestionarCliente extends JPanel {
 	 */
 
 	public  void  guardar () {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+
 		Cliente f =new Cliente();
 		f.setId(Integer.parseInt(JtfId.getText()));
 		f.setNombre((JtfNombre.getText()));
 		f.setApellidos((JtfApellidos.getText()));
 		f.setLocalidad((jtfLocalidad.getText()));
 		f.setDni((JtfDni.getText()));
-		f.setFecha((JtfFec.getText()));
+		
+		try {
+			f.setFecha(sdf.parse(JtfFec.getText()));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+
+	//	f.isActivo(chckbxActivo.setSelected());
+		
+//		f.setFecha((JtfFec.getText()));
 //		f.setActivo((Jtf.getText()));
 		
 		if(ControladorCliente.guardar(f)==1) {
@@ -316,13 +344,24 @@ public class GestionarCliente extends JPanel {
 	}
 	
 	public  void  eliminar () {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+
 		Cliente f =new Cliente();
 		f.setId(Integer.parseInt(JtfId.getText()));
 		f.setNombre((JtfNombre.getText()));
 		f.setApellidos((JtfApellidos.getText()));
 		f.setLocalidad((jtfLocalidad.getText()));
 		f.setDni((JtfDni.getText()));
-		f.setFecha((JtfFec.getText()));
+		
+		
+		try {
+			f.setFecha(sdf.parse(JtfFec.getText()));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		f.setFecha((JtfFec.getText()));
 //		f.setActivo((Jtf.getText()));
 		
 		if(ControladorCliente.eliminar(f)==1) {

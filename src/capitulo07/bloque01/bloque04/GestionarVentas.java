@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import capitulo07.bloque01.bloque03.Controlador;
 import capitulo07.bloque01.bloque03.Fabricante;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
@@ -78,13 +80,13 @@ public class GestionarVentas extends JPanel {
 		gbc_lblFrabricante.gridy = 2;
 		add(lblFrabricante, gbc_lblFrabricante);
 		
-		JComboBox comboBoxIdCliente = new JComboBox();
+		comboBox = new JComboBox();
 		GridBagConstraints gbc_comboBoxIdCliente = new GridBagConstraints();
 		gbc_comboBoxIdCliente.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBoxIdCliente.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBoxIdCliente.gridx = 1;
 		gbc_comboBoxIdCliente.gridy = 2;
-		add(comboBoxIdCliente, gbc_comboBoxIdCliente);
+		add(comboBox, gbc_comboBoxIdCliente);
 		
 		JLabel lblBastidor = new JLabel("IdConsesionario");
 		GridBagConstraints gbc_lblBastidor = new GridBagConstraints();
@@ -94,13 +96,13 @@ public class GestionarVentas extends JPanel {
 		gbc_lblBastidor.gridy = 3;
 		add(lblBastidor, gbc_lblBastidor);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox_2 = new JComboBox();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 3;
-		add(comboBox, gbc_comboBox);
+		add(comboBox_2, gbc_comboBox);
 		
 		JLabel lblModelo = new JLabel("IdCoche");
 		GridBagConstraints gbc_lblModelo = new GridBagConstraints();
@@ -110,7 +112,7 @@ public class GestionarVentas extends JPanel {
 		gbc_lblModelo.gridy = 4;
 		add(lblModelo, gbc_lblModelo);
 		
-		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1 = new JComboBox();
 		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
 		gbc_comboBox_1.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
@@ -228,21 +230,16 @@ public class GestionarVentas extends JPanel {
 			
 		});
 		panel_1.add(borrar);
-		
-
-	
-		
-		
+			
 		cargarvaloresClientes(); 
 		selecionarvaloresCliente(getidCliente());
 		
 		cargarvaloresCoche();
 		selecionarvaloresCoche(getidCoche());
-	
-		
+			
 		cargarvaloresConcesionarios(); 
 		selecionarvaloresConcesionariose(getidConcesionarios());
-	
+
 		
 	}
 	
@@ -251,6 +248,7 @@ public class GestionarVentas extends JPanel {
 	 * clientes
 	 */
 	private void cargarvaloresClientes() {
+	
 		List<Cliente> lista = ContrladorVenta.obtenerTodosLosClientes();
 		for (int i = 0; i < lista.size(); i++) {
 			comboBox.addItem(lista.get(i));
@@ -266,7 +264,7 @@ public class GestionarVentas extends JPanel {
 	}
 	
 	private int getidCliente() {
-	return ((Coche) comboBox.getSelectedItem()).getId();
+	return ((Cliente) comboBox.getSelectedItem()).getId();
 		
 	}
 	
@@ -318,18 +316,26 @@ public class GestionarVentas extends JPanel {
 	}
 	
 	private int getidConcesionarios() {
-	return ((Coche) comboBox_2.getSelectedItem()).getId();
+	return ((Consesionario) comboBox_2.getSelectedItem()).getId();
 		
 	}
 	
 
 	private void mostarVenta(Venta f) {
 		
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+		
 		if (f != null) {
 			JtfId.setText("" + f.getId());	
 			JtfId.setEnabled(false);
-			JtfFecha.setText(f.getFecha());		
+			comboBox.setSelectedIndex(f.getId());
+			comboBox_1.setSelectedIndex(f.getId());
+			comboBox_2.setSelectedIndex(f.getId());
+			
+			JtfFecha.setText(sdf.format(f.getFecha()));	
+			
 			JtfPrecio.setText(f.getPrecio());	
+			
 		}
 		
 	
@@ -374,13 +380,27 @@ public class GestionarVentas extends JPanel {
 	
 	public  void  guardar () {
 		Venta f =new Venta();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+
+		
 		f.setId(Integer.parseInt(JtfId.getText()));
 		
 		f.setId(Integer.parseInt(JtfId.getText()));
 		f.setIdCliente(((Cliente )comboBox.getSelectedItem()).getId());
 		f.setIdConcesionario(((Consesionario )comboBox.getSelectedItem()).getId());
 		f.setIdCoche(((Coche )comboBox.getSelectedItem()).getId());
-		f.setFecha(JtfFecha.getText());
+		
+		try {
+			f.setFecha(sdf.parse(JtfFecha.getText()));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	
+		
 		f.setPrecio((JtfPrecio.getText()));
 		if(ContrladorVenta.guardar(f)==1) {
 			JOptionPane.showConfirmDialog(null, "Error al guardar");
@@ -392,6 +412,8 @@ public class GestionarVentas extends JPanel {
 	}
 	
 	public  void  eliminar () {
+		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
+
 		Venta f =new Venta();
 		f.setId(Integer.parseInt(JtfId.getText()));
 		f.setIdCliente(((Cliente )comboBox.getSelectedItem()).getId());
@@ -399,7 +421,14 @@ public class GestionarVentas extends JPanel {
 		f.setIdCoche(((Coche )comboBox.getSelectedItem()).getId());
 		
 		
-		f.setFecha(JtfFecha.getText());
+		try {
+			f.setFecha(sdf.parse(JtfFecha.getText()));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+;
 		f.setPrecio((JtfPrecio.getText()));
 		if(ContrladorVenta.eliminar(f)==1) {
 			JOptionPane.showConfirmDialog(null, "Error al eliminar");
