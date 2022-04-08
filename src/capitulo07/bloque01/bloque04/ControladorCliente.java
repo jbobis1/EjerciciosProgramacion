@@ -137,13 +137,13 @@ public class ControladorCliente extends SupertipoGestion {
 				 f.setId(siguienteIdEntabla("cliente"));
 				 nuevoIdDisponible = siguienteIdEntabla("cliente");
 				 if(nuevoIdDisponible != -1) {
-					 int reguitro =
+					 int reguistro =
 					s.executeUpdate(					 
 						"insert into cliente values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellidos() 
 						+ "', '" + f.getLocalidad() + "', '" + f.getDni() +  "', '" +  sdf.format(f.getFecha()) + "', '" + f.isActivo() + "')");
 
 
-					 System.out.println("resguitros insertado" + reguitro );	
+					 System.out.println("resguitros insertado" + reguistro );	
 				 }
 
 			}catch (SQLException ex) {

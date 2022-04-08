@@ -3,6 +3,7 @@ package capitulo07.bloque01.bloque04;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,6 +101,8 @@ public class ContrladorVenta extends SupertipoGestion{
 		
 		public static int modificarVenta (Venta f) {
 			int reguistros = 0;
+			
+			SimpleDateFormat sdf = new SimpleDateFormat ("yyy/MM/dd HH:mm:ss");
 			try {
 
 				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -107,7 +110,7 @@ public class ContrladorVenta extends SupertipoGestion{
 					s.executeUpdate(
 	
 					"update venta set idCliente='" + f.getIdCliente() + "', idConcesionario='" + f.getIdConcesionario() + "', " 
-					  + " idCoche='" + f.getIdCoche() + "', " + " fecha='" + f.getFecha()  + "', " + " precioVenta='" 
+					  + " idCoche='" + f.getIdCoche() + "', " + " fecha='" + sdf.format(f.getFecha())  + "', " + " precioVenta='" 
 					  + f.getPrecio() + "' "+ "where id=" + f.getId());
 					
 
@@ -126,6 +129,7 @@ public class ContrladorVenta extends SupertipoGestion{
 		
 		public static int nuevo(Venta f) {
 			int nuevoIdDisponible =0;
+			SimpleDateFormat sdf = new SimpleDateFormat ("yyy/MM/dd HH:mm:ss");
 			try {
 
 				Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
@@ -134,7 +138,7 @@ public class ContrladorVenta extends SupertipoGestion{
 				 if(nuevoIdDisponible != -1) {
 					 int reguitro =
 					s.executeUpdate("insert into venta values (" + nuevoIdDisponible + ",'" + f.getIdCliente() + "', '" + f.getIdConcesionario() + "', '" 
-					 + f.getIdCoche() + "', '" +  f.getFecha()+ "', '" + f.getPrecio() + "')");
+					 + f.getIdCoche() + "', '" +  sdf.format(f.getFecha())+ "', '" + f.getPrecio() + "')");
 
 					 
 					 System.out.println("resguitros insertado" + reguitro );	
