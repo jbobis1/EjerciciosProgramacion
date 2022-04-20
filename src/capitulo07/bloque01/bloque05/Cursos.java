@@ -202,7 +202,7 @@ public class Cursos extends JPanel {
 		}
 		
 	
-		if (Controlador.mostarmenosuno(f.getId())==null) {
+		if (ControladorCurso.mostarmenosuno(f.getId())==null) {
 			minimo.setEnabled(false);
 			unomenos.setEnabled(false);
 		}
@@ -213,7 +213,7 @@ public class Cursos extends JPanel {
 			unomenos.setEnabled(true);
 		
 		}
-		if (Controlador.mostarmasuno(f.getId())==null) {
+		if (ControladorCurso.mostarmasuno(f.getId())==null) {
 			maximo.setEnabled(false);
 			unomas.setEnabled(false);
 		}

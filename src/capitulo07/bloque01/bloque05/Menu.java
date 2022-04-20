@@ -46,6 +46,7 @@ public class Menu extends JMenuBar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Han hecho clic en: " + titulo);
+                
             }
         });
         
