@@ -131,11 +131,11 @@ public class Cursos extends JPanel {
 	 * 
 	 * @param f
 	 */
-	private void mostarCurso(Coche f) {
+	private void mostarCurso(Curso f) {
 	
 		if (f != null) {
 			id.setText("" + f.getId());	
-			descripcion.setText(f.getBastidor());	
+			descripcion.setText(f.getDescripcion());	
 
 		}
 		

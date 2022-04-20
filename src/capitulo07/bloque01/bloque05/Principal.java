@@ -59,7 +59,7 @@ public class Principal extends JFrame {
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(Principal.class.getResource("/capitulo07/bloque01/bloque05/img/conectado.png")));
-		Menu();
+		
 		toolBar.add(btnNewButton);
 	
 	}

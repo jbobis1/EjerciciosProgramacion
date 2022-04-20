@@ -25,7 +25,7 @@ public class Menu extends JMenuBar {
 		// Menú Archivo de la aplicación
         JMenu menuArchivo = new JMenu("Gestion");
         menuArchivo.add(crearNuevoMenuItem("Curso", "ruedadentada.png", KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask())));
-       
+  
         this.add(menuArchivo);
         
   

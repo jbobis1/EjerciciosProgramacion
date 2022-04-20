@@ -9,8 +9,9 @@ import java.util.List;
 import capitulo07.bloque01.bloque02.ConnectionManager;
 import capitulo07.bloque01.bloque04.Coche;
 import capitulo07.bloque01.bloque04.Fabricante;
+import capitulo07.bloque01.bloque04.SupertipoGestion;
 
-public class ControladorCurso {
+public class ControladorCurso extends SupertipoGestion{
 
 	/**
 	 * 
