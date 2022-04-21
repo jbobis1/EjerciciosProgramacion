@@ -161,7 +161,7 @@ public class ControladorMateria extends SupertipoGestion {
 			
 			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("select * from Curso");
+			ResultSet rs = s.executeQuery ("select * from centroeducativo.curso");
 		   
 			// Navegación del objeto ResultSet
 			while (rs.next()) { 

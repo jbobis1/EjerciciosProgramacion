@@ -14,7 +14,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 
-public class GestionarMateria extends JPanel {
+public class VistaMateria extends JPanel {
 	private JTextField jtfId;
 	private JTextField jtfNombre;
 	private JTextField jtfAcro;
@@ -33,7 +33,7 @@ public class GestionarMateria extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public GestionarMateria() {
+	public VistaMateria() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};

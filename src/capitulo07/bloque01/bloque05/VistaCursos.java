@@ -17,7 +17,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class Cursos extends JPanel {
+public class VistaCursos extends JPanel {
 	private JTextField id;
 	private JTextField descripcion;
 	private JButton borrar ;
@@ -31,7 +31,8 @@ public class Cursos extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Cursos() {
+	
+	public VistaCursos() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{82, 9, 50, 50, 54, 95, 0};
 		gridBagLayout.rowHeights = new int[]{26, 26, 15, 19, 19, 0};
@@ -40,7 +41,7 @@ public class Cursos extends JPanel {
 		setLayout(gridBagLayout);
 		
 		unomenos = new JButton("");
-		unomenos.setIcon(new ImageIcon(Cursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
+		unomenos.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
 		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarCurso(ControladorCurso.mostarmenosuno(Integer.parseInt(id.getText())));
@@ -80,7 +81,7 @@ public class Cursos extends JPanel {
 				mostarCurso(ControladorCurso.mostarmasuno(Integer.parseInt(id.getText())));
 			}
 		});
-		unomas.setIcon(new ImageIcon(Cursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
+		unomas.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
 		GridBagConstraints gbc_unomas = new GridBagConstraints();
 		gbc_unomas.anchor = GridBagConstraints.NORTHWEST;
 		gbc_unomas.insets = new Insets(0, 0, 5, 5);
@@ -105,7 +106,7 @@ public class Cursos extends JPanel {
 		});
 		
 		actualizar = new JButton("Modificar");
-		actualizar.setIcon(new ImageIcon(Cursos.class.getResource("/capitulo07/bloque01/bloque05/img/ruedadentada.png")));
+		actualizar.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/ruedadentada.png")));
 		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -119,7 +120,7 @@ public class Cursos extends JPanel {
 				limpiar();
 			}
 		});
-		nuevo.setIcon(new ImageIcon(Cursos.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
+		nuevo.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
 		GridBagConstraints gbc_nuevo = new GridBagConstraints();
 		gbc_nuevo.anchor = GridBagConstraints.NORTHWEST;
 		gbc_nuevo.insets = new Insets(0, 0, 5, 0);
@@ -133,7 +134,7 @@ public class Cursos extends JPanel {
 		gbc_actualizar.gridx = 1;
 		gbc_actualizar.gridy = 1;
 		add(actualizar, gbc_actualizar);
-		borrar.setIcon(new ImageIcon(Cursos.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
+		borrar.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
 		GridBagConstraints gbc_borrar = new GridBagConstraints();
 		gbc_borrar.anchor = GridBagConstraints.NORTHWEST;
 		gbc_borrar.insets = new Insets(0, 0, 5, 0);
