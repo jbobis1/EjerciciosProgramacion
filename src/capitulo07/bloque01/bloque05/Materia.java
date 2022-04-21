@@ -1,12 +1,11 @@
 package capitulo07.bloque01.bloque05;
 
 public class Materia {
-
-
+	
 	private int id;
 	private String nombre;
 	private String acronimo;
-	private int idCurso;
+	private int curso_id;
 	
 	
 	public Materia() {
@@ -19,13 +18,13 @@ public class Materia {
 		this.id = id;
 		this.nombre = nombre;
 		this.acronimo = acronimo;
-		this.idCurso = idCurso;
+		this.curso_id = idCurso;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Materia [id=" + id + ", nombre=" + nombre + ", acronimo=" + acronimo + ", idCurso=" + idCurso + "]";
+		return "Materia [id=" + id + ", nombre=" + nombre + ", acronimo=" + acronimo + ", idCurso=" + curso_id + "]";
 	}
 
 
@@ -59,14 +58,17 @@ public class Materia {
 	}
 
 
-	public int getIdCurso() {
-		return idCurso;
+	public int getCurso_id() {
+		return curso_id;
 	}
 
 
-	public void setIdCurso(int idCurso) {
-		this.idCurso = idCurso;
+	public void setCurso_id(int curso_id) {
+		this.curso_id = curso_id;
 	}
+
+
+
 
 	
 }

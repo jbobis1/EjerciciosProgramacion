@@ -240,7 +240,7 @@ public class VistaMateria extends JPanel {
 		
 		if (f != null) {
 			jtfId.setText("" + f.getId());	
-			comboBox.setSelectedIndex(f.getIdCurso());
+			comboBox.setSelectedIndex(f.getCurso_id());
 			jtfNombre.setText(f.getNombre());	
 			jtfAcro.setText(f.getAcronimo());
 	
@@ -285,7 +285,7 @@ public class VistaMateria extends JPanel {
 		
 		f.setId(Integer.parseInt(jtfId.getText()));
 		
-		f.setIdCurso(((Curso )comboBox.getSelectedItem()).getId());
+		f.setCurso_id(((Curso )comboBox.getSelectedItem()).getId());
 		
 		f.setNombre((jtfNombre.getText()));
 		
@@ -306,7 +306,7 @@ public class VistaMateria extends JPanel {
 		
 		f.setId(Integer.parseInt(jtfId.getText()));
 		
-		f.setIdCurso(((Curso )comboBox.getSelectedItem()).getId());
+		f.setCurso_id(((Curso )comboBox.getSelectedItem()).getId());
 		
 		f.setNombre((jtfNombre.getText()));
 		

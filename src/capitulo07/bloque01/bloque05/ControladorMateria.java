@@ -62,7 +62,7 @@ public class ControladorMateria extends SupertipoGestion {
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
-				f= new Materia (rs.getInt("id"), rs.getString("nombre"),rs.getString("acronimo"),rs.getInt("idCurso"));			
+				f= new Materia (rs.getInt("id"), rs.getString("nombre"),rs.getString("acronimo"),rs.getInt("curso_id"));			
 				}
 			// Cierre de los elementos
 			rs.close();
@@ -106,7 +106,7 @@ public class ControladorMateria extends SupertipoGestion {
 				s.executeUpdate(
 				
 				"update coche set nombre='" + f.getNombre() + "', acronimo='" + f.getAcronimo() 
-				 + "'," + " curso_id='" + f.getIdCurso()  + "where id=" + f.getId());
+				 + "'," + " curso_id='" + f.getCurso_id()  + "where id=" + f.getId());
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
@@ -135,7 +135,7 @@ public class ControladorMateria extends SupertipoGestion {
 
 	
 				s.executeUpdate(
-					"insert into Materia values (" + nuevoIdDisponible + ",'" + f.getNombre()  + "', '" + f.getAcronimo() + "', '" + f.getIdCurso()+"')");
+					"insert into Materia values (" + nuevoIdDisponible + ",'" + f.getNombre()  + "', '" + f.getAcronimo() + "', '" + f.getCurso_id()+"')");
 
 				 System.out.println("resguitros insertado" + reguistro );	
 			 }

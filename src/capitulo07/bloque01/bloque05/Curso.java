@@ -21,7 +21,7 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", descripcion=" + descripcion + "]";
+		return "Curso [" + id + "]";
 	}
 
 
@@ -43,7 +43,4 @@ public class Curso {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
-	
 }
