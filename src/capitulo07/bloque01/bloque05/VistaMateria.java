@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 
 public class VistaMateria extends JPanel {
 	private JTextField jtfId;
@@ -29,19 +30,21 @@ public class VistaMateria extends JPanel {
 
 	
 	JComboBox<Curso> comboBox;
+	private JLabel lblGestionMateria;
 	
 	/**
 	 * Create the panel.
 	 */
 	public VistaMateria() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 141, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		minimo = new JButton("<<");
+		minimo = new JButton("");
+		minimo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
 		minimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarMateria(ControladorMateria.mostarPrimerMateria());
@@ -79,7 +82,8 @@ public class VistaMateria extends JPanel {
 		gbc_btnNewButton_2.gridy = 0;
 		add(unomas, gbc_btnNewButton_2);
 		
-		maximo = new JButton(">>");
+		maximo = new JButton("");
+		maximo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
 		maximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarMateria(ControladorMateria.mostarUltimoMateria());	
@@ -91,7 +95,8 @@ public class VistaMateria extends JPanel {
 		gbc_btnNewButton_3.gridy = 0;
 		add(maximo, gbc_btnNewButton_3);
 		
-		 nuevo = new JButton("Nuevo");
+		 nuevo = new JButton("");
+		 nuevo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
 		 nuevo.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		limpiar();
@@ -103,7 +108,8 @@ public class VistaMateria extends JPanel {
 		gbc_btnNewButton_4.gridy = 0;
 		add(nuevo, gbc_btnNewButton_4);
 		
-		actualizar = new JButton("Modificar");
+		actualizar = new JButton("");
+		actualizar.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/guardar.png")));
 		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -116,7 +122,8 @@ public class VistaMateria extends JPanel {
 		gbc_btnNewButton_5.gridy = 0;
 		add(actualizar, gbc_btnNewButton_5);
 		
-		 borrar = new JButton("Borrar");
+		 borrar = new JButton("");
+		 borrar.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
 		 borrar.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		eliminar();
@@ -128,6 +135,14 @@ public class VistaMateria extends JPanel {
 		gbc_btnNewButton_6.gridy = 0;
 		add(borrar, gbc_btnNewButton_6);
 		
+		lblGestionMateria = new JLabel("Gestion Materia");
+		GridBagConstraints gbc_lblGestionMateria = new GridBagConstraints();
+		gbc_lblGestionMateria.gridwidth = 2;
+		gbc_lblGestionMateria.insets = new Insets(0, 0, 5, 5);
+		gbc_lblGestionMateria.gridx = 0;
+		gbc_lblGestionMateria.gridy = 1;
+		add(lblGestionMateria, gbc_lblGestionMateria);
+		
 		JLabel lblNewLabel = new JLabel("Id");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
@@ -138,7 +153,6 @@ public class VistaMateria extends JPanel {
 		
 		jtfId = new JTextField();
 		GridBagConstraints gbc_jtfId = new GridBagConstraints();
-		gbc_jtfId.gridwidth = 2;
 		gbc_jtfId.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfId.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfId.gridx = 1;
@@ -156,7 +170,6 @@ public class VistaMateria extends JPanel {
 		
 		jtfNombre = new JTextField();
 		GridBagConstraints gbc_jtfNombre = new GridBagConstraints();
-		gbc_jtfNombre.gridwidth = 2;
 		gbc_jtfNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfNombre.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfNombre.gridx = 1;
@@ -174,7 +187,6 @@ public class VistaMateria extends JPanel {
 		
 		jtfAcro = new JTextField();
 		GridBagConstraints gbc_jtfAcro = new GridBagConstraints();
-		gbc_jtfAcro.gridwidth = 2;
 		gbc_jtfAcro.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfAcro.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfAcro.gridx = 1;
@@ -192,7 +204,6 @@ public class VistaMateria extends JPanel {
 		
 		comboBox = new JComboBox<Curso>();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.gridwidth = 2;
 		gbc_comboBox.insets = new Insets(0, 0, 0, 5);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;

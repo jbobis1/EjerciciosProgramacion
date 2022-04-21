@@ -6,9 +6,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import capitulo07.bloque01.bloque02.ConnectionManager;
-import capitulo07.bloque01.bloque04.Fabricante;
-import capitulo07.bloque01.bloque04.SupertipoGestion;
 
 public class ControladorMateria extends SupertipoGestion {
 
@@ -109,7 +106,7 @@ public class ControladorMateria extends SupertipoGestion {
 				s.executeUpdate(
 				
 				"update coche set nombre='" + f.getNombre() + "', acronimo='" + f.getAcronimo() 
-				 + "'," + " idcurso='" + f.getIdCurso()  + "where id=" + f.getId());
+				 + "'," + " curso_id='" + f.getIdCurso()  + "where id=" + f.getId());
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());

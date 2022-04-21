@@ -6,10 +6,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import capitulo07.bloque01.bloque02.ConnectionManager;
-import capitulo07.bloque01.bloque04.Coche;
-import capitulo07.bloque01.bloque04.Fabricante;
-import capitulo07.bloque01.bloque04.SupertipoGestion;
 
 public class ControladorCurso extends SupertipoGestion{
 
@@ -108,9 +104,12 @@ public class ControladorCurso extends SupertipoGestion{
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 
 				s.executeUpdate(
-		
-				
-				"update curso set Descripcion='" + f.getDescripcion() +  "where id=" + f.getId());
+						
+//				"update curso set descripcion='" + f.getDescripcion() +  "where id=" + f.getId());
+//				
+//				
+				"update curso set descripcion='" 
+				+ f.getDescripcion() +  "' " + "where id=" + f.getId());
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
@@ -137,9 +136,13 @@ public class ControladorCurso extends SupertipoGestion{
 			 if(nuevoIdDisponible != -1) {
 				 int reguistro =
 
-	
-				s.executeUpdate(
-					"insert into curso values (" + nuevoIdDisponible + ",'" + f.getDescripcion() + "')");
+//	
+//				s.executeUpdate(
+//					"insert into curso values (" + nuevoIdDisponible + ",'" + f.getDescripcion() + "')");
+				 
+					s.executeUpdate("insert into curso values (" 
+							 + nuevoIdDisponible + ",'" + f.getDescripcion() + "')");
+				 
 
 				 System.out.println("resguitros insertado" + reguistro );	
 			 }
