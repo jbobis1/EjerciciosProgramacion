@@ -14,6 +14,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
+import java.awt.FlowLayout;
 
 public class VistaMateria extends JPanel {
 	private JTextField jtfId;
@@ -31,111 +32,94 @@ public class VistaMateria extends JPanel {
 	
 	JComboBox<Curso> comboBox;
 	private JLabel lblGestionMateria;
+	private JPanel panel;
 	
 	/**
 	 * Create the panel.
 	 */
 	public VistaMateria() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 141, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0,  Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
+		panel = new JPanel();
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.gridwidth = 2;
+		gbc_panel.insets = new Insets(0, 0, 5, 5);
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 0;
+		gbc_panel.gridy = 0;
+		add(panel, gbc_panel);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
 		minimo = new JButton("");
+		panel.add(minimo);
 		minimo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
-		minimo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostarMateria(ControladorMateria.mostarPrimerMateria());
-			}
-		});
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 0;
-		add(minimo, gbc_btnNewButton);
 		
 		unomenos = new JButton("");
+		panel.add(unomenos);
 		unomenos.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/previous.png")));
-		unomenos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				mostarMateria(ControladorMateria.mostarmenosuno(Integer.parseInt(jtfId.getText())));
-			}
-		});
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_1.gridx = 1;
-		gbc_btnNewButton_1.gridy = 0;
-		add(unomenos, gbc_btnNewButton_1);
 		
 		 unomas = new JButton("");
+		 panel.add(unomas);
 		 unomas.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/next.png")));
+		 
+		 maximo = new JButton("");
+		 panel.add(maximo);
+		 maximo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
+		 
+		  nuevo = new JButton("");
+		  panel.add(nuevo);
+		  nuevo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
+		  
+		  actualizar = new JButton("");
+		  panel.add(actualizar);
+		  actualizar.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/guardar.png")));
+		  
+		   borrar = new JButton("");
+		   panel.add(borrar);
+		   borrar.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
+		   borrar.addActionListener(new ActionListener() {
+		   	public void actionPerformed(ActionEvent e) {
+		   		eliminar();
+		   	}
+		   });
+		  actualizar.addActionListener(new ActionListener() {
+		  	public void actionPerformed(ActionEvent e) {
+		  		
+		  		guardar();
+		  	}
+		  });
+		  nuevo.addActionListener(new ActionListener() {
+		  	public void actionPerformed(ActionEvent e) {
+		  		limpiar();
+		  	}
+		  });
+		 maximo.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		mostarMateria(ControladorMateria.mostarUltimoMateria());	
+		 	}
+		 });
 		 unomas.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		
 		 		mostarMateria(ControladorMateria.mostarmasuno(Integer.parseInt(jtfId.getText())));
 		 	}
 		 });
-		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_2.gridx = 2;
-		gbc_btnNewButton_2.gridy = 0;
-		add(unomas, gbc_btnNewButton_2);
-		
-		maximo = new JButton("");
-		maximo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
-		maximo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostarMateria(ControladorMateria.mostarUltimoMateria());	
-			}
-		});
-		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
-		gbc_btnNewButton_3.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_3.gridx = 3;
-		gbc_btnNewButton_3.gridy = 0;
-		add(maximo, gbc_btnNewButton_3);
-		
-		 nuevo = new JButton("");
-		 nuevo.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
-		 nuevo.addActionListener(new ActionListener() {
-		 	public void actionPerformed(ActionEvent e) {
-		 		limpiar();
-		 	}
-		 });
-		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
-		gbc_btnNewButton_4.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_4.gridx = 4;
-		gbc_btnNewButton_4.gridy = 0;
-		add(nuevo, gbc_btnNewButton_4);
-		
-		actualizar = new JButton("");
-		actualizar.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/guardar.png")));
-		actualizar.addActionListener(new ActionListener() {
+		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				guardar();
+				mostarMateria(ControladorMateria.mostarmenosuno(Integer.parseInt(jtfId.getText())));
 			}
 		});
-		GridBagConstraints gbc_btnNewButton_5 = new GridBagConstraints();
-		gbc_btnNewButton_5.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_5.gridx = 5;
-		gbc_btnNewButton_5.gridy = 0;
-		add(actualizar, gbc_btnNewButton_5);
-		
-		 borrar = new JButton("");
-		 borrar.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
-		 borrar.addActionListener(new ActionListener() {
-		 	public void actionPerformed(ActionEvent e) {
-		 		eliminar();
-		 	}
-		 });
-		GridBagConstraints gbc_btnNewButton_6 = new GridBagConstraints();
-		gbc_btnNewButton_6.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton_6.gridx = 6;
-		gbc_btnNewButton_6.gridy = 0;
-		add(borrar, gbc_btnNewButton_6);
+		minimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarMateria(ControladorMateria.mostarPrimerMateria());
+			}
+		});
 		
 		lblGestionMateria = new JLabel("Gestion Materia");
 		GridBagConstraints gbc_lblGestionMateria = new GridBagConstraints();
