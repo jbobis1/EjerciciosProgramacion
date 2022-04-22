@@ -103,7 +103,7 @@ public class ControladorCurso extends SupertipoGestion{
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 
-				s.executeUpdate(
+			reguistros =s.executeUpdate(
 						
 //				"update curso set descripcion='" + f.getDescripcion() +  "where id=" + f.getId());
 //				
@@ -125,16 +125,17 @@ public class ControladorCurso extends SupertipoGestion{
 	 */
 	
 	public static int nuevoCurso(Curso f) {
+		int cantidadRegistrosModificados = 0;
 		int nuevoIdDisponible =0;
 		try {
 			
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 
-			 f.setId(siguienteIdEntabla("Curso"));
+			 f.setId(siguienteIdEntabla("curso"));
 			 
-			 nuevoIdDisponible = siguienteIdEntabla("Curso");
+			 nuevoIdDisponible = siguienteIdEntabla("curso");
 			 if(nuevoIdDisponible != -1) {
-				 int reguistro =
+				 cantidadRegistrosModificados =
 
 //	
 //				s.executeUpdate(
@@ -142,16 +143,14 @@ public class ControladorCurso extends SupertipoGestion{
 				 
 					s.executeUpdate("insert into curso values (" 
 							 + nuevoIdDisponible + ",'" + f.getDescripcion() + "')");
-				 
 
-				 System.out.println("resguitros insertado" + reguistro );	
 			 }
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-		return nuevoIdDisponible;
+		return cantidadRegistrosModificados;
 	}
 
 	
@@ -169,7 +168,7 @@ public class ControladorCurso extends SupertipoGestion{
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement();
 
-			s.executeUpdate("delete from curso where id=" + f.getId());
+			reguistrosAfectado =s.executeUpdate("delete from curso where id=" + f.getId());
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());

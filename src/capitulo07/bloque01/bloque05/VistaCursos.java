@@ -41,14 +41,15 @@ public class VistaCursos extends JPanel {
 		setLayout(gridBagLayout);
 		
 		unomenos = new JButton("");
-		unomenos.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
+		unomenos.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/previous.png")));
 		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarCurso(ControladorCurso.mostarmenosuno(Integer.parseInt(id.getText())));
 			}
 		});
 		
-		minimo = new JButton("<<");
+		minimo = new JButton("");
+		minimo.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
 		minimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarCurso(ControladorCurso.mostarPrimercurso());	
@@ -68,7 +69,8 @@ public class VistaCursos extends JPanel {
 		gbc_unomenos.gridy = 0;
 		add(unomenos, gbc_unomenos);
 		
-		maximo = new JButton(">>");
+		maximo = new JButton("");
+		maximo.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
 		maximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostarCurso(ControladorCurso.mostarUltimocurso());	
@@ -81,7 +83,7 @@ public class VistaCursos extends JPanel {
 				mostarCurso(ControladorCurso.mostarmasuno(Integer.parseInt(id.getText())));
 			}
 		});
-		unomas.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
+		unomas.setIcon(new ImageIcon(VistaCursos.class.getResource("/capitulo07/bloque01/bloque05/img/next.png")));
 		GridBagConstraints gbc_unomas = new GridBagConstraints();
 		gbc_unomas.anchor = GridBagConstraints.NORTHWEST;
 		gbc_unomas.insets = new Insets(0, 0, 5, 5);
@@ -187,6 +189,11 @@ public class VistaCursos extends JPanel {
 		gbc_descripcion.gridy = 4;
 		add(descripcion, gbc_descripcion);
 		descripcion.setColumns(10);
+		
+		
+		mostarCurso(ControladorCurso.mostarPrimercurso());	
+
+		
 
 	}
 	
@@ -198,6 +205,8 @@ public class VistaCursos extends JPanel {
 	
 		if (f != null) {
 			id.setText("" + f.getId());	
+			id.setEnabled(false);	
+			
 			descripcion.setText(f.getDescripcion());	
 
 		}
@@ -232,8 +241,14 @@ public class VistaCursos extends JPanel {
 	 * 
 	 */
 	private void limpiar() {
-		id.setText("");	
-		descripcion.setText("");	
+		id.setText("0");	
+		descripcion.setText("");
+		
+		minimo.setEnabled(false);
+		unomenos.setEnabled(false);
+		
+		maximo.setEnabled(true);
+		unomas.setEnabled(true);
 
 	}
 	
@@ -249,15 +264,17 @@ public class VistaCursos extends JPanel {
 		
 		
 		if(ControladorCurso.guardar(f)==1) {
-			JOptionPane.showConfirmDialog(null, "Error al guardar");
+			mostarCurso(ControladorCurso.mostarUltimocurso());
+			JOptionPane.showMessageDialog(null, "Guardado o Modificado Correcto");	
 			
 		}
 		else {
-			JOptionPane.showConfirmDialog(null, "Guardado correcto");
+			JOptionPane.showMessageDialog(null, "Error");
 		}
 	
 	}
 	
+		
 	public  void  eliminar () {
 		Curso f =new Curso();
 		f.setId(Integer.parseInt(id.getText()));
@@ -266,13 +283,13 @@ public class VistaCursos extends JPanel {
 		f.setDescripcion((descripcion.getText()));
 
 		if(ControladorCurso.eliminar(f)==1) {
-			JOptionPane.showConfirmDialog(null, "Error al eliminar");
+			JOptionPane.showMessageDialog(null, "Eliminado");			
 		}
 		else {
-			JOptionPane.showConfirmDialog(null, "Se a eliminado");
+			JOptionPane.showMessageDialog(null, "Error");
 		}
+		mostarCurso(ControladorCurso.mostarUltimocurso());	
 	}
-	
 }
 
 

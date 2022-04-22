@@ -60,7 +60,7 @@ public class Principal extends JFrame {
 				// El usuario no puede redimensionar el diálogo
 				dialogo.setResizable(true);
 				// título del díalogo
-				dialogo.setTitle("Título");
+				dialogo.setTitle("Curso");
 				// Introducimos el panel creado sobre el diálogo
 				dialogo.setContentPane(new VistaCursos());
 				// Empaquetar el di�logo hace que todos los componentes ocupen el espacio que deben y el lugar adecuado
@@ -86,7 +86,7 @@ public class Principal extends JFrame {
 				// El usuario no puede redimensionar el diálogo
 				dialogo.setResizable(true);
 				// título del díalogo
-				dialogo.setTitle("Título");
+				dialogo.setTitle("Materia");
 				// Introducimos el panel creado sobre el diálogo
 				dialogo.setContentPane(new VistaMateria());
 				// Empaquetar el di�logo hace que todos los componentes ocupen el espacio que deben y el lugar adecuado

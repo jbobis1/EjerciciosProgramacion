@@ -55,7 +55,7 @@ public class Menu extends JMenuBar {
     				// El usuario no puede redimensionar el diálogo
     				dialogo.setResizable(true);
     				// título del díalogo
-    				dialogo.setTitle("Título");
+    				dialogo.setTitle("Centro Educativo");
     				
     				// Introducimos el panel creado sobre el diálogo
     				

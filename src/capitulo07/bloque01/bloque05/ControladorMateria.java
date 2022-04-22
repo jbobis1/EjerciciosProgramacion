@@ -15,7 +15,7 @@ public class ControladorMateria extends SupertipoGestion {
 	 */
 	
 	public static Materia mostarPrimerMateria() {
-		return findMateria("select * from Materia order by id limit 1");   
+		return findMateria("select * from materia order by id limit 1");   
 	}
 	
 	/**
@@ -24,7 +24,7 @@ public class ControladorMateria extends SupertipoGestion {
 	 */
 	
 	public static Materia mostarUltimoMateria() {
-		return findMateria("select * from Materia order by id desc limit 1");	   
+		return findMateria("select * from materia order by id desc limit 1");	   
 	}
 	
 	/**
@@ -32,7 +32,7 @@ public class ControladorMateria extends SupertipoGestion {
 	 */
 	
 	public static Materia mostarmasuno(int idActual) {
-		return findMateria("select * from Materia where id > " + idActual  + "  order by id limit 1");
+		return findMateria("select * from materia where id > " + idActual  + "  order by id limit 1");
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public class ControladorMateria extends SupertipoGestion {
 	 */
 	
 	public static Materia mostarmenosuno(int idActual) {
-		return findMateria("select * from Materia where id < " + idActual + " order by id desc limit 1");
+		return findMateria("select * from materia where id < " + idActual + " order by id desc limit 1");
 	}
 	
 	/**
@@ -98,21 +98,24 @@ public class ControladorMateria extends SupertipoGestion {
 	 */
 	
 	public static int modificarMateria (Materia f) {
+		int cantidadRegistrosModificados = 0;
 		int reguistros = 0;
 		try {
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 
-				s.executeUpdate(
+			cantidadRegistrosModificados = s.executeUpdate(
 				
-				"update coche set nombre='" + f.getNombre() + "', acronimo='" + f.getAcronimo() 
-				 + "'," + " curso_id='" + f.getCurso_id()  + "where id=" + f.getId());
+
+			
+			"update materia set nombre='" + f.getNombre() + "', acronimo='" + f.getAcronimo() 
+			 + "'," + " curso_id='" + f.getCurso_id() +  "' " + "where id=" + f.getId());
 
 		}catch (SQLException ex) {
-			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			
 			ex.printStackTrace();
 		}
-		return reguistros;
+		return cantidadRegistrosModificados;
 	}
 	
 	/**
@@ -123,19 +126,20 @@ public class ControladorMateria extends SupertipoGestion {
 	
 	public static int nuevoMateria(Materia f) {
 		int nuevoIdDisponible =0;
+		 int reguistro =0;
 		try {
 			
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
 
-			 f.setId(siguienteIdEntabla("Materia"));
+			 f.setId(siguienteIdEntabla("materia"));
 			 
-			 nuevoIdDisponible = siguienteIdEntabla("Materia");
+			 nuevoIdDisponible = siguienteIdEntabla("materia");
 			 if(nuevoIdDisponible != -1) {
-				 int reguistro =
+				  reguistro =
 
 	
 				s.executeUpdate(
-					"insert into Materia values (" + nuevoIdDisponible + ",'" + f.getNombre()  + "', '" + f.getAcronimo() + "', '" + f.getCurso_id()+"')");
+					"insert into materia values (" + nuevoIdDisponible + ",'" + f.getNombre()  + "', '" + f.getAcronimo() + "', '" + f.getCurso_id()+"')");
 
 				 System.out.println("resguitros insertado" + reguistro );	
 			 }
@@ -144,7 +148,7 @@ public class ControladorMateria extends SupertipoGestion {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-		return nuevoIdDisponible;
+		return reguistro;
 	}
 
 	
@@ -190,7 +194,7 @@ public class ControladorMateria extends SupertipoGestion {
 
 			Statement s = (Statement) ConnectionManager.getConexion().createStatement();
 
-			s.executeUpdate("delete from Materia where id=" + f.getId());
+			reguistrosAfectado =s.executeUpdate("delete from materia where id=" + f.getId());
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());

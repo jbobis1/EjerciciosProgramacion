@@ -56,7 +56,8 @@ public class VistaMateria extends JPanel {
 		gbc_btnNewButton.gridy = 0;
 		add(minimo, gbc_btnNewButton);
 		
-		unomenos = new JButton("<");
+		unomenos = new JButton("");
+		unomenos.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/previous.png")));
 		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -69,7 +70,8 @@ public class VistaMateria extends JPanel {
 		gbc_btnNewButton_1.gridy = 0;
 		add(unomenos, gbc_btnNewButton_1);
 		
-		 unomas = new JButton(">");
+		 unomas = new JButton("");
+		 unomas.setIcon(new ImageIcon(VistaMateria.class.getResource("/capitulo07/bloque01/bloque05/img/next.png")));
 		 unomas.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		
@@ -213,6 +215,8 @@ public class VistaMateria extends JPanel {
 		cargarvalores();
 		selecionarvalores(getidCurso());
 		getidCurso();
+		
+		mostarMateria(ControladorMateria.mostarPrimerMateria());
 	}
 	
 	
@@ -240,6 +244,7 @@ public class VistaMateria extends JPanel {
 		
 		if (f != null) {
 			jtfId.setText("" + f.getId());	
+			jtfId.setEnabled(false);	
 			comboBox.setSelectedIndex(f.getCurso_id());
 			jtfNombre.setText(f.getNombre());	
 			jtfAcro.setText(f.getAcronimo());
@@ -273,10 +278,17 @@ public class VistaMateria extends JPanel {
 	}
 	
 	private void limpiar() {
-		jtfId.setText("" );
+		jtfId.setText("0" );
 		comboBox.setSelectedIndex((0));
 		jtfNombre.setText("");	
 		jtfAcro.setText("");
+		
+		
+		minimo.setEnabled(false);
+		unomenos.setEnabled(false);
+		
+		maximo.setEnabled(true);
+		unomas.setEnabled(true);
 
 	}
 	
@@ -292,13 +304,15 @@ public class VistaMateria extends JPanel {
 		f.setAcronimo((jtfAcro.getText()));
 		
 		if(ControladorMateria.guardar(f)==1) {
-			JOptionPane.showConfirmDialog(null, "Error al guardar");
+			mostarMateria(ControladorMateria.mostarUltimoMateria());
+			JOptionPane.showMessageDialog(null, "Guardado o Modificado Correcto");	
 			
 		}
 		else {
-			JOptionPane.showConfirmDialog(null, "Guardado correcto");
+			JOptionPane.showMessageDialog(null, "Error");
 		}
 	
+
 	}
 	
 	public  void  eliminar () {
@@ -312,11 +326,12 @@ public class VistaMateria extends JPanel {
 		
 		f.setAcronimo((jtfAcro.getText()));
 		if(ControladorMateria.eliminar(f)==1) {
-			JOptionPane.showConfirmDialog(null, "Error al eliminar");
-		}
-		else {
-			JOptionPane.showConfirmDialog(null, "Se a eliminado");
-		}
+			JOptionPane.showMessageDialog(null, "Eliminado");			
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Error");
+			}
+		mostarMateria(ControladorMateria.mostarUltimoMateria());
 	}
 	
 }
