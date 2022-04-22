@@ -252,6 +252,9 @@ public class VistaCursos extends JPanel {
 
 	}
 	
+	/**
+	 * 
+	 */
 	public  void  guardar () {
 		Curso f =new Curso();
 		
@@ -274,7 +277,10 @@ public class VistaCursos extends JPanel {
 	
 	}
 	
-		
+	/**
+	 * 
+	 */
+
 	public  void  eliminar () {
 		Curso f =new Curso();
 		f.setId(Integer.parseInt(id.getText()));

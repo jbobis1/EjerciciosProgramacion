@@ -106,8 +106,6 @@ public class ControladorMateria extends SupertipoGestion {
 
 			cantidadRegistrosModificados = s.executeUpdate(
 				
-
-			
 			"update materia set nombre='" + f.getNombre() + "', acronimo='" + f.getAcronimo() 
 			 + "'," + " curso_id='" + f.getCurso_id() +  "' " + "where id=" + f.getId());
 
@@ -152,6 +150,10 @@ public class ControladorMateria extends SupertipoGestion {
 	}
 
 	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public static List<Curso> obtenerTodosLosCurso() {
 		List<Curso> lista = new ArrayList<Curso>();
@@ -180,7 +182,6 @@ public class ControladorMateria extends SupertipoGestion {
 		
 		return lista;
 	}
-	
 	
 	/**
 	 * 

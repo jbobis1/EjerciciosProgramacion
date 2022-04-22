@@ -105,9 +105,7 @@ public class ControladorCurso extends SupertipoGestion{
 
 			reguistros =s.executeUpdate(
 						
-//				"update curso set descripcion='" + f.getDescripcion() +  "where id=" + f.getId());
-//				
-//				
+				
 				"update curso set descripcion='" 
 				+ f.getDescripcion() +  "' " + "where id=" + f.getId());
 

@@ -203,6 +203,9 @@ public class VistaMateria extends JPanel {
 		mostarMateria(ControladorMateria.mostarPrimerMateria());
 	}
 	
+	/**
+	 * 
+	 */
 	
 	private void cargarvalores() {
 		List<Curso> lista = ControladorMateria.obtenerTodosLosCurso();
@@ -211,6 +214,10 @@ public class VistaMateria extends JPanel {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param idCurso
+	 */
 	private void selecionarvalores(int idCurso) {
 		for (int i = 0; i < comboBox.getItemCount(); i++) {
 		if (((Curso) comboBox.getItemAt(i)).getId() == idCurso ) {
@@ -219,11 +226,19 @@ public class VistaMateria extends JPanel {
 		}	
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	private int getidCurso() {
 	return ((Curso) comboBox.getSelectedItem()).getId();
 		
 	}
 	
+	/**
+	 * 
+	 * @param f
+	 */
 	private void mostarMateria(Materia f) {
 		
 		if (f != null) {
@@ -261,6 +276,9 @@ public class VistaMateria extends JPanel {
 		}	
 	}
 	
+	/**
+	 * 
+	 */
 	private void limpiar() {
 		jtfId.setText("0" );
 		comboBox.setSelectedIndex((0));
@@ -276,6 +294,9 @@ public class VistaMateria extends JPanel {
 
 	}
 	
+	/**
+	 * 
+	 */
 	public  void  guardar () {
 		Materia f =new Materia();
 		
@@ -299,6 +320,9 @@ public class VistaMateria extends JPanel {
 
 	}
 	
+	/**
+	 * 
+	 */
 	public  void  eliminar () {
 		Materia f =new Materia();
 		
