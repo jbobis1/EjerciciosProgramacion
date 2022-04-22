@@ -102,7 +102,7 @@ public class Principal extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon(Principal.class.getResource("/capitulo07/bloque01/bloque05/img/conectado.png")));
+		btnNewButton_1.setIcon(new ImageIcon(Principal.class.getResource("/capitulo07/bloque01/bloque05/img/pullback.png")));
 		toolBar.add(btnNewButton_1);
 	
 	}
