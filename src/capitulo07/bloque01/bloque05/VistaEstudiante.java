@@ -45,6 +45,9 @@ public class VistaEstudiante extends JPanel {
 		JButton btnNewButton_6 = new JButton("");
 		btnNewButton_6.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
 		toolBar.add(btnNewButton_6);
+		
+		JPanel panel = new JPanel();
+		add(panel, BorderLayout.CENTER);
 
 	}
 
