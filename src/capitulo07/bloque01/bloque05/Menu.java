@@ -29,6 +29,10 @@ public class Menu extends JMenuBar {
 
         menuArchivo.add(crearNuevoMenuItem("Materia", "ruedadentada.png", KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask())));
 
+        menuArchivo.add(crearNuevoMenuItem("Estudiante", "ruedadentada.png", KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask())));
+
+        menuArchivo.add(crearNuevoMenuItem("Profesor", "ruedadentada.png", KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask())));
+
         this.add(menuArchivo);
         
 	}
@@ -43,6 +47,8 @@ public class Menu extends JMenuBar {
         
         String Materia = "Materia";
         String Curso = "Curso";
+        String Estudiante = "Estudiante";
+        String Profesor = "Profesor";
    
         item.setAccelerator(atajoTeclado);
         item.addActionListener(new ActionListener(){
@@ -64,10 +70,19 @@ public class Menu extends JMenuBar {
     				dialogo.setContentPane(new VistaMateria());
     					}
     				
-    				else {
-    					dialogo.setContentPane(new VistaCursos());
-    					}
-    				
+    				if (titulo==Curso) {
+        				dialogo.setContentPane(new VistaCursos());
+        					}
+        				
+    				if (titulo==Estudiante) {
+        				dialogo.setContentPane(new VistaEstudiante());
+        					}
+        				
+    				if (titulo==Profesor) {
+        				dialogo.setContentPane(new VistaProfesor());
+        					}
+        				
+    			
     				// Empaquetar el di�logo hace que todos los componentes ocupen el espacio que deben y el lugar adecuado
     				dialogo.pack();
     				// El usuario no puede hacer clic sobre la ventana padre, si el Di�logo es modal

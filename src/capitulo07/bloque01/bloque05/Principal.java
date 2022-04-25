@@ -104,7 +104,62 @@ public class Principal extends JFrame {
 		});
 		btnNewButton_1.setIcon(new ImageIcon(Principal.class.getResource("/capitulo07/bloque01/bloque05/img/pullback.png")));
 		toolBar.add(btnNewButton_1);
-	
+		
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JDialog dialogo = new JDialog();
+				// El usuario no puede redimensionar el diálogo
+				dialogo.setResizable(true);
+				// título del díalogo
+				dialogo.setTitle("Estudiante");
+				// Introducimos el panel creado sobre el diálogo
+				dialogo.setContentPane(new VistaEstudiante());
+				// Empaquetar el di�logo hace que todos los componentes ocupen el espacio que deben y el lugar adecuado
+				dialogo.pack();
+				// El usuario no puede hacer clic sobre la ventana padre, si el Di�logo es modal
+				dialogo.setModal(true);
+				// Centro el di�logo en pantalla
+				dialogo.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width)/2 - dialogo.getWidth()/2, 
+						(Toolkit.getDefaultToolkit().getScreenSize().height)/2 - dialogo.getHeight()/2);
+				// Muestro el di�logo en pantalla
+				dialogo.setVisible(true);
+				
+			}
+
+			
+		});
+		btnNewButton_2.setIcon(new ImageIcon(Principal.class.getResource("/capitulo07/bloque01/bloque05/img/ruedadentada.png")));
+		toolBar.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JDialog dialogo = new JDialog();
+				// El usuario no puede redimensionar el diálogo
+				dialogo.setResizable(true);
+				// título del díalogo
+				dialogo.setTitle("Profesor");
+				// Introducimos el panel creado sobre el diálogo
+				dialogo.setContentPane(new VistaProfesor());
+				// Empaquetar el di�logo hace que todos los componentes ocupen el espacio que deben y el lugar adecuado
+				dialogo.pack();
+				// El usuario no puede hacer clic sobre la ventana padre, si el Di�logo es modal
+				dialogo.setModal(true);
+				// Centro el di�logo en pantalla
+				dialogo.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width)/2 - dialogo.getWidth()/2, 
+						(Toolkit.getDefaultToolkit().getScreenSize().height)/2 - dialogo.getHeight()/2);
+				// Muestro el di�logo en pantalla
+				dialogo.setVisible(true);
+				
+				
+			}
+		});
+		btnNewButton_3.setIcon(new ImageIcon(Principal.class.getResource("/capitulo07/bloque01/bloque05/img/conectado.png")));
+		toolBar.add(btnNewButton_3);
+
 	}
 
 }

@@ -1,14 +1,31 @@
 package capitulo07.bloque01.bloque05;
 
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VistaEstudiante extends JPanel {
 
+
+	private JButton borrar ;
+	private JButton minimo ;
+	private JButton unomenos ;
+	private JButton maximo ;
+	private JButton unomas ;
+	private JButton nuevo ;
+	private JButton actualizar ;
+	
+	DatosPersonales datosPersonales = new DatosPersonales();
+	
 	/**
 	 * Create the panel.
 	 */
@@ -18,37 +35,193 @@ public class VistaEstudiante extends JPanel {
 		JToolBar toolBar = new JToolBar();
 		add(toolBar, BorderLayout.NORTH);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
-		toolBar.add(btnNewButton);
+		minimo = new JButton("");
+		minimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				mostarEstudiante(ControladorEstudiante.mostarPrimerEstudiante());
+			}
+		});
+		minimo.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
+		toolBar.add(minimo);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/previous.png")));
-		toolBar.add(btnNewButton_1);
+		unomenos = new JButton("");
+		unomenos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostarEstudiante(ControladorEstudiante.mostarmenosuno(Integer.parseInt(DatosPersonales.jtfId.getText())));
+				
+			}
+		});
+		unomenos.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/previous.png")));
+		toolBar.add(unomenos);
 		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/next.png")));
-		toolBar.add(btnNewButton_2);
+		unomas = new JButton("");
+		unomas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				mostarEstudiante(ControladorEstudiante.mostarmasuno(Integer.parseInt(DatosPersonales.jtfId.getText())));
+				
+			}
+		});
+		unomas.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/next.png")));
+		toolBar.add(unomas);
 		
-		JButton btnNewButton_3 = new JButton("");
-		btnNewButton_3.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
-		toolBar.add(btnNewButton_3);
+		maximo = new JButton("");
+		maximo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				mostarEstudiante(ControladorEstudiante.mostarUltimoEstudiante());
+			}
+		});
+		maximo.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
+		toolBar.add(maximo);
 		
-		JButton btnNewButton_4 = new JButton("");
-		btnNewButton_4.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
-		toolBar.add(btnNewButton_4);
+		nuevo = new JButton("");
+		nuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiar();
+			}
+		});
+		nuevo.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
+		toolBar.add(nuevo);
 		
-		JButton btnNewButton_5 = new JButton("");
-		btnNewButton_5.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/guardar.png")));
-		toolBar.add(btnNewButton_5);
+		actualizar = new JButton("");
+		actualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				guardar ();
+			}
+		});
+		actualizar.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/guardar.png")));
+		toolBar.add(actualizar);
 		
-		JButton btnNewButton_6 = new JButton("");
-		btnNewButton_6.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
-		toolBar.add(btnNewButton_6);
+		borrar = new JButton("");
+		borrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				eliminar ();
+			}
+		});
+		borrar.setIcon(new ImageIcon(VistaEstudiante.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
+		toolBar.add(borrar);
 		
-		JPanel panel = new JPanel();
-		add(panel, BorderLayout.CENTER);
+	
+		add(datosPersonales, BorderLayout.CENTER);
+		
+
 
 	}
+	private void mostarEstudiante(Estudiante f) {
+		
+		if (f != null) {
+			DatosPersonales.jtfId.setText("" + f.getId());	
+			DatosPersonales.jtfId.setEnabled(false);	
+			DatosPersonales.jtfNombre.setText(f.getNombre());	
+			DatosPersonales.jtfApellido1.setText(f.getApellido1());	
+			DatosPersonales.jtfApellido2.setText(f.getApellido2());
+			DatosPersonales.jtfDni.setText(f.getDni());	
+			DatosPersonales.jtfDireccion.setText(f.getDireccion());
+			DatosPersonales.jtfEmail.setText(f.getEmail());	
+			DatosPersonales.jtfTelefono.setText(f.getTelefono());
 
+		}
+		
+	
+		if (ControladorEstudiante.mostarmenosuno(f.getId())==null) {
+			minimo.setEnabled(false);
+			unomenos.setEnabled(false);
+		}
+		
+		else {
+			
+			minimo.setEnabled(true);
+			unomenos.setEnabled(true);
+		
+		}
+		if (ControladorEstudiante.mostarmasuno(f.getId())==null) {
+			maximo.setEnabled(false);
+			unomas.setEnabled(false);
+		}
+		
+		else {
+			
+			maximo.setEnabled(true);
+			unomas.setEnabled(true);
+		
+		}
+		
+	}
+	
+	/**
+	 * 
+	 */
+	private void limpiar() {	
+		DatosPersonales.jtfId.setText("0");	
+		DatosPersonales.jtfNombre.setText("");	
+		DatosPersonales.jtfApellido1.setText("");	
+		DatosPersonales.jtfApellido2.setText("");
+		DatosPersonales.jtfDni.setText("");	
+		DatosPersonales.jtfDireccion.setText("");
+		DatosPersonales.jtfEmail.setText("");	
+		DatosPersonales.jtfTelefono.setText("");
+		
+		minimo.setEnabled(false);
+		unomenos.setEnabled(false);
+		
+		maximo.setEnabled(true);
+		unomas.setEnabled(true);
+
+	}
+	
+	/**
+	 * 
+	 */
+	public  void  guardar () {
+		Estudiante f =new Estudiante();
+		
+		f.setId(Integer.parseInt(DatosPersonales.jtfId.getText()));
+		f.setNombre((DatosPersonales.jtfNombre.getText()));
+		f.setApellido1((DatosPersonales.jtfApellido1.getText()));
+		f.setApellido2((DatosPersonales.jtfApellido2.getText()));
+		f.setDni((DatosPersonales.jtfDni.getText()));
+		f.setDireccion((DatosPersonales.jtfDireccion.getText()));
+		f.setEmail((DatosPersonales.jtfEmail.getText()));
+		f.setTelefono((DatosPersonales.jtfTelefono.getText()));
+		
+
+		
+		
+		if(ControladorEstudiante.guardar(f)==1) {
+			mostarEstudiante(ControladorEstudiante.mostarUltimoEstudiante());
+			JOptionPane.showMessageDialog(null, "Guardado o Modificado Correcto");	
+			
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+	
+	}
+	
+	/**
+	 * 
+	 */
+
+	public  void  eliminar () {
+		Estudiante f =new Estudiante();
+		f.setId(Integer.parseInt(DatosPersonales.jtfId.getText()));
+		f.setNombre((DatosPersonales.jtfNombre.getText()));
+		f.setApellido1((DatosPersonales.jtfApellido1.getText()));
+		f.setApellido2((DatosPersonales.jtfApellido2.getText()));
+		f.setDni((DatosPersonales.jtfDni.getText()));
+		f.setDireccion((DatosPersonales.jtfDireccion.getText()));
+		f.setEmail((DatosPersonales.jtfEmail.getText()));
+		f.setTelefono((DatosPersonales.jtfTelefono.getText()));
+
+		if(ControladorEstudiante.eliminar(f)==1) {
+			JOptionPane.showMessageDialog(null, "Eliminado");			
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+		mostarEstudiante(ControladorEstudiante.mostarUltimoEstudiante());	
+	}
 }

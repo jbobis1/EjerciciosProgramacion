@@ -200,7 +200,7 @@ public class VistaMateria extends JPanel {
 		selecionarvalores(getidCurso());
 		getidCurso();
 		
-		mostarMateria(ControladorMateria.mostarPrimerMateria());
+		//mostarMateria(ControladorMateria.mostarPrimerMateria());
 	}
 	
 	/**
@@ -286,11 +286,11 @@ public class VistaMateria extends JPanel {
 		jtfAcro.setText("");
 		
 		
-		minimo.setEnabled(false);
-		unomenos.setEnabled(false);
-		
-		maximo.setEnabled(true);
-		unomas.setEnabled(true);
+//		minimo.setEnabled(false);
+//		unomenos.setEnabled(false);
+//		
+//		maximo.setEnabled(true);
+//		unomas.setEnabled(true);
 
 	}
 	
