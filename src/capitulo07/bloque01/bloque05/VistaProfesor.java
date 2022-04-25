@@ -33,6 +33,8 @@ public class VistaProfesor extends JPanel {
 		minimo = new JButton("");
 		minimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				mostarProfesor(ControladorProfesor.mostarPrimerProfesorProfesor());
 			}
 		});
 		minimo.setIcon(new ImageIcon(VistaProfesor.class.getResource("/capitulo07/bloque01/bloque05/img/gotostart.png")));
@@ -41,6 +43,9 @@ public class VistaProfesor extends JPanel {
 		unomenos = new JButton("");
 		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				mostarProfesor(ControladorProfesor.mostarmenosuno(Integer.parseInt(DatosPersonales.jtfId.getText())));
+
 			}
 		});
 		unomenos.setIcon(new ImageIcon(VistaProfesor.class.getResource("/capitulo07/bloque01/bloque05/img/previous.png")));
@@ -49,6 +54,10 @@ public class VistaProfesor extends JPanel {
 		 unomas = new JButton("");
 		 unomas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				mostarProfesor(ControladorProfesor.mostarmasuno(Integer.parseInt(DatosPersonales.jtfId.getText())));
+
+				
 			}
 		});
 		 unomas.setIcon(new ImageIcon(VistaProfesor.class.getResource("/capitulo07/bloque01/bloque05/img/next.png")));
@@ -57,6 +66,9 @@ public class VistaProfesor extends JPanel {
 		maximo = new JButton("");
 		maximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				mostarProfesor(ControladorProfesor.mostarUltimoProfesor());
 			}
 		});
 		maximo.setIcon(new ImageIcon(VistaProfesor.class.getResource("/capitulo07/bloque01/bloque05/img/gotoend.png")));
@@ -65,6 +77,7 @@ public class VistaProfesor extends JPanel {
 		 nuevo = new JButton("\r\n");
 		 nuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				limpiar();
 			}
 		});
 		 nuevo.setIcon(new ImageIcon(VistaProfesor.class.getResource("/capitulo07/bloque01/bloque05/img/nuevo.png")));
@@ -73,6 +86,8 @@ public class VistaProfesor extends JPanel {
 		actualizar = new JButton("");
 		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				guardar();
 			}
 		});
 		actualizar.setIcon(new ImageIcon(VistaProfesor.class.getResource("/capitulo07/bloque01/bloque05/img/guardar.png")));
@@ -81,6 +96,8 @@ public class VistaProfesor extends JPanel {
 		 borrar = new JButton("");
 		 borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				eliminar ();
 			}
 		});
 		 borrar.setIcon(new ImageIcon(VistaProfesor.class.getResource("/capitulo07/bloque01/bloque05/img/eliminar.png")));
@@ -202,7 +219,7 @@ public class VistaProfesor extends JPanel {
 		else {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
-		mostarEstudiante(ControladorEstudiante.mostarUltimoEstudiante());	
+		mostarProfesor(ControladorProfesor.mostarUltimoProfesor());	
 	}
 	
 }
