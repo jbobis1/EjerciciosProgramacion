@@ -120,7 +120,9 @@ public class VistaEstudiante extends JPanel {
 		
 		if (f != null) {
 	
-			datosPersonales.setId(f.getId());	
+			datosPersonales.setId(f.getId());
+		
+	//		datosPersonales.setId.setEnabled(false);
 			datosPersonales.setNombre(f.getNombre());
 			datosPersonales.setApellido(f.getApellido1());
 			datosPersonales.setApellido2(f.getApellido2());
