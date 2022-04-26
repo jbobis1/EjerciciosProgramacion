@@ -172,13 +172,21 @@ public class DatosPersonales extends JPanel {
 	 * 
 	 * @param id
 	 */
-	public void setId (String id) {
-		this.jtfId.setText(id);
+	public void setId (int id) {
+		this.jtfId.setText("" + id);
 	}
 
-	public String getId () {
-		return this.jtfId.getText();
+	public int getId () {
+		return Integer.parseInt(this.jtfId.getText());
 	}
+	
+	
+
+	/**
+	 * @return the jtfId
+	 */
+
+
 	/**
 	 * 
 	 * @param newNombre

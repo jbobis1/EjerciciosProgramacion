@@ -138,13 +138,18 @@ public class ControladorEstudiante extends SupertipoGestion{
 			 if(nuevoIdDisponible != -1) {
 				 cantidadRegistrosModificados =
 
-//	
-//				s.executeUpdate(
-//					"insert into Estudiante values (" + nuevoIdDisponible + ",'" + f.getDescripcion() + "')");
+//
+//					s.executeUpdate("insert into estudiante values (" 
+//							 + nuevoIdDisponible + ",'" + f.getNombre() + ",'" + f.getApellido1() + ",'" + f.getApellido2() 
+//							 + ",'" + f.getDireccion() + ",'" + f.getDni() + ",'" + f.getEmail() + ",'" + f.getTelefono()  + "')");
+//				 
 				 
-					s.executeUpdate("insert into estudiante values (" 
-							 + nuevoIdDisponible + ",'" + f.getNombre() + ",'" + f.getApellido1()  + ",'" + f.getApellido2() 
-							 + ",'" + f.getDireccion() + ",'" + f.getDni() + ",'" + f.getEmail() + ",'" + f.getTelefono()  + "')");
+				 s.executeUpdate(					 
+							"insert into estudiante values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
+							+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
+							+ "', '" + f.getTelefono()+ "')");
+
+
 
 			 }
 

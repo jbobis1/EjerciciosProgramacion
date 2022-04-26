@@ -133,9 +133,10 @@ public class ControladorProfesor extends SupertipoGestion{
 			 if(nuevoIdDisponible != -1) {
 				 cantidadRegistrosModificados =
 
-							s.executeUpdate("insert into profesor values (" 
-									 + nuevoIdDisponible + ",'" + f.getNombre() + ",'" + f.getApellido1()  + ",'" + f.getApellido2() 
-									 + ",'" + f.getDireccion() + ",'" + f.getDni() + ",'" + f.getEmail() + ",'" + f.getTelefono()  + "')");
+						 s.executeUpdate(					 
+									"insert into profesor values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
+									+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
+									+ "', '" + f.getTelefono()+ "')");
 
 
 			 }

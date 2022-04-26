@@ -48,7 +48,7 @@ public class VistaEstudiante extends JPanel {
 		unomenos = new JButton("");
 		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostarEstudiante(ControladorEstudiante.mostarmenosuno(Integer.parseInt(DatosPersonales.jtfId.getText())));
+				mostarEstudiante(ControladorEstudiante.mostarmenosuno((datosPersonales.getId())));
 				
 			}
 		});
@@ -59,7 +59,7 @@ public class VistaEstudiante extends JPanel {
 		unomas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				mostarEstudiante(ControladorEstudiante.mostarmasuno(Integer.parseInt(DatosPersonales.jtfId.getText())));
+				mostarEstudiante(ControladorEstudiante.mostarmasuno((datosPersonales.getId())));
 				
 			}
 		});
@@ -106,6 +106,7 @@ public class VistaEstudiante extends JPanel {
 		
 	
 		add(datosPersonales, BorderLayout.CENTER);
+		mostarEstudiante(ControladorEstudiante.mostarPrimerEstudiante());
 		
 
 
@@ -113,15 +114,16 @@ public class VistaEstudiante extends JPanel {
 	private void mostarEstudiante(Estudiante f) {
 		
 		if (f != null) {
-			DatosPersonales.jtfId.setText("" + f.getId());	
-			DatosPersonales.jtfId.setEnabled(false);	
-			DatosPersonales.jtfNombre.setText(f.getNombre());	
-			DatosPersonales.jtfApellido1.setText(f.getApellido1());	
-			DatosPersonales.jtfApellido2.setText(f.getApellido2());
-			DatosPersonales.jtfDni.setText(f.getDni());	
-			DatosPersonales.jtfDireccion.setText(f.getDireccion());
-			DatosPersonales.jtfEmail.setText(f.getEmail());	
-			DatosPersonales.jtfTelefono.setText(f.getTelefono());
+	
+			datosPersonales.setId(f.getId());	
+			datosPersonales.setNombre(f.getNombre());
+			datosPersonales.setApellido(f.getApellido1());
+			datosPersonales.setApellido2(f.getApellido2());
+			
+			datosPersonales.setDireccion(f.getDireccion());
+			datosPersonales.setDni(f.getDni());
+			datosPersonales.setEmail(f.getEmail());
+			datosPersonales.setTelefono(f.getTelefono());
 
 		}
 		
@@ -155,14 +157,17 @@ public class VistaEstudiante extends JPanel {
 	 * 
 	 */
 	private void limpiar() {	
-		DatosPersonales.jtfId.setText("0");	
-		DatosPersonales.jtfNombre.setText("");	
-		DatosPersonales.jtfApellido1.setText("");	
-		DatosPersonales.jtfApellido2.setText("");
-		DatosPersonales.jtfDni.setText("");	
-		DatosPersonales.jtfDireccion.setText("");
-		DatosPersonales.jtfEmail.setText("");	
-		DatosPersonales.jtfTelefono.setText("");
+		
+		datosPersonales.setId(0);	
+		datosPersonales.setNombre("");;	
+		datosPersonales.setApellido("");
+		datosPersonales.setApellido2("");
+		
+		datosPersonales.setDireccion("");
+		datosPersonales.setDni("");
+		datosPersonales.setEmail("");
+		datosPersonales.setTelefono("");
+
 		
 		minimo.setEnabled(false);
 		unomenos.setEnabled(false);
@@ -178,14 +183,14 @@ public class VistaEstudiante extends JPanel {
 	public  void  guardar () {
 		Estudiante f =new Estudiante();
 		
-		f.setId(Integer.parseInt(DatosPersonales.jtfId.getText()));
-		f.setNombre((DatosPersonales.jtfNombre.getText()));
-		f.setApellido1((DatosPersonales.jtfApellido1.getText()));
-		f.setApellido2((DatosPersonales.jtfApellido2.getText()));
-		f.setDni((DatosPersonales.jtfDni.getText()));
-		f.setDireccion((DatosPersonales.jtfDireccion.getText()));
-		f.setEmail((DatosPersonales.jtfEmail.getText()));
-		f.setTelefono((DatosPersonales.jtfTelefono.getText()));
+		f.setId((datosPersonales.getId()));
+		f.setNombre((datosPersonales.getNombre()));
+		f.setApellido1((datosPersonales.getApellido()));
+		f.setApellido2((datosPersonales.getApellido2()));
+		f.setDni((datosPersonales.getDireccion()));
+		f.setDireccion((datosPersonales.getDni()));
+		f.setEmail((datosPersonales.getEmail()));
+		f.setTelefono((datosPersonales.getTelefono()));
 		
 
 		
@@ -207,14 +212,14 @@ public class VistaEstudiante extends JPanel {
 
 	public  void  eliminar () {
 		Estudiante f =new Estudiante();
-		f.setId(Integer.parseInt(DatosPersonales.jtfId.getText()));
-		f.setNombre((DatosPersonales.jtfNombre.getText()));
-		f.setApellido1((DatosPersonales.jtfApellido1.getText()));
-		f.setApellido2((DatosPersonales.jtfApellido2.getText()));
-		f.setDni((DatosPersonales.jtfDni.getText()));
-		f.setDireccion((DatosPersonales.jtfDireccion.getText()));
-		f.setEmail((DatosPersonales.jtfEmail.getText()));
-		f.setTelefono((DatosPersonales.jtfTelefono.getText()));
+		f.setId((datosPersonales.getId()));
+		f.setNombre((datosPersonales.getNombre()));
+		f.setApellido1((datosPersonales.getApellido()));
+		f.setApellido2((datosPersonales.getApellido2()));
+		f.setDni((datosPersonales.getDireccion()));
+		f.setDireccion((datosPersonales.getDni()));
+		f.setEmail((datosPersonales.getEmail()));
+		f.setTelefono((datosPersonales.getTelefono()));
 
 		if(ControladorEstudiante.eliminar(f)==1) {
 			JOptionPane.showMessageDialog(null, "Eliminado");			

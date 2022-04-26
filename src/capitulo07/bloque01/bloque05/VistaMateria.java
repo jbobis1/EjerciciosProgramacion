@@ -200,7 +200,7 @@ public class VistaMateria extends JPanel {
 		selecionarvalores(getidCurso());
 		getidCurso();
 		
-		//mostarMateria(ControladorMateria.mostarPrimerMateria());
+		mostarMateria(ControladorMateria.mostarPrimerMateria());
 	}
 	
 	/**
