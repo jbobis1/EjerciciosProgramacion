@@ -243,8 +243,9 @@ public class VistaMateria extends JPanel {
 		
 		if (f != null) {
 			jtfId.setText("" + f.getId());	
-			jtfId.setEnabled(false);	
-			comboBox.setSelectedIndex(f.getCurso_id());
+			jtfId.setEnabled(false);
+				
+			comboBox.setSelectedIndex(f.getCurso_id()-1);
 			jtfNombre.setText(f.getNombre());	
 			jtfAcro.setText(f.getAcronimo());
 	

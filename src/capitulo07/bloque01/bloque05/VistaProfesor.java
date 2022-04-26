@@ -21,6 +21,8 @@ public class VistaProfesor extends JPanel {
 	private JButton unomas ;
 	private JButton nuevo ;
 	private JButton actualizar ;
+	
+	
 	DatosPersonales datosPersonales2 = new DatosPersonales();
 
 	
@@ -109,6 +111,10 @@ public class VistaProfesor extends JPanel {
 		mostarProfesor(ControladorProfesor.mostarPrimerProfesorProfesor());
 
 	}
+	/**
+	 * 
+	 * @param f
+	 */
 	private void mostarProfesor(Profesor f) {
 		
 		if (f != null) {
@@ -150,6 +156,7 @@ public class VistaProfesor extends JPanel {
 		
 	}
 	
+	
 	/**
 	 * 
 	 */
@@ -158,7 +165,6 @@ public class VistaProfesor extends JPanel {
 		datosPersonales2.setNombre("");;	
 		datosPersonales2.setApellido("");
 		datosPersonales2.setApellido2("");
-		
 		datosPersonales2.setDireccion("");
 		datosPersonales2.setDni("");
 		datosPersonales2.setEmail("");

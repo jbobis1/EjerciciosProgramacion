@@ -111,6 +111,11 @@ public class VistaEstudiante extends JPanel {
 
 
 	}
+	
+	/**
+	 * 
+	 * @param f
+	 */
 	private void mostarEstudiante(Estudiante f) {
 		
 		if (f != null) {
