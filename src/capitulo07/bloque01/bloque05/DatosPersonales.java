@@ -40,6 +40,7 @@ public class DatosPersonales extends JPanel {
 		add(lblNewLabel, gbc_lblNewLabel);
 		
 		jtfId = new JTextField();
+		jtfId.setEnabled(false);
 		GridBagConstraints gbc_jtfId = new GridBagConstraints();
 		gbc_jtfId.insets = new Insets(0, 0, 5, 0);
 		gbc_jtfId.fill = GridBagConstraints.HORIZONTAL;
