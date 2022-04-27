@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
 
 public class DatosPersonales extends JPanel {
 
@@ -18,7 +19,9 @@ public class DatosPersonales extends JPanel {
 	private JTextField jtfEmail;
 	private JTextField jtfTelefono;
 
+	private JLabel lblSexo;
 
+	JComboBox<TipologiaSexo> comboBox;
 	
 	/**
 	 * Create the panel.
@@ -26,9 +29,9 @@ public class DatosPersonales extends JPanel {
 	public DatosPersonales() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblNewLabel = new JLabel("id");
@@ -154,18 +157,35 @@ public class DatosPersonales extends JPanel {
 		JLabel lblNewLabel_7 = new JLabel("Telefono");
 		GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
 		gbc_lblNewLabel_7.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_7.insets = new Insets(0, 0, 0, 5);
+		gbc_lblNewLabel_7.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_7.gridx = 0;
 		gbc_lblNewLabel_7.gridy = 7;
 		add(lblNewLabel_7, gbc_lblNewLabel_7);
 		
 		jtfTelefono = new JTextField();
 		GridBagConstraints gbc_jtfTelefono = new GridBagConstraints();
+		gbc_jtfTelefono.insets = new Insets(0, 0, 5, 0);
 		gbc_jtfTelefono.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfTelefono.gridx = 1;
 		gbc_jtfTelefono.gridy = 7;
 		add(jtfTelefono, gbc_jtfTelefono);
 		jtfTelefono.setColumns(10);
+		
+		lblSexo = new JLabel("sexo");
+		GridBagConstraints gbc_lblSexo = new GridBagConstraints();
+		gbc_lblSexo.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSexo.anchor = GridBagConstraints.EAST;
+		gbc_lblSexo.gridx = 0;
+		gbc_lblSexo.gridy = 8;
+		add(lblSexo, gbc_lblSexo);
+		
+		comboBox = new JComboBox<TipologiaSexo>();
+		
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.gridx = 1;
+		gbc_comboBox.gridy = 8;
+		add(comboBox, gbc_comboBox);
 
 	}
 	
@@ -271,5 +291,12 @@ public class DatosPersonales extends JPanel {
 		return this.jtfTelefono.getText();
 	}
 	
+	public void setSexo (int Sexo ) {
+		this.comboBox(Sexo);
+	}
+
+	public int getSexo () {
+		return this.jtfTelefono.getText();
+	}
 	
 }

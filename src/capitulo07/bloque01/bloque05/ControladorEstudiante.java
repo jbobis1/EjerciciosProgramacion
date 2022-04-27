@@ -3,6 +3,10 @@ package capitulo07.bloque01.bloque05;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JComboBox;
 
 public class ControladorEstudiante extends SupertipoGestion{
 
@@ -11,6 +15,9 @@ public class ControladorEstudiante extends SupertipoGestion{
 	 * 
 	 * @return
 	 */
+	
+	
+
 	
 	public static Estudiante mostarPrimerEstudiante() {
 		return findEstudiante("select * from estudiante order by id limit 1");   
@@ -60,7 +67,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
-				f= new Estudiante (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),rs.getString("telefono"));			
+				f= new Estudiante (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),rs.getString("telefono"), rs.getString("sexo"));			
 				}
 			// Cierre de los elementos
 			rs.close();
@@ -106,7 +113,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 				
 				"update estudiante set nombre='" + f.getNombre() + "', apellido1='" + f.getApellido1() + "', " 
 						 + " apellido2='" + f.getApellido2() + "', " + " dni='" + f.getDni() + "', " 
-						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() + "', " + " telefono='" + f.getTelefono()+ "' "+ 
+						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() + "', " + " telefono='" + f.getTelefono()+ "' "+  " sexo='" + f.getSexo()+ "' "+ 
 						 "where id=" + f.getId());
 					
 //				"update estudiante set descripcion='" 
@@ -147,7 +154,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 				 s.executeUpdate(					 
 							"insert into estudiante values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
 							+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
-							+ "', '" + f.getTelefono()+ "')");
+							+ "', '" + f.getTelefono()+ "', '" + f.getSexo()+ "')");
 
 
 
@@ -160,7 +167,33 @@ public class ControladorEstudiante extends SupertipoGestion{
 		return cantidadRegistrosModificados;
 	}
 
-	
+	public static List<TipologiaSexo> obtenerTodosLosCurso() {
+		List<TipologiaSexo> lista = new ArrayList<TipologiaSexo>();
+		
+		try {
+			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
+			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			
+			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
+			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
+			ResultSet rs = s.executeQuery ("select * from centroeducativo.curso");
+		   
+			// Navegación del objeto ResultSet
+			while (rs.next()) { 
+				TipologiaSexo f= new TipologiaSexo (rs.getInt("id"), rs.getString("descripcion"));
+				lista.add(f);
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+		return lista;
+	}
 
 	
 	/**

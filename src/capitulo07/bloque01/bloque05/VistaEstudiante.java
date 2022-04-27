@@ -7,10 +7,12 @@ import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class VistaEstudiante extends JPanel {
@@ -25,7 +27,7 @@ public class VistaEstudiante extends JPanel {
 	private JButton actualizar ;
 	
 	DatosPersonales datosPersonales = new DatosPersonales();
-	
+
 	/**
 	 * Create the panel.
 	 */
@@ -106,12 +108,31 @@ public class VistaEstudiante extends JPanel {
 		
 	
 		add(datosPersonales, BorderLayout.CENTER);
-		mostarEstudiante(ControladorEstudiante.mostarPrimerEstudiante());
+		mostarEstucomboBoxdiante(ControladorEstudiante.mostarPrimerEstudiante());
 		
 
 
 	}
 	
+	
+	private void cargarvalores() {
+		List<TipologiaSexo> lista = ControladorEstudiante.obtenerTodosLosCurso();
+		for (int i = 0; i < lista.size(); i++) {
+			comboBox.addItem(lista.get(i));
+		}
+	}
+	
+	/**
+	 * 
+	 * @param idCurso
+	 */
+	private void selecionarvalores(int idCurso) {
+		for (int i = 0; i < comboBox.getItemCount(); i++) {
+		if (((TipologiaSexo) comboBox.getItemAt(i)).getId() == idCurso ) {
+			comboBox.setSelectedIndex(i);
+			}
+		}	
+	}
 	/**
 	 * 
 	 * @param f
@@ -126,6 +147,9 @@ public class VistaEstudiante extends JPanel {
 			datosPersonales.setApellido(f.getApellido1());
 			datosPersonales.setApellido2(f.getApellido2());
 			
+			
+			datosPersonales.comboBox.setSelectedIndex(f.getCurso_id()-1);
+
 			datosPersonales.setDireccion(f.getDireccion());
 			datosPersonales.setDni(f.getDni());
 			datosPersonales.setEmail(f.getEmail());

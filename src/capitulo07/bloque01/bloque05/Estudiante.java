@@ -11,13 +11,16 @@ public class Estudiante {
 	private String Direccion;
 	private String email;
 	private String telefono;
+	private String sexo;
 	
 	public Estudiante() {
 		// TODO Auto-generated constructor stub
 	}
 
+
+
 	public Estudiante(int id, String nombre, String apellido1, String apellido2, String dni, String direccion,
-			String email, String telefono) {
+			String email, String telefono, String sexo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -27,12 +30,16 @@ public class Estudiante {
 		Direccion = direccion;
 		this.email = email;
 		this.telefono = telefono;
+		this.sexo = sexo;
 	}
+
+
 
 	@Override
 	public String toString() {
 		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", Dni=" + Dni + ", Direccion=" + Direccion + ", email=" + email + ", telefono=" + telefono + "]";
+				+ ", Dni=" + Dni + ", Direccion=" + Direccion + ", email=" + email + ", telefono=" + telefono
+				+ ", sexo=" + sexo + "]";
 	}
 
 	public int getId() {
@@ -99,4 +106,24 @@ public class Estudiante {
 		this.telefono = telefono;
 	}
 
+
+
+	/**
+	 * @return the sexo
+	 */
+	public String getSexo() {
+		return sexo;
+	}
+
+
+
+	/**
+	 * @param sexo the sexo to set
+	 */
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	
+	
 }
