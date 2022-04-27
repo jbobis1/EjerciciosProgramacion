@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class VistaProfesor extends JPanel {
@@ -109,7 +110,35 @@ public class VistaProfesor extends JPanel {
 		add(datosPersonales2, BorderLayout.CENTER);
 		
 		mostarProfesor(ControladorProfesor.mostarPrimerProfesorProfesor());
-
+		
+		cargarvalores();
+		selecionarvalores(getidsexo()) ;
+	}
+	
+	
+	private void cargarvalores() {
+		List<TipologiaSexo> lista = ControladorEstudiante.obtenerTodosLosCurso();
+		for (int i = 0; i < lista.size(); i++) {
+			datosPersonales2.comboBox.addItem(lista.get(i));
+		}
+	}
+	
+	/**
+	 * 
+	 * @param idCurso
+	 */
+	private void selecionarvalores(int idsexo) {
+		for (int i = 0; i < datosPersonales2.comboBox.getItemCount(); i++) {
+		if (((TipologiaSexo) datosPersonales2.comboBox.getItemAt(i)).getId() == idsexo ) {
+			datosPersonales2.comboBox.setSelectedIndex(i);
+			}
+		}	
+	}
+	
+	
+	private int getidsexo() {
+	return ((TipologiaSexo) datosPersonales2.comboBox.getSelectedItem()).getId();
+		
 	}
 	/**
 	 * 

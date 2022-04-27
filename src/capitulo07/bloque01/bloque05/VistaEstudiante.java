@@ -108,17 +108,17 @@ public class VistaEstudiante extends JPanel {
 		
 	
 		add(datosPersonales, BorderLayout.CENTER);
-		mostarEstucomboBoxdiante(ControladorEstudiante.mostarPrimerEstudiante());
+		mostarEstudiante(ControladorEstudiante.mostarPrimerEstudiante());
 		
-
-
+		cargarvalores();
+		selecionarvalores(getidsexo()) ;
 	}
 	
 	
 	private void cargarvalores() {
 		List<TipologiaSexo> lista = ControladorEstudiante.obtenerTodosLosCurso();
 		for (int i = 0; i < lista.size(); i++) {
-			comboBox.addItem(lista.get(i));
+			datosPersonales.comboBox.addItem(lista.get(i));
 		}
 	}
 	
@@ -126,12 +126,18 @@ public class VistaEstudiante extends JPanel {
 	 * 
 	 * @param idCurso
 	 */
-	private void selecionarvalores(int idCurso) {
-		for (int i = 0; i < comboBox.getItemCount(); i++) {
-		if (((TipologiaSexo) comboBox.getItemAt(i)).getId() == idCurso ) {
-			comboBox.setSelectedIndex(i);
+	private void selecionarvalores(int idsexo) {
+		for (int i = 0; i < datosPersonales.comboBox.getItemCount(); i++) {
+		if (((TipologiaSexo) datosPersonales.comboBox.getItemAt(i)).getId() == idsexo ) {
+			datosPersonales.comboBox.setSelectedIndex(i);
 			}
 		}	
+	}
+	
+	
+	private int getidsexo() {
+	return ((TipologiaSexo) datosPersonales.comboBox.getSelectedItem()).getId();
+		
 	}
 	/**
 	 * 
@@ -148,7 +154,7 @@ public class VistaEstudiante extends JPanel {
 			datosPersonales.setApellido2(f.getApellido2());
 			
 			
-			datosPersonales.comboBox.setSelectedIndex(f.getCurso_id()-1);
+			datosPersonales.comboBox.setSelectedIndex(f.getId()-1);
 
 			datosPersonales.setDireccion(f.getDireccion());
 			datosPersonales.setDni(f.getDni());

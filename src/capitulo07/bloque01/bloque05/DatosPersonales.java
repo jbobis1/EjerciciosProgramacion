@@ -292,11 +292,14 @@ public class DatosPersonales extends JPanel {
 	}
 	
 	public void setSexo (int Sexo ) {
-		this.comboBox(Sexo);
+		this.comboBox.setSelectedIndex(Sexo);
+		
 	}
 
 	public int getSexo () {
-		return this.jtfTelefono.getText();
+		return this.comboBox.getSelectedItem());
+		
+		f.setCurso_id(((Curso )comboBox.getSelectedItem()).getId());
 	}
 	
 }
