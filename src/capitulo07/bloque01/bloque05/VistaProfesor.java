@@ -24,7 +24,7 @@ public class VistaProfesor extends JPanel {
 	private JButton actualizar ;
 	
 	
-	DatosPersonales datosPersonales2 = new DatosPersonales();
+	DatosPersonales datosPersonales = new DatosPersonales();
 
 	
 	public VistaProfesor() {
@@ -47,7 +47,7 @@ public class VistaProfesor extends JPanel {
 		unomenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				mostarProfesor(ControladorProfesor.mostarmenosuno(datosPersonales2.getId()));
+				mostarProfesor(ControladorProfesor.mostarmenosuno(datosPersonales.getId()));
 
 			}
 		});
@@ -58,7 +58,7 @@ public class VistaProfesor extends JPanel {
 		 unomas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				mostarProfesor(ControladorProfesor.mostarmasuno(datosPersonales2.getId()));
+				mostarProfesor(ControladorProfesor.mostarmasuno(datosPersonales.getId()));
 
 				
 			}
@@ -107,39 +107,16 @@ public class VistaProfesor extends JPanel {
 		toolBar.add(borrar);
 		
 	
-		add(datosPersonales2, BorderLayout.CENTER);
+		add(datosPersonales, BorderLayout.CENTER);
 		
 		mostarProfesor(ControladorProfesor.mostarPrimerProfesorProfesor());
-		
-		cargarvalores();
-		selecionarvalores(getidsexo()) ;
+	
 	}
 	
 	
-	private void cargarvalores() {
-		List<TipologiaSexo> lista = ControladorEstudiante.obtenerTodosLosCurso();
-		for (int i = 0; i < lista.size(); i++) {
-			datosPersonales2.comboBox.addItem(lista.get(i));
-		}
-	}
+
 	
-	/**
-	 * 
-	 * @param idCurso
-	 */
-	private void selecionarvalores(int idsexo) {
-		for (int i = 0; i < datosPersonales2.comboBox.getItemCount(); i++) {
-		if (((TipologiaSexo) datosPersonales2.comboBox.getItemAt(i)).getId() == idsexo ) {
-			datosPersonales2.comboBox.setSelectedIndex(i);
-			}
-		}	
-	}
-	
-	
-	private int getidsexo() {
-	return ((TipologiaSexo) datosPersonales2.comboBox.getSelectedItem()).getId();
-		
-	}
+
 	/**
 	 * 
 	 * @param f
@@ -147,20 +124,23 @@ public class VistaProfesor extends JPanel {
 	private void mostarProfesor(Profesor f) {
 		
 		if (f != null) {
-			datosPersonales2.setId(f.getId());	
-			datosPersonales2.setNombre(f.getNombre());
-			datosPersonales2.setApellido(f.getApellido1());
-			datosPersonales2.setApellido2(f.getApellido2());
+	
+			datosPersonales.setId(f.getId());
+		
+			datosPersonales.setNombre(f.getNombre());
+			datosPersonales.setApellido(f.getApellido1());
+			datosPersonales.setApellido2(f.getApellido2());
+			datosPersonales.setDireccion(f.getDireccion());
+			datosPersonales.setDni(f.getDni());
+			datosPersonales.setEmail(f.getEmail());
+			datosPersonales.setTelefono(f.getTelefono());
 			
-			datosPersonales2.setDireccion(f.getDireccion());
-			datosPersonales2.setDni(f.getDni());
-			datosPersonales2.setEmail(f.getEmail());
-			datosPersonales2.setTelefono(f.getTelefono());
+			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
 
 		}
 		
 	
-		if (ControladorEstudiante.mostarmenosuno(f.getId())==null) {
+		if (ControladorProfesor.mostarmenosuno(f.getId())==null) {
 			minimo.setEnabled(false);
 			unomenos.setEnabled(false);
 		}
@@ -185,19 +165,23 @@ public class VistaProfesor extends JPanel {
 		
 	}
 	
-	
 	/**
 	 * 
 	 */
 	private void limpiar() {	
-		datosPersonales2.setId(0);	
-		datosPersonales2.setNombre("");;	
-		datosPersonales2.setApellido("");
-		datosPersonales2.setApellido2("");
-		datosPersonales2.setDireccion("");
-		datosPersonales2.setDni("");
-		datosPersonales2.setEmail("");
-		datosPersonales2.setTelefono("");
+		
+		datosPersonales.setId(0);	
+		datosPersonales.setNombre("");;	
+		datosPersonales.setApellido("");
+		datosPersonales.setApellido2("");
+		
+		datosPersonales.comboBox.setSelectedIndex(0);
+
+		datosPersonales.setDireccion("");
+		datosPersonales.setDni("");
+		datosPersonales.setEmail("");
+		datosPersonales.setTelefono("");
+
 		
 		minimo.setEnabled(false);
 		unomenos.setEnabled(false);
@@ -213,17 +197,18 @@ public class VistaProfesor extends JPanel {
 	public  void  guardar () {
 		Profesor f =new Profesor();
 		
-		f.setId((datosPersonales2.getId()));
-		f.setNombre((datosPersonales2.getNombre()));
-		f.setApellido1((datosPersonales2.getApellido()));
-		f.setApellido2((datosPersonales2.getApellido2()));
-		f.setDni((datosPersonales2.getDireccion()));
-		f.setDireccion((datosPersonales2.getDni()));
-		f.setEmail((datosPersonales2.getEmail()));
-		f.setTelefono((datosPersonales2.getTelefono()));;
+		f.setId((datosPersonales.getId()));
+		f.setNombre((datosPersonales.getNombre()));
+		f.setApellido1((datosPersonales.getApellido()));
+		f.setApellido2((datosPersonales.getApellido2()));
+		f.setDni((datosPersonales.getDireccion()));
+		f.setDireccion((datosPersonales.getDni()));
+		f.setEmail((datosPersonales.getEmail()));
+		f.setTelefono((datosPersonales.getTelefono()));
 		
+		//f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+	
 
-		
 		
 		if(ControladorProfesor.guardar(f)==1) {
 			mostarProfesor(ControladorProfesor.mostarUltimoProfesor());
@@ -242,15 +227,16 @@ public class VistaProfesor extends JPanel {
 
 	public  void  eliminar () {
 		Profesor f =new Profesor();
-		f.setId((datosPersonales2.getId()));
-		f.setNombre((datosPersonales2.getNombre()));
-		f.setApellido1((datosPersonales2.getApellido()));
-		f.setApellido2((datosPersonales2.getApellido2()));
-		f.setDni((datosPersonales2.getDireccion()));
-		f.setDireccion((datosPersonales2.getDni()));
-		f.setEmail((datosPersonales2.getEmail()));
-		f.setTelefono((datosPersonales2.getTelefono()));
-
+		f.setId((datosPersonales.getId()));
+		f.setNombre((datosPersonales.getNombre()));
+		f.setApellido1((datosPersonales.getApellido()));
+		f.setApellido2((datosPersonales.getApellido2()));
+		f.setDni((datosPersonales.getDireccion()));
+		f.setDireccion((datosPersonales.getDni()));
+		f.setEmail((datosPersonales.getEmail()));
+		f.setTelefono((datosPersonales.getTelefono()));
+		
+		//f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 
 		if(ControladorProfesor.eliminar(f)==1) {
 			JOptionPane.showMessageDialog(null, "Eliminado");			

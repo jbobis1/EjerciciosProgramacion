@@ -61,7 +61,7 @@ public class ControladorProfesor extends SupertipoGestion{
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
-				f= new Profesor (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),rs.getString("telefono"),rs.getString("sexo"));			
+				f= new Profesor (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),rs.getString("telefono"), rs.getInt("tipologiasexo_id"));			
 				}
 			// Cierre de los elementos
 			rs.close();
@@ -85,7 +85,7 @@ public class ControladorProfesor extends SupertipoGestion{
 			return nuevoProfesor(f);
 		}
 		else {
-			return modificarProfesor(f);
+			return modificarprofesor(f);
 		}
 		
 	}
@@ -96,7 +96,7 @@ public class ControladorProfesor extends SupertipoGestion{
 	 * @return
 	 */
 	
-	public static int modificarProfesor (Profesor f) {
+	public static int modificarprofesor (Profesor f) {
 		int reguistros = 0;
 		try {
 
@@ -105,11 +105,14 @@ public class ControladorProfesor extends SupertipoGestion{
 			reguistros =s.executeUpdate(
 						
 				
-							"update profesor set nombre='" + f.getNombre() + "', apellido1='" + f.getApellido1() + "', " 
+				"update profesor set nombre='" + f.getNombre() + "', apellido1='" + f.getApellido1() + "', " 
 						 + " apellido2='" + f.getApellido2() + "', " + " dni='" + f.getDni() + "', " 
-						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() + "', " + " telefono='" + f.getTelefono()
-						 + "', " + " sexo='" + f.getSexo()+ "' "+ 
+						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() + "', " + " telefono='" + f.getTelefono()+ "' "+  " tipologiasexo_id='" + f.getTipologiasexo_id()+ "' "+ 
 						 "where id=" + f.getId());
+					
+//				"update estudiante set descripcion='" 
+//				+ f.getDescripcion() +  "' " + "where id=" + f.getId());
+
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
@@ -136,10 +139,12 @@ public class ControladorProfesor extends SupertipoGestion{
 			 if(nuevoIdDisponible != -1) {
 				 cantidadRegistrosModificados =
 
-						 s.executeUpdate(					 
-									"insert into profesor values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
-									+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
-									+ "', '" + f.getTelefono() + "', '" + f.getSexo()+ "')");
+				 
+				 s.executeUpdate(					 
+							"insert into profesor values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
+							+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
+							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id()+ "')");
+
 
 
 			 }
@@ -152,33 +157,7 @@ public class ControladorProfesor extends SupertipoGestion{
 	}
 
 	
-	public static List<TipologiaSexo> obtenerTodosLosCurso() {
-		List<TipologiaSexo> lista = new ArrayList<TipologiaSexo>();
-		
-		try {
-			// Para poder ejecutar una consulta necesitamos utilizar un objeto de tipo Statement
-			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
-			
-			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
-			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("select * from centroeducativo.curso");
-		   
-			// Navegación del objeto ResultSet
-			while (rs.next()) { 
-				TipologiaSexo f= new TipologiaSexo (rs.getInt("id"), rs.getString("descripcion"));
-				lista.add(f);
-			}
-			// Cierre de los elementos
-			rs.close();
-			s.close();
-		}
-		catch (SQLException ex) {
-			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
-			ex.printStackTrace();
-		}
-		
-		return lista;
-	}
+
 	
 	/**
 	 * 

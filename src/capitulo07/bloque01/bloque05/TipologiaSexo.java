@@ -17,7 +17,7 @@ public class TipologiaSexo {
 
 	@Override
 	public String toString() {
-		return "TipologiaSexo [id=" + id + ", descripcion=" + descripcion + "]";
+		return "TipologiaSexo [id=" + id + "]";
 	}
 
 
