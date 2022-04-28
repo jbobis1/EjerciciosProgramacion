@@ -5,6 +5,8 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.util.List;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
@@ -186,8 +188,50 @@ public class DatosPersonales extends JPanel {
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 8;
 		add(comboBox, gbc_comboBox);
+		
+		
+		cargarvalores();
+		selecionarvalores(getidsexo());
 
 	}
+	
+	
+	/**
+	 * 
+	 */
+	
+	public void cargarvalores() {
+		List<TipologiaSexo> lista = ControladorTipogiaSexo.obtenerTodossexo();
+		for (int i = 0; i < lista.size(); i++) {
+			comboBox.addItem(lista.get(i));
+		}
+	}
+	
+	/**
+	 * 
+	 * @param idsexo
+	 */
+	public void selecionarvalores(int idsexo) {
+		for (int i = 0; i < comboBox.getItemCount(); i++) {
+		if (((TipologiaSexo) comboBox.getItemAt(i)).getId() == idsexo ) {
+			comboBox.setSelectedIndex(i);
+			}
+		}	
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	
+	
+	public int getidsexo() {
+	return ((TipologiaSexo) comboBox.getSelectedItem()).getId();
+		
+	}
+	
+	
+	
 	
 	/**
 	 * 
@@ -291,15 +335,6 @@ public class DatosPersonales extends JPanel {
 		return this.jtfTelefono.getText();
 	}
 	
-	public void setSexo (int Sexo ) {
-		this.comboBox.setSelectedIndex(Sexo);
-		
-	}
-
-	public int getSexo () {
-		return this.comboBox.getSelectedItem());
-		
-		f.setCurso_id(((Curso )comboBox.getSelectedItem()).getId());
-	}
+	
 	
 }

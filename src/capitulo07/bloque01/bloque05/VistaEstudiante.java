@@ -109,36 +109,10 @@ public class VistaEstudiante extends JPanel {
 	
 		add(datosPersonales, BorderLayout.CENTER);
 		mostarEstudiante(ControladorEstudiante.mostarPrimerEstudiante());
-		
-		cargarvalores();
-		selecionarvalores(getidsexo()) ;
+	
 	}
 	
-	
-	private void cargarvalores() {
-		List<TipologiaSexo> lista = ControladorEstudiante.obtenerTodosLosCurso();
-		for (int i = 0; i < lista.size(); i++) {
-			datosPersonales.comboBox.addItem(lista.get(i));
-		}
-	}
-	
-	/**
-	 * 
-	 * @param idCurso
-	 */
-	private void selecionarvalores(int idsexo) {
-		for (int i = 0; i < datosPersonales.comboBox.getItemCount(); i++) {
-		if (((TipologiaSexo) datosPersonales.comboBox.getItemAt(i)).getId() == idsexo ) {
-			datosPersonales.comboBox.setSelectedIndex(i);
-			}
-		}	
-	}
-	
-	
-	private int getidsexo() {
-	return ((TipologiaSexo) datosPersonales.comboBox.getSelectedItem()).getId();
-		
-	}
+
 	/**
 	 * 
 	 * @param f
@@ -152,14 +126,12 @@ public class VistaEstudiante extends JPanel {
 			datosPersonales.setNombre(f.getNombre());
 			datosPersonales.setApellido(f.getApellido1());
 			datosPersonales.setApellido2(f.getApellido2());
-			
-			
-			datosPersonales.comboBox.setSelectedIndex(f.getId()-1);
-
 			datosPersonales.setDireccion(f.getDireccion());
 			datosPersonales.setDni(f.getDni());
 			datosPersonales.setEmail(f.getEmail());
 			datosPersonales.setTelefono(f.getTelefono());
+			
+			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
 
 		}
 		
@@ -199,6 +171,8 @@ public class VistaEstudiante extends JPanel {
 		datosPersonales.setApellido("");
 		datosPersonales.setApellido2("");
 		
+		datosPersonales.comboBox.setSelectedIndex(0);
+
 		datosPersonales.setDireccion("");
 		datosPersonales.setDni("");
 		datosPersonales.setEmail("");
@@ -228,7 +202,9 @@ public class VistaEstudiante extends JPanel {
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
 		
-
+		
+		f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+	
 		
 		
 		if(ControladorEstudiante.guardar(f)==1) {
@@ -256,6 +232,8 @@ public class VistaEstudiante extends JPanel {
 		f.setDireccion((datosPersonales.getDni()));
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
+		
+		f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).);
 
 		if(ControladorEstudiante.eliminar(f)==1) {
 			JOptionPane.showMessageDialog(null, "Eliminado");			

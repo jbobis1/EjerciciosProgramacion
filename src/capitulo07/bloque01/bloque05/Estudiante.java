@@ -11,7 +11,7 @@ public class Estudiante {
 	private String Direccion;
 	private String email;
 	private String telefono;
-	private String sexo;
+	private int tipologiasexo_id;
 	
 	public Estudiante() {
 		// TODO Auto-generated constructor stub
@@ -19,8 +19,10 @@ public class Estudiante {
 
 
 
+
+
 	public Estudiante(int id, String nombre, String apellido1, String apellido2, String dni, String direccion,
-			String email, String telefono, String sexo) {
+			String email, String telefono, int tipologiasexo_id) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -30,8 +32,10 @@ public class Estudiante {
 		Direccion = direccion;
 		this.email = email;
 		this.telefono = telefono;
-		this.sexo = sexo;
+		this.tipologiasexo_id = tipologiasexo_id;
 	}
+
+
 
 
 
@@ -39,7 +43,7 @@ public class Estudiante {
 	public String toString() {
 		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", Dni=" + Dni + ", Direccion=" + Direccion + ", email=" + email + ", telefono=" + telefono
-				+ ", sexo=" + sexo + "]";
+				+ ", tipologiasexo=" + tipologiasexo_id + "]";
 	}
 
 	public int getId() {
@@ -109,20 +113,22 @@ public class Estudiante {
 
 
 	/**
-	 * @return the sexo
+	 * @return the tipologiasexo_id
 	 */
-	public String getSexo() {
-		return sexo;
+	public int getTipologiasexo_id() {
+		return tipologiasexo_id;
 	}
 
 
 
 	/**
-	 * @param sexo the sexo to set
+	 * @param tipologiasexo_id the tipologiasexo_id to set
 	 */
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setTipologiasexo_id(int tipologiasexo_id) {
+		this.tipologiasexo_id = tipologiasexo_id;
 	}
+
+
 
 	
 	
