@@ -17,11 +17,11 @@ public class ControladorTipogiaSexo {
 			
 			// La ejecución de la consulta se realiza a través del objeto Statement y se recibe en forma de objeto
 			// de tipo ResultSet, que puede ser navegado para descubrir todos los registros obtenidos por la consulta
-			ResultSet rs = s.executeQuery ("select * from centroeducativo.curso");
+			ResultSet rs = s.executeQuery ("select * from centroeducativo.tipologiasexo");
 		   
 			// Navegación del objeto ResultSet
 			while (rs.next()) { 
-				TipologiaSexo f= new TipologiaSexo (rs.getInt("id"), rs.getString("descripcion"));
+				TipologiaSexo f= new TipologiaSexo (rs.getInt("id"), rs.getString("tipologiasexo"));
 				lista.add(f);
 			}
 			// Cierre de los elementos

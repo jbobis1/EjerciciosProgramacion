@@ -223,15 +223,10 @@ public class DatosPersonales extends JPanel {
 	 * 
 	 * @return
 	 */
-	
-	
 	public int getidsexo() {
 	return ((TipologiaSexo) comboBox.getSelectedItem()).getId();
 		
 	}
-	
-	
-	
 	
 	/**
 	 * 

@@ -108,7 +108,7 @@ public class VistaEstudiante extends JPanel {
 		
 	
 		add(datosPersonales, BorderLayout.CENTER);
-		mostarEstudiante(ControladorEstudiante.mostarPrimerEstudiante());
+	mostarEstudiante(ControladorEstudiante.mostarPrimerEstudiante());
 	
 	}
 	
