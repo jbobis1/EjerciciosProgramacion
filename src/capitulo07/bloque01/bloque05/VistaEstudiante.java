@@ -202,9 +202,9 @@ public class VistaEstudiante extends JPanel {
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
 		
-		//f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+		f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 	
-
+	
 		
 		if(ControladorEstudiante.guardar(f)==1) {
 			mostarEstudiante(ControladorEstudiante.mostarUltimoEstudiante());
@@ -232,7 +232,7 @@ public class VistaEstudiante extends JPanel {
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
 		
-		//f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+		f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 
 		if(ControladorEstudiante.eliminar(f)==1) {
 			JOptionPane.showMessageDialog(null, "Eliminado");			
