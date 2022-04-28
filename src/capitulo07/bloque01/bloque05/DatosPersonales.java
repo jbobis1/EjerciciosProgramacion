@@ -24,6 +24,7 @@ public class DatosPersonales extends JPanel {
 	private JLabel lblSexo;
 
 	JComboBox<TipologiaSexo> comboBox;
+	private JPanel panel;
 	
 	/**
 	 * Create the panel.
@@ -31,9 +32,9 @@ public class DatosPersonales extends JPanel {
 	public DatosPersonales() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblNewLabel = new JLabel("id");
@@ -175,7 +176,7 @@ public class DatosPersonales extends JPanel {
 		
 		lblSexo = new JLabel("sexo");
 		GridBagConstraints gbc_lblSexo = new GridBagConstraints();
-		gbc_lblSexo.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSexo.insets = new Insets(0, 0, 5, 5);
 		gbc_lblSexo.anchor = GridBagConstraints.EAST;
 		gbc_lblSexo.gridx = 0;
 		gbc_lblSexo.gridy = 8;
@@ -184,10 +185,24 @@ public class DatosPersonales extends JPanel {
 		comboBox = new JComboBox<TipologiaSexo>();
 		
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 8;
 		add(comboBox, gbc_comboBox);
+		
+		panel = new JPanel();
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 1;
+		gbc_panel.gridy = 9;
+		add(panel, gbc_panel);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{0};
+		gbl_panel.rowHeights = new int[]{0};
+		gbl_panel.columnWeights = new double[]{Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
 		
 		
 		cargarvalores();
