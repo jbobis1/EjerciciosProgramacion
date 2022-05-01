@@ -61,7 +61,9 @@ public class ControladorProfesor extends SupertipoGestion{
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
-				f= new Profesor (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),rs.getString("telefono"), rs.getInt("tipologiasexo_id"));			
+				f= new Profesor (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), 
+						rs.getString("apellido2"), rs.getString("Dni"), rs.getString("Direccion"), 
+						rs.getString("email"),rs.getString("telefono"), rs.getInt("tipologiasexo_id"),rs.getString("imagen"));			
 				}
 			// Cierre de los elementos
 			rs.close();
@@ -107,7 +109,9 @@ public class ControladorProfesor extends SupertipoGestion{
 				
 				"update profesor set nombre='" + f.getNombre() + "', apellido1='" + f.getApellido1() + "', " 
 						 + " apellido2='" + f.getApellido2() + "', " + " dni='" + f.getDni() + "', " 
-						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() + "', " + " telefono='" + f.getTelefono()+ "' "+  " tipologiasexo_id='" + f.getTipologiasexo_id()+ "' "+ 
+						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() 
+						 + "', " + " telefono='" + f.getTelefono()+ "' "+  " tipologiasexo_id='" + f.getTipologiasexo_id()
+						 + "' "+  " imagen='" + f.getImagen()+ "' "+ 
 						 "where id=" + f.getId());
 					
 //				"update estudiante set descripcion='" 
@@ -143,7 +147,7 @@ public class ControladorProfesor extends SupertipoGestion{
 				 s.executeUpdate(					 
 							"insert into profesor values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
 							+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
-							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id()+ "')");
+							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id()+ "', '" + f.getImagen()+ "')");
 
 
 

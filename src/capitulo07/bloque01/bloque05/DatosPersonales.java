@@ -1,14 +1,30 @@
 package capitulo07.bloque01.bloque05;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.io.File;
+import java.nio.file.Files;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DatosPersonales extends JPanel {
 
@@ -25,7 +41,10 @@ public class DatosPersonales extends JPanel {
 
 	JComboBox<TipologiaSexo> comboBox;
 	private JPanel panel;
-	
+	private JButton btnNewButton;
+	byte[] imagenEnArrayDeBytes;
+	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_1;
 	/**
 	 * Create the panel.
 	 */
@@ -191,6 +210,18 @@ public class DatosPersonales extends JPanel {
 		gbc_comboBox.gridy = 8;
 		add(comboBox, gbc_comboBox);
 		
+		btnNewButton = new JButton("Insertar Foto");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				seleccionaImagen ();
+			}
+		});
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton.gridx = 0;
+		gbc_btnNewButton.gridy = 9;
+		add(btnNewButton, gbc_btnNewButton);
+		
 		panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
@@ -198,11 +229,18 @@ public class DatosPersonales extends JPanel {
 		gbc_panel.gridy = 9;
 		add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0};
-		gbl_panel.rowHeights = new int[]{0};
-		gbl_panel.columnWeights = new double[]{Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[]{0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0};
+		gbl_panel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
+		
+		scrollPane_1 = new JScrollPane();
+		GridBagConstraints gbc_scrollPane_1 = new GridBagConstraints();
+		gbc_scrollPane_1.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane_1.gridx = 0;
+		gbc_scrollPane_1.gridy = 0;
+		panel.add(scrollPane_1, gbc_scrollPane_1);
 		
 		
 		cargarvalores();
@@ -345,6 +383,104 @@ public class DatosPersonales extends JPanel {
 		return this.jtfTelefono.getText();
 	}
 	
+	
+	private void seleccionaImagen () {
+		JFileChooser jfileChooser = new JFileChooser();
+		
+		// Configurando el componente
+		
+		// Tipo de selección que se hace en el diálogo
+		jfileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY); // Sólo selecciona ficheros
+
+		// Filtro del tipo de ficheros que puede abrir
+		jfileChooser.setFileFilter(new FileFilter() {
+			
+			@Override
+			public String getDescription() {
+				return "Archivos de imagen *.jpg *.png *.gif";
+			}
+			
+			@Override
+			public boolean accept(File f) {
+				if (f.isDirectory() || (f.isFile() &&
+						(f.getAbsolutePath().endsWith(".jpg") || 
+								f.getAbsolutePath().endsWith(".jpeg")|| 
+								f.getAbsolutePath().endsWith(".png")|| 
+								f.getAbsolutePath().endsWith(".gif")))) 
+					return true;
+				return false;
+			}
+		});
+		
+		// Abro el diálogo para la elección del usuario
+		int seleccionUsuario = jfileChooser.showOpenDialog(null);
+		
+		if (seleccionUsuario == JFileChooser.APPROVE_OPTION) {
+			File fichero = jfileChooser.getSelectedFile();
+			
+			if (fichero.isFile()) {
+				try {
+					this.imagenEnArrayDeBytes = Files.readAllBytes(fichero.toPath());
+					mostrarImagen();
+				}
+				catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+	}
+		
+	
+	/**
+	 * 
+	 */
+	private void mostrarImagen () {
+		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
+			ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
+			JLabel lblIcono = new JLabel(icono);
+			scrollPane.setViewportView(lblIcono);
+		}
+		else {
+			JLabel lblIcono = new JLabel("Sin imagen");
+			scrollPane.setViewportView(lblIcono);
+		}
+
+	}
+	
+	
+	/**
+	 * 
+	 */
+	private void actualizarImagenEnTabla() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		   
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centroeducativo?serverTimezone=UTC","java", "Abcdefgh.1");
+		   
+			PreparedStatement ps = (PreparedStatement) conexion.
+					prepareStatement("UPDATE centroeducativo.estudiante set imagen=? where id=?");
+			
+			ps.setBytes(1, imagenEnArrayDeBytes);
+			ps.setInt(2, 1);
+		   
+			int registrosAfectados = ps.executeUpdate();
+			if (registrosAfectados > 0) {
+				JOptionPane.showMessageDialog(null, "Inserción correcta en la tabla");
+			}
+			
+			// Cierre de los elementos
+			ps.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecuci�n SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
 	
 	
 }
