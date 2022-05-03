@@ -177,6 +177,8 @@ public class VistaEstudiante extends JPanel {
 		datosPersonales.setDni("");
 		datosPersonales.setEmail("");
 		datosPersonales.setTelefono("");
+		
+
 
 		
 		minimo.setEnabled(false);
