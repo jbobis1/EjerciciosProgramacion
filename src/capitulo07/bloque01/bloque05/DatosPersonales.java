@@ -45,15 +45,16 @@ public class DatosPersonales extends JPanel {
 	byte[] imagenEnArrayDeBytes;
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
+	private JButton Actualizar;
 	/**
 	 * Create the panel.
 	 */
 	public DatosPersonales() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblNewLabel = new JLabel("id");
@@ -216,17 +217,31 @@ public class DatosPersonales extends JPanel {
 				seleccionaImagen ();
 			}
 		});
+		
+		Actualizar = new JButton("Actualizar");
+		Actualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				actualizarImagenEnTabla();
+			}
+		});
+		GridBagConstraints gbc_Actualizar = new GridBagConstraints();
+		gbc_Actualizar.gridwidth = 2;
+		gbc_Actualizar.insets = new Insets(0, 0, 5, 5);
+		gbc_Actualizar.gridx = 0;
+		gbc_Actualizar.gridy = 9;
+		add(Actualizar, gbc_Actualizar);
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 9;
+		gbc_btnNewButton.gridy = 10;
 		add(btnNewButton, gbc_btnNewButton);
 		
 		panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
-		gbc_panel.gridy = 9;
+		gbc_panel.gridy = 10;
 		add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{0, 0};

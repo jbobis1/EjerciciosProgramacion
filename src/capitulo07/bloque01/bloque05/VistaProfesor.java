@@ -135,6 +135,10 @@ public class VistaProfesor extends JPanel {
 			datosPersonales.setEmail(f.getEmail());
 			datosPersonales.setTelefono(f.getTelefono());
 			
+			datosPersonales.setImagenEnArrayDeBytes(f.getImagen());
+//			datosPersonales.mostrarImagen();
+
+			
 			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
 
 		}
@@ -177,6 +181,9 @@ public class VistaProfesor extends JPanel {
 		
 		datosPersonales.comboBox.setSelectedIndex(0);
 
+		datosPersonales.setImagenEnArrayDeBytes(null);
+		
+		
 		datosPersonales.setDireccion("");
 		datosPersonales.setDni("");
 		datosPersonales.setEmail("");
@@ -206,7 +213,11 @@ public class VistaProfesor extends JPanel {
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
 		
-		//f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+		f.setImagen((datosPersonales.getImagenEnArrayDeBytes()));
+		
+		
+		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+
 	
 
 		
@@ -236,7 +247,10 @@ public class VistaProfesor extends JPanel {
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
 		
-		//f.getTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+		f.setImagen((datosPersonales.getImagenEnArrayDeBytes()));
+		
+		
+		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 
 		if(ControladorProfesor.eliminar(f)==1) {
 			JOptionPane.showMessageDialog(null, "Eliminado");			

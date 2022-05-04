@@ -132,7 +132,7 @@ public class VistaEstudiante extends JPanel {
 			datosPersonales.setTelefono(f.getTelefono());
 			
 			datosPersonales.setImagenEnArrayDeBytes(f.getImagen());
-			datosPersonales.mostrarImagen();
+//			datosPersonales.mostrarImagen();
 
 			
 			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
@@ -175,7 +175,8 @@ public class VistaEstudiante extends JPanel {
 		datosPersonales.setApellido("");
 		datosPersonales.setApellido2("");
 		
-		//datosPersonales.imagenEnArrayDeBytes(0);	
+		
+		datosPersonales.setImagenEnArrayDeBytes(null);
 		
 		datosPersonales.comboBox.setSelectedIndex(0);
 
@@ -210,7 +211,7 @@ public class VistaEstudiante extends JPanel {
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
 		
-		f.setImagen(datosPersonales.imagenEnArrayDeBytes);
+		f.setImagen((datosPersonales.getImagenEnArrayDeBytes()));
 		
 		
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
@@ -245,7 +246,8 @@ public class VistaEstudiante extends JPanel {
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
 		
-		f.setImagen(datosPersonales.imagenEnArrayDeBytes);
+		
+		f.setImagen((datosPersonales.getImagenEnArrayDeBytes()));
 		
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 
