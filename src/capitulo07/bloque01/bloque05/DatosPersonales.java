@@ -434,7 +434,7 @@ public class DatosPersonales extends JPanel {
 	/**
 	 * 
 	 */
-	private void mostrarImagen () {
+	public void mostrarImagen () {
 		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
 			ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
 			JLabel lblIcono = new JLabel(icono);
@@ -481,6 +481,23 @@ public class DatosPersonales extends JPanel {
 			ex.printStackTrace();
 		}
 	}
+
+
+	/**
+	 * @return the imagenEnArrayDeBytes
+	 */
+	public byte[] getImagenEnArrayDeBytes() {
+		return imagenEnArrayDeBytes;
+	}
+
+
+	/**
+	 * @param imagenEnArrayDeBytes the imagenEnArrayDeBytes to set
+	 */
+	public void setImagenEnArrayDeBytes(byte[] imagenEnArrayDeBytes) {
+		this.imagenEnArrayDeBytes = imagenEnArrayDeBytes;
+	}
+	
 	
 	
 }

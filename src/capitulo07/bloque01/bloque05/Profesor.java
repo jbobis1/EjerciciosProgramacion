@@ -1,5 +1,7 @@
 package capitulo07.bloque01.bloque05;
 
+import java.util.Arrays;
+
 public class Profesor {
 	
 	private int id;
@@ -11,6 +13,7 @@ public class Profesor {
 	private String email;
 	private String telefono;
 	private int tipologiasexo_id;
+	private byte[] imagen;
 
 	
 	
@@ -21,7 +24,7 @@ public class Profesor {
 
 
 	public Profesor(int id, String nombre, String apellido1, String apellido2, String dni, String direccion,
-			String email, String telefono, int tipologiasexo_id) {
+			String email, String telefono, int tipologiasexo_id, byte[] imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -32,6 +35,7 @@ public class Profesor {
 		this.email = email;
 		this.telefono = telefono;
 		this.tipologiasexo_id = tipologiasexo_id;
+		this.imagen = imagen;
 	}
 
 
@@ -40,7 +44,7 @@ public class Profesor {
 	public String toString() {
 		return "Profesor [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", Dni=" + Dni + ", Direccion=" + Direccion + ", email=" + email + ", telefono=" + telefono
-				+ ", tipologiasexo_id=" + tipologiasexo_id + "]";
+				+ ", tipologiasexo_id=" + tipologiasexo_id + ", imagen=" + Arrays.toString(imagen) + "]";
 	}
 
 
@@ -204,6 +208,25 @@ public class Profesor {
 	public void setTipologiasexo_id(int tipologiasexo_id) {
 		this.tipologiasexo_id = tipologiasexo_id;
 	}
+
+
+
+	/**
+	 * @return the imagen
+	 */
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+
+
+	/**
+	 * @param imagen the imagen to set
+	 */
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
 
 
 

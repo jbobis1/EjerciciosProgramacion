@@ -1,5 +1,7 @@
 package capitulo07.bloque01.bloque05;
 
+import java.util.Arrays;
+
 public class Estudiante {
 
 	
@@ -12,7 +14,7 @@ public class Estudiante {
 	private String email;
 	private String telefono;
 	private int Tipologiasexo_id;
-
+	private byte[] imagen;
 	
 	
 	public Estudiante() {
@@ -20,9 +22,8 @@ public class Estudiante {
 	}
 
 
-
 	public Estudiante(int id, String nombre, String apellido1, String apellido2, String dni, String direccion,
-			String email, String telefono, int tipologiasexo_id) {
+			String email, String telefono, int tipologiasexo_id, byte[] imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -33,17 +34,16 @@ public class Estudiante {
 		this.email = email;
 		this.telefono = telefono;
 		Tipologiasexo_id = tipologiasexo_id;
+		this.imagen = imagen;
 	}
-
 
 
 	@Override
 	public String toString() {
 		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", Dni=" + Dni + ", Direccion=" + Direccion + ", email=" + email + ", telefono=" + telefono
-				+ ", Tipologiasexo_id=" + Tipologiasexo_id + "]";
+				+ ", Tipologiasexo_id=" + Tipologiasexo_id + ", imagen=" + Arrays.toString(imagen) + "]";
 	}
-
 
 
 	/**
@@ -54,14 +54,12 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 
 	/**
@@ -72,14 +70,12 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param nombre the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 
 	/**
@@ -90,14 +86,12 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param apellido1 the apellido1 to set
 	 */
 	public void setApellido1(String apellido1) {
 		this.apellido1 = apellido1;
 	}
-
 
 
 	/**
@@ -108,14 +102,12 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param apellido2 the apellido2 to set
 	 */
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
 	}
-
 
 
 	/**
@@ -126,14 +118,12 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param dni the dni to set
 	 */
 	public void setDni(String dni) {
 		Dni = dni;
 	}
-
 
 
 	/**
@@ -144,14 +134,12 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param direccion the direccion to set
 	 */
 	public void setDireccion(String direccion) {
 		Direccion = direccion;
 	}
-
 
 
 	/**
@@ -161,15 +149,12 @@ public class Estudiante {
 		return email;
 	}
 
-
-
 	/**
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 
 	/**
@@ -180,15 +165,13 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param telefono the telefono to set
 	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-
-
+	
 
 	/**
 	 * @return the tipologiasexo_id
@@ -198,13 +181,29 @@ public class Estudiante {
 	}
 
 
-
 	/**
 	 * @param tipologiasexo_id the tipologiasexo_id to set
 	 */
 	public void setTipologiasexo_id(int tipologiasexo_id) {
 		Tipologiasexo_id = tipologiasexo_id;
 	}
+
+
+	/**
+	 * @return the imagen
+	 */
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+
+	/**
+	 * @param imagen the imagen to set
+	 */
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
 
 	
 	

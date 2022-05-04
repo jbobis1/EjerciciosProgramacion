@@ -69,7 +69,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 			if (rs.next()) { 
 				f= new Estudiante (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), 
 						rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),
-						rs.getString("telefono"), rs.getInt("Tipologiasexo_id"));			
+						rs.getString("telefono"), rs.getInt("Tipologiasexo_id"),rs.getBytes("imagen"));			
 				}
 			// Cierre de los elementos
 			rs.close();
@@ -116,11 +116,10 @@ public class ControladorEstudiante extends SupertipoGestion{
 				"update estudiante set nombre='" + f.getNombre() + "', apellido1='" + f.getApellido1() + "', " 
 						 + " apellido2='" + f.getApellido2() + "', " + " dni='" + f.getDni() + "', " 
 						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() + "', " + " telefono='" + f.getTelefono()
-						 + "' "+  " tipologiasexo_id='" + f.getTipologiasexo_id() + "' "+ 
+						 + "' "+  " tipologiasexo_id='" + f.getTipologiasexo_id()  + "' "+  " imagen='" + f.getImagen() + "' "+ 
 						 "where id=" + f.getId());
 					
-//				"update estudiante set descripcion='" 
-//				+ f.getDescripcion() +  "' " + "where id=" + f.getId());
+
 
 		}catch (SQLException ex) {
 			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
@@ -153,7 +152,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 				 s.executeUpdate(					 
 							"insert into estudiante values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
 							+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
-							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id() + "')");
+							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id() + "', '" + f.getImagen() + "')");
 
 
 
