@@ -14,7 +14,7 @@ public class Profesor {
 	private String telefono;
 	private int tipologiasexo_id;
 	private byte[] imagen;
-
+	private String color;
 	
 	
 	public Profesor() {
@@ -22,9 +22,8 @@ public class Profesor {
 	}
 
 
-
 	public Profesor(int id, String nombre, String apellido1, String apellido2, String dni, String direccion,
-			String email, String telefono, int tipologiasexo_id, byte[] imagen) {
+			String email, String telefono, int tipologiasexo_id, byte[] imagen, String color) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -36,201 +35,128 @@ public class Profesor {
 		this.telefono = telefono;
 		this.tipologiasexo_id = tipologiasexo_id;
 		this.imagen = imagen;
+		this.color = color;
 	}
-
 
 
 	@Override
 	public String toString() {
 		return "Profesor [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", Dni=" + Dni + ", Direccion=" + Direccion + ", email=" + email + ", telefono=" + telefono
-				+ ", tipologiasexo_id=" + tipologiasexo_id + ", imagen=" + Arrays.toString(imagen) + "]";
+				+ ", tipologiasexo_id=" + tipologiasexo_id + ", imagen=" + Arrays.toString(imagen) + ", color=" + color
+				+ "]";
 	}
 
 
-
-	/**
-	 * @return the id
-	 */
 	public int getId() {
 		return id;
 	}
 
 
-
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 
-
-	/**
-	 * @return the nombre
-	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 
-
-	/**
-	 * @param nombre the nombre to set
-	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 
-
-	/**
-	 * @return the apellido1
-	 */
 	public String getApellido1() {
 		return apellido1;
 	}
 
 
-
-	/**
-	 * @param apellido1 the apellido1 to set
-	 */
 	public void setApellido1(String apellido1) {
 		this.apellido1 = apellido1;
 	}
 
 
-
-	/**
-	 * @return the apellido2
-	 */
 	public String getApellido2() {
 		return apellido2;
 	}
 
 
-
-	/**
-	 * @param apellido2 the apellido2 to set
-	 */
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
 	}
 
 
-
-	/**
-	 * @return the dni
-	 */
 	public String getDni() {
 		return Dni;
 	}
 
 
-
-	/**
-	 * @param dni the dni to set
-	 */
 	public void setDni(String dni) {
 		Dni = dni;
 	}
 
 
-
-	/**
-	 * @return the direccion
-	 */
 	public String getDireccion() {
 		return Direccion;
 	}
 
 
-
-	/**
-	 * @param direccion the direccion to set
-	 */
 	public void setDireccion(String direccion) {
 		Direccion = direccion;
 	}
 
 
-
-	/**
-	 * @return the email
-	 */
 	public String getEmail() {
 		return email;
 	}
 
 
-
-	/**
-	 * @param email the email to set
-	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 
-
-	/**
-	 * @return the telefono
-	 */
 	public String getTelefono() {
 		return telefono;
 	}
 
 
-
-	/**
-	 * @param telefono the telefono to set
-	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
 
-
-	/**
-	 * @return the tipologiasexo_id
-	 */
 	public int getTipologiasexo_id() {
 		return tipologiasexo_id;
 	}
 
 
-
-	/**
-	 * @param tipologiasexo_id the tipologiasexo_id to set
-	 */
 	public void setTipologiasexo_id(int tipologiasexo_id) {
 		this.tipologiasexo_id = tipologiasexo_id;
 	}
 
 
-
-	/**
-	 * @return the imagen
-	 */
 	public byte[] getImagen() {
 		return imagen;
 	}
 
 
-
-	/**
-	 * @param imagen the imagen to set
-	 */
 	public void setImagen(byte[] imagen) {
 		this.imagen = imagen;
 	}
 
 
+	public String getColor() {
+		return color;
+	}
 
 
-	
+	public void setColor(String color) {
+		this.color = color;
+	}
+
 	
 
 }

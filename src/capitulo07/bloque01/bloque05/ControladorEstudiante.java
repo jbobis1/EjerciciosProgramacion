@@ -1,5 +1,6 @@
 package capitulo07.bloque01.bloque05;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -69,7 +70,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 			if (rs.next()) { 
 				f= new Estudiante (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), 
 						rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),
-						rs.getString("telefono"), rs.getInt("Tipologiasexo_id"),rs.getBytes("imagen"));			
+						rs.getString("telefono"), rs.getInt("Tipologiasexo_id"),rs.getBytes("imagen"), rs.getString("color"));			
 				}
 			// Cierre de los elementos
 			rs.close();
@@ -108,21 +109,26 @@ public class ControladorEstudiante extends SupertipoGestion{
 		int reguistros = 0;
 		try {
 
-			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
+			PreparedStatement ps =  ConnectionManager.getConexion().prepareStatement(
+					"update estudiante set nombre = ?, apellido1= ?, apellido2= ?, Dni= ?,"
+					+ " Direccion= ?, email= ?, telefono= ?,  Tipologiasexo_id= ?, imagen= ?,"
+					+ "where id =?");
+			ps.setString(1, f.getNombre());
+			ps.setString(2, f.getApellido1());
+			ps.setString(3, f.getApellido2());
+			ps.setString(5, f.getDni());
+			ps.setString(5, f.getDireccion());
+			ps.setString(6, f.getEmail());
+			ps.setString(7, f.getTelefono());
+			ps.setInt(8, f.getTipologiasexo_id());
+			ps.setInt(9, f.getId());
 
-			reguistros =s.executeUpdate(
+			
 						
-				
-				"update estudiante set nombre='" + f.getNombre() + "', apellido1='" + f.getApellido1() + "', " 
-						 + " apellido2='" + f.getApellido2() + "', " + " dni='" + f.getDni() + "', " 
-						 + " direccion='" + f.getDireccion()  + "', " + " email='" + f.getEmail() + "', " + " telefono='" + f.getTelefono()
-						 + "' "+  " tipologiasexo_id='" + f.getTipologiasexo_id()  + "' "+  " imagen='" + f.getImagen() + "' "+ 
-						 "where id=" + f.getId());
-					
+			reguistros = ps.executeUpdate();
 
 
 		}catch (SQLException ex) {
-			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
 			ex.printStackTrace();
 		}
 		return reguistros;
@@ -152,7 +158,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 				 s.executeUpdate(					 
 							"insert into estudiante values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
 							+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
-							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id() + "', '" + f.getImagen() + "')");
+							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id() + "', '" + f.getImagen() + "', '" + f.getColor()+ "')");
 
 
 

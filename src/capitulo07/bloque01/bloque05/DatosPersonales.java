@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.io.File;
@@ -23,6 +24,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -36,7 +39,9 @@ public class DatosPersonales extends JPanel {
 	private JTextField jtfDireccion;
 	private JTextField jtfEmail;
 	private JTextField jtfTelefono;
-
+	JColorChooser jColorChooser;
+	JPanel jpPanelParaColorear = new JPanel();
+	
 	private JLabel lblSexo;
 
 	JComboBox<TipologiaSexo> comboBox;
@@ -45,14 +50,17 @@ public class DatosPersonales extends JPanel {
 	byte[] imagenEnArrayDeBytes;
 	private JScrollPane scrollPane;
 	private JButton Actualizar;
+	private JLabel lblNewLabel_8;
+	private JTextField jtfColor;
+	private JButton btnNewButton_1;
 	/**
 	 * Create the panel.
 	 */
 	public DatosPersonales() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
@@ -67,7 +75,7 @@ public class DatosPersonales extends JPanel {
 		jtfId = new JTextField();
 		jtfId.setEnabled(false);
 		GridBagConstraints gbc_jtfId = new GridBagConstraints();
-		gbc_jtfId.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfId.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfId.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfId.gridx = 1;
 		gbc_jtfId.gridy = 0;
@@ -84,7 +92,7 @@ public class DatosPersonales extends JPanel {
 		
 		jtfNombre = new JTextField();
 		GridBagConstraints gbc_jtfNombre = new GridBagConstraints();
-		gbc_jtfNombre.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfNombre.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfNombre.gridx = 1;
 		gbc_jtfNombre.gridy = 1;
@@ -101,7 +109,7 @@ public class DatosPersonales extends JPanel {
 		
 		jtfApellido1 = new JTextField();
 		GridBagConstraints gbc_jtfApellido1 = new GridBagConstraints();
-		gbc_jtfApellido1.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfApellido1.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfApellido1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfApellido1.gridx = 1;
 		gbc_jtfApellido1.gridy = 2;
@@ -118,7 +126,7 @@ public class DatosPersonales extends JPanel {
 		
 		jtfApellido2 = new JTextField();
 		GridBagConstraints gbc_jtfApellido2 = new GridBagConstraints();
-		gbc_jtfApellido2.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfApellido2.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfApellido2.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfApellido2.gridx = 1;
 		gbc_jtfApellido2.gridy = 3;
@@ -135,7 +143,7 @@ public class DatosPersonales extends JPanel {
 		
 		jtfDni = new JTextField();
 		GridBagConstraints gbc_jtfDni = new GridBagConstraints();
-		gbc_jtfDni.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfDni.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfDni.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfDni.gridx = 1;
 		gbc_jtfDni.gridy = 4;
@@ -152,7 +160,7 @@ public class DatosPersonales extends JPanel {
 		
 		jtfDireccion = new JTextField();
 		GridBagConstraints gbc_jtfDireccion = new GridBagConstraints();
-		gbc_jtfDireccion.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfDireccion.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfDireccion.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfDireccion.gridx = 1;
 		gbc_jtfDireccion.gridy = 5;
@@ -169,7 +177,7 @@ public class DatosPersonales extends JPanel {
 		
 		jtfEmail = new JTextField();
 		GridBagConstraints gbc_jtfEmail = new GridBagConstraints();
-		gbc_jtfEmail.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfEmail.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfEmail.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfEmail.gridx = 1;
 		gbc_jtfEmail.gridy = 6;
@@ -186,7 +194,7 @@ public class DatosPersonales extends JPanel {
 		
 		jtfTelefono = new JTextField();
 		GridBagConstraints gbc_jtfTelefono = new GridBagConstraints();
-		gbc_jtfTelefono.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfTelefono.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfTelefono.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtfTelefono.gridx = 1;
 		gbc_jtfTelefono.gridy = 7;
@@ -204,7 +212,7 @@ public class DatosPersonales extends JPanel {
 		comboBox = new JComboBox<TipologiaSexo>();
 		
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 8;
@@ -217,19 +225,38 @@ public class DatosPersonales extends JPanel {
 			}
 		});
 		
-		Actualizar = new JButton("Actualizar");
-		Actualizar.addActionListener(new ActionListener() {
+		lblNewLabel_8 = new JLabel(" Color Preferido");
+		GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
+		gbc_lblNewLabel_8.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_8.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_8.gridx = 0;
+		gbc_lblNewLabel_8.gridy = 9;
+		add(lblNewLabel_8, gbc_lblNewLabel_8);
+		
+		jtfColor = new JTextField();
+		jtfColor.setText("");
+		GridBagConstraints gbc_jtfColor = new GridBagConstraints();
+		gbc_jtfColor.insets = new Insets(0, 0, 5, 5);
+		gbc_jtfColor.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtfColor.gridx = 1;
+		gbc_jtfColor.gridy = 9;
+		add(jtfColor, gbc_jtfColor);
+		jtfColor.setColumns(10);
+		this.add(this.jpPanelParaColorear, gbc_jtfColor);
+		
+		btnNewButton_1 = new JButton("Cambiar Color");
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				actualizarImagenEnTabla();
+				seleccionaColor ();
+				
 			}
 		});
-		GridBagConstraints gbc_Actualizar = new GridBagConstraints();
-		gbc_Actualizar.gridwidth = 2;
-		gbc_Actualizar.insets = new Insets(0, 0, 5, 5);
-		gbc_Actualizar.gridx = 0;
-		gbc_Actualizar.gridy = 9;
-		add(Actualizar, gbc_Actualizar);
+		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
+		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton_1.gridx = 2;
+		gbc_btnNewButton_1.gridy = 9;
+		add(btnNewButton_1, gbc_btnNewButton_1);
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.gridx = 0;
@@ -238,6 +265,7 @@ public class DatosPersonales extends JPanel {
 		
 		panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.insets = new Insets(0, 0, 0, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 10;
@@ -255,6 +283,18 @@ public class DatosPersonales extends JPanel {
 		gbc_scrollPane_1.gridx = 0;
 		gbc_scrollPane_1.gridy = 0;
 		panel.add(scrollPane, gbc_scrollPane_1);
+		
+		Actualizar = new JButton("Actualizar");
+		Actualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				actualizarImagenEnTabla();
+			}
+		});
+		GridBagConstraints gbc_Actualizar = new GridBagConstraints();
+		gbc_Actualizar.gridx = 2;
+		gbc_Actualizar.gridy = 10;
+		add(Actualizar, gbc_Actualizar);
 		
 		
 		cargarvalores();
@@ -435,7 +475,7 @@ public class DatosPersonales extends JPanel {
 			if (fichero.isFile()) {
 				try {
 					this.imagenEnArrayDeBytes = Files.readAllBytes(fichero.toPath());
-					mostrarImagen();
+					getImagen(imagenEnArrayDeBytes);
 				}
 				catch (Exception ex) {
 					ex.printStackTrace();
@@ -448,7 +488,8 @@ public class DatosPersonales extends JPanel {
 	/**
 	 * 
 	 */
-	public void mostrarImagen () {
+	public void getImagen (byte [] newimagen) {
+		this.imagenEnArrayDeBytes =newimagen;
 		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
 			ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
 			JLabel lblIcono = new JLabel(icono);
@@ -500,7 +541,7 @@ public class DatosPersonales extends JPanel {
 	/**
 	 * @return the imagenEnArrayDeBytes
 	 */
-	public byte[] getImagenEnArrayDeBytes() {
+	public byte[] getImagen() {
 		return imagenEnArrayDeBytes;
 	}
 
@@ -508,10 +549,18 @@ public class DatosPersonales extends JPanel {
 	/**
 	 * @param imagenEnArrayDeBytes the imagenEnArrayDeBytes to set
 	 */
-	public void setImagenEnArrayDeBytes(byte[] imagenEnArrayDeBytes) {
+	public void setImagen(byte[] imagenEnArrayDeBytes) {
 		this.imagenEnArrayDeBytes = imagenEnArrayDeBytes;
 	}
 	
-	
+	public void seleccionaColor () {
+		Color color = jColorChooser.showDialog(null, "Seleccione un Color", Color.gray);
+		// Si el usuario pulsa sobre aceptar, el color elegido no será nulo
+		if (color != null) {
+			String strColor = "#"+Integer.toHexString(color.getRGB()).substring(2);
+			this.jtfColor.setText(strColor);
+			this.jpPanelParaColorear.setBackground(color);
+		}
+	}
 	
 }
