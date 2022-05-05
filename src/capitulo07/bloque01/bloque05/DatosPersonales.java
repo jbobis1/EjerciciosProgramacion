@@ -44,7 +44,6 @@ public class DatosPersonales extends JPanel {
 	private JButton btnNewButton;
 	byte[] imagenEnArrayDeBytes;
 	private JScrollPane scrollPane;
-	private JScrollPane scrollPane_1;
 	private JButton Actualizar;
 	/**
 	 * Create the panel.
@@ -250,12 +249,12 @@ public class DatosPersonales extends JPanel {
 		gbl_panel.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		scrollPane_1 = new JScrollPane();
+		scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane_1 = new GridBagConstraints();
 		gbc_scrollPane_1.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane_1.gridx = 0;
 		gbc_scrollPane_1.gridy = 0;
-		panel.add(scrollPane_1, gbc_scrollPane_1);
+		panel.add(scrollPane, gbc_scrollPane_1);
 		
 		
 		cargarvalores();

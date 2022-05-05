@@ -132,7 +132,7 @@ public class VistaEstudiante extends JPanel {
 			datosPersonales.setTelefono(f.getTelefono());
 			
 			datosPersonales.setImagenEnArrayDeBytes(f.getImagen());
-//			datosPersonales.mostrarImagen();
+			datosPersonales.mostrarImagen();
 
 			
 			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
