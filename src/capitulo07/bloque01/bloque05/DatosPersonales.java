@@ -235,6 +235,10 @@ public class DatosPersonales extends JPanel {
 		
 		jtfColor = new JTextField();
 		jtfColor.setText("");
+		
+
+	
+		
 		GridBagConstraints gbc_jtfColor = new GridBagConstraints();
 		gbc_jtfColor.insets = new Insets(0, 0, 5, 5);
 		gbc_jtfColor.fill = GridBagConstraints.HORIZONTAL;
@@ -562,5 +566,17 @@ public class DatosPersonales extends JPanel {
 			this.jpPanelParaColorear.setBackground(color);
 		}
 	}
+
+
+	public String getColor() {
+		return this.jtfColor.getText();
+	}
+
+
+	public void setColor(String Color) {
+		this.jtfColor.setText(Color);
+	}
+	
+
 	
 }

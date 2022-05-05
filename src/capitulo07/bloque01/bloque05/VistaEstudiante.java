@@ -136,7 +136,9 @@ public class VistaEstudiante extends JPanel {
 		
 			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
 			
-			datosPersonales.setBackground(getBackground());	
+			datosPersonales.setColor(f.getColor());	
+			
+			
 			}
 		
 	
@@ -175,7 +177,7 @@ public class VistaEstudiante extends JPanel {
 		datosPersonales.setApellido("");
 		datosPersonales.setApellido2("");
 		
-		datosPersonales.setBackground(null);	
+		datosPersonales.setColor("#ffffff");	
 		datosPersonales.setImagen(null);
 		
 		datosPersonales.comboBox.setSelectedIndex(0);
@@ -216,7 +218,7 @@ public class VistaEstudiante extends JPanel {
 		
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 	
-	
+		f.setColor(datosPersonales.getColor());	
 		
 		
 		if(ControladorEstudiante.guardar(f)==1) {
@@ -245,7 +247,8 @@ public class VistaEstudiante extends JPanel {
 		f.setDireccion((datosPersonales.getDni()));
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
-		
+
+		f.setColor(datosPersonales.getColor());	
 		
 		f.setImagen((datosPersonales.getImagen()));
 		

@@ -111,7 +111,7 @@ public class ControladorEstudiante extends SupertipoGestion{
 
 			PreparedStatement ps =  ConnectionManager.getConexion().prepareStatement(
 					"update estudiante set nombre = ?, apellido1= ?, apellido2= ?, Dni= ?,"
-					+ " Direccion= ?, email= ?, telefono= ?,  Tipologiasexo_id= ?, imagen= ?,"
+					+ " Direccion= ?, email= ?, telefono= ?,  Tipologiasexo_id= ?, imagen= ?,color= ?,"
 					+ "where id =?");
 			ps.setString(1, f.getNombre());
 			ps.setString(2, f.getApellido1());
@@ -121,7 +121,9 @@ public class ControladorEstudiante extends SupertipoGestion{
 			ps.setString(6, f.getEmail());
 			ps.setString(7, f.getTelefono());
 			ps.setInt(8, f.getTipologiasexo_id());
-			ps.setInt(9, f.getId());
+			ps.setBytes(9, f.getImagen());
+			ps.setString(10, f.getColor());
+			ps.setInt(11, f.getId());
 
 			
 						
