@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 
+
 public class ControladorEstudiante extends SupertipoGestion{
 
 
@@ -106,17 +107,15 @@ public class ControladorEstudiante extends SupertipoGestion{
 	 */
 	
 	public static int modificarEstudiante (Estudiante f) {
-		int reguistros = 0;
+		int registrosAfectados = 0;
 		try {
-
-			PreparedStatement ps =  ConnectionManager.getConexion().prepareStatement(
-					"update estudiante set nombre = ?, apellido1= ?, apellido2= ?, Dni= ?,"
-					+ " Direccion= ?, email= ?, telefono= ?,  Tipologiasexo_id= ?, imagen= ?,color= ?,"
-					+ "where id =?");
+			PreparedStatement ps = ConnectionManager.getConexion().prepareStatement(
+					"update estudiante set nombre = ?, apellido1 = ?, apellido2 = ?, dni = ?, direccion = ?, email = ?, "
+					+ " telefono = ?, tipologiasexo_id = ?, imagen = ?, color = ? where id = ?");
 			ps.setString(1, f.getNombre());
 			ps.setString(2, f.getApellido1());
 			ps.setString(3, f.getApellido2());
-			ps.setString(5, f.getDni());
+			ps.setString(4, f.getDni());
 			ps.setString(5, f.getDireccion());
 			ps.setString(6, f.getEmail());
 			ps.setString(7, f.getTelefono());
@@ -124,16 +123,12 @@ public class ControladorEstudiante extends SupertipoGestion{
 			ps.setBytes(9, f.getImagen());
 			ps.setString(10, f.getColor());
 			ps.setInt(11, f.getId());
-
-			
-						
-			reguistros = ps.executeUpdate();
-
-
-		}catch (SQLException ex) {
+			registrosAfectados = ps.executeUpdate();
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-		return reguistros;
+		
+		return registrosAfectados;	
 	}
 	
 	/**
@@ -143,35 +138,32 @@ public class ControladorEstudiante extends SupertipoGestion{
 	 */
 	
 	public static int nuevoEstudiante(Estudiante f) {
-		int cantidadRegistrosModificados = 0;
-		int nuevoIdDisponible =0;
+		int registrosAfectados = 0;
 		try {
+			PreparedStatement ps = ConnectionManager.getConexion().prepareStatement(
+					"insert into estudiante (id, nombre, apellido1, apellido2, dni, direccion, email, telefono, tipologiasexo_id, imagen, color) "
+							+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			
-			Statement s = (Statement) ConnectionManager.getConexion().createStatement(); 
-
-			 f.setId(siguienteIdEntabla("estudiante"));
-			 
-			 nuevoIdDisponible = siguienteIdEntabla("estudiante");
-			 if(nuevoIdDisponible != -1) {
-				 cantidadRegistrosModificados =
-
-			 
-				 
-				 s.executeUpdate(					 
-							"insert into estudiante values (" + nuevoIdDisponible + ",'" + f.getNombre() + "', '" + f.getApellido1() 
-							+ "', '" + f.getApellido2() + "', '" + f.getDireccion() +  "', '" +  f.getDni() + "', '" + f.getEmail() 
-							+ "', '" + f.getTelefono()+ "', '" + f.getTipologiasexo_id() + "', '" + f.getImagen() + "', '" + f.getColor()+ "')");
-
-
-
-			 }
-
-		}catch (SQLException ex) {
-			System.out.println("Error en la ejecucion SQL: " + ex.getMessage());
+			f.setId(siguienteIdEntabla("estudiante"));
+			
+			ps.setInt(1, f.getId());
+			ps.setString(2, f.getNombre());
+			ps.setString(3, f.getApellido1());
+			ps.setString(4, f.getApellido2());
+			ps.setString(5, f.getDni());
+			ps.setString(6, f.getDireccion());
+			ps.setString(7, f.getEmail());
+			ps.setString(8, f.getTelefono());
+			ps.setInt(9, f.getTipologiasexo_id());
+			ps.setBytes(10, f.getImagen());
+			ps.setString(11, f.getColor());
+			registrosAfectados = ps.executeUpdate();
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-		return cantidadRegistrosModificados;
+		return registrosAfectados;
 	}
+	
 
 
 	
