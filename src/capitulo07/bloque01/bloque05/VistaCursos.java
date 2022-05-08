@@ -209,7 +209,7 @@ public class VistaCursos extends JPanel {
 			descripcion.setText(f.getDescripcion());	
 
 			
-//			String palabras = f.getDescripcion()
+//			String palabras = f.getDescripcion().concat("2021/22");
 //			descripcion.setText(palabras);
 		}
 		
