@@ -206,9 +206,11 @@ public class VistaCursos extends JPanel {
 		if (f != null) {
 			id.setText("" + f.getId());	
 			id.setEnabled(false);	
-			
 			descripcion.setText(f.getDescripcion());	
 
+			
+//			String palabras = f.getDescripcion()
+//			descripcion.setText(palabras);
 		}
 		
 	
