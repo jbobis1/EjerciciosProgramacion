@@ -122,7 +122,6 @@ public class VistaEstudiante extends JPanel {
 		if (f != null) {
 	
 			datosPersonales.setId(f.getId());
-		
 			datosPersonales.setNombre(f.getNombre());
 			datosPersonales.setApellido(f.getApellido1());
 			datosPersonales.setApellido2(f.getApellido2());
@@ -130,12 +129,9 @@ public class VistaEstudiante extends JPanel {
 			datosPersonales.setDni(f.getDni());
 			datosPersonales.setEmail(f.getEmail());
 			datosPersonales.setTelefono(f.getTelefono());
-			
 			datosPersonales.setImagen(f.getImagen());
 			datosPersonales.getImagen();
-		
 			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
-			
 			datosPersonales.setColor(f.getColor());	
 			
 			
@@ -176,12 +172,9 @@ public class VistaEstudiante extends JPanel {
 		datosPersonales.setNombre("");;	
 		datosPersonales.setApellido("");
 		datosPersonales.setApellido2("");
-		
 		datosPersonales.setColor("#ffffff");	
-		datosPersonales.setImagen(null);
-		
+		datosPersonales.setImagen(new byte[0]);
 		datosPersonales.comboBox.setSelectedIndex(0);
-
 		datosPersonales.setDireccion("");
 		datosPersonales.setDni("");
 		datosPersonales.setEmail("");
@@ -203,7 +196,6 @@ public class VistaEstudiante extends JPanel {
 	 */
 	public  void  guardar () {
 		Estudiante f =new Estudiante();
-		
 		f.setId((datosPersonales.getId()));
 		f.setNombre((datosPersonales.getNombre()));
 		f.setApellido1((datosPersonales.getApellido()));
@@ -212,12 +204,8 @@ public class VistaEstudiante extends JPanel {
 		f.setDireccion((datosPersonales.getDni()));
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
-		
 		f.setImagen((datosPersonales.getImagen()));
-		
-		
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
-	
 		f.setColor(datosPersonales.getColor());	
 		
 		
@@ -247,11 +235,8 @@ public class VistaEstudiante extends JPanel {
 		f.setDireccion((datosPersonales.getDni()));
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
-
-		f.setColor(datosPersonales.getColor());	
-		
-		f.setImagen((datosPersonales.getImagen()));
-		
+		f.setColor(datosPersonales.getColor());			
+		f.setImagen((datosPersonales.getImagen()));		
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 
 		if(ControladorEstudiante.eliminar(f)==1) {
