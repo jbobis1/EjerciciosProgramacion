@@ -121,6 +121,7 @@ public class ControladorProfesor extends SupertipoGestion{
 			ex.printStackTrace();
 		}
 		
+		
 		return registrosAfectados;	
 	}
 	

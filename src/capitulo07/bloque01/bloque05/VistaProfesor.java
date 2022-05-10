@@ -180,7 +180,7 @@ public class VistaProfesor extends JPanel {
 		datosPersonales.setApellido2("");
 		
 		datosPersonales.comboBox.setSelectedIndex(0);
-		datosPersonales.setColor("#ffffff");	
+		datosPersonales.setColor("#ff000");	
 		datosPersonales.setImagen(null);
 		
 		
@@ -204,6 +204,7 @@ public class VistaProfesor extends JPanel {
 	public  void  guardar () {
 		Profesor f =new Profesor();
 		
+		
 		f.setId((datosPersonales.getId()));
 		f.setNombre((datosPersonales.getNombre()));
 		f.setApellido1((datosPersonales.getApellido()));
@@ -215,14 +216,14 @@ public class VistaProfesor extends JPanel {
 		
 		f.setImagen((datosPersonales.getImagen()));
 		
-		f.setColor(datosPersonales.getColor());	
+		
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
-
 	
-
+		f.setColor(datosPersonales.getColor());	
+		
 		
 		if(ControladorProfesor.guardar(f)==1) {
-			mostarProfesor(ControladorProfesor.mostarUltimoProfesor());
+		
 			JOptionPane.showMessageDialog(null, "Guardado o Modificado Correcto");	
 			
 		}

@@ -567,14 +567,14 @@ public class DatosPersonales extends JPanel {
 		}
 	}
 
-
 	public String getColor() {
 		return this.jtfColor.getText();
 	}
 
 
-	public void setColor(String Color) {
-		this.jtfColor.setText(Color);
+	public void setColor(String color) {
+		this.jtfColor.setText(color);
+		this.setBackground(Color.decode(color));
 	}
 	
 
