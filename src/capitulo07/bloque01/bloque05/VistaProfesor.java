@@ -223,7 +223,8 @@ public class VistaProfesor extends JPanel {
 		
 		
 		if(ControladorProfesor.guardar(f)==1) {
-		
+			mostarProfesor(ControladorProfesor.mostarUltimoProfesor());
+
 			JOptionPane.showMessageDialog(null, "Guardado o Modificado Correcto");	
 			
 		}

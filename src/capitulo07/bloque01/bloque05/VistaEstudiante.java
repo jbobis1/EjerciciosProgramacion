@@ -221,7 +221,7 @@ public class VistaEstudiante extends JPanel {
 		f.setColor(datosPersonales.getColor());	
 		
 		
-		if(ControladorEstudiante.guardar(f)==1) {
+		if(ControladorEstudiante.guardar(f)==0) {
 			mostarEstudiante(ControladorEstudiante.mostarUltimoEstudiante());
 			JOptionPane.showMessageDialog(null, "Guardado o Modificado Correcto");	
 			
@@ -255,6 +255,7 @@ public class VistaEstudiante extends JPanel {
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
 
 		if(ControladorEstudiante.eliminar(f)==1) {
+			
 			JOptionPane.showMessageDialog(null, "Eliminado");			
 		}
 		else {

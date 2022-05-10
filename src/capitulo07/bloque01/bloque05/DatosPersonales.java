@@ -221,7 +221,7 @@ public class DatosPersonales extends JPanel {
 		btnNewButton = new JButton("Insertar Foto");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				seleccionaImagen ();
+				seleccionarFicheroImagen ();
 			}
 		});
 		
@@ -442,13 +442,13 @@ public class DatosPersonales extends JPanel {
 	}
 	
 	
-	private void seleccionaImagen () {
+	private void seleccionarFicheroImagen() {
 		JFileChooser jfileChooser = new JFileChooser();
 		
 		// Configurando el componente
 		
 		// Tipo de selección que se hace en el diálogo
-		jfileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY); // Sólo selecciona ficheros
+		jfileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); // Sólo selecciona ficheros
 
 		// Filtro del tipo de ficheros que puede abrir
 		jfileChooser.setFileFilter(new FileFilter() {
@@ -464,7 +464,7 @@ public class DatosPersonales extends JPanel {
 						(f.getAbsolutePath().endsWith(".jpg") || 
 								f.getAbsolutePath().endsWith(".jpeg")|| 
 								f.getAbsolutePath().endsWith(".png")|| 
-								f.getAbsolutePath().endsWith(".gif")))) 
+								f.getAbsolutePath().endsWith(".gif"))))
 					return true;
 				return false;
 			}
@@ -479,7 +479,7 @@ public class DatosPersonales extends JPanel {
 			if (fichero.isFile()) {
 				try {
 					this.imagenEnArrayDeBytes = Files.readAllBytes(fichero.toPath());
-					getImagen(imagenEnArrayDeBytes);
+					setImagen(imagenEnArrayDeBytes);
 				}
 				catch (Exception ex) {
 					ex.printStackTrace();
@@ -575,6 +575,8 @@ public class DatosPersonales extends JPanel {
 	public void setColor(String color) {
 		this.jtfColor.setText(color);
 		this.setBackground(Color.decode(color));
+		
+	
 	}
 	
 
