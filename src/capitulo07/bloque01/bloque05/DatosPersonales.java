@@ -625,7 +625,7 @@ public class DatosPersonales extends JPanel {
 	private JPopupMenu getPopUpMenu () {
 		JPopupMenu menu = new JPopupMenu();
 		
-		menu.add(crearNuevoMenuItem("Dimension 100x100", "ruedadentada.png"));
+		menu.add(crearNuevoMenuItem("Dimension 462x427 Pixeles", "ruedadentada.png"));
 		menu.addSeparator();
 		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
 	//	seleccionarFicheroImagen ();
