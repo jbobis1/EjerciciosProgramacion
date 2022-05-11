@@ -625,7 +625,7 @@ public class DatosPersonales extends JPanel {
 	private JPopupMenu getPopUpMenu () {
 		JPopupMenu menu = new JPopupMenu();
 		
-		menu.add(crearNuevoMenuItem("Dimension", "ruedadentada.png"));
+		menu.add(crearNuevoMenuItem("Dimension 100x100", "ruedadentada.png"));
 		menu.addSeparator();
 		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
 	//	seleccionarFicheroImagen ();
@@ -646,7 +646,7 @@ public class DatosPersonales extends JPanel {
         item.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Han hecho clic en: " + titulo);
+            	seleccionarFicheroImagen ();
             }
         });
         
