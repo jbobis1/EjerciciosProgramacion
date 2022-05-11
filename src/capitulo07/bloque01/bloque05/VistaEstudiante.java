@@ -120,6 +120,7 @@ public class VistaEstudiante extends JPanel {
 	private void mostarEstudiante(Estudiante f) {
 		
 		if (f != null) {
+			
 	
 			
 			datosPersonales.setId(f.getId());

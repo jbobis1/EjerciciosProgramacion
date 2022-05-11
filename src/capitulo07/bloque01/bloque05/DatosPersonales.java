@@ -42,6 +42,7 @@ public class DatosPersonales extends JPanel {
 	JColorChooser jColorChooser;
 	JPanel jpPanelParaColorear = new JPanel();
 	
+	
 	private JLabel lblSexo;
 
 	JComboBox<TipologiaSexo> comboBox;
