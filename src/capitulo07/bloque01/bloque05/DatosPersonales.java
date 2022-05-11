@@ -492,8 +492,7 @@ public class DatosPersonales extends JPanel {
 	/**
 	 * 
 	 */
-	public void getImagen (byte [] newimagen) {
-		this.imagenEnArrayDeBytes =newimagen;
+	public void mostrarimagen () {
 		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
 			ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
 			JLabel lblIcono = new JLabel(icono);

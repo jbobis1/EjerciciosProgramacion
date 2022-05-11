@@ -121,7 +121,9 @@ public class VistaEstudiante extends JPanel {
 		
 		if (f != null) {
 	
+			
 			datosPersonales.setId(f.getId());
+		
 			datosPersonales.setNombre(f.getNombre());
 			datosPersonales.setApellido(f.getApellido1());
 			datosPersonales.setApellido2(f.getApellido2());
@@ -129,10 +131,12 @@ public class VistaEstudiante extends JPanel {
 			datosPersonales.setDni(f.getDni());
 			datosPersonales.setEmail(f.getEmail());
 			datosPersonales.setTelefono(f.getTelefono());
+			
 			datosPersonales.setImagen(f.getImagen());
-			datosPersonales.getImagen();
-			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
+			datosPersonales.mostrarimagen();
+
 			datosPersonales.setColor(f.getColor());	
+			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);
 			
 			
 			}
@@ -204,12 +208,15 @@ public class VistaEstudiante extends JPanel {
 		f.setDireccion((datosPersonales.getDni()));
 		f.setEmail((datosPersonales.getEmail()));
 		f.setTelefono((datosPersonales.getTelefono()));
+		
 		f.setImagen((datosPersonales.getImagen()));
+		
+		
 		f.setTipologiasexo_id(((TipologiaSexo)datosPersonales.comboBox.getSelectedItem()).getId());
+	
 		f.setColor(datosPersonales.getColor());	
 		
-		
-		if(ControladorEstudiante.guardar(f)==0) {
+		if(ControladorEstudiante.guardar(f)==1) {
 			mostarEstudiante(ControladorEstudiante.mostarUltimoEstudiante());
 			JOptionPane.showMessageDialog(null, "Guardado o Modificado Correcto");	
 			

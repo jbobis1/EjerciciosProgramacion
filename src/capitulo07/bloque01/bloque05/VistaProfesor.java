@@ -136,7 +136,7 @@ public class VistaProfesor extends JPanel {
 			datosPersonales.setTelefono(f.getTelefono());
 			
 			datosPersonales.setImagen(f.getImagen());
-			datosPersonales.getImagen();
+			datosPersonales.mostrarimagen();
 
 			datosPersonales.setColor(f.getColor());	
 			datosPersonales.comboBox.setSelectedIndex(f.getTipologiasexo_id()-1);

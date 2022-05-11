@@ -69,9 +69,9 @@ public class ControladorEstudiante extends SupertipoGestion{
 		   
 			// Navegación del objeto ResultSet
 			if (rs.next()) { 
-				f= new Estudiante (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), 
-						rs.getString("Dni"), rs.getString("Direccion"), rs.getString("email"),
-						rs.getString("telefono"), rs.getInt("Tipologiasexo_id"),rs.getBytes("imagen"), rs.getString("color"));			
+				f= new Estudiante (rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), 
+						rs.getString("apellido2"), rs.getString("Dni"), rs.getString("Direccion"), 
+						rs.getString("email"),rs.getString("telefono"), rs.getInt("tipologiasexo_id"), rs.getBytes("imagen"),rs.getString("color"));		
 				}
 			// Cierre de los elementos
 			rs.close();
@@ -111,18 +111,18 @@ public class ControladorEstudiante extends SupertipoGestion{
 		try {
 			PreparedStatement ps = ConnectionManager.getConexion().prepareStatement(
 					"update estudiante set nombre = ?, apellido1 = ?, apellido2 = ?, dni = ?, direccion = ?, email = ?, "
-					+ " telefono = ?, tipologiasexo_id = ?, imagen = ?, color = ? where id = ?");
-			ps.setString(1, f.getNombre());
-			ps.setString(2, f.getApellido1());
-			ps.setString(3, f.getApellido2());
-			ps.setString(4, f.getDni());
-			ps.setString(5, f.getDireccion());
-			ps.setString(6, f.getEmail());
-			ps.setString(7, f.getTelefono());
-			ps.setInt(8, f.getTipologiasexo_id());
-			ps.setBytes(9, f.getImagen());
-			ps.setString(10, f.getColor());
-			ps.setInt(11, f.getId());
+							+ " telefono = ?, tipologiasexo_id = ?, imagen = ?, color = ? where id = ?");
+					ps.setString(1, f.getNombre());
+					ps.setString(2, f.getApellido1());
+					ps.setString(3, f.getApellido2());
+					ps.setString(4, f.getDni());
+					ps.setString(5, f.getDireccion());
+					ps.setString(6, f.getEmail());
+					ps.setString(7, f.getTelefono());
+					ps.setInt(8, f.getTipologiasexo_id());
+					ps.setBytes(9, f.getImagen());
+					ps.setString(10, f.getColor());
+					ps.setInt(11, f.getId());
 			registrosAfectados = ps.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
