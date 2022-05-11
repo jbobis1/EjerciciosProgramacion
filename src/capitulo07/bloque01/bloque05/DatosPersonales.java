@@ -625,11 +625,11 @@ public class DatosPersonales extends JPanel {
 	private JPopupMenu getPopUpMenu () {
 		JPopupMenu menu = new JPopupMenu();
 		
-		menu.add(crearNuevoMenuItem("Primera opción", "ruedadentada.png"));
+		menu.add(crearNuevoMenuItem("Dimension", "ruedadentada.png"));
 		menu.addSeparator();
-		menu.add(crearNuevoMenuItem("Segunda opción", "next.png"));
-		menu.add(crearNuevoMenuItem("Tercera opción", "previous.png"));
-		menu.add(crearNuevoMenuItem("Cuarta opción", "gotoend.png"));
+		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
+	//	seleccionarFicheroImagen ();
+
 		
 		return menu;
 	}
