@@ -1,10 +1,12 @@
 package capitulo07.bloque01.bloque05;
 
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.Color;
@@ -20,6 +22,8 @@ import java.util.List;
 
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileFilter;
+
+
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.ImageIcon;
@@ -27,6 +31,8 @@ import javax.swing.JButton;
 import javax.swing.JColorChooser;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class DatosPersonales extends JPanel {
@@ -288,6 +294,39 @@ public class DatosPersonales extends JPanel {
 		gbc_scrollPane_1.gridx = 0;
 		gbc_scrollPane_1.gridy = 0;
 		panel.add(scrollPane, gbc_scrollPane_1);
+		
+
+		JPopupMenu popup = getPopUpMenu();
+		
+		scrollPane.setComponentPopupMenu(popup);
+		
+		// Evento para mostrar el men� en las coordenadas que correspondan
+		this.addMouseListener(new MouseAdapter() {
+ 
+            @Override
+            public void mousePressed(MouseEvent e) {
+                showPopup(e);
+            }
+ 
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                showPopup(e);
+            }
+ 
+            
+            /**
+             * M�todo llamado cuando se detecta el evento de rat�n, mostrar� el men�
+             * @param e
+             */
+            private void showPopup(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    popup.show(e.getComponent(),
+                            e.getX(), e.getY());
+                }
+            }
+        });
+		
+		
 		
 		Actualizar = new JButton("Actualizar");
 		Actualizar.addActionListener(new ActionListener() {
@@ -577,6 +616,41 @@ public class DatosPersonales extends JPanel {
 		this.setBackground(Color.decode(color));
 		
 	
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	private JPopupMenu getPopUpMenu () {
+		JPopupMenu menu = new JPopupMenu();
+		
+		menu.add(crearNuevoMenuItem("Primera opción", "ruedadentada.png"));
+		menu.addSeparator();
+		menu.add(crearNuevoMenuItem("Segunda opción", "next.png"));
+		menu.add(crearNuevoMenuItem("Tercera opción", "previous.png"));
+		menu.add(crearNuevoMenuItem("Cuarta opción", "gotoend.png"));
+		
+		return menu;
+	}
+	
+	
+	
+	/**
+	 * Menú Item para salir de la aplicación
+	 * @return
+	 */
+	private JMenuItem crearNuevoMenuItem (String titulo, String nombreIcono) {
+        JMenuItem item = new JMenuItem(titulo);
+        //item.setIcon(CacheImagenes.getCacheImagenes().getIcono(nombreIcono));
+        item.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Han hecho clic en: " + titulo);
+            }
+        });
+        
+        return item;
 	}
 	
 
