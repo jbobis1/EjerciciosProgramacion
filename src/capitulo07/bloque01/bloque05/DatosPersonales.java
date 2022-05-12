@@ -325,19 +325,7 @@ public class DatosPersonales extends JPanel {
                 if (e.isPopupTrigger()) {
                     popup.show(e.getComponent(),
                             e.getX(), e.getY());
-                    
-                	JPopupMenu menu = new JPopupMenu();
-                	if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
-                		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
-                		
-                		
-                		menu.add("Dimensiones: " + icono.getIconWidth() + icono.getIconHeight() );
-                		
-                		menu.addSeparator();
-                		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
-                	//	seleccionarFicheroImagen ();
-
-                		}
+        
                     
                 }
             }
@@ -498,53 +486,7 @@ public class DatosPersonales extends JPanel {
 		return this.jtfTelefono.getText();
 	}
 	
-	
-	private void seleccionarFicheroImagen() {
-		JFileChooser jfileChooser = new JFileChooser();
-		
-		// Configurando el componente
-		
-		// Tipo de selección que se hace en el diálogo
-		jfileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); // Sólo selecciona ficheros
 
-		// Filtro del tipo de ficheros que puede abrir
-		jfileChooser.setFileFilter(new FileFilter() {
-			
-			@Override
-			public String getDescription() {
-				return "Archivos de imagen *.jpg *.png *.gif";
-			}
-			
-			@Override
-			public boolean accept(File f) {
-				if (f.isDirectory() || (f.isFile() &&
-						(f.getAbsolutePath().endsWith(".jpg") || 
-								f.getAbsolutePath().endsWith(".jpeg")|| 
-								f.getAbsolutePath().endsWith(".png")|| 
-								f.getAbsolutePath().endsWith(".gif"))))
-					return true;
-				return false;
-			}
-		});
-		
-		// Abro el diálogo para la elección del usuario
-		int seleccionUsuario = jfileChooser.showOpenDialog(null);
-		
-		if (seleccionUsuario == JFileChooser.APPROVE_OPTION) {
-			File fichero = jfileChooser.getSelectedFile();
-			
-			if (fichero.isFile()) {
-				try {
-					this.imagenEnArrayDeBytes = Files.readAllBytes(fichero.toPath());
-					setImagen(imagenEnArrayDeBytes);
-				}
-				catch (Exception ex) {
-					ex.printStackTrace();
-				}
-			}
-		}
-	}
-		
 	
 	/**
 	 * 
@@ -635,28 +577,77 @@ public class DatosPersonales extends JPanel {
 	
 	}
 	
+
+	
+	
+	
+	private void seleccionarFicheroImagen() {
+		JFileChooser jfileChooser = new JFileChooser();
+		
+		// Configurando el componente
+		
+		// Tipo de selección que se hace en el diálogo
+		jfileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); // Sólo selecciona ficheros
+
+		// Filtro del tipo de ficheros que puede abrir
+		jfileChooser.setFileFilter(new FileFilter() {
+			
+			@Override
+			public String getDescription() {
+				return "Archivos de imagen *.jpg *.png *.gif";
+			}
+			
+			@Override
+			public boolean accept(File f) {
+				if (f.isDirectory() || (f.isFile() &&
+						(f.getAbsolutePath().endsWith(".jpg") || 
+								f.getAbsolutePath().endsWith(".jpeg")|| 
+								f.getAbsolutePath().endsWith(".png")|| 
+								f.getAbsolutePath().endsWith(".gif"))))
+					return true;
+				return false;
+			}
+		});
+		
+		// Abro el diálogo para la elección del usuario
+		int seleccionUsuario = jfileChooser.showOpenDialog(null);
+		
+		if (seleccionUsuario == JFileChooser.APPROVE_OPTION) {
+			File fichero = jfileChooser.getSelectedFile();
+			
+			if (fichero.isFile()) {
+				try {
+					this.imagenEnArrayDeBytes = Files.readAllBytes(fichero.toPath());
+					setImagen(imagenEnArrayDeBytes);
+				}
+				catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+	}
+		
+	
 	/**
 	 * 
 	 * @return
 	 */
 	private JPopupMenu getPopUpMenu () {
 		JPopupMenu menu = new JPopupMenu();
-//	
-//		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
-//		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
-//		
-//		
-//		menu.add("Dimensiones: " + icono.getIconWidth() + icono.getIconHeight() );
-//		
-//		menu.addSeparator();
-//		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
-//	//	seleccionarFicheroImagen ();
-//
-//		}
+	
+		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
+		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
+		
+		
+		menu.add("Dimensiones: " + icono.getIconWidth() + icono.getIconHeight() );
+		}
+		menu.addSeparator();
+		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
+	//	seleccionarFicheroImagen ();
+
+		
 		return menu;
-}
-	
-	
+	}
 	
 	/**
 	 * Menú Item para salir de la aplicación
