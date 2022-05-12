@@ -296,7 +296,10 @@ public class DatosPersonales extends JPanel {
 		panel.add(scrollPane, gbc_scrollPane_1);
 		
 
-		JPopupMenu popup = getPopUpMenu();
+	JPopupMenu popup = getPopUpMenu();
+		
+		
+		
 		
 		scrollPane.setComponentPopupMenu(popup);
 		
@@ -322,6 +325,20 @@ public class DatosPersonales extends JPanel {
                 if (e.isPopupTrigger()) {
                     popup.show(e.getComponent(),
                             e.getX(), e.getY());
+                    
+                	JPopupMenu menu = new JPopupMenu();
+                	if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
+                		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
+                		
+                		
+                		menu.add("Dimensiones: " + icono.getIconWidth() + icono.getIconHeight() );
+                		
+                		menu.addSeparator();
+                		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
+                	//	seleccionarFicheroImagen ();
+
+                		}
+                    
                 }
             }
         });
@@ -598,7 +615,7 @@ public class DatosPersonales extends JPanel {
 	
 	public void seleccionaColor () {
 		Color color = jColorChooser.showDialog(null, "Seleccione un Color", Color.gray);
-		// Si el usuario pulsa sobre aceptar, el color elegido no será nulo
+		// Si el us	JPopupMenu menu = new JPopupMenu();uario pulsa sobre aceptar, el color elegido no será nulo
 		if (color != null) {
 			String strColor = "#"+Integer.toHexString(color.getRGB()).substring(2);
 			this.jtfColor.setText(strColor);
@@ -624,15 +641,20 @@ public class DatosPersonales extends JPanel {
 	 */
 	private JPopupMenu getPopUpMenu () {
 		JPopupMenu menu = new JPopupMenu();
-		
-		menu.add(crearNuevoMenuItem("Dimension 462x427 Pixeles", "ruedadentada.png"));
-		menu.addSeparator();
-		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
-	//	seleccionarFicheroImagen ();
-
-		
+//	
+//		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
+//		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
+//		
+//		
+//		menu.add("Dimensiones: " + icono.getIconWidth() + icono.getIconHeight() );
+//		
+//		menu.addSeparator();
+//		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
+//	//	seleccionarFicheroImagen ();
+//
+//		}
 		return menu;
-	}
+}
 	
 	
 	
