@@ -6,6 +6,7 @@ import javax.swing.JScrollPane;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
@@ -296,15 +297,16 @@ public class DatosPersonales extends JPanel {
 		panel.add(scrollPane, gbc_scrollPane_1);
 		
 
-	JPopupMenu popup = getPopUpMenu();
+//	JPopupMenu popup = getPopUpMenu();
 		
 		
 		
 		
-		scrollPane.setComponentPopupMenu(popup);
+//		scrollPane.setComponentPopupMenu(popup);
+		scrollPane.addMouseListener(new MouseAdapter() {
 		
 		// Evento para mostrar el men� en las coordenadas que correspondan
-		this.addMouseListener(new MouseAdapter() {
+//		this.addMouseListener(new MouseAdapter() {
  
             @Override
             public void mousePressed(MouseEvent e) {
@@ -315,22 +317,61 @@ public class DatosPersonales extends JPanel {
             public void mouseReleased(MouseEvent e) {
                 showPopup(e);
             }
- 
+            
+            
+            private void showPopup(MouseEvent e) {
+           
+    		JPopupMenu popup = new JPopupMenu();
+    		
+    		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
+    		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
+    		
+    		JMenuItem  item = new JMenuItem ("Dimensiones: " + icono.getIconWidth() +" X "+ icono.getIconHeight() );
+    		popup.add(item);
+    		popup.addSeparator();
+
+    		}
+    		JMenuItem  item = new JMenuItem ("Cargar Imagen");
+    		item.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					seleccionarFicheroImagen ();
+					
+				}
+			});
+    		popup.add(item);
+
+    		
+    	
+            
+    
+              if (e.isPopupTrigger()) {
+                  popup.show(e.getComponent(),
+                          e.getX(), e.getY());
+      
+                  
+              }
+         }
+            
+            
+		});
+		
             
             /**
              * M�todo llamado cuando se detecta el evento de rat�n, mostrar� el men�
              * @param e
              */
-            private void showPopup(MouseEvent e) {
-                if (e.isPopupTrigger()) {
-                    popup.show(e.getComponent(),
-                            e.getX(), e.getY());
-        
-                    
-                }
-            }
-        });
-		
+//            private void showPopup(MouseEvent e) {
+//                if (e.isPopupTrigger()) {
+//                    popup.show(e.getComponent(),
+//                            e.getX(), e.getY());
+//        
+//                    
+//                }
+//            }
+//        });
+//		
 		
 		
 		Actualizar = new JButton("Actualizar");
@@ -636,23 +677,23 @@ public class DatosPersonales extends JPanel {
 	 * 
 	 * @return
 	 */
-	private JPopupMenu getPopUpMenu () {
-		JPopupMenu menu = new JPopupMenu();
-	
-		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
-		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
-		
-		
-		menu.add("Dimensiones: " + icono.getIconWidth() + icono.getIconHeight() );
-		}
-		menu.addSeparator();
-		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
-	//	seleccionarFicheroImagen ();
-
-		
-		return menu;
-	}
-	
+//	private JPopupMenu getPopUpMenu () {
+//		JPopupMenu menu = new JPopupMenu();
+//	
+//		if (imagenEnArrayDeBytes != null && imagenEnArrayDeBytes.length > 0) {
+//		ImageIcon icono = new ImageIcon(imagenEnArrayDeBytes);
+//		
+//		
+//		menu.add("Dimensiones: " + icono.getIconWidth() + icono.getIconHeight() );
+//		}
+//		menu.addSeparator();
+//		menu.add(crearNuevoMenuItem("Cambiar imagen", "next.png"));
+//	//	seleccionarFicheroImagen ();
+//
+//		
+//		return menu;
+//	}
+//	
 	/**
 	 * Menú Item para salir de la aplicación
 	 * @return
