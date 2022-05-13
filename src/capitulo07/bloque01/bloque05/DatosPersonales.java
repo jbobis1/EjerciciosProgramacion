@@ -560,8 +560,10 @@ public class DatosPersonales extends JPanel {
 		// Si el us	JPopupMenu menu = new JPopupMenu();uario pulsa sobre aceptar, el color elegido no será nulo
 		if (color != null) {
 			String strColor = "#"+Integer.toHexString(color.getRGB()).substring(2);
-			this.jtfColor.setText(strColor);
-			this.jpPanelParaColorear.setBackground(color);
+			this.setColor(strColor);
+			
+//			this.jtfColor.setText(strColor);
+//			this.jpPanelParaColorear.setBackground(color);
 		}
 	}
 
@@ -570,9 +572,11 @@ public class DatosPersonales extends JPanel {
 	}
 
 
-	public void setColor(String color) {
-		this.jtfColor.setText(color);
-		this.setBackground(Color.decode(color));
+	public void setColor(String strColor) {
+		
+		if (strColor != null && strColor.startsWith("#") && strColor.length() == 7)
+		this.jtfColor.setText(strColor);
+		this.setBackground(Color.decode(strColor));
 		
 	
 	}
